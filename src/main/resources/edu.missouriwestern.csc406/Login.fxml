@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.missouriwestern.csc406.Login">
+   <left>
+      <AnchorPane prefHeight="400.0" prefWidth="256.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="248.0" fitWidth="247.0" layoutX="5.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </left>
+   <center>
+      <AnchorPane prefHeight="400.0" prefWidth="362.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="42.0" layoutY="151.0" text="Last Name">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Label>
+            <Label layoutX="102.0" layoutY="206.0" text="SSN">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Label>
+            <PasswordField fx:id="ssn" layoutX="151.0" layoutY="213.0" promptText="Social Security Number" />
+            <TextField fx:id="lastName" layoutX="151.0" layoutY="158.0" promptText="Last Name" />
+            <Button fx:id="button" defaultButton="true" layoutX="197.0" layoutY="294.0" mnemonicParsing="false" onAction="#userLogin" style="-fx-background-color: CE3737;" text="Log In">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Label fx:id="wrongLogin" layoutX="152.0" layoutY="134.0" prefHeight="17.0" prefWidth="148.0" textFill="RED">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
