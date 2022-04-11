@@ -1,4 +1,4 @@
-module edu.missouriwestern.csc406.BankingSystem{
+module edu.missouriwestern.csc406 {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
