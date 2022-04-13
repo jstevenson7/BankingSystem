@@ -1,0 +1,765 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>80</x>
+      <y>0</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>_User_</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>700</x>
+      <y>0</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>_System_</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1390</x>
+      <y>0</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>_Bank Teller_</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>120</x>
+      <y>20</y>
+      <w>30</w>
+      <h>2680</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;2660.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>740</x>
+      <y>20</y>
+      <w>30</w>
+      <h>2680</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;2660.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1430</x>
+      <y>20</y>
+      <w>30</w>
+      <h>2670</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;2650.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>120</x>
+      <y>70</y>
+      <w>650</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+syncMsg
+Login to account</panel_attributes>
+    <additional_attributes>630.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>120</x>
+      <y>60</y>
+      <w>310</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+Loads Login</panel_attributes>
+    <additional_attributes>10.0;20.0;290.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>120</x>
+      <y>150</y>
+      <w>650</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+syncMsg
+Ask for Login Credentials </panel_attributes>
+    <additional_attributes>10.0;20.0;630.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>740</x>
+      <y>220</y>
+      <w>320</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+[Incorrect Login Credentials]
+&lt;&lt;Create&gt;&gt;</panel_attributes>
+    <additional_attributes>300.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1040</x>
+      <y>230</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Incorrect Login</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1080</x>
+      <y>250</y>
+      <w>30</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;250.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>740</x>
+      <y>350</y>
+      <w>370</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+asyncMsg
+Displays Incorrect Login Credentials Message</panel_attributes>
+    <additional_attributes>350.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>120</x>
+      <y>400</y>
+      <w>650</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+[Incorrect Login Credentials]
+Load back to Login Menu</panel_attributes>
+    <additional_attributes>10.0;20.0;630.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>740</x>
+      <y>440</y>
+      <w>370</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+&lt;&lt;Destroy Box&gt;&gt;</panel_attributes>
+    <additional_attributes>350.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLSpecialState</id>
+    <coordinates>
+      <x>1080</x>
+      <y>500</y>
+      <w>20</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>type=termination</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>120</x>
+      <y>520</y>
+      <w>650</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+syncMsg
+Selects to view types of savings accounts. </panel_attributes>
+    <additional_attributes>630.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>120</x>
+      <y>510</y>
+      <w>310</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+Account Types Load</panel_attributes>
+    <additional_attributes>10.0;20.0;290.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1030</x>
+      <y>560</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Display Savings 
+Types</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>740</x>
+      <y>560</y>
+      <w>310</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+[Selects to view savings types]
+&lt;&lt;Create&gt;&gt;</panel_attributes>
+    <additional_attributes>290.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1080</x>
+      <y>590</y>
+      <w>30</w>
+      <h>460</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;440.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>740</x>
+      <y>630</y>
+      <w>370</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+asyncMsg
+Displays savings types</panel_attributes>
+    <additional_attributes>350.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>120</x>
+      <y>680</y>
+      <w>990</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+syncMsg
+Asks for credentials and savings type</panel_attributes>
+    <additional_attributes>10.0;20.0;970.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>120</x>
+      <y>750</y>
+      <w>990</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+syncMsg
+Inserts Credentials and selects savings type</panel_attributes>
+    <additional_attributes>970.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1080</x>
+      <y>780</y>
+      <w>380</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+syncMsg
+Sends Request to and User Information</panel_attributes>
+    <additional_attributes>360.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1080</x>
+      <y>840</y>
+      <w>380</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+asyncMsg
+Approves or Declines request</panel_attributes>
+    <additional_attributes>10.0;20.0;360.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>740</x>
+      <y>900</y>
+      <w>370</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+[If Declined]
+Display Declined message and reason to decline</panel_attributes>
+    <additional_attributes>350.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>740</x>
+      <y>950</y>
+      <w>370</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+[If Approved]
+Display Approval Status Message and account info</panel_attributes>
+    <additional_attributes>350.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLSpecialState</id>
+    <coordinates>
+      <x>1080</x>
+      <y>1030</y>
+      <w>20</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>type=termination</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>120</x>
+      <y>1080</y>
+      <w>650</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+syncMsg
+Asks user if they want to deposit to their new account</panel_attributes>
+    <additional_attributes>10.0;20.0;630.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>120</x>
+      <y>1020</y>
+      <w>650</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+[If Declined]
+Load back to Login Menu</panel_attributes>
+    <additional_attributes>10.0;20.0;630.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>740</x>
+      <y>990</y>
+      <w>370</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+asyncMsg
+&lt;&lt;Destroy Box&gt;&gt;</panel_attributes>
+    <additional_attributes>350.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>460</x>
+      <y>1070</y>
+      <w>310</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+Response from prompt</panel_attributes>
+    <additional_attributes>290.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>120</x>
+      <y>1150</y>
+      <w>650</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+[If rejects deposit]
+Load back to Login Menu</panel_attributes>
+    <additional_attributes>10.0;20.0;630.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>120</x>
+      <y>1390</y>
+      <w>650</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+syncMsg
+Asks how much to deposit</panel_attributes>
+    <additional_attributes>10.0;20.0;630.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>460</x>
+      <y>1380</y>
+      <w>310</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+Inputs deposit amount.</panel_attributes>
+    <additional_attributes>290.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>120</x>
+      <y>1260</y>
+      <w>650</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+Existing Acount holder wants to deposit</panel_attributes>
+    <additional_attributes>630.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>120</x>
+      <y>1460</y>
+      <w>650</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+asyncMsg
+Notifies user of successful transaction &amp; updates savangs balance</panel_attributes>
+    <additional_attributes>10.0;20.0;630.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>120</x>
+      <y>1530</y>
+      <w>650</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+Load back to Login Menu</panel_attributes>
+    <additional_attributes>10.0;20.0;630.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>120</x>
+      <y>1580</y>
+      <w>650</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+syncMsg
+Withdraws from savings account via ATM card or Inside Bank
+</panel_attributes>
+    <additional_attributes>630.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>120</x>
+      <y>1680</y>
+      <w>650</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+syncMsg
+Ask how much to withdraw</panel_attributes>
+    <additional_attributes>10.0;20.0;630.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>460</x>
+      <y>1670</y>
+      <w>310</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+Inputs withdraw amount</panel_attributes>
+    <additional_attributes>290.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1050</x>
+      <y>1720</y>
+      <w>120</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Insufficient Funds</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>740</x>
+      <y>1730</y>
+      <w>330</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+[If Insufficient Funds]
+&lt;&lt;Create&gt;&gt;</panel_attributes>
+    <additional_attributes>310.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1100</x>
+      <y>1740</y>
+      <w>30</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;220.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>740</x>
+      <y>1830</y>
+      <w>390</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+asyncMsg
+Displays Insufficient Funds Message</panel_attributes>
+    <additional_attributes>370.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>740</x>
+      <y>1940</y>
+      <w>390</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+asyncMsg
+&lt;&lt;Destroy Box&gt;&gt;</panel_attributes>
+    <additional_attributes>370.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>740</x>
+      <y>2040</y>
+      <w>340</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+[If CD Account]
+&lt;&lt;Create&gt;&gt;</panel_attributes>
+    <additional_attributes>320.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1060</x>
+      <y>2040</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>CD Account</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLSpecialState</id>
+    <coordinates>
+      <x>1100</x>
+      <y>1960</y>
+      <w>20</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>type=termination</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1100</x>
+      <y>2060</y>
+      <w>30</w>
+      <h>450</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;430.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>740</x>
+      <y>2150</y>
+      <w>390</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+[If Before term ends]
+Notifies User of Penalty</panel_attributes>
+    <additional_attributes>370.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>120</x>
+      <y>2200</y>
+      <w>1010</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+syncMsg
+Will have user either select or decline penalty</panel_attributes>
+    <additional_attributes>10.0;20.0;990.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>640</x>
+      <y>2190</y>
+      <w>490</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+Responds to prompt</panel_attributes>
+    <additional_attributes>470.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>740</x>
+      <y>2250</y>
+      <w>390</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+[If Approve Penalty]
+User will withdraw with penalty attached</panel_attributes>
+    <additional_attributes>370.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>740</x>
+      <y>2320</y>
+      <w>390</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+[If Decline Penalty]
+User will not withdraw amount</panel_attributes>
+    <additional_attributes>370.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>740</x>
+      <y>2390</y>
+      <w>390</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+[If After term ends]
+User will withdraw with no penalty attached</panel_attributes>
+    <additional_attributes>370.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLSpecialState</id>
+    <coordinates>
+      <x>1100</x>
+      <y>2490</y>
+      <w>20</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>type=termination</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>740</x>
+      <y>2460</y>
+      <w>390</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+asyncMsg
+&lt;&lt;Destroy box&gt;&gt;</panel_attributes>
+    <additional_attributes>370.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>740</x>
+      <y>2090</y>
+      <w>390</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+[If ATM Card]
+Notifies that users cannot withdraw from account via ATM</panel_attributes>
+    <additional_attributes>370.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>120</x>
+      <y>1970</y>
+      <w>650</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+[If withdrawntoday &gt; 2]
+Notifies user of suspicious activity found.</panel_attributes>
+    <additional_attributes>10.0;20.0;630.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLSpecialState</id>
+    <coordinates>
+      <x>120</x>
+      <y>2680</y>
+      <w>20</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>type=termination</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
