@@ -11,13 +11,13 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.missouriwestern.csc406.Login">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.missouriwestern.csc406.bankingsystem.Login">
    <left>
       <AnchorPane prefHeight="400.0" prefWidth="256.0" BorderPane.alignment="CENTER">
          <children>
             <ImageView fitHeight="248.0" fitWidth="247.0" layoutX="5.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../logo.png" />
+                  <Image url="@../../../../logo.png" />
                </image>
             </ImageView>
          </children>

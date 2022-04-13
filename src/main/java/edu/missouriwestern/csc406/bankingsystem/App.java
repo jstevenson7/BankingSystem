@@ -1,4 +1,4 @@
-package edu.missouriwestern.csc406;
+package edu.missouriwestern.csc406.bankingsystem;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -23,7 +23,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         stg = stage;
-        FXMLLoader fxmlLoader = new FXMLLoader(Login.class.getResource("src/main/resources/Login.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Login.class.getResource("Login.fxml"));
         System.out.println(fxmlLoader.getLocation());
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
         stage.centerOnScreen();
