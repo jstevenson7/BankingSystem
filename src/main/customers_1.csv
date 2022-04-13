@@ -1,0 +1,21 @@
+SSN,Adress,City,State,Zip,First Name,Last Name,Customer ID,Current Balance (Amt to pay off),Interest Rates (Current),Date Payment Due,Date Notified of Payment,Current Payment Due (Monthy),Date Last Payment Made,Missed Payment Flag,Loan Type,Credit Limit,Months left
+042-34-5324,5114 North 4th,Clarkesdale,MO,64493,Ronald,Jones,1,456.76,2.3,2/10,2/1/2022,456.76,1/15,1,Credit,1500,
+345-65-3425,1805 Jules,Saint Joseph,MO,64503,Mark,lngrem,2,22132.97,1.7,3/21,2/28/2022,332.97,2/21,0,Mortgage ,,42
+423-14-8894,2109 Sylviana,Saint Joseph,MO,64501,Sherry,Harrison,3,1237.06,3.2,3/22,2/24/2022,312.33,2/29,1,Short-Term,,6
+677-87-9013,4305 West 3rd,Wathena,KS,54910,John,Morgeson,4,1900.57,1.5,3/10,3/1/2022,1237.06,2/10,0,Credit,1000,
+034-55-9987,0221 South Highly,Saint Joseph,MO,64503,Gary,Gilkerson,5,756.39,1.6,3/24,2/28/2022,214.68,2/24,0,Short-Term,,15
+042-35-6789,0335 Jules,Saint Joseph,MO,64503,Mary,Francis,6,"5,893.22",1.8,3/10,3/1/2022,410.23,2/10,0,Credit,15000,
+345-81-2332,1402 Mocking Bird,Saint Joseph,MO,64502,Carolyn,Johnson,7,2385.32,2.9,3/26,2/28/2022,180.55,2/26,0,Short,,1
+345-87-9912,2105 Senior Dr.,Saint Joseph,MO,64503,Larry,Waite,8,1587.21,4.2,3/10,3/1/2022,1587.21,2/10,0,Credit,2000,
+423-16-8945,1801 Lovers Ln,Saint Joseph,MO,64502,Marilyn,Macklin,9,6824.58,1.7,3/10,3/1/2022,550.29,2/28,1,Credit,10000,
+235-44-5789,2508 Stonecrest,Saint Joseph,MO,64501,Lana,McGlynn,10,902.87,2.8,3/29,3/2/2022,225.5,2/29,0,Short-Term,,4
+436-78-9213,4156 N. Mulbury,Saint Joseph,MO,64502,John,Munzer,11,4009,1.3,3/10,3/1/2022,806.32,2/10,0,Credit,15000,
+233-43-5656,1525 Kioa,Ellwood,KS,56708,Mary,White,12,641.83,2.4,3/10,3/1/2022,210.36,2/20,1,Credit,1000,
+435-67-8787,8902 Martha Ln,Gower,MO,63301,Jerry,Gronius,13,19586.22,1.1,4/1,3/5/2022,612.07,3/1,0,Mortgage ,,32
+563-43-2913,1532 Lovers Ln,Saint Joseph,MO,64501,Martin,Williams,14,76.31,1.4,4/10,4/1/2022,76.31,3/10,0,Credit,1000,
+034-56-7989,8703 Park Ln,Saint Joseph,MO,64503,Broderick,Jones,15,96.27,1.8,4/10,4/1/2022,96.27,3/14,1,Credit,300,
+681-32-3021,8933 Libby Ln,Maysville,MO,64469,Bob,Marley,16,225001.32,1.7,4/4,3/8/2022,850.66,3/4,0,Mortgage ,,180
+398-55-2301,1258 Washington St,King City,MO,64463,Tony,Stark,17,40.21,1.6,4/10,4/1/2022,40.21,3/10,0,Credit,1500,
+223-12-2461,2788 Kentucky St,Country Club,MO,64506,Lebron ,James,18,45.69,1.5,4/6,3/10/2022,45.69,3/6,0,Short-Term,,1
+117-30-2034,6798 Park Ave,Atchison,KS,66002,Heather,Williams,19,75632.01,1.2,4/7,3/11/2022,546.25,3/17,1,Mortgage ,,108
+159-23-6709,9001 Boardwalk St,Savannah,MO,64485,Easton,Porter,20,4025.87,1.1,4/10,4/1/2022,800,3/10,0,Credit,5000,
