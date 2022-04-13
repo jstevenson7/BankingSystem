@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.3.0">
   <help_text/>
-  <zoom_level>10</zoom_level>
+  <zoom_level>7</zoom_level>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>210</x>
+      <x>378</x>
       <y>0</y>
-      <w>100</w>
-      <h>30</h>
+      <w>70</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>Customer</panel_attributes>
     <additional_attributes/>
@@ -16,10 +16,10 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>650</x>
+      <x>966</x>
       <y>0</y>
-      <w>100</w>
-      <h>30</h>
+      <w>70</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>System</panel_attributes>
     <additional_attributes/>
@@ -27,10 +27,10 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1120</x>
+      <x>658</x>
       <y>0</y>
-      <w>100</w>
-      <h>30</h>
+      <w>70</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>Bank Teller</panel_attributes>
     <additional_attributes/>
@@ -38,10 +38,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>20</y>
-      <w>30</w>
-      <h>840</h>
+      <x>686</x>
+      <y>14</y>
+      <w>21</w>
+      <h>588</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;820.0</additional_attributes>
@@ -49,21 +49,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1160</x>
-      <y>20</y>
-      <w>30</w>
-      <h>880</h>
-    </coordinates>
-    <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;860.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>690</x>
-      <y>20</y>
-      <w>30</w>
-      <h>840</h>
+      <x>994</x>
+      <y>14</y>
+      <w>21</w>
+      <h>588</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;820.0</additional_attributes>
@@ -71,51 +60,37 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>100</y>
-      <w>470</w>
-      <h>50</h>
+      <x>686</x>
+      <y>70</y>
+      <w>329</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 syncMsg
-Customer enters checking acount credentials</panel_attributes>
+Teller enters teller acount credentials</panel_attributes>
     <additional_attributes>450.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>340</y>
-      <w>470</w>
-      <h>80</h>
+      <x>686</x>
+      <y>238</y>
+      <w>329</w>
+      <h>42</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 syncMsg
 [Valid credentials]
-System has prepared customer information
-and display main page</panel_attributes>
+System displays main page</panel_attributes>
     <additional_attributes>10.0;20.0;450.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>40</y>
-      <w>470</w>
-      <h>50</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-
-syncMsg
-Ask customer for account credentials</panel_attributes>
-    <additional_attributes>10.0;20.0;450.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>690</x>
-      <y>140</y>
-      <w>200</w>
-      <h>40</h>
+      <x>994</x>
+      <y>98</y>
+      <w>140</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 [Invalid Credentials]</panel_attributes>
@@ -124,10 +99,10 @@ Ask customer for account credentials</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>870</x>
-      <y>150</y>
-      <w>190</w>
-      <h>30</h>
+      <x>1120</x>
+      <y>105</y>
+      <w>133</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>Invalid User Credentials
 bg=orange</panel_attributes>
@@ -136,10 +111,10 @@ bg=orange</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>960</x>
-      <y>170</y>
-      <w>30</w>
-      <h>200</h>
+      <x>1183</x>
+      <y>119</y>
+      <w>21</w>
+      <h>140</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;180.0</additional_attributes>
@@ -147,10 +122,10 @@ bg=orange</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>690</x>
-      <y>200</y>
-      <w>300</w>
-      <h>50</h>
+      <x>994</x>
+      <y>140</y>
+      <w>210</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 asyncMsg
@@ -160,10 +135,10 @@ Display error message</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>240</y>
-      <w>470</w>
-      <h>40</h>
+      <x>686</x>
+      <y>168</y>
+      <w>329</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 Prompt reentry of credentials</panel_attributes>
@@ -172,10 +147,10 @@ Prompt reentry of credentials</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>690</x>
-      <y>280</y>
-      <w>300</w>
-      <h>40</h>
+      <x>994</x>
+      <y>196</y>
+      <w>210</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 &lt;&lt;Reset entry space&gt;&gt;</panel_attributes>
@@ -184,10 +159,10 @@ Prompt reentry of credentials</panel_attributes>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>960</x>
-      <y>340</y>
-      <w>20</w>
-      <h>20</h>
+      <x>1183</x>
+      <y>238</y>
+      <w>14</w>
+      <h>14</h>
     </coordinates>
     <panel_attributes>type=termination</panel_attributes>
     <additional_attributes/>
@@ -195,10 +170,10 @@ Prompt reentry of credentials</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>690</x>
-      <y>830</y>
-      <w>30</w>
-      <h>840</h>
+      <x>994</x>
+      <y>581</y>
+      <w>21</w>
+      <h>588</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;820.0</additional_attributes>
@@ -206,10 +181,10 @@ Prompt reentry of credentials</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>830</y>
-      <w>30</w>
-      <h>840</h>
+      <x>686</x>
+      <y>581</y>
+      <w>21</w>
+      <h>588</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;820.0</additional_attributes>
@@ -217,21 +192,10 @@ Prompt reentry of credentials</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1160</x>
-      <y>870</y>
-      <w>30</w>
-      <h>840</h>
-    </coordinates>
-    <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;820.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>250</x>
-      <y>440</y>
-      <w>470</w>
-      <h>50</h>
+      <x>686</x>
+      <y>308</y>
+      <w>329</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 syncMsg
@@ -241,10 +205,10 @@ Customer requests checking account info</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>490</y>
-      <w>470</w>
-      <h>50</h>
+      <x>686</x>
+      <y>343</y>
+      <w>329</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 syncMsg
@@ -254,23 +218,23 @@ System returns checking information</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>560</y>
-      <w>470</w>
-      <h>50</h>
+      <x>406</x>
+      <y>399</y>
+      <w>301</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 syncMsg
 Customer requests checking details</panel_attributes>
-    <additional_attributes>450.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>410.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>610</y>
-      <w>470</w>
-      <h>50</h>
+      <x>686</x>
+      <y>427</y>
+      <w>329</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 syncMsg
@@ -280,23 +244,23 @@ System returns checking details</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>680</y>
-      <w>470</w>
-      <h>50</h>
+      <x>406</x>
+      <y>525</y>
+      <w>301</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 syncMsg
 Customer applies for checking account</panel_attributes>
-    <additional_attributes>450.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>410.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>730</y>
-      <w>470</w>
-      <h>50</h>
+      <x>686</x>
+      <y>511</y>
+      <w>329</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 syncMsg
@@ -306,23 +270,23 @@ System display sceen for customer personal info</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>770</y>
-      <w>470</w>
-      <h>50</h>
+      <x>686</x>
+      <y>588</y>
+      <w>329</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 syncMsg
-Customer enters personal information</panel_attributes>
+Teller enters customer's personal information</panel_attributes>
     <additional_attributes>450.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>480</x>
-      <y>900</y>
-      <w>100</w>
-      <h>30</h>
+      <x>847</x>
+      <y>630</y>
+      <w>70</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>Denied 
 bg=orange</panel_attributes>
@@ -331,22 +295,10 @@ bg=orange</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>690</x>
-      <y>800</y>
-      <w>500</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-Send info to Teller's terminal for approval</panel_attributes>
-    <additional_attributes>480.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>520</x>
-      <y>920</y>
-      <w>30</w>
-      <h>180</h>
+      <x>875</x>
+      <y>644</y>
+      <w>21</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;160.0</additional_attributes>
@@ -354,10 +306,10 @@ Send info to Teller's terminal for approval</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>570</x>
-      <y>890</y>
-      <w>150</w>
-      <h>40</h>
+      <x>910</x>
+      <y>623</y>
+      <w>105</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 [Turned down]</panel_attributes>
@@ -366,10 +318,10 @@ Send info to Teller's terminal for approval</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>520</x>
-      <y>950</y>
-      <w>200</w>
-      <h>50</h>
+      <x>875</x>
+      <y>665</y>
+      <w>140</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 asyncMsg
@@ -379,23 +331,10 @@ Display message</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>690</x>
-      <y>850</y>
-      <w>500</w>
-      <h>50</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-
-syncMsg
-Send verdict</panel_attributes>
-    <additional_attributes>10.0;20.0;480.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>520</x>
-      <y>1030</y>
-      <w>200</w>
-      <h>40</h>
+      <x>875</x>
+      <y>721</y>
+      <w>140</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 &lt;&lt;Destroy Box&gt;&gt;</panel_attributes>
@@ -404,10 +343,10 @@ Send verdict</panel_attributes>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>520</x>
-      <y>1070</y>
-      <w>20</w>
-      <h>20</h>
+      <x>875</x>
+      <y>749</y>
+      <w>14</w>
+      <h>14</h>
     </coordinates>
     <panel_attributes>type=termination</panel_attributes>
     <additional_attributes/>
@@ -415,10 +354,10 @@ Send verdict</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>990</y>
-      <w>300</w>
-      <h>40</h>
+      <x>686</x>
+      <y>693</y>
+      <w>210</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 Return to main screen</panel_attributes>
@@ -427,10 +366,10 @@ Return to main screen</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>1110</y>
-      <w>470</w>
-      <h>60</h>
+      <x>686</x>
+      <y>777</y>
+      <w>329</w>
+      <h>42</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 syncMsg
@@ -441,10 +380,10 @@ Display message to customer account opened</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>690</x>
-      <y>1640</y>
-      <w>30</w>
-      <h>840</h>
+      <x>994</x>
+      <y>1148</y>
+      <w>21</w>
+      <h>588</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;820.0</additional_attributes>
@@ -452,10 +391,10 @@ Display message to customer account opened</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>1640</y>
-      <w>30</w>
-      <h>840</h>
+      <x>686</x>
+      <y>1148</y>
+      <w>21</w>
+      <h>588</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;820.0</additional_attributes>
@@ -463,23 +402,23 @@ Display message to customer account opened</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>3820</y>
-      <w>470</w>
-      <h>50</h>
+      <x>406</x>
+      <y>2674</y>
+      <w>609</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 syncMsg
 Customer uses debit card</panel_attributes>
-    <additional_attributes>450.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>850.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>480</x>
-      <y>3910</y>
-      <w>100</w>
-      <h>30</h>
+      <x>847</x>
+      <y>2737</y>
+      <w>70</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>Denied
 bg=orange</panel_attributes>
@@ -488,10 +427,10 @@ bg=orange</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>570</x>
-      <y>3910</y>
-      <w>150</w>
-      <h>40</h>
+      <x>910</x>
+      <y>2737</y>
+      <w>105</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 [Over Funds]</panel_attributes>
@@ -500,10 +439,10 @@ bg=orange</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>520</x>
-      <y>3960</y>
-      <w>200</w>
-      <h>50</h>
+      <x>875</x>
+      <y>2772</y>
+      <w>140</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 asyncMsg
@@ -513,10 +452,10 @@ Display message</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>520</x>
-      <y>4040</y>
-      <w>200</w>
-      <h>40</h>
+      <x>875</x>
+      <y>2828</y>
+      <w>140</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 &lt;&lt;Destroy Box&gt;&gt;</panel_attributes>
@@ -525,10 +464,10 @@ Display message</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>520</x>
-      <y>3930</y>
-      <w>30</w>
-      <h>180</h>
+      <x>875</x>
+      <y>2751</y>
+      <w>21</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;160.0</additional_attributes>
@@ -536,39 +475,23 @@ Display message</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>3990</y>
-      <w>300</w>
-      <h>50</h>
+      <x>406</x>
+      <y>2793</y>
+      <w>490</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 Decline transaction and inform user
 reason as to decline</panel_attributes>
-    <additional_attributes>10.0;20.0;280.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>0</x>
-      <y>70</y>
-      <w>230</w>
-      <h>90</h>
-    </coordinates>
-    <panel_attributes>I misread which diagram was
-which and its been a *fun*
-past 2 days, this is getting 
-corrected tonight
--RM
-bg=orange</panel_attributes>
-    <additional_attributes/>
+    <additional_attributes>10.0;20.0;680.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>2450</y>
-      <w>30</w>
-      <h>840</h>
+      <x>686</x>
+      <y>1715</y>
+      <w>21</w>
+      <h>588</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;820.0</additional_attributes>
@@ -576,10 +499,10 @@ bg=orange</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>690</x>
-      <y>2440</y>
-      <w>30</w>
-      <h>840</h>
+      <x>994</x>
+      <y>1708</y>
+      <w>21</w>
+      <h>588</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;820.0</additional_attributes>
@@ -587,61 +510,50 @@ bg=orange</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1160</x>
-      <y>1680</y>
-      <w>30</w>
-      <h>810</h>
-    </coordinates>
-    <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;790.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>250</x>
-      <y>1260</y>
-      <w>470</w>
-      <h>50</h>
+      <x>406</x>
+      <y>889</y>
+      <w>301</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 syncMsg
 Customer starts process of setting up automatic transfers</panel_attributes>
-    <additional_attributes>450.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>410.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>1310</y>
-      <w>470</w>
-      <h>60</h>
+      <x>686</x>
+      <y>917</y>
+      <w>329</w>
+      <h>42</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 syncMsg
-System prompts user for account to pull from,
+System prompts teller for customer account to pull from,
 date for payment, and amount</panel_attributes>
     <additional_attributes>10.0;20.0;450.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>1370</y>
-      <w>470</w>
-      <h>50</h>
+      <x>686</x>
+      <y>959</y>
+      <w>329</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 syncMsg
-Customer puts in details for the transfer</panel_attributes>
+Teller puts in details for the transfer</panel_attributes>
     <additional_attributes>450.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>390</x>
-      <y>1460</y>
-      <w>130</w>
-      <h>40</h>
+      <x>784</x>
+      <y>1022</y>
+      <w>91</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>Not enough funds 
 for transfer
@@ -651,10 +563,10 @@ bg=orange</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>510</x>
-      <y>1450</y>
-      <w>210</w>
-      <h>40</h>
+      <x>868</x>
+      <y>1015</y>
+      <w>147</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 [Not enough funds]</panel_attributes>
@@ -663,10 +575,10 @@ bg=orange</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>450</x>
-      <y>1490</y>
-      <w>30</w>
-      <h>190</h>
+      <x>826</x>
+      <y>1043</y>
+      <w>21</w>
+      <h>133</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;170.0</additional_attributes>
@@ -674,10 +586,10 @@ bg=orange</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>450</x>
-      <y>1610</y>
-      <w>270</w>
-      <h>40</h>
+      <x>826</x>
+      <y>1127</y>
+      <w>189</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 &lt;&lt;Destroy Box&gt;&gt;</panel_attributes>
@@ -686,10 +598,10 @@ bg=orange</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>450</x>
-      <y>1510</y>
-      <w>270</w>
-      <h>50</h>
+      <x>826</x>
+      <y>1057</y>
+      <w>189</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 asyncMsg
@@ -699,10 +611,10 @@ Display message</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>1560</y>
-      <w>230</w>
-      <h>40</h>
+      <x>686</x>
+      <y>1092</y>
+      <w>161</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 Return to start of process</panel_attributes>
@@ -711,10 +623,10 @@ Return to start of process</panel_attributes>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>450</x>
-      <y>1650</y>
-      <w>20</w>
-      <h>20</h>
+      <x>826</x>
+      <y>1155</y>
+      <w>14</w>
+      <h>14</h>
     </coordinates>
     <panel_attributes>type=termination</panel_attributes>
     <additional_attributes/>
@@ -722,10 +634,10 @@ Return to start of process</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>1690</y>
-      <w>470</w>
-      <h>60</h>
+      <x>686</x>
+      <y>1183</y>
+      <w>329</w>
+      <h>42</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 syncMsg
@@ -736,23 +648,23 @@ System confirms the transfer</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>1770</y>
-      <w>470</w>
-      <h>50</h>
+      <x>406</x>
+      <y>1239</y>
+      <w>301</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 syncMsg
 Customer starts process of setting up overdraft protection</panel_attributes>
-    <additional_attributes>450.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>410.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>380</x>
-      <y>1850</y>
-      <w>170</w>
-      <h>30</h>
+      <x>777</x>
+      <y>1295</y>
+      <w>119</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>No Savings Accounts
 bg=orange</panel_attributes>
@@ -761,10 +673,10 @@ bg=orange</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>540</x>
-      <y>1840</y>
-      <w>180</w>
-      <h>50</h>
+      <x>889</x>
+      <y>1288</y>
+      <w>126</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 No backup 
@@ -774,10 +686,10 @@ account possible</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>460</x>
-      <y>1870</y>
-      <w>30</w>
-      <h>210</h>
+      <x>833</x>
+      <y>1309</y>
+      <w>21</w>
+      <h>147</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;190.0</additional_attributes>
@@ -785,10 +697,10 @@ account possible</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>460</x>
-      <y>1910</y>
-      <w>260</w>
-      <h>50</h>
+      <x>833</x>
+      <y>1337</y>
+      <w>182</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 asyncMsg
@@ -798,10 +710,10 @@ Display message</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>460</x>
-      <y>2000</y>
-      <w>260</w>
-      <h>40</h>
+      <x>833</x>
+      <y>1400</y>
+      <w>182</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 &lt;&lt;Destroy Box&gt;&gt;</panel_attributes>
@@ -810,10 +722,10 @@ Display message</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>1960</y>
-      <w>240</w>
-      <h>40</h>
+      <x>686</x>
+      <y>1372</y>
+      <w>168</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 Return to start of process</panel_attributes>
@@ -822,10 +734,10 @@ Return to start of process</panel_attributes>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>460</x>
-      <y>2050</y>
-      <w>20</w>
-      <h>20</h>
+      <x>833</x>
+      <y>1435</y>
+      <w>14</w>
+      <h>14</h>
     </coordinates>
     <panel_attributes>type=termination</panel_attributes>
     <additional_attributes/>
@@ -833,10 +745,10 @@ Return to start of process</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>2090</y>
-      <w>470</w>
-      <h>80</h>
+      <x>686</x>
+      <y>1463</y>
+      <w>329</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 syncMsg
@@ -848,10 +760,10 @@ Displays message to customer and reciept</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>3260</y>
-      <w>30</w>
-      <h>840</h>
+      <x>686</x>
+      <y>2282</y>
+      <w>21</w>
+      <h>588</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;820.0</additional_attributes>
@@ -859,10 +771,10 @@ Displays message to customer and reciept</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>690</x>
-      <y>3250</y>
-      <w>30</w>
-      <h>840</h>
+      <x>994</x>
+      <y>2275</y>
+      <w>21</w>
+      <h>588</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;820.0</additional_attributes>
@@ -870,10 +782,10 @@ Displays message to customer and reciept</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>2480</y>
-      <w>470</w>
-      <h>40</h>
+      <x>686</x>
+      <y>1736</y>
+      <w>329</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 Prompt reentry of credentials</panel_attributes>
@@ -882,10 +794,10 @@ Prompt reentry of credentials</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>690</x>
-      <y>2380</y>
-      <w>210</w>
-      <h>40</h>
+      <x>994</x>
+      <y>1666</y>
+      <w>147</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 [Invalid Credentials]</panel_attributes>
@@ -894,10 +806,10 @@ Prompt reentry of credentials</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>880</x>
-      <y>2390</y>
-      <w>190</w>
-      <h>30</h>
+      <x>1127</x>
+      <y>1673</y>
+      <w>133</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>Invalid User Credentials
 bg=orange</panel_attributes>
@@ -906,10 +818,10 @@ bg=orange</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>960</x>
-      <y>2410</y>
-      <w>30</w>
-      <h>200</h>
+      <x>1183</x>
+      <y>1687</y>
+      <w>21</w>
+      <h>140</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;180.0</additional_attributes>
@@ -917,10 +829,10 @@ bg=orange</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>690</x>
-      <y>2430</y>
-      <w>300</w>
-      <h>50</h>
+      <x>994</x>
+      <y>1701</y>
+      <w>210</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 asyncMsg
@@ -930,10 +842,10 @@ Display error message</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>690</x>
-      <y>2520</y>
-      <w>300</w>
-      <h>40</h>
+      <x>994</x>
+      <y>1764</y>
+      <w>210</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 &lt;&lt;Reset entry space&gt;&gt;</panel_attributes>
@@ -942,49 +854,49 @@ Display error message</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>2200</y>
-      <w>470</w>
-      <h>50</h>
+      <x>406</x>
+      <y>1498</y>
+      <w>301</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 syncMsg
 Customer moves to deposit money</panel_attributes>
-    <additional_attributes>450.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>410.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>2260</y>
-      <w>470</w>
-      <h>50</h>
+      <x>406</x>
+      <y>1554</y>
+      <w>301</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 syncMsg
-System prompts customer for account credentials</panel_attributes>
-    <additional_attributes>10.0;20.0;450.0;20.0</additional_attributes>
+Customer provides account # and amount</panel_attributes>
+    <additional_attributes>410.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>2320</y>
-      <w>470</w>
-      <h>50</h>
+      <x>686</x>
+      <y>1624</y>
+      <w>329</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 syncMsg
-Customer enters credentials</panel_attributes>
+Teller enters customer account # and amount</panel_attributes>
     <additional_attributes>450.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>960</x>
-      <y>2580</y>
-      <w>20</w>
-      <h>20</h>
+      <x>1183</x>
+      <y>1806</y>
+      <w>14</w>
+      <h>14</h>
     </coordinates>
     <panel_attributes>type=termination</panel_attributes>
     <additional_attributes/>
@@ -992,10 +904,10 @@ Customer enters credentials</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>2580</y>
-      <w>470</w>
-      <h>80</h>
+      <x>686</x>
+      <y>1806</y>
+      <w>329</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 syncMsg
@@ -1007,36 +919,36 @@ Display message showing increase</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>2720</y>
-      <w>470</w>
-      <h>50</h>
+      <x>406</x>
+      <y>1862</y>
+      <w>301</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 syncMsg
 Customer moves to withdraw money</panel_attributes>
-    <additional_attributes>450.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>410.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>2760</y>
-      <w>470</w>
-      <h>50</h>
+      <x>686</x>
+      <y>1932</y>
+      <w>329</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 syncMsg
-System prompts customer for account credentials</panel_attributes>
+System prompts Telller for account credentials</panel_attributes>
     <additional_attributes>10.0;20.0;450.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>690</x>
-      <y>2810</y>
-      <w>210</w>
-      <h>40</h>
+      <x>994</x>
+      <y>1967</y>
+      <w>147</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 [Invalid Credentials]</panel_attributes>
@@ -1045,10 +957,10 @@ System prompts customer for account credentials</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>880</x>
-      <y>2820</y>
-      <w>190</w>
-      <h>30</h>
+      <x>1127</x>
+      <y>1974</y>
+      <w>133</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>Invalid User Credentials
 bg=orange</panel_attributes>
@@ -1057,10 +969,10 @@ bg=orange</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>960</x>
-      <y>2840</y>
-      <w>30</w>
-      <h>200</h>
+      <x>1183</x>
+      <y>1988</y>
+      <w>21</w>
+      <h>140</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;180.0</additional_attributes>
@@ -1068,10 +980,10 @@ bg=orange</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>690</x>
-      <y>2850</y>
-      <w>300</w>
-      <h>50</h>
+      <x>994</x>
+      <y>1995</y>
+      <w>210</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 asyncMsg
@@ -1081,10 +993,10 @@ Display error message</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>690</x>
-      <y>2970</y>
-      <w>300</w>
-      <h>40</h>
+      <x>994</x>
+      <y>2079</y>
+      <w>210</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 &lt;&lt;Reset entry space&gt;&gt;</panel_attributes>
@@ -1093,10 +1005,10 @@ Display error message</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>2910</y>
-      <w>470</w>
-      <h>40</h>
+      <x>686</x>
+      <y>2037</y>
+      <w>329</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 Prompt reentry of credentials</panel_attributes>
@@ -1105,10 +1017,10 @@ Prompt reentry of credentials</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>3050</y>
-      <w>470</w>
-      <h>60</h>
+      <x>686</x>
+      <y>2135</y>
+      <w>329</w>
+      <h>42</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 syncMsg
@@ -1119,10 +1031,10 @@ System prompts user to enter amount to withdawl</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>380</x>
-      <y>3200</y>
-      <w>170</w>
-      <h>30</h>
+      <x>777</x>
+      <y>2240</y>
+      <w>119</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>Not enough funds
 bg=orange</panel_attributes>
@@ -1131,10 +1043,10 @@ bg=orange</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>540</x>
-      <y>3190</y>
-      <w>180</w>
-      <h>40</h>
+      <x>889</x>
+      <y>2233</y>
+      <w>126</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 Not enough money</panel_attributes>
@@ -1143,10 +1055,10 @@ Not enough money</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>460</x>
-      <y>3220</y>
-      <w>30</w>
-      <h>210</h>
+      <x>833</x>
+      <y>2254</y>
+      <w>21</w>
+      <h>147</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;190.0</additional_attributes>
@@ -1154,10 +1066,10 @@ Not enough money</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>460</x>
-      <y>3250</y>
-      <w>260</w>
-      <h>50</h>
+      <x>833</x>
+      <y>2275</y>
+      <w>182</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 asyncMsg
@@ -1167,10 +1079,10 @@ Display message</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>460</x>
-      <y>3350</y>
-      <w>260</w>
-      <h>40</h>
+      <x>833</x>
+      <y>2345</y>
+      <w>182</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 &lt;&lt;Destroy Box&gt;&gt;</panel_attributes>
@@ -1179,10 +1091,10 @@ Display message</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>3320</y>
-      <w>240</w>
-      <h>40</h>
+      <x>686</x>
+      <y>2324</y>
+      <w>168</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 Return to start of process</panel_attributes>
@@ -1191,21 +1103,21 @@ Return to start of process</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>4070</y>
-      <w>30</w>
-      <h>660</h>
+      <x>686</x>
+      <y>2849</y>
+      <w>21</w>
+      <h>504</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;640.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;700.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>690</x>
-      <y>4060</y>
-      <w>30</w>
-      <h>670</h>
+      <x>994</x>
+      <y>2842</y>
+      <w>21</w>
+      <h>469</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;650.0</additional_attributes>
@@ -1213,10 +1125,10 @@ Return to start of process</panel_attributes>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>960</x>
-      <y>3010</y>
-      <w>20</w>
-      <h>20</h>
+      <x>1183</x>
+      <y>2107</y>
+      <w>14</w>
+      <h>14</h>
     </coordinates>
     <panel_attributes>type=termination</panel_attributes>
     <additional_attributes/>
@@ -1224,36 +1136,36 @@ Return to start of process</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>2790</y>
-      <w>470</w>
-      <h>50</h>
+      <x>686</x>
+      <y>1953</y>
+      <w>329</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 syncMsg
-Customer enters amount to withdraw</panel_attributes>
+Teller enters account information</panel_attributes>
     <additional_attributes>450.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>3130</y>
-      <w>470</w>
-      <h>50</h>
+      <x>686</x>
+      <y>2191</y>
+      <w>329</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 syncMsg
-Customer enters amount to withdraw</panel_attributes>
+Teller enters amount to withdraw</panel_attributes>
     <additional_attributes>450.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>460</x>
-      <y>3400</y>
-      <w>20</w>
-      <h>20</h>
+      <x>833</x>
+      <y>2380</y>
+      <w>14</w>
+      <h>14</h>
     </coordinates>
     <panel_attributes>type=termination</panel_attributes>
     <additional_attributes/>
@@ -1261,10 +1173,10 @@ Customer enters amount to withdraw</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>3460</y>
-      <w>470</w>
-      <h>60</h>
+      <x>686</x>
+      <y>2422</y>
+      <w>329</w>
+      <h>42</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 syncMsg
@@ -1275,63 +1187,63 @@ System disperces money and marks withdrawl</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>3580</y>
-      <w>470</w>
-      <h>50</h>
+      <x>406</x>
+      <y>2464</y>
+      <w>301</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 syncMsg
 Customer moves to stop a check</panel_attributes>
-    <additional_attributes>450.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>410.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>3650</y>
-      <w>470</w>
-      <h>50</h>
+      <x>686</x>
+      <y>2485</y>
+      <w>329</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 syncMsg
-System prompts user to enter check # to stop</panel_attributes>
+System prompts teller to enter check # to stop</panel_attributes>
     <additional_attributes>10.0;20.0;450.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>3690</y>
-      <w>470</w>
-      <h>50</h>
+      <x>686</x>
+      <y>2583</y>
+      <w>329</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 syncMsg
-Customer provides check #</panel_attributes>
+Teller provides check #</panel_attributes>
     <additional_attributes>450.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>3730</y>
-      <w>470</w>
-      <h>60</h>
+      <x>686</x>
+      <y>2611</y>
+      <w>329</w>
+      <h>42</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 syncMsg
-System charges customer $15 fee and adds check
+System charges customer account $15 fee and adds check
 to Stop Check List</panel_attributes>
     <additional_attributes>10.0;20.0;450.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>520</x>
-      <y>4080</y>
-      <w>20</w>
-      <h>20</h>
+      <x>875</x>
+      <y>2856</y>
+      <w>14</w>
+      <h>14</h>
     </coordinates>
     <panel_attributes>type=termination</panel_attributes>
     <additional_attributes/>
@@ -1339,37 +1251,37 @@ to Stop Check List</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>4140</y>
-      <w>470</w>
-      <h>60</h>
+      <x>406</x>
+      <y>2898</y>
+      <w>609</w>
+      <h>42</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 syncMsg
 [Enough Funds]
 System allows transaction to go through</panel_attributes>
-    <additional_attributes>10.0;20.0;450.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;850.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>4280</y>
-      <w>470</w>
-      <h>50</h>
+      <x>686</x>
+      <y>2996</y>
+      <w>329</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 syncMsg
-Customer moves to make a TMB Money Transfer</panel_attributes>
+Teller moves to make a TMB Money Transfer</panel_attributes>
     <additional_attributes>450.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>420</x>
-      <y>4360</y>
-      <w>160</w>
-      <h>30</h>
+      <x>805</x>
+      <y>3052</y>
+      <w>112</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>Wrong Account Type
 bg=orange</panel_attributes>
@@ -1378,10 +1290,10 @@ bg=orange</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>520</x>
-      <y>4400</y>
-      <w>200</w>
-      <h>50</h>
+      <x>875</x>
+      <y>3080</y>
+      <w>140</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 asyncMsg
@@ -1391,10 +1303,10 @@ Display message</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>520</x>
-      <y>4380</y>
-      <w>30</w>
-      <h>180</h>
+      <x>875</x>
+      <y>3066</y>
+      <w>21</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;160.0</additional_attributes>
@@ -1402,10 +1314,10 @@ Display message</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>520</x>
-      <y>4500</y>
-      <w>200</w>
-      <h>40</h>
+      <x>875</x>
+      <y>3150</y>
+      <w>140</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 &lt;&lt;Destroy Box&gt;&gt;</panel_attributes>
@@ -1414,10 +1326,10 @@ Display message</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>4450</y>
-      <w>300</w>
-      <h>50</h>
+      <x>686</x>
+      <y>3115</y>
+      <w>210</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 Decline transfer and inform user
@@ -1427,10 +1339,10 @@ reason as to decline</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>570</x>
-      <y>4350</y>
-      <w>150</w>
-      <h>40</h>
+      <x>910</x>
+      <y>3045</y>
+      <w>105</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 [Wrong Type]</panel_attributes>
@@ -1439,10 +1351,10 @@ reason as to decline</panel_attributes>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>520</x>
-      <y>4530</y>
-      <w>20</w>
-      <h>20</h>
+      <x>875</x>
+      <y>3171</y>
+      <w>14</w>
+      <h>14</h>
     </coordinates>
     <panel_attributes>type=termination</panel_attributes>
     <additional_attributes/>
@@ -1450,10 +1362,10 @@ reason as to decline</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>4570</y>
-      <w>470</w>
-      <h>80</h>
+      <x>686</x>
+      <y>3199</y>
+      <w>329</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 syncMsg
@@ -1463,12 +1375,393 @@ System updates database</panel_attributes>
     <additional_attributes>10.0;20.0;450.0;20.0</additional_attributes>
   </element>
   <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>406</x>
+      <y>14</y>
+      <w>21</w>
+      <h>602</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;840.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>406</x>
+      <y>595</y>
+      <w>21</w>
+      <h>602</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;840.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>406</x>
+      <y>1176</y>
+      <w>21</w>
+      <h>602</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;840.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>406</x>
+      <y>1757</y>
+      <w>21</w>
+      <h>602</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;840.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>406</x>
+      <y>2338</y>
+      <w>21</w>
+      <h>602</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;840.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>406</x>
+      <y>2919</y>
+      <w>21</w>
+      <h>392</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;540.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>686</x>
+      <y>28</y>
+      <w>329</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+syncMsg
+Prompts teller for teller acount credentials</panel_attributes>
+    <additional_attributes>10.0;20.0;450.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>406</x>
+      <y>805</y>
+      <w>301</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+syncMsg
+Inform customer they're account is opened</panel_attributes>
+    <additional_attributes>10.0;20.0;410.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>406</x>
+      <y>1092</y>
+      <w>301</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+Inform Customer account doesn't meet requirements</panel_attributes>
+    <additional_attributes>10.0;20.0;410.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>406</x>
+      <y>693</y>
+      <w>301</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+Inform customer that they were turned down</panel_attributes>
+    <additional_attributes>10.0;20.0;410.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>406</x>
+      <y>2982</y>
+      <w>301</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+syncMsg
+Customer asks to make a TMB Money Transfer</panel_attributes>
+    <additional_attributes>410.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>406</x>
+      <y>3290</y>
+      <w>21</w>
+      <h>189</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;250.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>686</x>
+      <y>3332</y>
+      <w>21</w>
+      <h>161</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;210.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>994</x>
+      <y>3290</y>
+      <w>21</w>
+      <h>196</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;260.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>406</x>
+      <y>924</y>
+      <w>301</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+syncMsg
+Teller asks customer for details of transfers</panel_attributes>
+    <additional_attributes>10.0;20.0;410.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>406</x>
+      <y>945</y>
+      <w>301</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+syncMsg
+Customer provides details of transfers</panel_attributes>
+    <additional_attributes>410.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>406</x>
+      <y>1519</y>
+      <w>301</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+syncMsg
+Teller asks customer for account # and amount</panel_attributes>
+    <additional_attributes>10.0;20.0;410.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>406</x>
+      <y>1736</y>
+      <w>301</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+Teller asks customer to confirm account #</panel_attributes>
+    <additional_attributes>10.0;20.0;410.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>406</x>
+      <y>1834</y>
+      <w>301</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+syncMsg
+Teller informs customer of deposit and new balance</panel_attributes>
+    <additional_attributes>10.0;20.0;410.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>406</x>
+      <y>1890</y>
+      <w>301</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+syncMsg
+Teller asks customer for account # and amount</panel_attributes>
+    <additional_attributes>10.0;20.0;410.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>406</x>
+      <y>1918</y>
+      <w>301</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+syncMsg
+Customer gives account # and amount</panel_attributes>
+    <additional_attributes>410.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>406</x>
+      <y>2037</y>
+      <w>301</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+Teller asks customer to confirm account #</panel_attributes>
+    <additional_attributes>10.0;20.0;410.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>406</x>
+      <y>2324</y>
+      <w>301</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+Teller informs customer of lack of funds</panel_attributes>
+    <additional_attributes>10.0;20.0;410.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>406</x>
+      <y>2436</y>
+      <w>301</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+syncMsg
+Teller informs of new balance and gives money</panel_attributes>
+    <additional_attributes>10.0;20.0;410.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>406</x>
+      <y>2499</y>
+      <w>301</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+syncMsg
+Teller asks for check # to stop</panel_attributes>
+    <additional_attributes>10.0;20.0;410.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>406</x>
+      <y>2527</y>
+      <w>301</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+syncMsg
+Customer provides check #</panel_attributes>
+    <additional_attributes>410.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>406</x>
+      <y>2625</y>
+      <w>301</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+syncMsg
+Teller informs customer that the check has been
+added to the cancellation list</panel_attributes>
+    <additional_attributes>10.0;20.0;410.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>406</x>
+      <y>3241</y>
+      <w>301</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+syncMsg
+Teller informs customer of transfers success</panel_attributes>
+    <additional_attributes>10.0;20.0;410.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>406</x>
+      <y>3290</y>
+      <w>301</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+asyncMsg
+Customer leaves</panel_attributes>
+    <additional_attributes>410.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>686</x>
+      <y>3325</y>
+      <w>329</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+syncMsg
+Teller logs out</panel_attributes>
+    <additional_attributes>450.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>686</x>
+      <y>3360</y>
+      <w>329</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+asyncMsg
+Database logs out Teller</panel_attributes>
+    <additional_attributes>10.0;20.0;450.0;20.0</additional_attributes>
+  </element>
+  <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>690</x>
-      <y>4700</y>
-      <w>20</w>
-      <h>20</h>
+      <x>994</x>
+      <y>3465</y>
+      <w>14</w>
+      <h>14</h>
     </coordinates>
     <panel_attributes>type=termination</panel_attributes>
     <additional_attributes/>
@@ -1476,54 +1769,21 @@ System updates database</panel_attributes>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>250</x>
-      <y>4700</y>
-      <w>20</w>
-      <h>20</h>
+      <x>686</x>
+      <y>3472</y>
+      <w>14</w>
+      <h>14</h>
     </coordinates>
     <panel_attributes>type=termination</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1160</x>
-      <y>2450</y>
-      <w>30</w>
-      <h>810</h>
-    </coordinates>
-    <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;790.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1160</x>
-      <y>3220</y>
-      <w>30</w>
-      <h>810</h>
-    </coordinates>
-    <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;790.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1160</x>
-      <y>3990</y>
-      <w>30</w>
-      <h>740</h>
-    </coordinates>
-    <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;720.0</additional_attributes>
-  </element>
-  <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>1160</x>
-      <y>4700</y>
-      <w>20</w>
-      <h>20</h>
+      <x>406</x>
+      <y>3458</y>
+      <w>14</w>
+      <h>14</h>
     </coordinates>
     <panel_attributes>type=termination</panel_attributes>
     <additional_attributes/>
