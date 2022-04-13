@@ -1,6 +1,6 @@
 package edu.missouriwestern.csc406.bankingsystem;
 
-public class customerPOJO {
+public class customer {
     // Data fields
     private String SSN;
     private String Address;
@@ -14,7 +14,7 @@ public class customerPOJO {
     private String datePaymentDue;
     private String dateNotifiedOfPayment;
     // Constructor
-    public customerPOJO(String SSN, String Address, String State, int Zip, String firstName, String lastName, String customerID,
+    public customer(String SSN, String Address, String State, int Zip, String firstName, String lastName, String customerID,
                         double currentBalance, double interestRates, String datePaymentDue, String dateNotifiedOfPayment) {
         setSSN(SSN);
         setAddress(Address);
