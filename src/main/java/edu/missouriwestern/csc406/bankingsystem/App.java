@@ -14,35 +14,20 @@ import javafx.stage.Stage;
  */
 public class App extends Application {
 
-    static Stage stg;
-
     public static void main(String[] args){
+        /*
+        Main Line will launch program and will need to initialize databases, (Employee Database and Customer Database)
+
+         */
         launch();
     }
 
     @Override
     public void start(Stage stage) throws Exception {
-        stg = stage;
-        FXMLLoader fxmlLoader = new FXMLLoader(Login.class.getResource("Login.fxml"));
-        System.out.println(fxmlLoader.getLocation());
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-        stage.centerOnScreen();
-        stage.getIcons().add(new Image("icon.png"));
-        stage.setResizable(false);
-        stage.setTitle("Login");
-        stage.setScene(scene);
-        stage.show();
-    }
+        Login login = new Login();
 
-    public void userPage() throws Exception {
-        Stage stage = stg;
-        stage.close();
-        FXMLLoader fxmlLoader = new FXMLLoader(UserPage.class.getResource("userPage.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 920,600);
-        stage.setResizable(false);
-        stage.setTitle("UserPage");
-        stage.setScene(scene);
-        stage.show();
+        login.showStage();
+
     }
 
 }

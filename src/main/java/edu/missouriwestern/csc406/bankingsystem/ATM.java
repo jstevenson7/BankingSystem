@@ -6,23 +6,19 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class UserPage {
+public class ATM {
 
     private final Stage stage;
     private final Login login;
 
-    UserPage(Login login){
-
+    public ATM(Login login){
         this.login = login;
 
         this.stage = new Stage();
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(UserPage.class.getResource("userPage.fxml"));
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ATM.fxml"));
             fxmlLoader.setController(this);
-            stage.setScene(new Scene(fxmlLoader.load(), 920, 600));
-            stage.setResizable(false);
-            stage.setTitle("UserPage");
-
+            stage.setScene(new Scene(fxmlLoader.load(),600,400));
         }catch (IOException e){
             e.printStackTrace();
         }
@@ -30,5 +26,4 @@ public class UserPage {
     public void showStage(){
         stage.showAndWait();
     }
-
 }
