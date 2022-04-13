@@ -8,6 +8,7 @@ module edu.missouriwestern.csc406{
     requires validatorfx;
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
+    requires com.opencsv;
 
     opens edu.missouriwestern.csc406.bankingsystem to javafx.fxml;
     exports edu.missouriwestern.csc406.bankingsystem;
