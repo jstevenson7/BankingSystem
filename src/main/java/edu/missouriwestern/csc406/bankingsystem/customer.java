@@ -4,6 +4,7 @@ public class customer {
     // Data fields
     private String SSN;
     private String Address;
+    private String City;
     private String State;
     private int Zip;
     private String firstName;
@@ -14,10 +15,11 @@ public class customer {
     private String datePaymentDue;
     private String dateNotifiedOfPayment;
     // Constructor
-    public customer(String SSN, String Address, String State, int Zip, String firstName, String lastName, String customerID,
+    public customer(String SSN, String Address, String City, String State, int Zip, String firstName, String lastName, String customerID,
                         double currentBalance, double interestRates, String datePaymentDue, String dateNotifiedOfPayment) {
         setSSN(SSN);
         setAddress(Address);
+        setCity(City);
         setState(State);
         setZip(Zip);
         setFirstName(firstName);
@@ -31,6 +33,7 @@ public class customer {
     // Getters
     public String getSSN() {return SSN;}
     public String getAddress() {return Address;}
+    public String getCity() {return City;}
     public String getState() {return State;}
     public int getZip() {return Zip;}
     public String getFirstName() {return firstName;}
@@ -43,6 +46,7 @@ public class customer {
     // Setters
     public void setSSN(String SSN) {this.SSN = SSN;}
     public void setAddress(String address) {Address = address;}
+    public void setCity(String city) {City = city;}
     public void setState(String state) {State = state;}
     public void setZip(int zip) {Zip = zip;}
     public void setFirstName(String firstName) {this.firstName = firstName;}

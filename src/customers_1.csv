@@ -1,4 +1,4 @@
-SSN,Adress,City,State,Zip,First Name,Last Name,Customer ID,Current Balance (Amt to pay off),Interest Rates (Current),Date Payment Due,Date Notified of Payment,Current Payment Due (Monthy),Date Last Payment Made,Missed Payment Flag,Loan Type,Credit Limit,Months left
+SSN,Address,City,State,Zip,First Name,Last Name,Customer ID,Current Balance (Amt to pay off),Interest Rates (Current),Date Payment Due,Date Notified of Payment,Current Payment Due (Monthy),Date Last Payment Made,Missed Payment Flag,Loan Type,Credit Limit,Months left
 042-34-5324,5114 North 4th,Clarkesdale,MO,64493,Ronald,Jones,1,456.76,2.3,2/10,2/1/2022,456.76,1/15,1,Credit,1500,
 345-65-3425,1805 Jules,Saint Joseph,MO,64503,Mark,lngrem,2,22132.97,1.7,3/21,2/28/2022,332.97,2/21,0,Mortgage ,,42
 423-14-8894,2109 Sylviana,Saint Joseph,MO,64501,Sherry,Harrison,3,1237.06,3.2,3/22,2/24/2022,312.33,2/29,1,Short-Term,,6
