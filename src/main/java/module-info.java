@@ -1,4 +1,4 @@
-module edu.missouriwestern.csc406 {
+module edu.missouriwestern.csc406{
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
@@ -9,6 +9,6 @@ module edu.missouriwestern.csc406 {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
 
-    opens edu.missouriwestern.csc406 to javafx.fxml;
-    exports edu.missouriwestern.csc406;
+    opens edu.missouriwestern.csc406.bankingsystem to javafx.fxml;
+    exports edu.missouriwestern.csc406.bankingsystem;
 }

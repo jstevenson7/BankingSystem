@@ -1,4 +1,4 @@
-package edu.missouriwestern.csc406;
+package edu.missouriwestern.csc406.bankingsystem;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
