@@ -1,124 +1,235 @@
 package edu.missouriwestern.csc406.bankingsystem;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.PrintWriter;
-import java.util.Scanner;
+import java.io.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-public class DBMS {//TODO convert into record objects and trim repetition, update filepath, finish edit process
-    public static Scanner x;
-    public String Search;//use clients SSN
-    String filepath = "C:\\Users\\Justice\\Documents\\College\\csc406\\BankBackups\\customers.csv";//filepath for csv, change for system
+import com.opencsv.*;
+import com.opencsv.bean.CsvToBean;
+import com.opencsv.bean.HeaderColumnNameTranslateMappingStrategy;
 
-    public void readRecord(String search, String filepath) {
-        boolean found = false;
-        String SSN = "";
-        String Address = "";
-        String State = "";
-        String Zip = "";
-        String FirstName = "";
-        String LastName = "";
-        String CustomerID = "";
-        String CurrBal = "";
-        String CurrIntRate = "";
-        String DatePayDue = "";
-        String DateNotifiedofPayment = "";
-        String CurrPayDue = "";
-        String DateSinceLastPay = "";
-        String MissedPayFlag = "";   //database fields
+public class  DBMS {
+    public static void readAll(){
+        Map<String,String> mapping = new HashMap<String, String>();
+        mapping.put("ssn","SSN");
+        mapping.put("address","Address");
+        mapping.put("state","State");
+        mapping.put("zip","Zip");                        //Map CSV to Customer attributes
+        mapping.put("firstName","FirstName");
+        mapping.put("lastName","LastName");
+        mapping.put("customerID","CustomerID");
+        mapping.put("currentBalance","CurrentBalance");
+        mapping.put("interestRates","InterestRates");
+        mapping.put("datePaymentDue","DatePaymentDue");
+        mapping.put("dateNotifiedofPayment","DateNotifiedofPayment");
+        mapping.put("currentPaymentDue","CurrentPaymentDue");
+        mapping.put("dateLastPaymentMade","DateLastPaymentMade");
+        mapping.put("missedPaymentFlag","MissedPaymentFlag");
+        mapping.put("loanType","LoanType");
+        mapping.put("creditLimit","CreditLimit");
+        mapping.put("monthsLeft","MonthsLeft");
+
+        HeaderColumnNameTranslateMappingStrategy<Customer> customer = new HeaderColumnNameTranslateMappingStrategy<Customer>();
+        customer.setType(Customer.class);        //Column Name Mapping Strategy for Customer Class
+        customer.setColumnMapping(mapping);
+
+        CSVReader csvReader=null;
         try {
-            x = new Scanner(new File(filepath));
-            x.useDelimiter(",\n");
-
-            while (x.hasNext() && !found) {
-                SSN = x.next();
-                if (SSN.equals(Search)) {//SSN is first field in record
-                    found = true;
-                    Address = x.next();
-                    State = x.next();
-                    Zip = x.next();
-                    FirstName = x.next();
-                    LastName = x.next();
-                    CustomerID = x.next();
-                    CurrBal = x.next();
-                    CurrIntRate = x.next();
-                    DatePayDue = x.next();
-                    DateNotifiedofPayment = x.next();
-                    CurrPayDue = x.next();
-                    DateSinceLastPay = x.next();
-                    MissedPayFlag = x.next();
-                }//end of if Search=true
-
-                if (found) {
-                    System.out.println(SSN + " " + Address + " " + State + " " + Zip + " " + FirstName + " " + LastName + " " + CustomerID + " " + CurrBal + " " + CurrIntRate
-                            + " " + DatePayDue + " " + DateNotifiedofPayment + " " + CurrPayDue + " " + DateSinceLastPay + " " + MissedPayFlag);
-                } else {
-                    System.out.println("Record not found");
-                }
-            }//end of while loop
+            csvReader= new CSVReader(new FileReader("C:\\Users\\Justice\\Documents\\College\\csc406\\BankBackups\\customers.csv"));
         }//end of try
-        catch (Exception e) {
+        catch (FileNotFoundException e){e.printStackTrace();}//end of catch
 
-        }//end of catch
-    }//end of readRecord
+        CsvToBean csvToBean = new CsvToBean();//still figuring out this parsing
+        List<Customer> list = csvToBean.parse();
+    }//end of readAll
+    public static void writeAll(List<String[]> StringArray){
+        File update = new File("C:\\Users\\Justice\\Documents\\College\\csc406\\BankBackups\\customers.csv");
+        try{
+            FileWriter updatewriter = new FileWriter(update);
+            CSVWriter writer = new CSVWriter(updatewriter);
 
-    public void editRecord(String filepath, String search, String newedit) {
-        String tempFile = "temp.csv";
-        File original = new File(filepath);
-        File newfile = new File(tempFile);
-        String SSN = "";
-        String Address = "";
-        String State = "";
-        String Zip = "";
-        String FirstName = "";
-        String LastName = "";
-        String CustomerID = "";
-        String CurrBal = "";
-        String CurrIntRate = "";
-        String DatePayDue = "";
-        String DateNotifiedofPayment = "";
-        String CurrPayDue = "";
-        String DateSinceLastPay = "";
-        String MissedPayFlag = "";   //database fields
-        try {
-            FileWriter fw = new FileWriter(tempFile, true);
-            BufferedWriter bw = new BufferedWriter(fw);
-            PrintWriter pw = new PrintWriter(bw);
-
-            x = new Scanner(new File(filepath));
-            x.useDelimiter(",\n");
-
-            while (x.hasNext()) {
-                SSN = x.next();
-                Address = x.next();
-                State = x.next();
-                Zip = x.next();
-                FirstName = x.next();
-                LastName = x.next();
-                CustomerID = x.next();
-                CurrBal = x.next();
-                CurrIntRate = x.next();
-                DatePayDue = x.next();
-                DateNotifiedofPayment = x.next();
-                CurrPayDue = x.next();
-                DateSinceLastPay = x.next();
-                MissedPayFlag = x.next();
-
-                if (SSN.equals(Search)) {//found record to edit
-                    pw.println();
-
-                }//end of if Search=true
-            }//end of while
-            x.close();
-            pw.flush();
-            pw.close();
-            original.delete();
-            File customers=new File(filepath);
-            newfile.renameTo(customers);
+            writer.writeAll(StringArray);
+            writer.close();
         }//end of try
-        catch(Exception e){
-            System.out.println("Record not found");
-            }//end of catch
-        }//end of editRecord
+        catch(Exception e){e.printStackTrace();}//end of catch
+    }//end of writeAll
 
-    }//end of dbms
+
+
+//end of dbms
+public class Customer{//customer object for opencsv to read into
+    //customer attributes
+    public String SSN, Address, State, Zip, FirstName, LastName,CustomerID,CurrentBalance,InterestRates,DatePaymentDue,
+            DateNotifiedofPayment,CurrentPaymentDue,DateLastPaymentMade,MissedPaymentFlag,LoanType,CreditLimit,MonthsLeft;
+    //getters/setters for attributes
+    public String getSSN()
+    {
+        return SSN;
+    }
+
+    public void setSSN(String ssn)
+    {
+        SSN = ssn;
+    }
+
+    public String getAddress()
+    {
+        return Address;
+    }
+
+    public void setAddress(String address)
+    {
+        Address = address;
+    }
+
+    public String getState()
+    {
+        return State;
+    }
+
+    public void setState(String state)
+    {
+        State = state;
+    }
+
+    public String getZip()
+    {
+        return Zip;
+    }
+
+    public void setZip(String zip)
+    {
+        Zip = zip;
+    }
+
+    public String getFirstName()
+    {
+        return FirstName;
+    }
+
+    public void setFirstName(String firstName)
+    {
+        FirstName = firstName;
+    }
+    public String getLastName()
+    {
+        return LastName;
+    }
+
+    public void setLastName(String lastName)
+    {
+        LastName = lastName;
+    }
+
+    public String getCustomerID()
+    {
+        return CustomerID;
+    }
+
+    public void setCustomerID(String customerID)
+    {
+        CustomerID = customerID;
+    }
+
+    public String getCurrentBalance()
+    {
+        return CurrentBalance;
+    }
+
+    public void setCurrentBalance(String currentBalance)
+    {
+        CurrentBalance = currentBalance;
+    }
+
+    public String getInterestRates()
+    {
+        return InterestRates;
+    }
+
+    public void setInterestRates(String interestRates)
+    {
+        InterestRates = interestRates;
+    }
+
+    public String getDatePaymentDue()
+    {
+        return DatePaymentDue;
+    }
+
+    public void setDatePaymentDue(String datePaymentDue)
+    {
+        DatePaymentDue = datePaymentDue;
+    }
+    public String getDateNotifiedofPayment()
+    {
+        return DateNotifiedofPayment;
+    }
+
+    public void setDateNotifiedofPayment(String dateNotifiedofPayment)
+    {
+        DateNotifiedofPayment = dateNotifiedofPayment;
+    }
+
+    public String getCurrentPaymentDue()
+    {
+        return CurrentPaymentDue;
+    }
+
+    public void setCurrentPaymentDue(String currentPaymentDue)
+    {
+        CurrentPaymentDue = currentPaymentDue;
+    }
+
+    public String getDateLastPaymentMade()
+    {
+        return DateLastPaymentMade;
+    }
+
+    public void setDateLastPaymentMade(String dateLastPaymentMade)
+    {
+        DateLastPaymentMade = dateLastPaymentMade;
+    }
+
+    public String getMissedPaymentFlag()
+    {
+        return MissedPaymentFlag;
+    }
+
+    public void setMissedPaymentFlag(String missedPaymentFlag)
+    {
+        MissedPaymentFlag = missedPaymentFlag;
+    }
+
+    public String getLoanType()
+    {
+        return LoanType;
+    }
+
+    public void setLoanType(String loanType)
+    {
+        LoanType = loanType;
+    }
+    public String getCreditLimit()
+    {
+        return CreditLimit;
+    }
+
+    public void setCreditLimit(String creditLimit)
+    {
+        CreditLimit = creditLimit;
+    }
+
+    public String getMonthsLeft()
+    {
+        return MonthsLeft;
+    }
+
+    public void setMonthsLeft(String monthsLeft)
+    {
+        MonthsLeft = monthsLeft;
+    }
+
+}//end of Customer
+}//end of DBMS
+
+
