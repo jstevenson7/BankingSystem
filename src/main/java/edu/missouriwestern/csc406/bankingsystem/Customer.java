@@ -1,6 +1,6 @@
 package edu.missouriwestern.csc406.bankingsystem;
 
-public class customer {
+public class Customer {
     // Data fields
     private String SSN;
     private String Address;
@@ -21,7 +21,7 @@ public class customer {
     private double creditLimit;
     private int monthsLeft;
     // Constructor
-    public customer(String SSN, String Address, String City, String State, int Zip, String firstName, String lastName, String customerID,
+    public Customer(String SSN, String Address, String City, String State, int Zip, String firstName, String lastName, String customerID,
                     double currentBalance, double interestRates, String datePaymentDue, String dateNotifiedOfPayment, double currentPaymentDue,
                     String dateLastPayementMade, int missedPaymentFlag, String loanType, double creditLimit, int monthsLeft) {
         setSSN(SSN);

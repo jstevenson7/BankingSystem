@@ -15,7 +15,7 @@ public class App extends Application {
 
          */
         launch();
-    }
+    } //End of main.
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -23,7 +23,6 @@ public class App extends Application {
         //login.showStage();
         Stage_SystemMain stage1 = new Stage_SystemMain();
         stage1.showStage();
-
     }
 
 }
