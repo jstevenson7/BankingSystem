@@ -1,5 +1,4 @@
 package edu.missouriwestern.csc406.bankingsystem;
-
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -23,6 +22,7 @@ public class ATM {
             e.printStackTrace();
         }
     }
+
     public void showStage(){
         stage.showAndWait();
     }

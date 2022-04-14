@@ -1,12 +1,7 @@
 package edu.missouriwestern.csc406.bankingsystem;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.stage.Stage;
-
-
 /**
  *
  *
@@ -24,9 +19,10 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Login login = new Login();
-
-        login.showStage();
+        //Login login = new Login();
+        //login.showStage();
+        Stage_SystemMain stage1 = new Stage_SystemMain();
+        stage1.showStage();
 
     }
 
