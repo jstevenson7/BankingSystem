@@ -34,14 +34,26 @@ public class Stage_SystemMain {
             e.printStackTrace();
         }
     }
+
     /* --- METHODS --- */
     public void showStage(){
         stage.showAndWait();
     }
 
+    public void toActor() {
+        try{
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Stage_SystemActor.fxml"));
+        fxmlLoader.setController(this);
+        stage.setScene(new Scene(fxmlLoader.load(),600,400));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     @FXML
     private void initialize(){
-
+        /* --- ACTION ---*/
+        setActor.setOnMouseClicked(mouseEvent -> toActor());
 
         /* --- STYLE --- */
         // Actor Button
