@@ -1,5 +1,6 @@
 package edu.missouriwestern.csc406.bankingsystem;
 
+import com.opencsv.bean.CsvToBeanBuilder;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -10,7 +11,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+import java.io.FileReader;
 import java.io.IOException;
+import java.util.List;
 
 public class Login {
 
@@ -35,11 +38,12 @@ public class Login {
 
         stage = new Stage();
 
+
+
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Login.fxml"));
             System.out.println(fxmlLoader.getLocation());
             fxmlLoader.setController(this);
-
             stage.setScene(new Scene(fxmlLoader.load()));
             stage.setTitle("Login");
 
