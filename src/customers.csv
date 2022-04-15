@@ -1,21 +1,21 @@
-SSN	Address	City	State	Zip	First Name	Last Name	Customer ID						
-042-34-5324	5114 North 4th	Clarkesdale	MO	64493	Ronald	Jones	1						
-345-65-3425	1805 Jules	Saint Joseph	MO	64503	Mark	lngrem	2						
-423-14-8894	2109 Sylviana	Saint Joseph	MO	64501	Sherry	Harrison	3						
-677-87-9013	4305 West 3rd	Wathena	KS	54910	John	Morgeson	4						
-034-55-9987	0221 South Highly	Saint Joseph	MO	64503	Gary	Gilkerson	5						
-042-35-6789	0335 Jules	Saint Joseph	MO	64503	Mary	Francis	6						
-345-81-2332	1402 Mocking Bird	Saint Joseph	MO	64502	Carolyn	Johnson	7						
-345-87-9912	2105 Senior Dr.	Saint Joseph	MO	64503	Larry	Waite	8						
-423-16-8945	1801 Lovers Ln	Saint Joseph	MO	64502	Marilyn	Macklin	9						
-235-44-5789	2508 Stonecrest	Saint Joseph	MO	64501	Lana	McGlynn	10						
-436-78-9213	4156 N. Mulbury	Saint Joseph	MO	64502	John	Munzer	11						
-233-43-5656	1525 Kioa	Ellwood	KS	56708	Mary	White	12						
-435-67-8787	8902 Martha Ln	Gower	MO	63301	Jerry	Gronius	13						
-563-43-2913	1532 Lovers Ln	Saint Joseph	MO	64501	Martin	Williams	14						
-034-56-7989	8703 Park Ln	Saint Joseph	MO	64503	Broderick	Jones	15						
-681-32-3021	8933 Libby Ln	Maysville	MO	64469	Bob	Marley	16						
-398-55-2301	1258 Washington St	King City	MO	64463	Tony	Stark	17						
-223-12-2461	2788 Kentucky St	Country Club	MO	64506	Lebron 	James	18						
-117-30-2034	6798 Park Ave	Atchison	KS	66002	Heather	Williams	19						
-159-23-6709	9001 Boardwalk St	Savannah	MO	64485	Easton	Porter	20						
+SSN,Address,City,State,Zip,firstName,lastName,customerID
+042-34-5324,5114 North 4th,Clarkesdale,MO,64493,Ronald,Jones,1
+345-65-3425,1805 Jules Saint,Joseph,MO,64503,Mark,lngrem,2
+423-14-8894,2109 Sylviana,Saint Joseph,MO,64501,Sherry,Harrison,3
+677-87-9013,4305 West 3rd,Wathena,KS,54910,John,Morgeson,4
+034-55-9987,0221 South Highly,Saint Joseph,MO,64503,Gary,Gilkerson,5
+042-35-6789,0335 Jules,Saint Joseph,MO,64503,Mary,Francis,6
+345-81-2332,1402 Mocking Bird,Saint Joseph,MO,64502,Carolyn,Johnson,7
+345-87-9912,2105 Senior Dr.,Saint Joseph,MO,64503,Larry,Waite,8
+423-16-8945,1801 Lovers Ln,Saint Joseph,MO,64502,Marilyn,Macklin,9
+235-44-5789,2508 Stonecrest,Saint Joseph,MO,64501,Lana,McGlynn,10
+436-78-9213,4156 N. Mulbury,Saint Joseph,MO,64502,John,Munzer,11
+233-43-5656,1525 Kioa,Ellwood,KS,56708,Mary,White,12
+435-67-8787,8902 Martha Ln,Gower,MO,63301,Jerry,Gronius,13
+563-43-2913,1532 Lovers Ln,Saint Joseph,MO,64501,Martin,Williams,14
+034-56-7989,8703 Park Ln,Saint Joseph,MO,64503,Broderick,Jones,15
+681-32-3021,8933 Libby Ln,Maysville,MO,64469,Bob,Marley,16
+398-55-2301,1258 Washington St,King City,MO,64463,Tony,Stark,17
+223-12-2461,2788 Kentucky St,Country Club,MO,64506,Lebron,James,18
+117-30-2034,6798 Park Ave,Atchison,KS,66002,Heather,Williams,19
+159-23-6709,9001 Boardwalk St,Savannah,MO,64485,Easton,Porter,20
