@@ -21,7 +21,7 @@ public class App extends Application {
     public void start(Stage stage) throws Exception {
         //Login login = new Login();
         //login.showStage();
-        SystemMain stage1 = new SystemMain();
+        Stage_SystemMain stage1 = new Stage_SystemMain();
         stage1.showStage();
     }
 

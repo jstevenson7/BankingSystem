@@ -1,4 +1,5 @@
 package edu.missouriwestern.csc406.bankingsystem;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -7,7 +8,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class SystemMain {
+public class Stage_SystemActor {
 
     /* --- DATA --- */
     private Stage stage;
@@ -20,19 +21,21 @@ public class SystemMain {
     private Button loadData;
     @FXML
     private Button checkPoint;
-
-
+    @FXML
+    private Button customer;
+    @FXML
+    private Button employee;
 
     /* --- CONSTRUCTOR --- */
-    public SystemMain(){
-            this.stage = new Stage();
-            try{
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("System.fxml"));
-                fxmlLoader.setController(this);
-                stage.setScene(new Scene(fxmlLoader.load(),600,400));
-            }catch (IOException e){
-                e.printStackTrace();
-            }
+    public Stage_SystemActor(Stage_SystemMain stage_systemMain){
+        this.stage = new Stage();
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Actor.fxml"));
+            fxmlLoader.setController(this);
+            stage.setScene(new Scene(fxmlLoader.load(),600,400));
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
     /* --- METHODS --- */
@@ -61,5 +64,3 @@ public class SystemMain {
     }
 
 }
-
-
