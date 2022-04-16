@@ -1,4 +1,4 @@
-"employeeID","lastName","firstName","isManager","password"
+employeeID,lastName,firstName,isManager,password
 1,Stone,Marshall,1,123s45
 2,Wilson,Christin,0,111a11
 3,Mesmer,Josh,0,abcde
