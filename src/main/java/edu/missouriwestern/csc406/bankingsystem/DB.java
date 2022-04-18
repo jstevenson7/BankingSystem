@@ -152,4 +152,36 @@ public class DB {
         }
         writer.close();
     }
+    /*
+     * This method takes an employeeID (String) and an ArrayList of employees
+     * and return the employee object of the employeeID passed in
+     * EXAMPLE:
+     * Employee emp = DB.searchEmployee("someID", empArrayList");
+     *
+     * NOTE: Returns NULL if employee not found
+     * */
+    public static Employee searchEmployee(String employeeID, ArrayList<Employee> employees) {
+        for (Employee e: employees) {
+            if (e.getEmployeeID().equals(employeeID)) {
+                return e;
+            }
+        }
+        return null;
+    }
+    /*
+     * This method takes an customerID (String) and an ArrayList of customers
+     * and return the customer object of the customerID passed in
+     * EXAMPLE:
+     * Customer cst = DB.searchCustomer("someID", customerArrayList");
+     *
+     * NOTE: Returns NULL if customer not found
+     * */
+    public static Customer searchCustomer(String customerID, ArrayList<Customer> customers) {
+        for (Customer c: customers) {
+            if (c.getCustomerID().equals(customerID)) {
+                return c;
+            }
+        }
+        return null;
+    }
 }
