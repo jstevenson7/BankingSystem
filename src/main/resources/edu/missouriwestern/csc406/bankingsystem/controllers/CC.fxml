@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.missouriwestern.csc406.bankingsystem.controllers.CC">
+   <children>
+      <HBox alignment="CENTER" prefHeight="74.0" prefWidth="603.0" style="-fx-background-color: black;">
+         <children>
+            <ImageView fitHeight="47.0" fitWidth="215.0">
+               <image>
+                  <Image url="@../../../../../Images/hbox_red_logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <ImageView fitHeight="258.0" fitWidth="274.0" layoutX="28.0" layoutY="128.0">
+         <image>
+            <Image url="@../../../../../Images/useCC.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="200.0" fitWidth="139.0" layoutX="398.0" layoutY="171.0">
+         <image>
+            <Image url="@../../../../../Images/PBcc.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="swipeButton" layoutX="266.0" layoutY="128.0" mnemonicParsing="false" prefHeight="258.0" prefWidth="0.0" style="-fx-background-color: #c9c9c9;" />
+      <Button fx:id="returnCustomerButton" layoutX="13.0" layoutY="87.0" mnemonicParsing="false" onAction="#toCustomer" prefHeight="25.0" prefWidth="304.0" style="-fx-background-color: black;" text="Return to Customer Portal" textFill="#605a5a" />
+   </children>
+</AnchorPane>
