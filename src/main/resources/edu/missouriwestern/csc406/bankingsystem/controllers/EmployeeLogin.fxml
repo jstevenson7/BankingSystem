@@ -2,6 +2,8 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -33,7 +35,7 @@
                   <Font size="14.0" />
                </font>
             </Text>
-            <TextField>
+            <TextField fx:id="employeeID" onAction="#login" promptText="Employee ID">
                <HBox.margin>
                   <Insets bottom="10.0" left="10.0" />
                </HBox.margin>
@@ -53,18 +55,18 @@
                   <Insets top="13.0" />
                </HBox.margin>
             </Text>
-            <TextField>
+            <PasswordField fx:id="password" onAction="#login" prefHeight="27.0" prefWidth="150.0" promptText="Employee Password">
                <HBox.margin>
                   <Insets left="10.0" top="10.0" />
                </HBox.margin>
-            </TextField>
+            </PasswordField>
          </children>
       </HBox>
       <Pane layoutX="263.0" layoutY="262.0" prefHeight="138.0" prefWidth="337.0" style="-fx-background-color: white;">
          <children>
             <Button fx:id="returnActorButton" layoutX="76.0" layoutY="2.0" mnemonicParsing="false" onAction="#toActor" text="Return to Select Actor" />
-            <Button fx:id="loginButton" layoutX="231.0" layoutY="2.0" mnemonicParsing="false" onAction="#toManager" prefHeight="25.0" prefWidth="68.0" text="Login M" />
-            <Button fx:id="loginButtonT" layoutX="231.0" layoutY="44.0" mnemonicParsing="false" onAction="#toTeller" prefHeight="25.0" prefWidth="68.0" text="Login T" />
+            <Button fx:id="loginPassword" layoutX="245.0" layoutY="2.0" mnemonicParsing="false" onAction="#login" text="Login " />
+            <Label fx:id="loginLabel" layoutX="158.0" layoutY="108.0" textFill="RED" />
          </children>
       </Pane>
    </children>

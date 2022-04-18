@@ -43,4 +43,9 @@ public class Employee {
     public void setFirstName(String firstName) {this.firstName = firstName;}
     public void setIsManager(int isManager) {this.isManager = isManager;}
     public void setPassword(String password) {this.password = password;}
+
+    @Override
+    public String toString(){
+        return firstName;
+    }
 }
