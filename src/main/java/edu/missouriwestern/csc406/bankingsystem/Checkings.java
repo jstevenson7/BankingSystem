@@ -6,7 +6,9 @@ public class Checkings extends Account
 {
     private String accounttype;
 
-    private ArrayList<Check> checklist = new ArrayList<Check>();
+    private ArrayList<Check> depositchecklist = new ArrayList<Check>();
+    private ArrayList<Check> withdrawchecklist = new ArrayList<Check>();
+
 
     public Checkings(int custID, double balance) {
         super(custID, balance);
@@ -24,32 +26,59 @@ public class Checkings extends Account
         }
     }
 
-    public void deposit (double deposit)
+    public void depositcash (double deposit)
     {
         balance += deposit;
         testaccount();
+        if (accounttype.equals("That's My Bank"))
+        {
+            balance-=.5;
+        }
     }
 
     public void depositcheck (Check check)
     {
         double depositamt = check.getAmount();
         balance += depositamt;
-        checklist.add(check);
-
+        depositchecklist.add(check);
+        testaccount();
+        if (accounttype.equals("That's My Bank"))
+        {
+            balance-=.5;
+        }
     }
 
     public void withdrawalcheck (Check check)
     {
         double withdrawamt = check.getAmount();
         balance -= withdrawamt;
-        checklist.add(check);
-
+        withdrawchecklist.add(check);
+        testaccount();
+        if (accounttype.equals("That's My Bank"))
+        {
+            balance-=.5;
+        }
     }
 
-    public void withdraw (double withdraw)
+    public void withdrawcash (double withdraw)
     {
         balance -= withdraw;
         testaccount();
+        if (accounttype.equals("That's My Bank"))
+        {
+            balance-=.5;
+        }
+    }
+
+    public void transfer (double transferamt, Account account)
+    {
+        account.setBalance(account.getBalance()+transferamt);
+        balance -= transferamt;
+        if (accounttype.equals("That's My Bank"))
+        {
+            balance-=.75;
+        }
+
     }
 
 }
