@@ -7,7 +7,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -33,6 +35,12 @@ public class InsertCheck {
     private TextField routNumText;
     @FXML
     private TextField checkNumText;
+    @FXML
+    private TextField insertCheckButton;
+    @FXML
+    private Label checkLabel;
+    @FXML
+    private Button receiptButton;
 
     public void toCustomer(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("Customer.fxml"));
@@ -41,6 +49,20 @@ public class InsertCheck {
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
+    }
+
+    public void validateCheck(ActionEvent event) throws IOException {
+        int valid = Integer.parseInt(accNumText.getText());
+        if(valid == 1) {
+            receiptButton.setDisable(false);
+            checkLabel.setTextFill(Color.BLACK);
+            checkLabel.setText("Check is valid you can now view your check submission receipt!");
+        } else if(valid == 0) {
+            checkLabel.setText("Check invalid. Please try again.");
+            checkLabel.setTextFill(Color.RED);
+        }
+
+        //May also check for if all fields are submitted.
     }
 
     @FXML
