@@ -21,16 +21,20 @@ public class Teller {
     @FXML
     private Button returnEmployeeButton;
     @FXML
-    private Button insertCheckButton;
-    @FXML
-    private Button useATMButton;
-    @FXML
-    private Button useCCButton;
-    @FXML
-    private SubScene createCustomerSub;
+    private Button manageCustomersButton;
+
 
     public void toEmployee(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("EmployeeLogin.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
+    }
+
+    public void toManageCustomer(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("ManageCustomers.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -43,6 +47,8 @@ public class Teller {
         // Customer Button
         returnEmployeeButton.setOnMouseEntered(event -> returnEmployeeButton.setStyle("-fx-background-color: #E8ADAD; -fx-border-color: #000000"));
         returnEmployeeButton.setOnMouseExited(event -> returnEmployeeButton.setStyle("-fx-background-color: #d4d4d4; -fx-border-color:  #b0b0b0"));
+        manageCustomersButton.setOnMouseEntered(event -> manageCustomersButton.setStyle("-fx-background-color: #E8ADAD; -fx-border-color: #000000"));
+        manageCustomersButton.setOnMouseExited(event -> manageCustomersButton.setStyle("-fx-background-color: #d4d4d4; -fx-border-color:  #b0b0b0"));
     }
 
 }
