@@ -83,7 +83,7 @@ public class CC {
 
         //If valid continue to enter withdraw amount.
         if (withdrawAmt == 1) {
-            machineLabel.setText("Purchase Approve. Enter note.");
+            machineLabel.setText("Purchase Approved. Enter note.");
             machineLabel.setTextFill(Color.BLACK);
             purchaseAmtText.setVisible(false);
             receiptButton.setVisible(true);
