@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -18,6 +19,20 @@ public class InsertCheck {
 
     @FXML
     private Button returnCustomerButton;
+    @FXML
+    private TextField payToText;
+    @FXML
+    private TextField amtText;
+    @FXML
+    private TextField dateText;
+    @FXML
+    private TextField noteText;
+    @FXML
+    private TextField accNumText;
+    @FXML
+    private TextField routNumText;
+    @FXML
+    private TextField checkNumText;
 
     public void toCustomer(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("Customer.fxml"));
