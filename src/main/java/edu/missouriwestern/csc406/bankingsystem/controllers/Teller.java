@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.SubScene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
@@ -25,6 +26,8 @@ public class Teller {
     private Button useATMButton;
     @FXML
     private Button useCCButton;
+    @FXML
+    private SubScene createCustomerSub;
 
     public void toEmployee(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("EmployeeLogin.fxml"));
