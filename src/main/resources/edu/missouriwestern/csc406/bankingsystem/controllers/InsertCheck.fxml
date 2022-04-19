@@ -22,7 +22,7 @@
       </HBox>
       <ImageView fitHeight="238.0" fitWidth="532.0" layoutX="38.0" layoutY="108.0">
          <image>
-            <Image url="@../../../../../Images/ChcekForm.png" />
+            <Image url="@../../../../../Images/CheckForm.png" />
          </image>
       </ImageView>
       <TextField fx:id="payToText" layoutX="146.0" layoutY="202.0" prefHeight="25.0" prefWidth="233.0" />
