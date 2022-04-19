@@ -2,3 +2,6 @@ checkID,amount,date,recipient,description,accountNumber,routingNumber
 001,20.39,01/20/2022,Max Concord,Mowing,9991,111
 002,15.99,04/19/2022,Joe Smith,Plumbing,9991,111
 003,93.55,03/20/2022,Mick Wright,Steak Dinner,9991,111
+004,485.16,4/19/2022,Bob Jones,IDK,9993,111
+005,68.12,4/19/2022,Lucas McDonald,Lunch,9992,111
+001,999.21,4/19/2022,Bob Dillon,Computer,9998,111

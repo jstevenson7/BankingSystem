@@ -1,5 +1,7 @@
 package edu.missouriwestern.csc406.bankingsystem.controllers;
 
+import edu.missouriwestern.csc406.bankingsystem.Check;
+import edu.missouriwestern.csc406.bankingsystem.DB;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +15,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class InsertCheck {
     private Stage stage;
@@ -52,17 +55,27 @@ public class InsertCheck {
     }
 
     public void validateCheck(ActionEvent event) throws IOException {
-        int valid = Integer.parseInt(accNumText.getText());
-        if(valid == 1) {
-            receiptButton.setDisable(false);
-            checkLabel.setTextFill(Color.BLACK);
-            checkLabel.setText("Check is valid you can now view your check submission receipt!");
-        } else if(valid == 0) {
-            checkLabel.setText("Check invalid. Please try again.");
+        // Need to verify that all boxes are filled
+        // create check from textFields
+        Check check = new Check(checkNumText.getText(), Double.parseDouble(amtText.getText()),
+                dateText.getText(), payToText.getText(), noteText.getText(),
+                accNumText.getText(), routNumText.getText());
+        // Read in checks to ArrayList from csv file
+        ArrayList<Check> checks = DB.readCheckCSV();
+        // add new check
+        checks.add(check);
+        // Write back to csv
+        DB.writeCheckCSV(checks);
+        receiptButton.setDisable(false);
+        checkLabel.setTextFill(Color.BLACK);
+        checkLabel.setText("Check is valid you can now view your check submission receipt!");
+        // If boxes are not all filled
+        /**
+        } else {
+            checkLabel.setText("Invalid Check. Please try again.");
             checkLabel.setTextFill(Color.RED);
         }
-
-        //May also check for if all fields are submitted.
+         **/
     }
 
     @FXML
