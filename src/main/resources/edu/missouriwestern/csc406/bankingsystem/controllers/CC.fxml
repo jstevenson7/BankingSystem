@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
-
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.missouriwestern.csc406.bankingsystem.controllers.CC">
    <children>
@@ -18,17 +21,26 @@
             </ImageView>
          </children>
       </HBox>
-      <ImageView fitHeight="258.0" fitWidth="274.0" layoutX="28.0" layoutY="128.0">
+      <ImageView fitHeight="265.0" fitWidth="292.0" layoutX="28.0" layoutY="93.0">
          <image>
             <Image url="@../../../../../Images/useCC.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="200.0" fitWidth="139.0" layoutX="398.0" layoutY="171.0">
+      <Button fx:id="returnCustomerButton" layoutX="364.0" layoutY="93.0" mnemonicParsing="false" onAction="#toCustomer" prefHeight="25.0" prefWidth="209.0" style="-fx-background-color: black;" text="Return to Customer Portal" textFill="#605a5a" />
+      <BorderPane layoutX="47.0" layoutY="112.0" prefHeight="74.0" prefWidth="222.0" style="-fx-background-color: #d4d4d4;">
+         <center>
+            <Label fx:id="machineLabel" prefHeight="77.0" prefWidth="144.0" text="Please insert card number." textAlignment="CENTER" wrapText="true" BorderPane.alignment="CENTER" />
+         </center>
+      </BorderPane>
+      <ImageView fitHeight="126.0" fitWidth="215.0" layoutX="361.0" layoutY="213.0">
          <image>
             <Image url="@../../../../../Images/PBcc.png" />
          </image>
       </ImageView>
-      <Button fx:id="swipeButton" layoutX="266.0" layoutY="128.0" mnemonicParsing="false" prefHeight="258.0" prefWidth="0.0" style="-fx-background-color: #c9c9c9;" />
-      <Button fx:id="returnCustomerButton" layoutX="13.0" layoutY="87.0" mnemonicParsing="false" onAction="#toCustomer" prefHeight="25.0" prefWidth="304.0" style="-fx-background-color: black;" text="Return to Customer Portal" textFill="#605a5a" />
+      <TextField fx:id="cardNumText" layoutX="409.0" layoutY="281.0" onAction="#validateCard" prefHeight="9.0" prefWidth="120.0" style="-fx-background-color: white;" />
+      <PasswordField fx:id="pinText" layoutX="77.0" layoutY="361.0" onAction="#validatePIN" visible="false" />
+      <TextField fx:id="purchaseAmtText" layoutX="77.0" layoutY="361.0" onAction="#validateWithdrawAmt" visible="false" />
+      <TextField fx:id="purchaseNoteText" layoutX="77.0" layoutY="361.0" onAction="#enterNote" visible="false" />
+      <Button fx:id="receiptButton" layoutX="422.0" layoutY="133.0" mnemonicParsing="false" onAction="#viewReceipt" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: red;" text="View Receipt" visible="false" />
    </children>
 </AnchorPane>

@@ -44,6 +44,7 @@ public class ATM {
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
+        renewScene(event);
     }
 
     public void validateCard(ActionEvent event) throws IOException {
@@ -78,7 +79,7 @@ public class ATM {
             //Else stay at position red message pops up on screen.
             atmLabel.setText("Invalid PIN. Please try again.");
             atmLabel.setTextFill(Color.RED);
-            withdrawAmtText.clear();
+            pinText.clear();
         } else {
             //Valid but reached daily withdraw limit. ->  ALSO LIMIT ***
             atmLabel.setText("You cannot withdraw anymore today. You have reached the daily limit.");
@@ -123,7 +124,7 @@ public class ATM {
         receiptPopup.setContentText(s);
         receiptPopup.showAndWait();
         renewScene(event);
-
+        receiptButton.setVisible(false);
     }
 
     public void renewScene(ActionEvent event) throws IOException {
@@ -134,6 +135,7 @@ public class ATM {
        pinText.setVisible(false);
        withdrawAmtText.setVisible(false);
        cardNumText.setDisable(false);
+       //Set visible receipt off when I make new pop up with close button.
     }
 
 
