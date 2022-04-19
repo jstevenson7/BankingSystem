@@ -27,13 +27,10 @@ public abstract class Account
         this.balance = balance;
     }
 
-    public void Withdrawl(int withdraw)
-    {
+    public void Withdrawl(double balance, int withdraw) {setBalance(balance - withdraw);}//end of Withdrawl
 
-    }
-
-    public void Deposit(int deposit)
+    public void Deposit(double balance, int deposit)
     {
-        
-    }
+        setBalance(balance - deposit);
+    }//end of Deposit
 }
