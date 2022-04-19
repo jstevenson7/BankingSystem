@@ -6,14 +6,16 @@ public class Check {
     private String date;
     private String recipient;
     private String description;
+    private String accountNumber;
     private String routingNumber;
     // Constructors
-    public Check(String checkID, double amount, String date, String recipient, String description, String routingNumber) {
+    public Check(String checkID, double amount, String date, String recipient, String description, String accountNumber, String routingNumber) {
         setCheckID(checkID);
         setAmount(amount);
         setDate(date);
         setRecipient(recipient);
         setDescription(description);
+        setAccountNumber(accountNumber);
         setRoutingNumber(routingNumber);
     }
     public Check() {
@@ -25,6 +27,7 @@ public class Check {
     public String getDate() {return date;}
     public String getRecipient() {return recipient;}
     public String getDescription() {return description;}
+    public String getAccountNumber() {return accountNumber;}
     public String getRoutingNumber() {return routingNumber;}
     // Setters
     public void setCheckID(String checkID) {this.checkID = checkID;}
@@ -32,5 +35,6 @@ public class Check {
     public void setDate(String date) {this.date = date;}
     public void setRecipient(String recipient) {this.recipient = recipient;}
     public void setDescription(String description) {this.description = description;}
+    public void setAccountNumber(String accountNumber) {this.accountNumber = accountNumber;}
     public void setRoutingNumber(String routingNumber) {this.routingNumber = routingNumber;}
 }

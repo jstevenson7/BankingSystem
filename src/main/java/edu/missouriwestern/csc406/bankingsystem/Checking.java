@@ -4,15 +4,15 @@ import com.opencsv.bean.CsvBindByName;
 
 public class Checking {
     @CsvBindByName
-    private String routingNumber;
+    private String accountNumber;
     @CsvBindByName
     private double balance;
     @CsvBindByName
     private int accountType;
     @CsvBindByName
     private String customerID;
-    public Checking(String routingNumber, double balance, int accountType, String customerID) {
-        setRoutingNumber(routingNumber);
+    public Checking(String accountNumber, double balance, int accountType, String customerID) {
+        setAccountNumber(accountNumber);
         setBalance(balance);
         setAccountType(accountType);
         setCustomerID(customerID);
@@ -22,12 +22,12 @@ public class Checking {
     }
 
     // Getters
-    public String getRoutingNumber() {return routingNumber;}
+    public String getAccountNumber() {return accountNumber;}
     public double getBalance() {return balance;}
     public int getAccountType() {return accountType;}
     public String getCustomerID() {return customerID;}
     // Setters
-    public void setRoutingNumber(String routingNumber) {this.routingNumber = routingNumber;}
+    public void setAccountNumber(String accountNumber) {this.accountNumber = accountNumber;}
     public void setBalance(double balance) {this.balance = balance;}
     public void setAccountType(int accountType) {this.accountType = accountType;}
     public void setCustomerID(String customerID) {this.customerID = customerID;}

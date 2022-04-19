@@ -1,4 +1,4 @@
-checkID,amount,date,recipient,description,routingNumber
-001,20.39,01/20/2022,Max Concord,Mowing,9991
-002,15.99,04/19/2022,Joe Smith,Plumbing,9991
-003,93.55,03/20/2022,Mick Wright,Steak Dinner,9991
+checkID,amount,date,recipient,description,accountNumber,routingNumber
+001,20.39,01/20/2022,Max Concord,Mowing,9991,111
+002,15.99,04/19/2022,Joe Smith,Plumbing,9991,111
+003,93.55,03/20/2022,Mick Wright,Steak Dinner,9991,111
