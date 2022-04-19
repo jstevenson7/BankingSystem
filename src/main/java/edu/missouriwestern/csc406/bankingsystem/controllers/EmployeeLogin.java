@@ -46,7 +46,12 @@ public class EmployeeLogin {
                     toManager(event);
                 } else toTeller(event);
                 break;
-            } else loginLabel.setText("Incorrect Login Credentials");
+            } else {
+                loginLabel.setText("Incorrect Login Credentials");
+                employeeID.clear();
+                password.clear();
+
+            }
         }
     }
     public void toActor(ActionEvent event) throws IOException {
