@@ -159,6 +159,104 @@ public class DB {
      *
      * NOTE: Returns NULL if employee not found
      * */
+    // Method for reading from checking.csv to ArrayList
+    public static ArrayList<Checking> readCheckingCSV() throws IOException {
+        // Create an arrayList to hold checking objects
+        ArrayList<Checking> checkings = new ArrayList<>();
+        // Create reader to read from the checking.csv file located in src
+        Reader reader = Files.newBufferedReader(Path.of("src/checking.csv"));
+        // Set column mapping strategy
+        ColumnPositionMappingStrategy<Checking> strat = new ColumnPositionMappingStrategyBuilder<Checking>().build();
+        // Set strategy class type
+        strat.setType(Checking.class);
+        // Set column names
+        strat.setColumnMapping(new String[]{"routingNumber", "balance", "accountType", "customerID"});
+        // Create bean of type
+        CsvToBean<Checking> bean = new CsvToBeanBuilder<Checking>(reader).withMappingStrategy(strat).withSkipLines(1).build();
+
+        // iterate through bean and add to list
+        Iterator<Checking> checkingIterator = bean.iterator();
+        while (checkingIterator.hasNext()) {
+            Checking checking = checkingIterator.next();
+            checkings.add(checking);
+        }
+        reader.close();
+        // return arrayList
+        return checkings;
+    }
+    // Method for writing checking ArrayList to checking.csv
+    public static void writeCheckingCSV(ArrayList<Checking> checkings) throws IOException {
+        // Create writer to write to the checking.csv file located in src
+        Writer writer = Files.newBufferedWriter(Paths.get("src/checking.csv"));
+        // Create mapping strategy for columns
+        ColumnPositionMappingStrategy<Checking> strat = new ColumnPositionMappingStrategyBuilder<Checking>().build();
+        // Set mapping strategy class type
+        strat.setType(Checking.class);
+        // Set mapping strategy column names
+        strat.setColumnMapping(new String[]{"routingNumber", "balance", "accountType", "customerID"});
+        // Create bean of type employee
+        StatefulBeanToCsv<Checking> beanToCsv = new StatefulBeanToCsvBuilder<Checking>(writer).withApplyQuotesToAll(false).withMappingStrategy(strat).build();
+        try {
+            // Write header column names
+            writer.write("routingNumber,balance,accountType,customerID\n");
+            // Write contents of employee arrayList to employee.csv
+            beanToCsv.write(checkings);
+        } catch (CsvDataTypeMismatchException e) {
+            e.printStackTrace();
+        } catch (CsvRequiredFieldEmptyException e) {
+            e.printStackTrace();
+        }
+        writer.close();
+    }
+    // Method for reading from checks.csv to ArrayList
+    public static ArrayList<Check> readCheckCSV() throws IOException {
+        // Create an arrayList to hold check objects
+        ArrayList<Check> checks = new ArrayList<>();
+        // Create reader to read from the checks.csv file located in src
+        Reader reader = Files.newBufferedReader(Path.of("src/checks.csv"));
+        // Set column mapping strategy
+        ColumnPositionMappingStrategy<Check> strat = new ColumnPositionMappingStrategyBuilder<Check>().build();
+        // Set strategy class type
+        strat.setType(Check.class);
+        // Set column names
+        strat.setColumnMapping(new String[]{"checkID","amount","date","recipient","description","routingNumber"});
+        // Create bean of type
+        CsvToBean<Check> bean = new CsvToBeanBuilder<Check>(reader).withMappingStrategy(strat).withSkipLines(1).build();
+
+        // iterate through bean and add to list
+        Iterator<Check> checkingIterator = bean.iterator();
+        while (checkingIterator.hasNext()) {
+            Check check = checkingIterator.next();
+            checks.add(check);
+        }
+        reader.close();
+        // return arrayList
+        return checks;
+    }
+    // Method for writing check ArrayList to checks.csv
+    public static void writeCheckCSV(ArrayList<Check> checks) throws IOException {
+        // Create writer to write to the checks.csv file located in src
+        Writer writer = Files.newBufferedWriter(Paths.get("src/checks.csv"));
+        // Create mapping strategy for columns
+        ColumnPositionMappingStrategy<Check> strat = new ColumnPositionMappingStrategyBuilder<Check>().build();
+        // Set mapping strategy class type
+        strat.setType(Check.class);
+        // Set mapping strategy column names
+        strat.setColumnMapping(new String[]{"checkID","amount","date","recipient","description","routingNumber"});
+        // Create bean of type employee
+        StatefulBeanToCsv<Check> beanToCsv = new StatefulBeanToCsvBuilder<Check>(writer).withApplyQuotesToAll(false).withMappingStrategy(strat).build();
+        try {
+            // Write header column names
+            writer.write("checkID,amount,date,recipient,description,routingNumber\n");
+            // Write contents of employee arrayList to employee.csv
+            beanToCsv.write(checks);
+        } catch (CsvDataTypeMismatchException e) {
+            e.printStackTrace();
+        } catch (CsvRequiredFieldEmptyException e) {
+            e.printStackTrace();
+        }
+        writer.close();
+    }
     public static Employee searchEmployee(String employeeID, ArrayList<Employee> employees) {
         for (Employee e: employees) {
             if (e.getEmployeeID().equals(employeeID)) {
@@ -178,6 +276,24 @@ public class DB {
     public static Customer searchCustomer(String customerID, ArrayList<Customer> customers) {
         for (Customer c: customers) {
             if (c.getCustomerID().equals(customerID)) {
+                return c;
+            }
+        }
+        return null;
+    }
+    // Searches through Checking arraylist and return checking where matches customerID
+    public static Checking searchChecking(String customerID, ArrayList<Checking> checkings) {
+        for (Checking c: checkings) {
+            if (c.getCustomerID().equals(customerID)) {
+                return c;
+            }
+        }
+        return null;
+    }
+    // Searches through checks arraylist and returns check where routingNumber matches
+    public static Check searchChecks(String routingNumber, ArrayList<Check> checks) {
+        for (Check c: checks) {
+            if (c.getRoutingNumber().equals(routingNumber)) {
                 return c;
             }
         }
