@@ -1,8 +1,8 @@
 employeeID,lastName,firstName,isManager,password
 1,Stone,Marshall,1,12345
-2,Wilson,Christin,0,111a11
+2,Wilson,Christin,0,11111
 3,Mesmer,Josh,0,abcde
 4,Stevenson,Josh,0,543321
-5,Touchstone,Justice,0,123v21
-6,Morcha,Kaleb,0,3212z3
-7,McNeely,Riley,0,987165
+5,Touchstone,Justice,0,12321
+6,Morcha,Kaleb,0,32123
+7,McNeely,Riley,0,98765

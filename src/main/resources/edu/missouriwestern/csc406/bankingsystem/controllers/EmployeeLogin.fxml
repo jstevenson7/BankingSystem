@@ -65,7 +65,7 @@
       <Pane layoutX="263.0" layoutY="262.0" prefHeight="138.0" prefWidth="337.0" style="-fx-background-color: white;">
          <children>
             <Button fx:id="returnActorButton" layoutX="76.0" layoutY="2.0" mnemonicParsing="false" onAction="#toActor" text="Return to Select Actor" />
-            <Button fx:id="loginPassword" layoutX="245.0" layoutY="2.0" mnemonicParsing="false" onAction="#login" text="Login " />
+            <Button fx:id="loginButton" layoutX="245.0" layoutY="2.0" mnemonicParsing="false" onAction="#login" text="Login " />
             <Label fx:id="loginLabel" layoutX="158.0" layoutY="108.0" textFill="RED" />
          </children>
       </Pane>
