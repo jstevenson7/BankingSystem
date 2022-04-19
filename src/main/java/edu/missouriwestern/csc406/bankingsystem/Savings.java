@@ -2,7 +2,7 @@ package edu.missouriwestern.csc406.bankingsystem;
 
 public class Savings extends Account
 {
-    
+    String accountType;
     
     public Savings(int custID, double balance) {
         super(custID, balance);
@@ -12,11 +12,11 @@ public class Savings extends Account
     {
         if (balance >= 1000.00)
         {
-            //accounttype = "Gold/Diamond Account";
+            accountType = "Gold/Diamond Account";
         }
         else if (balance < 1000.00)
         {
-            //accounttype = "That's My Bank";
+            accountType = "That's My Bank";
         }
     }
     

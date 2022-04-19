@@ -39,19 +39,17 @@ public class EmployeeLogin {
 
     public void login(ActionEvent event) throws IOException {
         employees = DB.readEmployeeCSV();
-        for (Employee e : employees) {
-            if (e.getEmployeeID().equals(employeeID.getText()) && e.getPassword().equals(password.getText())) {
-                System.out.println(e.getFirstName());
-                if (e.getIsManager() == 1){
-                    toManager(event);
-                } else toTeller(event);
-                break;
-            } else {
-                loginLabel.setText("Incorrect Login Credentials");
-                employeeID.clear();
-                password.clear();
+        Employee emp = DB.searchEmployee(employeeID.getText(), employees);
+        if (emp.getEmployeeID().equals(employeeID.getText()) && emp.getPassword().equals(password.getText())) {
+            //System.out.println(emp.getFirstName());
+            if (emp.getIsManager() == 1){
+                toManager(event);
+            } else toTeller(event);
+        } else {
+            loginLabel.setText("Incorrect Login Credentials");
+            employeeID.clear();
+            password.clear();
 
-            }
         }
     }
     public void toActor(ActionEvent event) throws IOException {

@@ -21,8 +21,8 @@ public class DB {
     * an arrayList of customer objects.
     *
     * EXAMPLE:
-    * DB db = new DB();
-    * Arraylist<Customer> customers = db.readCustomersCSV();
+    *
+    * ArrayList<Customer> customers = DB.readCustomersCSV();
     *
     * The arrayList now has customer objects from the csv file.
     * */
@@ -36,7 +36,7 @@ public class DB {
         // Set class type for strategy
         strat.setType(Customer.class);
         // Set columns
-        strat.setColumnMapping(new String[]{"SSN", "Address", "City", "State", "Zip", "firstName", "lastName", "customerID"});
+        strat.setColumnMapping(new String[]{"SSN", "Address", "City", "State", "Zip", "firstName", "lastName","atmNumber","creditCardPin","customerID"});
         // Create bean of type customer
         CsvToBean<Customer> bean = new CsvToBeanBuilder<Customer>(reader).withMappingStrategy(strat).withSkipLines(1).build();
 
@@ -56,8 +56,7 @@ public class DB {
      * the customers.csv file.
      *
      * EXAMPLE:
-     * DB db = new DB();
-     * writeCustomerCSV(CustomerArrayList);
+     * DB.writeCustomerCSV(CustomerArrayList);
      *
      * The customers.csv file now has the contents of the customers arrayList.
      * */
@@ -69,12 +68,12 @@ public class DB {
         // Set class type for the mapping strategy
         strat.setType(Customer.class);
         // Set column names for the mapping strategy
-        strat.setColumnMapping(new String[]{"SSN", "Address", "City", "State", "Zip", "firstName", "lastName", "customerID"});
+        strat.setColumnMapping(new String[]{"SSN", "Address", "City", "State", "Zip", "firstName", "lastName","atmNumber","creditCardPin","customerID"});
         // Create bean of type Customers with the created mapping strategy
         StatefulBeanToCsv<Customer> beanToCsv = new StatefulBeanToCsvBuilder<Customer>(writer).withApplyQuotesToAll(false).withMappingStrategy(strat).build();
         try {
             // Write the header first
-            writer.write("SSN,Address,City,State,Zip,firstName,lastName,customerID\n");
+            writer.write("SSN,Address,City,State,Zip,firstName,lastName,atmNumber,creditCartPin,customerID\n");
             // Write the customers arrayList to the customers.csv file
             beanToCsv.write(customers);
         } catch (CsvDataTypeMismatchException e) {
@@ -89,8 +88,8 @@ public class DB {
      * an arrayList of employee objects.
      *
      * EXAMPLE:
-     * DB db = new DB();
-     * Arraylist<Employee> Employees = db.readEmployeeCSV();
+     *
+     * ArrayList<Employee> Employees = DB.readEmployeeCSV();
      *
      * The arrayList now has customer objects from the csv file.
      * */
@@ -124,8 +123,8 @@ public class DB {
      * the employee.csv file.
      *
      * EXAMPLE:
-     * DB db = new DB();
-     * writeEmployeeCSV(EmployeeArrayList);
+     *
+     * DB.writeEmployeeCSV(EmployeeArrayList);
      *
      * The Employee.csv file now has the contents of the employee arrayList.
      * */

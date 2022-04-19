@@ -74,6 +74,9 @@ public class LoadData {
         stage.setResizable(false);
         stage.show();
     }
+    public void load(ActionEvent event) throws IOException {
+        System.out.println("reading from database csv");
+    }
 
     @FXML
     private void initialize(){
