@@ -6,7 +6,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -18,9 +24,17 @@ public class ATM {
     private Parent root;
 
     @FXML
-    private Button atmCardButton;
-    @FXML
     private Button returnCustomerButton;
+    @FXML
+    private TextField cardNumText;
+    @FXML
+    private PasswordField pinText;
+    @FXML
+    private Label atmLabel;
+    @FXML
+    private TextField withdrawAmtText;
+    @FXML
+    private Button receiptButton;
 
 
     public void toCustomer(ActionEvent event) throws IOException {
@@ -32,12 +46,103 @@ public class ATM {
         stage.show();
     }
 
+    public void validateCard(ActionEvent event) throws IOException {
+        //Need to validate.
+        int cardNum = Integer.parseInt(cardNumText.getText());
+
+        //If valid continue to enter pin
+        if (cardNum == 1) {
+            atmLabel.setText("Please enter your pin.");
+            atmLabel.setTextFill(Color.BLACK);
+            pinText.setVisible(true);
+            cardNumText.setDisable(true);
+        } else if(cardNum == 0) {
+            //Else stay at position red message pops up on screen.
+            atmLabel.setText("Card not recognized. Please try again.");
+            atmLabel.setTextFill(Color.RED);
+            cardNumText.clear();
+        }
+    }
+
+    public void validatePIN(ActionEvent event) throws IOException {
+        //Need to validate.
+        int pin = Integer.parseInt(pinText.getText());
+
+        //If valid continue to enter pin
+        if (pin == 1) {
+            atmLabel.setText("Please enter the amount you would like to withdraw.");
+            atmLabel.setTextFill(Color.BLACK);
+            pinText.setVisible(false);
+            withdrawAmtText.setVisible(true);
+        } else if(pin == 0) {
+            //Else stay at position red message pops up on screen.
+            atmLabel.setText("Invalid PIN. Please try again.");
+            atmLabel.setTextFill(Color.RED);
+            withdrawAmtText.clear();
+        } else {
+            //Valid but reached daily withdraw limit. ->  ALSO LIMIT ***
+            atmLabel.setText("You cannot withdraw anymore today. You have reached the daily limit.");
+            atmLabel.setTextFill(Color.RED);
+            cardNumText.clear();
+            pinText.clear();
+            withdrawAmtText.clear();
+            pinText.setVisible(false);
+            withdrawAmtText.setVisible(false);
+            cardNumText.setDisable(false);
+        }
+    }
+
+    public void validateWithdrawAmt(ActionEvent event) throws IOException {
+        //Need to validate.
+        int withdrawAmt = Integer.parseInt(withdrawAmtText.getText());
+
+        //If valid continue to enter withdraw amount.
+        if (withdrawAmt == 1) {
+            atmLabel.setText("Withdraw was a success! Please view receipt.");
+            atmLabel.setTextFill(Color.BLACK);
+            withdrawAmtText.setVisible(false);
+            receiptButton.setVisible(true);
+        } else if(withdrawAmt == 0) {
+            //Else stay at position red message pops up on screen.
+            atmLabel.setText("Insufficient funds. Please try again.");
+            atmLabel.setTextFill(Color.RED);
+            withdrawAmtText.clear();
+        }
+    }
+
+
+    public void viewReceipt(ActionEvent event) throws IOException {
+
+        Alert receiptPopup = new Alert(Alert.AlertType.CONFIRMATION);
+        double withdrawAmt = 0;
+        String name = "Jimmy";
+        double newBalance = 0;
+        int acc = 123;
+        String s = String.format("See you next time %s!\nAmount withdrawn: %f\n" +
+                "From Account: %d \nNew Balance: %f", name, withdrawAmt, acc, newBalance);
+        receiptPopup.setContentText(s);
+        receiptPopup.showAndWait();
+        renewScene(event);
+
+    }
+
+    public void renewScene(ActionEvent event) throws IOException {
+       atmLabel.setText("Please enter your ATM card number.");
+       cardNumText.clear();
+       pinText.clear();
+       withdrawAmtText.clear();
+       pinText.setVisible(false);
+       withdrawAmtText.setVisible(false);
+       cardNumText.setDisable(false);
+    }
+
+
+
+
     @FXML
     private void initialize(){
-
         returnCustomerButton.setOnMouseEntered(event -> returnCustomerButton.setStyle("-fx-background-color: #ffffff"));
         returnCustomerButton.setOnMouseExited(event -> returnCustomerButton.setStyle("-fx-background-color:  #000000"));
-
     }
 
 
