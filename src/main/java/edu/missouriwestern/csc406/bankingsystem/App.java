@@ -5,6 +5,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.concurrent.CyclicBarrier;
+
 /**
  *
  *
@@ -12,8 +17,20 @@ import javafx.stage.Stage;
  */
 public class App extends Application {
 
-    public static void main(String[] args){
+    public static void main(String[] args) throws IOException {
+        /**
+        ArrayList<Customer> customers = DB.readCustomersCSV();
+        Customer customer = DB.searchCustomer(customers.get(0).getCustomerID(), customers);
+        System.out.println(customer.getFirstName()+" "+customer.getLastName()+" "+customer.getCustomerID());
 
+        ArrayList<Checking> checkings = DB.readCheckingCSV();
+        Checking checking = DB.searchChecking(customer.getCustomerID(), checkings);
+        System.out.println(checking.getAccountNumber()+" "+checking.getBalance());
+
+        ArrayList<Check> checks = DB.readCheckCSV();
+        Check check = DB.searchChecks("001", checking.getAccountNumber(), checks);
+        System.out.println(check.getCheckID()+" "+check.getAmount());
+         **/
         launch();
     } //End of main.
 
