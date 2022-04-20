@@ -42,13 +42,13 @@
          </image>
       </ImageView>
       <Button fx:id="returnCustomerButton" layoutX="38.0" layoutY="87.0" mnemonicParsing="false" onAction="#toCustomer" prefHeight="25.0" prefWidth="304.0" style="-fx-background-color: black;" text="Return to Customer Portal" textFill="#605a5a" />
-      <TextField fx:id="cardNumText" layoutX="115.0" layoutY="334.0" onAction="#validateCard" prefHeight="6.0" prefWidth="151.0" style="-fx-border-color: red;" />
+      <TextField fx:id="cardNumText" layoutX="115.0" layoutY="334.0" prefHeight="6.0" prefWidth="151.0" style="-fx-border-color: red;" />
       <ImageView fitHeight="174.0" fitWidth="165.0" layoutX="380.0" layoutY="93.0">
          <image>
             <Image url="@../../../../../Images/KeyPad.png" />
          </image>
       </ImageView>
-      <PasswordField fx:id="pinText" layoutX="388.0" layoutY="282.0" onAction="#validatePIN" visible="false" />
+      <PasswordField fx:id="pinText" layoutX="388.0" layoutY="282.0" onAction="#validatePIN" />
       <TextField fx:id="withdrawAmtText" layoutX="388.0" layoutY="282.0" onAction="#validateWithdrawAmt" visible="false" />
       <Button fx:id="receiptButton" layoutX="402.0" layoutY="332.0" mnemonicParsing="false" onAction="#viewReceipt" prefHeight="58.0" prefWidth="122.0" style="-fx-background-color: white;" visible="false" />
    </children>

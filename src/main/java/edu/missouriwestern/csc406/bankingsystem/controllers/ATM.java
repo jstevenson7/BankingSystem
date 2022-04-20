@@ -44,7 +44,7 @@ public class ATM {
         stage.show();
         renewScene(event);
     }
-
+/*
     public void validateCard(ActionEvent event) throws IOException {
         ArrayList<Customer> customers = DB.readCustomersCSV();
         Customer customer = DB.searchCreditCardCustomer(Integer.parseInt(cardNumText.getText()), customers);
@@ -66,7 +66,7 @@ public class ATM {
             cardNumText.clear();
         }
     }
-
+*/
     public void validatePIN(ActionEvent event) throws IOException {
         //Need to validate.
         int pin = Integer.parseInt(pinText.getText());
