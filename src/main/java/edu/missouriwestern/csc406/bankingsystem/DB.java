@@ -209,11 +209,11 @@ public class DB {
         writer.close();
     }
     // Method for reading from checks.csv to ArrayList
-    public static ArrayList<Check> readCheckCSV() throws IOException {
+    public static ArrayList<Check> readProcessedCheckCSV() throws IOException {
         // Create an arrayList to hold check objects
         ArrayList<Check> checks = new ArrayList<>();
         // Create reader to read from the checks.csv file located in src
-        Reader reader = Files.newBufferedReader(Path.of("src/checks.csv"));
+        Reader reader = Files.newBufferedReader(Path.of("src/processedChecks.csv"));
         // Set column mapping strategy
         ColumnPositionMappingStrategy<Check> strat = new ColumnPositionMappingStrategyBuilder<Check>().build();
         // Set strategy class type
@@ -234,9 +234,9 @@ public class DB {
         return checks;
     }
     // Method for writing check ArrayList to checks.csv
-    public static void writeCheckCSV(ArrayList<Check> checks) throws IOException {
+    public static void writeProcessedCheckCSV(ArrayList<Check> checks) throws IOException {
         // Create writer to write to the checks.csv file located in src
-        Writer writer = Files.newBufferedWriter(Paths.get("src/checks.csv"));
+        Writer writer = Files.newBufferedWriter(Paths.get("src/processedChecks.csv"));
         // Create mapping strategy for columns
         ColumnPositionMappingStrategy<Check> strat = new ColumnPositionMappingStrategyBuilder<Check>().build();
         // Set mapping strategy class type
@@ -249,6 +249,55 @@ public class DB {
             // Write header column names
             writer.write("checkID,amount,date,recipient,description,accountNumber,routingNumber\n");
             // Write contents of employee arrayList to employee.csv
+            beanToCsv.write(checks);
+        } catch (CsvDataTypeMismatchException e) {
+            e.printStackTrace();
+        } catch (CsvRequiredFieldEmptyException e) {
+            e.printStackTrace();
+        }
+        writer.close();
+    }
+    // Method for reading from UNPROCESSED checks.csv to ArrayList
+    public static ArrayList<Check> readUnprocessedCheckCSV() throws IOException {
+        // Create an arrayList to hold check objects
+        ArrayList<Check> checks = new ArrayList<>();
+        // Create reader to read from the checks.csv file located in src
+        Reader reader = Files.newBufferedReader(Path.of("src/unprocessedChecks.csv"));
+        // Set column mapping strategy
+        ColumnPositionMappingStrategy<Check> strat = new ColumnPositionMappingStrategyBuilder<Check>().build();
+        // Set strategy class type
+        strat.setType(Check.class);
+        // Set column names
+        strat.setColumnMapping(new String[]{"checkID","amount","date","recipient","description","accountNumber","routingNumber"});
+        // Create bean of type
+        CsvToBean<Check> bean = new CsvToBeanBuilder<Check>(reader).withMappingStrategy(strat).withSkipLines(1).build();
+
+        // iterate through bean and add to list
+        Iterator<Check> checkingIterator = bean.iterator();
+        while (checkingIterator.hasNext()) {
+            Check check = checkingIterator.next();
+            checks.add(check);
+        }
+        reader.close();
+        // return arrayList
+        return checks;
+    }
+    // Method for writing check UNPROCESSED ArrayList to checks.csv
+    public static void writeUnprocessedCheckCSV(ArrayList<Check> checks) throws IOException {
+        // Create writer to write to the checks.csv file located in src
+        Writer writer = Files.newBufferedWriter(Paths.get("src/unprocessedChecks.csv"));
+        // Create mapping strategy for columns
+        ColumnPositionMappingStrategy<Check> strat = new ColumnPositionMappingStrategyBuilder<Check>().build();
+        // Set mapping strategy class type
+        strat.setType(Check.class);
+        // Set mapping strategy column names
+        strat.setColumnMapping(new String[]{"checkID","amount","date","recipient","description","accountNumber","routingNumber"});
+        // Create bean of type check
+        StatefulBeanToCsv<Check> beanToCsv = new StatefulBeanToCsvBuilder<Check>(writer).withApplyQuotesToAll(false).withMappingStrategy(strat).build();
+        try {
+            // Write header column names
+            writer.write("checkID,amount,date,recipient,description,accountNumber,routingNumber\n");
+            // Write contents of checks to check.csv
             beanToCsv.write(checks);
         } catch (CsvDataTypeMismatchException e) {
             e.printStackTrace();
@@ -314,5 +363,27 @@ public class DB {
             }
         }
         return null;
+    }
+    public static Boolean verifyAccountNumber(String accountNumber, ArrayList<Checking> checkings) {
+        for (Checking c: checkings) {
+            if (c.getAccountNumber().equals(accountNumber)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    // Searches through unprocessedChecks and processedChecks arraylist and returns true if check exists
+    public static Boolean verifyChecks(String checkID, String accountNumber, ArrayList<Check> unprocessedChecks, ArrayList<Check> processedChecks) {
+        for (Check c: unprocessedChecks) {
+            if (c.getCheckID().equals(checkID) && c.getAccountNumber().equals(accountNumber)) {
+                return true;
+            }
+        }
+        for (Check c: processedChecks) {
+            if (c.getCheckID().equals(checkID) && c.getAccountNumber().equals(accountNumber)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

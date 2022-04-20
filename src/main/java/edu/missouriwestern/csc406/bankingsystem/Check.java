@@ -7,8 +7,6 @@ public class Check {
     private String recipient;
     private String description;
     private String accountNumber;
-
-
     private String routingNumber;
     // Constructors
     public Check(String checkID, double amount, String date, String recipient, String description, String accountNumber, String routingNumber) {

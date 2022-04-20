@@ -1,6 +1,7 @@
 package edu.missouriwestern.csc406.bankingsystem.controllers;
 
 import edu.missouriwestern.csc406.bankingsystem.Check;
+import edu.missouriwestern.csc406.bankingsystem.Checking;
 import edu.missouriwestern.csc406.bankingsystem.DB;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -55,34 +56,38 @@ public class InsertCheck {
     }
 
     public void validateCheck(ActionEvent event) throws IOException {
+        // Read in checks to ArrayList from csv file
+        ArrayList<Check> unprocessedChecks = DB.readUnprocessedCheckCSV();
+        ArrayList<Check> processedChecks = DB.readProcessedCheckCSV();
+        ArrayList<Checking> checkings = DB.readCheckingCSV();
         // Need to verify that all boxes are filled
-        // create check from textFields
         if(checkNumText.getText().isBlank() || amtText.getText().isBlank() ||
                 dateText.getText().isBlank() || payToText.getText().isBlank() ||
                 noteText.getText().isBlank() || accNumText.getText().isBlank() ||
                 routNumText.getText().isBlank()) {
             checkLabel.setText("All fields are required. Please try again.");
             checkLabel.setTextFill(Color.RED);
+        } else if(!DB.verifyAccountNumber(accNumText.getText(), checkings)) {
+            // If accountNumber is not in database
+            checkLabel.setText("Invalid Account Number!");
+            checkLabel.setTextFill(Color.RED);
+        } else if(DB.verifyChecks(checkNumText.getText(), accNumText.getText(), unprocessedChecks, processedChecks)) {
+            // If checkID is invalid/already used
+            checkLabel.setText("Invalid Check Number!");
+            checkLabel.setTextFill(Color.RED);
         } else {
-        Check check = new Check(checkNumText.getText(), Double.parseDouble(amtText.getText()),
+            // create check from textFields
+            Check check = new Check(checkNumText.getText(), Double.parseDouble(amtText.getText()),
                 dateText.getText(), payToText.getText(), noteText.getText(),
                 accNumText.getText(), routNumText.getText());
-        // Read in checks to ArrayList from csv file
-        ArrayList<Check> checks = DB.readCheckCSV();
-        // add new check
-        checks.add(check);
-        // Write back to csv
-        DB.writeCheckCSV(checks);
-        receiptButton.setDisable(false);
-        checkLabel.setTextFill(Color.BLACK);
-        checkLabel.setText("Check is valid you can now view your check submission receipt!");
-        // If boxes are not all filled
-        /**
-        } else {
-            checkLabel.setText("Invalid Check. Please try again.");
-            checkLabel.setTextFill(Color.RED);
-        }
-         **/
+            // add new check
+            unprocessedChecks.add(check);
+            // Write back to csv
+            DB.writeUnprocessedCheckCSV(unprocessedChecks);
+            receiptButton.setDisable(false);
+            checkLabel.setTextFill(Color.BLACK);
+            checkLabel.setText("Check is valid you can now view your check submission receipt!");
+            // If boxes are not all filled
         }
     }
 
