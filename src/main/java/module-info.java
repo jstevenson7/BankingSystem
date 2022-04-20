@@ -15,4 +15,6 @@ module BankingSystem {
     exports edu.missouriwestern.csc406.bankingsystem;
     opens edu.missouriwestern.csc406.bankingsystem.controllers to javafx.fxml;
     exports edu.missouriwestern.csc406.bankingsystem.controllers;
+    exports extras;
+    opens extras to javafx.fxml;
 }

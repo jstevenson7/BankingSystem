@@ -5,8 +5,7 @@ public abstract class Account
     int custID;
     double balance;
 
-    public Account( int custID, double balance)
-    {
+    public Account( int custID, double balance) {
         setCustID(custID);
         setBalance(balance);
     }

@@ -23,7 +23,7 @@
                   </Text>
                </children>
             </Pane>
-            <Button fx:id="returnEmployeeButton" alignment="CENTER" mnemonicParsing="false" onAction="#toEmployee" prefHeight="0.0" prefWidth="198.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Return to Login">
+            <Button fx:id="returnEmployeeButton" alignment="CENTER" mnemonicParsing="false" onAction="#toEmployee" prefHeight="48.0" prefWidth="198.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Return to Login">
                <font>
                   <Font name="Gill Sans MT" size="13.0" />
                </font>
@@ -35,7 +35,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="manageCustomersButton" alignment="CENTER" mnemonicParsing="false" onAction="#toManageCustomer" prefHeight="15.0" prefWidth="198.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Create a Customer" textAlignment="CENTER">
+            <Button fx:id="manageCustomersButton" alignment="CENTER" mnemonicParsing="false" onAction="#toManageCustomer" prefHeight="40.0" prefWidth="198.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Manage Customers" textAlignment="CENTER">
                <font>
                   <Font name="Gill Sans MT" size="13.0" />
                </font>
@@ -47,7 +47,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="12.0" prefWidth="198.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Open a New Account">
+            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="41.0" prefWidth="198.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Open a New Account">
                <font>
                   <Font name="Gill Sans MT" size="13.0" />
                </font>
@@ -59,7 +59,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="15.0" prefWidth="198.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Paper Deposit">
+            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="45.0" prefWidth="198.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Manage Transactions">
                <font>
                   <Font name="Gill Sans MT" size="13.0" />
                </font>
@@ -71,7 +71,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="returnEmployeeButton4" alignment="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="198.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Withdraw">
+            <Button fx:id="returnEmployeeButton5" alignment="CENTER" mnemonicParsing="false" prefHeight="38.0" prefWidth="198.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Stop Payment">
                <font>
                   <Font name="Gill Sans MT" size="13.0" />
                </font>
@@ -83,7 +83,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="returnEmployeeButton5" alignment="CENTER" mnemonicParsing="false" prefHeight="22.0" prefWidth="198.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Stop Payment">
+            <Button fx:id="returnEmployeeButton6" alignment="CENTER" mnemonicParsing="false" prefHeight="42.0" prefWidth="198.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Set up Auto Pay">
                <font>
                   <Font name="Gill Sans MT" size="13.0" />
                </font>
@@ -95,43 +95,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="returnEmployeeButton6" alignment="CENTER" mnemonicParsing="false" prefHeight="16.0" prefWidth="198.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Set up Auto Pay">
-               <font>
-                  <Font name="Gill Sans MT" size="13.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="24.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../../Images/backArrow1.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button fx:id="returnEmployeeButton611" alignment="CENTER" mnemonicParsing="false" prefHeight="22.0" prefWidth="198.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Transfer Money">
-               <font>
-                  <Font name="Gill Sans MT" size="13.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="24.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../../Images/backArrow1.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button fx:id="returnEmployeeButton61" alignment="CENTER" mnemonicParsing="false" prefHeight="24.0" prefWidth="198.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Set up Overdraft Protection">
-               <font>
-                  <Font name="Gill Sans MT" size="13.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="24.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../../Images/backArrow1.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button fx:id="returnEmployeeButton6111" alignment="CENTER" mnemonicParsing="false" prefHeight="22.0" prefWidth="198.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Review an Account">
+            <Button fx:id="returnEmployeeButton61" alignment="CENTER" mnemonicParsing="false" prefHeight="59.0" prefWidth="198.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Set up Overdraft Protection">
                <font>
                   <Font name="Gill Sans MT" size="13.0" />
                </font>

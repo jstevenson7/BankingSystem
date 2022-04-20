@@ -48,8 +48,8 @@ public class ATM {
     public void validateCard(ActionEvent event) throws IOException {
         ArrayList<Customer> customers = DB.readCustomersCSV();
         Customer customer = DB.searchCreditCardCustomer(Integer.parseInt(cardNumText.getText()), customers);
-        atmLabel.setText("Welcome "+ customer.getFirstName()+"!");
-        /**
+        //atmLabel.setText("Welcome "+ customer.getFirstName()+"!");
+
         //Need to validate.
         int cardNum = Integer.parseInt(cardNumText.getText());
 
@@ -65,7 +65,6 @@ public class ATM {
             atmLabel.setTextFill(Color.RED);
             cardNumText.clear();
         }
-         **/
     }
 
     public void validatePIN(ActionEvent event) throws IOException {
@@ -114,7 +113,6 @@ public class ATM {
         }
     }
 
-
     public void viewReceipt(ActionEvent event) throws IOException {
 
         Alert receiptPopup = new Alert(Alert.AlertType.CONFIRMATION);
@@ -140,9 +138,6 @@ public class ATM {
        cardNumText.setDisable(false);
        //Set visible receipt off when I make new pop up with close button.
     }
-
-
-
 
     @FXML
     private void initialize(){

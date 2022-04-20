@@ -6,9 +6,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.MenuButton;
+import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -28,7 +27,23 @@ public class ManageCustomers {
     @FXML
     private Button reviewACustomerButton;
     @FXML
-    private ChoiceBox<String> stateBox;
+    private TextField ssnText;
+    @FXML
+    private TextField fNameText;
+    @FXML
+    private TextField lNameText;
+    @FXML
+    private TextField addressText;
+    @FXML
+    private TextField cityText;
+    @FXML
+    private ComboBox<String> stateBox;
+    @FXML
+    private TextField zipText;
+    @FXML
+    private ComboBox<String> accountBox;
+    @FXML
+    private AnchorPane createAnchor;
 
     public void toTeller(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("Teller.fxml"));
@@ -37,6 +52,17 @@ public class ManageCustomers {
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
+    }
+
+    public void displayCreate(ActionEvent event) throws IOException {
+        createAnchor.setVisible(true);
+    }
+    public void displayDelete(ActionEvent event) throws IOException {
+        createAnchor.setVisible(true);
+    }
+    public void displayReview(ActionEvent event) throws IOException {
+        createAnchor.setVisible(true);
+
     }
 
     @FXML
@@ -54,6 +80,10 @@ public class ManageCustomers {
         stateBox.getItems().addAll("AL","AK","AZ","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI",
                 "MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX",
                 "UT","VT","VA","WA","WV","WI","WY");
+        stateBox.setVisibleRowCount(9);
+
+        accountBox.getItems().addAll("Checking", "Saving", "Loans");
+        accountBox.setVisibleRowCount(5);
 
     }
 
