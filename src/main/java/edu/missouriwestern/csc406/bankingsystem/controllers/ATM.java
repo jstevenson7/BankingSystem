@@ -1,7 +1,5 @@
 package edu.missouriwestern.csc406.bankingsystem.controllers;
 
-import edu.missouriwestern.csc406.bankingsystem.Customer;
-import edu.missouriwestern.csc406.bankingsystem.DB;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,9 +9,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-
 import java.io.IOException;
-import java.util.ArrayList;
+
 
 public class ATM {
 

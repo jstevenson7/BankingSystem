@@ -44,6 +44,8 @@ public class ManageCustomers {
     private TextField cZipText;
     @FXML
     private ComboBox<String> cAccountBox;
+    @FXML
+    private Button cCreateButton;
 
     /* --- DELETE ANCHOR DATA --- */
     @FXML
