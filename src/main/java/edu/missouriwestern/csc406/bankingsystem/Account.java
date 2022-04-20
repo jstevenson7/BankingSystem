@@ -31,6 +31,6 @@ public abstract class Account
 
     public void Deposit(double balance, int deposit)
     {
-        setBalance(balance - deposit);
+        setBalance(balance + deposit);
     }//end of Deposit
-}
+}//end of class Account
