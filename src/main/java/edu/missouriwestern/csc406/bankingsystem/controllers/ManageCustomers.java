@@ -79,6 +79,13 @@ public class ManageCustomers {
         mainAnchor.setVisible(false);
         deleteAnchor.setVisible(false);
         createAnchor.setVisible(true);
+
+        //Load customers
+        ArrayList<Customer> customers = DB.readCustomersCSV();
+        //Placeholder for future new cust, but stands in now - RM 4/20/22 17:50
+        Customer newCust = new Customer(cSSNText.getText(), cAddressText.getText(), cCityText.getText(), cStateBox.getValue(), Integer.parseInt(cZipText.getText()), cFNameText.getText(), cLNameText.getText(), customers.get(customers.size() - 1).getAtmNumber() + 1, customers.get(customers.size() - 1).getAtmPin() + 1, customers.get(customers.size() - 1).getCreditCardPin() + 1, customers.get(customers.size() - 1).getCustomerID() + 1);
+        customers.add(newCust);
+        DB.writeCustomerCSV(customers);
     } //End of displayCreate.
 
     public void displayDelete(ActionEvent event) throws IOException {
