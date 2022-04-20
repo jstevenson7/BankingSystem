@@ -48,6 +48,39 @@ public class Teller {
         stage.setResizable(false);
         stage.show();
     }
+    public void toManageAccounts(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("ManageAccounts.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
+    }
+    public void toManageTransactions(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("ManageTransactions.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
+    }
+    public void toMoreOptions(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("MoreOptions.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
+    }
+
+    public void toReviewCustomer(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("ReviewCustomer.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
+    }
 
     @FXML
     private void initialize(){

@@ -42,22 +42,22 @@
                   <Font name="Gill Sans MT" size="13.0" />
                </font>
             </Button>
-            <Button fx:id="manageAccountsButton" alignment="CENTER" mnemonicParsing="false" prefHeight="53.0" prefWidth="198.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Manage Accounts">
+            <Button fx:id="manageAccountsButton" alignment="CENTER" mnemonicParsing="false" onAction="#toManageAccounts" prefHeight="53.0" prefWidth="198.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Manage Accounts">
                <font>
                   <Font name="Gill Sans MT" size="13.0" />
                </font>
             </Button>
-            <Button fx:id="manageTransactionsButton" alignment="CENTER" mnemonicParsing="false" prefHeight="53.0" prefWidth="198.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Manage Transactions">
+            <Button fx:id="manageTransactionsButton" alignment="CENTER" mnemonicParsing="false" onAction="#toManageTransactions" prefHeight="53.0" prefWidth="198.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Manage Transactions">
                <font>
                   <Font name="Gill Sans MT" size="13.0" />
                </font>
             </Button>
-            <Button fx:id="moreOptionsButton" alignment="CENTER" mnemonicParsing="false" prefHeight="53.0" prefWidth="198.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="More Options" textAlignment="CENTER" wrapText="true">
+            <Button fx:id="moreOptionsButton" alignment="CENTER" mnemonicParsing="false" onAction="#toMoreOptions" prefHeight="53.0" prefWidth="198.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="More Options" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font name="Gill Sans MT" size="13.0" />
                </font>
             </Button>
-            <Button fx:id="reviewCustomerButton" mnemonicParsing="false" prefHeight="53.0" prefWidth="198.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Review A Customer">
+            <Button fx:id="reviewCustomerButton" mnemonicParsing="false" onAction="#toReviewCustomer" prefHeight="53.0" prefWidth="198.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Review A Customer">
                <font>
                   <Font name="Gill Sans MT" size="13.0" />
                </font>
