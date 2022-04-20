@@ -1,5 +1,7 @@
 package edu.missouriwestern.csc406.bankingsystem.controllers;
 
+import edu.missouriwestern.csc406.bankingsystem.Customer;
+import edu.missouriwestern.csc406.bankingsystem.DB;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import java.util.ArrayList;
 import java.io.IOException;
 
 public class ManageCustomers {
