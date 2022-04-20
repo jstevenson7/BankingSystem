@@ -57,6 +57,13 @@ public class InsertCheck {
     public void validateCheck(ActionEvent event) throws IOException {
         // Need to verify that all boxes are filled
         // create check from textFields
+        if(checkNumText.getText().isBlank() || amtText.getText().isBlank() ||
+                dateText.getText().isBlank() || payToText.getText().isBlank() ||
+                noteText.getText().isBlank() || accNumText.getText().isBlank() ||
+                routNumText.getText().isBlank()) {
+            checkLabel.setText("All fields are required. Please try again.");
+            checkLabel.setTextFill(Color.RED);
+        } else {
         Check check = new Check(checkNumText.getText(), Double.parseDouble(amtText.getText()),
                 dateText.getText(), payToText.getText(), noteText.getText(),
                 accNumText.getText(), routNumText.getText());
@@ -76,6 +83,7 @@ public class InsertCheck {
             checkLabel.setTextFill(Color.RED);
         }
          **/
+        }
     }
 
     @FXML
