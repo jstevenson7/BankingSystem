@@ -7,6 +7,8 @@ public class Check {
     private String recipient;
     private String description;
     private String accountNumber;
+
+
     private String routingNumber;
     // Constructors
     public Check(String checkID, double amount, String date, String recipient, String description, String accountNumber, String routingNumber) {
@@ -37,4 +39,9 @@ public class Check {
     public void setDescription(String description) {this.description = description;}
     public void setAccountNumber(String accountNumber) {this.accountNumber = accountNumber;}
     public void setRoutingNumber(String routingNumber) {this.routingNumber = routingNumber;}
+
+    @Override
+    public String toString() {
+        return ""+checkID+","+amount+","+date+","+recipient+","+description+","+accountNumber+","+routingNumber;
+    }
 }

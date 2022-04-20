@@ -2,6 +2,8 @@ package edu.missouriwestern.csc406.bankingsystem;
 
 import com.opencsv.bean.CsvBindByName;
 
+import java.util.ArrayList;
+
 public class Checking {
     @CsvBindByName
     private String accountNumber;
@@ -11,6 +13,10 @@ public class Checking {
     private int accountType;
     @CsvBindByName
     private String customerID;
+
+    private ArrayList<Check> depositchecklist = new ArrayList<Check>();
+    private ArrayList<Check> withdrawchecklist = new ArrayList<Check>();
+
     public Checking(String accountNumber, double balance, int accountType, String customerID) {
         setAccountNumber(accountNumber);
         setBalance(balance);
@@ -31,4 +37,62 @@ public class Checking {
     public void setBalance(double balance) {this.balance = balance;}
     public void setAccountType(int accountType) {this.accountType = accountType;}
     public void setCustomerID(String customerID) {this.customerID = customerID;}
+
+    public void testaccount()
+    {
+        if (balance >= 1000.00)
+        {
+            accountType = 1;
+        }
+        else if (balance < 1000.00)
+        {
+            accountType = 0;
+        }
+    }
+
+    public void depositcheck (Check check)
+    {
+        double depositamt = check.getAmount();
+        balance += depositamt;
+        depositchecklist.add(check);
+        testaccount();
+        if (accountType==0)
+        {
+            balance-=.5;
+        }
+    }
+
+    public void withdrawalcheck (Check check)
+    {
+        double withdrawamt = check.getAmount();
+        balance -= withdrawamt;
+        withdrawchecklist.add(check);
+        testaccount();
+        if (accountType==0)
+        {
+            balance-=.5;
+        }
+    }
+    public void writecheck (Check check)
+    {
+        double withdrawamt = check.getAmount();
+        balance -= withdrawamt;
+        withdrawchecklist.add(check);
+        testaccount();
+        if (accountType==0)
+        {
+            balance-=.5;
+        }
+    }
+
+    public void transfer (double transferamt, Account account)
+    {
+        account.setBalance(account.getBalance()+transferamt);
+        balance -= transferamt;
+        if (accountType==0)
+        {
+            balance-=.75;
+        }
+
+    }
 }
