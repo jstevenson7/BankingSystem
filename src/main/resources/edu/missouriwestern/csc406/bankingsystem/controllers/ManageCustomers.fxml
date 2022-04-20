@@ -25,25 +25,25 @@
             </ImageView>
          </children>
       </HBox>
-      <AnchorPane fx:id="createAnchor" layoutX="175.0" layoutY="61.0" prefHeight="341.0" prefWidth="428.0" visible="false">
+      <AnchorPane fx:id="createAnchor" layoutX="150.0" layoutY="61.0" prefHeight="341.0" prefWidth="453.0">
          <children>
-            <TextField fx:id="cSSNText" layoutX="90.0" layoutY="53.0" prefHeight="25.0" prefWidth="128.0" />
-            <TextField fx:id="cFNameText" layoutX="90.0" layoutY="87.0" prefHeight="25.0" prefWidth="128.0" />
-            <TextField fx:id="cLNameText" layoutX="287.0" layoutY="87.0" prefHeight="25.0" prefWidth="115.0" />
-            <TextField fx:id="cAddressText" layoutX="90.0" layoutY="123.0" prefHeight="25.0" prefWidth="320.0" />
-            <Text layoutX="45.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SSN:" textAlignment="RIGHT" wrappingWidth="40.13671875" />
-            <TextField fx:id="cCityText" layoutX="90.0" layoutY="162.0" prefHeight="25.0" prefWidth="128.0" />
-            <Text layoutX="24.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name:" textAlignment="RIGHT" wrappingWidth="60.13671875" />
-            <Text layoutX="222.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name:" textAlignment="RIGHT" wrappingWidth="60.13671875" />
-            <Text layoutX="24.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address:" textAlignment="RIGHT" wrappingWidth="60.13671875" />
-            <Text layoutX="216.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="State:" textAlignment="RIGHT" wrappingWidth="40.13671875" />
-            <Text layoutX="24.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City:" textAlignment="RIGHT" wrappingWidth="60.13671875" />
-            <ComboBox fx:id="cStateBox" layoutX="263.0" layoutY="162.0" prefHeight="25.0" prefWidth="69.0" />
-            <Text layoutX="61.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zip:" textAlignment="RIGHT" wrappingWidth="24.13671875" />
-            <TextField fx:id="cZipText" layoutX="90.0" layoutY="199.0" prefHeight="25.0" prefWidth="128.0" />
+            <TextField fx:id="cSSNText" layoutX="71.0" layoutY="42.0" prefHeight="25.0" prefWidth="115.0" />
+            <TextField fx:id="cFNameText" layoutX="71.0" layoutY="88.0" prefHeight="25.0" prefWidth="115.0" />
+            <TextField fx:id="cLNameText" layoutX="268.0" layoutY="88.0" prefHeight="25.0" prefWidth="115.0" />
+            <TextField fx:id="cAddressText" layoutX="71.0" layoutY="124.0" prefHeight="25.0" prefWidth="139.0" />
+            <Text layoutX="22.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SSN:" textAlignment="RIGHT" wrappingWidth="40.13671875" />
+            <TextField fx:id="cCityText" layoutX="270.0" layoutY="124.0" prefHeight="25.0" prefWidth="128.0" />
+            <Text layoutX="5.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name:" textAlignment="RIGHT" wrappingWidth="60.13671875" />
+            <Text layoutX="203.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name:" textAlignment="RIGHT" wrappingWidth="60.13671875" />
+            <Text layoutX="5.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address:" textAlignment="RIGHT" wrappingWidth="60.13671875" />
+            <Text layoutX="21.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="State:" textAlignment="RIGHT" wrappingWidth="40.13671875" />
+            <Text layoutX="205.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City:" textAlignment="RIGHT" wrappingWidth="60.13671875" />
+            <ComboBox fx:id="cStateBox" layoutX="68.0" layoutY="169.0" prefHeight="25.0" prefWidth="69.0" />
+            <Text layoutX="154.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zip:" textAlignment="RIGHT" wrappingWidth="24.13671875" />
+            <TextField fx:id="cZipText" layoutX="183.0" layoutY="171.0" prefHeight="25.0" prefWidth="69.0" />
             <Text layoutX="9.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Type:" textAlignment="RIGHT" wrappingWidth="88.13671875" />
             <ComboBox fx:id="cAccountBox" layoutX="107.0" layoutY="291.0" prefHeight="25.0" prefWidth="162.0" />
-            <BorderPane layoutX="-2.0" layoutY="3.0" prefHeight="46.0" prefWidth="428.0">
+            <BorderPane layoutX="-2.0" layoutY="3.0" prefHeight="25.0" prefWidth="453.0">
                <center>
                   <Label prefHeight="15.0" prefWidth="373.0" text="Please enter the information of the Customer you would like to create!" BorderPane.alignment="CENTER" />
                </center>
@@ -54,13 +54,21 @@
                </center>
             </BorderPane>
             <Button fx:id="cCreateButton" layoutX="292.0" layoutY="282.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="105.0" text="Create Customer &amp; Initial Account" wrapText="true" />
+            <TextField fx:id="cCustIDText" layoutX="266.0" layoutY="42.0" prefHeight="25.0" prefWidth="115.0" />
+            <Text layoutX="217.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CustID:" textAlignment="RIGHT" wrappingWidth="40.13671875" />
+            <Text layoutX="262.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ATMPin:" textAlignment="RIGHT" wrappingWidth="60.13671875" />
+            <TextField fx:id="cATMPinText" layoutX="324.0" layoutY="171.0" prefHeight="25.0" prefWidth="69.0" />
+            <TextField fx:id="cCCPinText" layoutX="331.0" layoutY="204.0" prefHeight="25.0" prefWidth="69.0" />
+            <TextField fx:id="cATMNumText" layoutX="109.0" layoutY="213.0" prefHeight="25.0" prefWidth="139.0" />
+            <Text layoutX="23.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="atmNumber:" textAlignment="RIGHT" wrappingWidth="76.13671875" />
+            <Text layoutX="262.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CCPin:" textAlignment="RIGHT" wrappingWidth="60.13671875" />
          </children>
       </AnchorPane>
-      <VBox alignment="TOP_CENTER" layoutY="62.0" prefHeight="341.0" prefWidth="174.0" style="-fx-background-color: #E0E0E0; -fx-border-color: #AEAEAE; -fx-background-insets: 0;">
+      <VBox alignment="TOP_CENTER" layoutY="62.0" prefHeight="341.0" prefWidth="149.0" style="-fx-background-color: #E0E0E0; -fx-border-color: #AEAEAE; -fx-background-insets: 0;">
          <children>
             <Pane prefHeight="29.0" prefWidth="198.0" style="-fx-border-color: #C0C0C0;">
                <children>
-                  <Text layoutX="5.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage Customers" textAlignment="CENTER" wrappingWidth="162.0">
+                  <Text layoutX="-7.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage Customers" textAlignment="CENTER" wrappingWidth="162.0">
                      <font>
                         <Font name="Gill Sans MT Bold" size="14.0" />
                      </font>
@@ -91,7 +99,7 @@
             </Button>
          </children>
       </VBox>
-      <AnchorPane fx:id="mainAnchor" layoutX="174.0" layoutY="62.0" prefHeight="341.0" prefWidth="428.0">
+      <AnchorPane fx:id="mainAnchor" layoutX="174.0" layoutY="62.0" prefHeight="341.0" prefWidth="428.0" visible="false">
          <children>
             <Text layoutX="87.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Manage Customers" textAlignment="CENTER">
                <font>
@@ -105,7 +113,7 @@
             </Text>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="deleteAnchor" layoutX="172.0" layoutY="61.0" prefHeight="341.0" prefWidth="434.0" visible="false">
+      <AnchorPane fx:id="deleteAnchor" layoutX="153.0" layoutY="61.0" prefHeight="341.0" prefWidth="453.0" visible="false">
          <children>
             <TextField layoutX="143.0" layoutY="128.0" />
             <BorderPane layoutX="3.0" prefHeight="68.0" prefWidth="428.0">

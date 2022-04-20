@@ -33,6 +33,14 @@ public class ManageCustomers {
     @FXML
     private TextField cFNameText;
     @FXML
+    private TextField cCustIDText;
+    @FXML
+    private TextField cATMNumText;
+    @FXML
+    private TextField cATMPinText;
+    @FXML
+    private TextField cCCPinText;
+    @FXML
     private TextField cLNameText;
     @FXML
     private TextField cAddressText;
