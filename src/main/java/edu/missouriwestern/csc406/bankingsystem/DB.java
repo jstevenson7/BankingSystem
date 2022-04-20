@@ -36,7 +36,7 @@ public class DB {
         // Set class type for strategy
         strat.setType(Customer.class);
         // Set columns
-        strat.setColumnMapping(new String[]{"SSN", "Address", "City", "State", "Zip", "firstName", "lastName","atmNumber","creditCardPin","customerID"});
+        strat.setColumnMapping(new String[]{"SSN", "Address", "City", "State", "Zip", "firstName", "lastName","atmNumber","atmPin","creditCardPin","customerID"});
         // Create bean of type customer
         CsvToBean<Customer> bean = new CsvToBeanBuilder<Customer>(reader).withMappingStrategy(strat).withSkipLines(1).build();
 
@@ -68,12 +68,12 @@ public class DB {
         // Set class type for the mapping strategy
         strat.setType(Customer.class);
         // Set column names for the mapping strategy
-        strat.setColumnMapping(new String[]{"SSN", "Address", "City", "State", "Zip", "firstName", "lastName","atmNumber","creditCardPin","customerID"});
+        strat.setColumnMapping(new String[]{"SSN", "Address", "City", "State", "Zip", "firstName", "lastName","atmNumber", "atmPin","creditCardPin","customerID"});
         // Create bean of type Customers with the created mapping strategy
         StatefulBeanToCsv<Customer> beanToCsv = new StatefulBeanToCsvBuilder<Customer>(writer).withApplyQuotesToAll(false).withMappingStrategy(strat).build();
         try {
             // Write the header first
-            writer.write("SSN,Address,City,State,Zip,firstName,lastName,atmNumber,creditCartPin,customerID\n");
+            writer.write("SSN,Address,City,State,Zip,firstName,lastName,atmNumber,atmPin,creditCartPin,customerID\n");
             // Write the customers arrayList to the customers.csv file
             beanToCsv.write(customers);
         } catch (CsvDataTypeMismatchException e) {
@@ -306,6 +306,10 @@ public class DB {
         }
         writer.close();
     }
+
+    /**
+     *   Search Methods
+     */
     public static Employee searchEmployee(String employeeID, ArrayList<Employee> employees) {
         for (Employee e: employees) {
             if (e.getEmployeeID().equals(employeeID)) {
@@ -356,14 +360,18 @@ public class DB {
         }
         return null;
     }
-    public static Customer searchCreditCardCustomer(int creditCardPin, ArrayList<Customer> customers) {
+    public static Customer searchAtmNumberCustomer(int atmNumber, ArrayList<Customer> customers) {
         for (Customer c: customers) {
-            if (c.getCreditCardPin()==creditCardPin) {
+            if (c.getAtmNumber()==atmNumber) {
                 return c;
             }
         }
         return null;
     }
+
+    /**
+     *  Verify Methods
+     */
     public static Boolean verifyAccountNumber(String accountNumber, ArrayList<Checking> checkings) {
         for (Checking c: checkings) {
             if (c.getAccountNumber().equals(accountNumber)) {
@@ -381,6 +389,22 @@ public class DB {
         }
         for (Check c: processedChecks) {
             if (c.getCheckID().equals(checkID) && c.getAccountNumber().equals(accountNumber)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    public static Boolean verifyAtmNumberCustomer(int atmNumber, ArrayList<Customer> customers) {
+        for (Customer c: customers) {
+            if (c.getAtmNumber()==atmNumber) {
+                return true;
+            }
+        }
+        return false;
+    }
+    public static Boolean verifyAtmPinCustomer(int atmPin, ArrayList<Customer> customers) {
+        for (Customer c: customers) {
+            if (c.getAtmPin()==atmPin) {
                 return true;
             }
         }
