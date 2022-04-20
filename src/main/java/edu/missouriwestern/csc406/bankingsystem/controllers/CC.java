@@ -27,7 +27,7 @@ public class CC {
     @FXML
     private TextField cardNumText;
     @FXML
-    private PasswordField pinText;
+    private TextField zipText;
     @FXML
     private TextField purchaseAmtText;
     @FXML
@@ -47,17 +47,17 @@ public class CC {
     }
 
     public void validateCard(ActionEvent event) throws IOException {
-        ArrayList<Customer> customers = DB.readCustomersCSV();
-        Customer customer = DB.searchATMCustomer(Integer.parseInt(cardNumText.getText()), customers);
-        machineLabel.setText("Welcome "+ customer.getFirstName()+"!");
-        /**
+       // ArrayList<Customer> customers = DB.readCustomersCSV();
+       // Customer customer = DB.searchATMCustomer(Integer.parseInt(cardNumText.getText()), customers);
+       // machineLabel.setText("Welcome "+ customer.getFirstName()+"!");
+
         //Need to validate.
         int cardNum = Integer.parseInt(cardNumText.getText());
         //If valid continue to enter pin
         if (cardNum == 1) {
             machineLabel.setText("Please enter your pin.");
             machineLabel.setTextFill(Color.BLACK);
-            pinText.setVisible(true);
+            zipText.setVisible(true);
             cardNumText.setDisable(true);
         } else if(cardNum == 0) {
             //Else stay at position red message pops up on screen.
@@ -65,23 +65,22 @@ public class CC {
             machineLabel.setTextFill(Color.RED);
             cardNumText.clear();
         }
-         **/
     }
 
     public void validatePIN(ActionEvent event) throws IOException {
         //Need to validate.
-        int pin = Integer.parseInt(pinText.getText());
+        int pin = Integer.parseInt(zipText.getText());
         //If valid continue to enter pin
         if (pin == 1) {
             machineLabel.setText("Please enter the amount you would like to withdraw.");
             machineLabel.setTextFill(Color.BLACK);
-            pinText.setVisible(false);
+            zipText.setVisible(false);
             purchaseAmtText.setVisible(true);
         } else if(pin == 0) {
             //Else stay at position red message pops up on screen.
-            machineLabel.setText("Invalid PIN. Please try again.");
+            machineLabel.setText("Invalid ZIP. Please try again.");
             machineLabel.setTextFill(Color.RED);
-            pinText.clear();
+            zipText.clear();
         }
     }
 
@@ -101,9 +100,9 @@ public class CC {
             machineLabel.setText("Purchase Declined. You cannot purchase over your limit.");
             machineLabel.setTextFill(Color.RED);
             cardNumText.clear();
-            pinText.clear();
+            zipText.clear();
             purchaseAmtText.clear();
-            pinText.setVisible(false);
+            zipText.setVisible(false);
             purchaseAmtText.setVisible(false);
             cardNumText.setDisable(false);
         }
@@ -134,9 +133,9 @@ public class CC {
     public void renewScene(ActionEvent event) throws IOException {
         machineLabel.setText("Please enter your ATM card number.");
         cardNumText.clear();
-        pinText.clear();
+        zipText.clear();
         purchaseAmtText.clear();
-        pinText.setVisible(false);
+        zipText.setVisible(false);
         purchaseAmtText.setVisible(false);
         cardNumText.setDisable(false);
         //Set visible receipt off when I make new pop up with close button.

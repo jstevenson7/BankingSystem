@@ -2,7 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -37,10 +36,10 @@
             <Image url="@../../../../../Images/PBcc.png" />
          </image>
       </ImageView>
-      <TextField fx:id="cardNumText" layoutX="409.0" layoutY="281.0" onAction="#validateCard" prefHeight="9.0" prefWidth="120.0" style="-fx-background-color: white;" />
-      <PasswordField fx:id="pinText" layoutX="77.0" layoutY="361.0" onAction="#validatePIN" visible="false" />
-      <TextField fx:id="purchaseAmtText" layoutX="77.0" layoutY="361.0" onAction="#validateWithdrawAmt" visible="false" />
-      <TextField fx:id="purchaseNoteText" layoutX="77.0" layoutY="361.0" onAction="#enterNote" visible="false" />
+      <TextField fx:id="cardNumText" layoutX="409.0" layoutY="281.0" onAction="#validateCard" prefHeight="9.0" prefWidth="120.0" promptText="Card Number" style="-fx-background-color: white;" />
+      <TextField fx:id="purchaseAmtText" layoutX="77.0" layoutY="361.0" onAction="#validateWithdrawAmt" promptText="Purchase Amount" visible="false" />
+      <TextField fx:id="purchaseNoteText" layoutX="77.0" layoutY="361.0" onAction="#enterNote" promptText="Purchase Location" visible="false" />
       <Button fx:id="receiptButton" layoutX="422.0" layoutY="133.0" mnemonicParsing="false" onAction="#viewReceipt" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: red;" text="View Receipt" visible="false" />
+      <TextField fx:id="zipText" layoutX="84.0" layoutY="361.0" onAction="#validatePIN" promptText="ZIP Code" visible="false" />
    </children>
 </AnchorPane>

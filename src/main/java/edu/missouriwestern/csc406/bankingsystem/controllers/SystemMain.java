@@ -12,9 +12,9 @@ import java.io.IOException;
 
 public class SystemMain {
 
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
+     Stage stage;
+     Scene scene;
+     Parent root;
 
     /* --- SYSTEM BUTTONS & METHODS --- */
     @FXML

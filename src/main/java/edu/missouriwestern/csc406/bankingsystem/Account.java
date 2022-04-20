@@ -1,7 +1,6 @@
 package edu.missouriwestern.csc406.bankingsystem;
 
-public abstract class Account
-{
+public abstract class Account {
     int custID;
     double balance;
 

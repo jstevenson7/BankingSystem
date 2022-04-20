@@ -13,9 +13,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.util.ArrayList;
+
 
 public class ATM {
     // Database data to store for page
