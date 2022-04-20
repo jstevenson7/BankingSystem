@@ -299,4 +299,20 @@ public class DB {
         }
         return null;
     }
+    public static Customer searchATMCustomer(int atmNumber, ArrayList<Customer> customers) {
+        for (Customer c: customers) {
+            if (c.getAtmNumber()==atmNumber) {
+                return c;
+            }
+        }
+        return null;
+    }
+    public static Customer searchCreditCardCustomer(int creditCardPin, ArrayList<Customer> customers) {
+        for (Customer c: customers) {
+            if (c.getCreditCardPin()==creditCardPin) {
+                return c;
+            }
+        }
+        return null;
+    }
 }

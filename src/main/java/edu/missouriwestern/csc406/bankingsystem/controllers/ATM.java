@@ -1,5 +1,7 @@
 package edu.missouriwestern.csc406.bankingsystem.controllers;
 
+import edu.missouriwestern.csc406.bankingsystem.Customer;
+import edu.missouriwestern.csc406.bankingsystem.DB;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +13,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class ATM {
 
@@ -43,6 +46,10 @@ public class ATM {
     }
 
     public void validateCard(ActionEvent event) throws IOException {
+        ArrayList<Customer> customers = DB.readCustomersCSV();
+        Customer customer = DB.searchCreditCardCustomer(Integer.parseInt(cardNumText.getText()), customers);
+        atmLabel.setText("Welcome "+ customer.getFirstName()+"!");
+        /**
         //Need to validate.
         int cardNum = Integer.parseInt(cardNumText.getText());
 
@@ -58,6 +65,7 @@ public class ATM {
             atmLabel.setTextFill(Color.RED);
             cardNumText.clear();
         }
+         **/
     }
 
     public void validatePIN(ActionEvent event) throws IOException {
