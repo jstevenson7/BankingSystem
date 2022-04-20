@@ -18,33 +18,45 @@ public class ManageCustomers {
     private Scene scene;
     private Parent root;
 
+    /* --- NAV BUTTONS --- */
     @FXML
     private Button returnTellerButton;
     @FXML
     private Button createACustomerButton;
     @FXML
     private Button deleteACustomerButton;
-    @FXML
-    private Button reviewACustomerButton;
-    @FXML
-    private TextField ssnText;
-    @FXML
-    private TextField fNameText;
-    @FXML
-    private TextField lNameText;
-    @FXML
-    private TextField addressText;
-    @FXML
-    private TextField cityText;
-    @FXML
-    private ComboBox<String> stateBox;
-    @FXML
-    private TextField zipText;
-    @FXML
-    private ComboBox<String> accountBox;
+
+    /* --- CREATE ANCHOR DATA --- */
     @FXML
     private AnchorPane createAnchor;
+    @FXML
+    private TextField cSSNText;
+    @FXML
+    private TextField cFNameText;
+    @FXML
+    private TextField cLNameText;
+    @FXML
+    private TextField cAddressText;
+    @FXML
+    private TextField cCityText;
+    @FXML
+    private ComboBox<String> cStateBox;
+    @FXML
+    private TextField cZipText;
+    @FXML
+    private ComboBox<String> cAccountBox;
 
+    /* --- DELETE ANCHOR DATA --- */
+    @FXML
+    private AnchorPane deleteAnchor;
+    @FXML
+    private Button dDeleteButton;
+
+    /* --- MAIN ANCHOR DATA --- */
+    @FXML
+    private AnchorPane mainAnchor;
+
+    /* --- NAV FUNCTIONS --- */
     public void toTeller(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("Teller.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -55,16 +67,17 @@ public class ManageCustomers {
     }
 
     public void displayCreate(ActionEvent event) throws IOException {
+        mainAnchor.setVisible(false);
+        deleteAnchor.setVisible(false);
         createAnchor.setVisible(true);
     }
     public void displayDelete(ActionEvent event) throws IOException {
-        createAnchor.setVisible(true);
-    }
-    public void displayReview(ActionEvent event) throws IOException {
-        createAnchor.setVisible(true);
-
+        mainAnchor.setVisible(false);
+        createAnchor.setVisible(false);
+        deleteAnchor.setVisible(true);
     }
 
+    /* --- INITIALIZE --- */
     @FXML
     private void initialize(){
         // Customer Button
@@ -74,17 +87,11 @@ public class ManageCustomers {
         createACustomerButton.setOnMouseExited(event -> createACustomerButton.setStyle("-fx-background-color: #d4d4d4; -fx-border-color:  #b0b0b0"));
         deleteACustomerButton.setOnMouseEntered(event -> deleteACustomerButton.setStyle("-fx-background-color: #E8ADAD; -fx-border-color: #000000"));
         deleteACustomerButton.setOnMouseExited(event -> deleteACustomerButton.setStyle("-fx-background-color: #d4d4d4; -fx-border-color:  #b0b0b0"));
-        reviewACustomerButton.setOnMouseEntered(event -> reviewACustomerButton.setStyle("-fx-background-color: #E8ADAD; -fx-border-color: #000000"));
-        reviewACustomerButton.setOnMouseExited(event -> reviewACustomerButton.setStyle("-fx-background-color: #d4d4d4; -fx-border-color:  #b0b0b0"));
-
-        stateBox.getItems().addAll("AL","AK","AZ","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI",
+        cStateBox.getItems().addAll("AL","AK","AZ","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI",
                 "MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX",
                 "UT","VT","VA","WA","WV","WI","WY");
-        stateBox.setVisibleRowCount(9);
-
-        accountBox.getItems().addAll("Checking", "Saving", "Loans");
-        accountBox.setVisibleRowCount(5);
-
+        cStateBox.setVisibleRowCount(9);
+        cAccountBox.getItems().addAll("Checking", "Saving", "Loan", "CD");
+        cAccountBox.setVisibleRowCount(5);
     }
-
 }
