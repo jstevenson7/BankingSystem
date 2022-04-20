@@ -61,6 +61,7 @@ public class Checking {
         {
             setBalance(Double.parseDouble(f.format((balance -= .5))));
         }
+        testaccount();
     }
 
     public void withdraw(Double amount)
@@ -75,7 +76,7 @@ public class Checking {
         {
             setBalance(Double.parseDouble(f.format((balance -= .5))));
         }
-
+        testaccount();
 
     }
     public void writecheck (Check check)

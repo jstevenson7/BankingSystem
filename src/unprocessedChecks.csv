@@ -12,3 +12,4 @@ checkID,amount,date,recipient,description,accountNumber,routingNumber
 005,54.5,4/20/2022,MODOR,Registration,9993,111
 004,65.23,4/20/2022,Joe Greene,Work,9991,111
 002,888.11,4/20/2022,Job Long,work,9992,111
+003,500.0,4/19/2022,Kent Pickett,Tip,9998,111
