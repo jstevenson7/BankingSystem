@@ -2,6 +2,7 @@ package edu.missouriwestern.csc406.bankingsystem;
 
 import com.opencsv.bean.CsvBindByName;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class Checking {
@@ -50,28 +51,32 @@ public class Checking {
         }
     }
 
-    public void depositcheck (Check check)
+    public void deposit(Double amount)
     {
-        double depositamt = check.getAmount();
-        balance += depositamt;
-        depositchecklist.add(check);
         testaccount();
+        DecimalFormat f = new DecimalFormat("##.00");
+        setBalance(Double.parseDouble(f.format((balance += amount))));
+
         if (accountType==0)
         {
-            balance-=.5;
+            setBalance(Double.parseDouble(f.format((balance -= .5))));
         }
     }
 
-    public void withdrawalcheck (Check check)
+    public void withdraw(Double amount)
     {
-        double withdrawamt = check.getAmount();
-        balance -= withdrawamt;
-        withdrawchecklist.add(check);
+        // check accountType
         testaccount();
+
+        DecimalFormat f = new DecimalFormat("##.00");
+        setBalance(Double.parseDouble(f.format((balance -= amount))));
+
         if (accountType==0)
         {
-            balance-=.5;
+            setBalance(Double.parseDouble(f.format((balance -= .5))));
         }
+
+
     }
     public void writecheck (Check check)
     {

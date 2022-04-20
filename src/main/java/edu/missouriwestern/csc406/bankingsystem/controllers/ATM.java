@@ -1,5 +1,7 @@
 package edu.missouriwestern.csc406.bankingsystem.controllers;
 
+import edu.missouriwestern.csc406.bankingsystem.Check;
+import edu.missouriwestern.csc406.bankingsystem.Checking;
 import edu.missouriwestern.csc406.bankingsystem.Customer;
 import edu.missouriwestern.csc406.bankingsystem.DB;
 import javafx.event.ActionEvent;
@@ -16,6 +18,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class ATM {
+    // Database data to store for page
+    ArrayList<Customer> customers;
+    ArrayList<Checking> checkings;
+    Customer customer;
+    Checking checking;
 
     private Stage stage;
     private Scene scene;
@@ -68,13 +75,15 @@ public class ATM {
 */
     public void validatePIN(ActionEvent event) throws IOException {
         // Read in customers
-        ArrayList<Customer> customers = DB.readCustomersCSV();
+        customers = DB.readCustomersCSV();
         // Check for valid atmNumber
         if (DB.verifyAtmNumberCustomer(Integer.parseInt(cardNumText.getText()), customers)) {
             // if valid atm Number
-            Customer customer = DB.searchAtmNumberCustomer(Integer.parseInt(cardNumText.getText()), customers);
+            // set customer to customer with login credentials
+            customer = DB.searchAtmNumberCustomer(Integer.parseInt(cardNumText.getText()), customers);
+            assert customer != null;
             // verify pin
-            if (DB.verifyAtmPinCustomer(Integer.parseInt(pinText.getText()), customers)) {
+            if (customer.getAtmPin() == Integer.parseInt(pinText.getText())) {
                 // valid pin
                 atmLabel.setText("Please enter the amount you would like to withdraw.");
                 atmLabel.setTextFill(Color.BLACK);
@@ -119,9 +128,31 @@ public class ATM {
     }
 
     public void validateWithdrawAmt(ActionEvent event) throws IOException {
-        //Need to validate.
-        int withdrawAmt = Integer.parseInt(withdrawAmtText.getText());
+        // Need to validate.
+        // get withdraw amount
+        Double withdrawAmt = Double.parseDouble(withdrawAmtText.getText());
+        // read in the checking accounts
+        checkings = DB.readCheckingCSV();
+        // set checking account to customer checking
+        checking = DB.searchChecking(customer.getCustomerID(), checkings);
+        // verify sufficient funds
+        if (DB.verifyBalance(withdrawAmt, checking)) {
+            // withdraw amount
+            checking.withdraw(withdrawAmt);
+            // Display Success
+            atmLabel.setText("Success!");
+            atmLabel.setTextFill(Color.GREEN);
+            // write checking back to database/csv
+            DB.writeCheckingCSV(checkings);
+            withdrawAmtText.clear();
+        } else {
+            // error message
+            atmLabel.setText("Insufficient funds. Please try again.");
+            atmLabel.setTextFill(Color.RED);
+            withdrawAmtText.clear();
+        }
 
+        /**
         //If valid continue to enter withdraw amount.
         if (withdrawAmt == 1) {
             atmLabel.setText("Withdraw was a success! Please view receipt.");
@@ -134,6 +165,7 @@ public class ATM {
             atmLabel.setTextFill(Color.RED);
             withdrawAmtText.clear();
         }
+         **/
     }
 
     public void viewReceipt(ActionEvent event) throws IOException {

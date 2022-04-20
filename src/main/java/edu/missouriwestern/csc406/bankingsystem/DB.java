@@ -402,11 +402,9 @@ public class DB {
         }
         return false;
     }
-    public static Boolean verifyAtmPinCustomer(int atmPin, ArrayList<Customer> customers) {
-        for (Customer c: customers) {
-            if (c.getAtmPin()==atmPin) {
-                return true;
-            }
+    public static Boolean verifyBalance(Double amount, Checking checking) {
+        if (checking.getBalance() >= amount) {
+            return true;
         }
         return false;
     }
