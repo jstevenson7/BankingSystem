@@ -10,11 +10,12 @@ public class Customer {
     private String firstName;
     private String lastName;
     private int atmNumber;
+    private int atmPin;
     private int creditCardPin;
     private String customerID;
     // Constructor
     public Customer(String SSN, String Address, String City, String State, int Zip, String firstName, String lastName,
-                    int atmNumber, int creditCardPin, String customerID) {
+                    int atmNumber, int atmPin, int creditCardPin, String customerID) {
         setSSN(SSN);
         setAddress(Address);
         setCity(City);
@@ -23,6 +24,7 @@ public class Customer {
         setFirstName(firstName);
         setLastName(lastName);
         setAtmNumber(atmNumber);
+        setAtmPin(atmPin);
         setCreditCardPin(creditCardPin);
         setCustomerID(customerID);
     }
@@ -38,6 +40,7 @@ public class Customer {
     public String getFirstName() {return firstName;}
     public String getLastName() {return lastName;}
     public int getAtmNumber() {return atmNumber;}
+    public int getAtmPin() {return atmPin;}
     public int getCreditCardPin() {return creditCardPin;}
     public String getCustomerID() {return customerID;}
     // Setters
@@ -49,6 +52,7 @@ public class Customer {
     public void setFirstName(String firstName) {this.firstName = firstName;}
     public void setLastName(String lastName) {this.lastName = lastName;}
     public void setAtmNumber(int atmNumber) {this.atmNumber = atmNumber;}
+    public void setAtmPin(int atmPin) {this.atmPin = atmPin;}
     public void setCreditCardPin(int creditCardPin) {this.creditCardPin = creditCardPin;}
     public void setCustomerID(String customerID) {this.customerID = customerID;}
 }

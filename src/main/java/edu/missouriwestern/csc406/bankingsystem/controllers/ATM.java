@@ -46,8 +46,7 @@ public class ATM {
     }
 /*
     public void validateCard(ActionEvent event) throws IOException {
-        ArrayList<Customer> customers = DB.readCustomersCSV();
-        Customer customer = DB.searchCreditCardCustomer(Integer.parseInt(cardNumText.getText()), customers);
+
         //atmLabel.setText("Welcome "+ customer.getFirstName()+"!");
 
         //Need to validate.
@@ -68,20 +67,43 @@ public class ATM {
     }
 */
     public void validatePIN(ActionEvent event) throws IOException {
+        // Read in customers
+        ArrayList<Customer> customers = DB.readCustomersCSV();
+        // Check for valid atmNumber
+        if (DB.verifyAtmNumberCustomer(Integer.parseInt(cardNumText.getText()), customers)) {
+            // if valid atm Number
+            Customer customer = DB.searchAtmNumberCustomer(Integer.parseInt(cardNumText.getText()), customers);
+            // verify pin
+            if (DB.verifyAtmPinCustomer(Integer.parseInt(pinText.getText()), customers)) {
+                // valid pin
+                atmLabel.setText("Please enter the amount you would like to withdraw.");
+                atmLabel.setTextFill(Color.BLACK);
+                pinText.setVisible(false);
+                cardNumText.clear();
+                withdrawAmtText.setVisible(true);
+            } else {
+                // invalid pin
+                atmLabel.setText("Invalid PIN. Please try again.");
+                atmLabel.setTextFill(Color.RED);
+                pinText.clear();
+            }
+        } else {
+            // invalid account Number
+            atmLabel.setText("Invalid Account Number. Please try again.");
+            atmLabel.setTextFill(Color.RED);
+            cardNumText.clear();
+            pinText.clear();
+        }
+        /**
         //Need to validate.
         int pin = Integer.parseInt(pinText.getText());
 
         //If valid continue to enter pin
         if (pin == 1) {
-            atmLabel.setText("Please enter the amount you would like to withdraw.");
-            atmLabel.setTextFill(Color.BLACK);
-            pinText.setVisible(false);
-            withdrawAmtText.setVisible(true);
+
         } else if(pin == 0) {
             //Else stay at position red message pops up on screen.
-            atmLabel.setText("Invalid PIN. Please try again.");
-            atmLabel.setTextFill(Color.RED);
-            pinText.clear();
+
         } else {
             //Valid but reached daily withdraw limit. ->  ALSO LIMIT ***
             atmLabel.setText("You cannot withdraw anymore today. You have reached the daily limit.");
@@ -93,6 +115,7 @@ public class ATM {
             withdrawAmtText.setVisible(false);
             cardNumText.setDisable(false);
         }
+         **/
     }
 
     public void validateWithdrawAmt(ActionEvent event) throws IOException {
