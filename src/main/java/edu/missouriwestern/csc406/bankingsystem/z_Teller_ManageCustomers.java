@@ -75,6 +75,7 @@ public class z_Teller_ManageCustomers {
         stage.setResizable(false);
         stage.show();
     } //End of toTeller.
+
     public void createCustomer(ActionEvent event) throws IOException {
         //Load customers
         ArrayList<Customer> customers = DB.readCustomersCSV();

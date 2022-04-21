@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.missouriwestern.csc406.bankingsystem.z_Manager_ManageEmployees">
+   <children>
+      <HBox alignment="CENTER" prefHeight="46.0" prefWidth="600.0" style="-fx-background-color: red;">
+         <children>
+            <ImageView fitHeight="62.0" fitWidth="200.0">
+               <image>
+                  <Image url="@../../../../Images/PB_Horizontal.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <VBox alignment="TOP_CENTER" layoutY="62.0" prefHeight="341.0" prefWidth="149.0" style="-fx-background-color: #E0E0E0; -fx-border-color: #AEAEAE; -fx-background-insets: 0;">
+         <children>
+            <Pane prefHeight="29.0" prefWidth="198.0" style="-fx-border-color: #C0C0C0;">
+               <children>
+                  <Text layoutX="-7.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage Customers" textAlignment="CENTER" wrappingWidth="162.0">
+                     <font>
+                        <Font name="Gill Sans MT Bold" size="14.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <Button fx:id="returnTellerButton" alignment="CENTER" mnemonicParsing="false" onAction="#toTeller" prefHeight="102.0" prefWidth="172.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Return to Manager" textAlignment="CENTER">
+               <font>
+                  <Font name="Gill Sans MT" size="13.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/backArrow1.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="createEmployeeButton" alignment="CENTER" mnemonicParsing="false" onAction="#displayCreate" prefHeight="102.0" prefWidth="172.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Create an Employee" textAlignment="CENTER">
+               <font>
+                  <Font name="Gill Sans MT" size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="deleteEmployeeButton" alignment="CENTER" mnemonicParsing="false" onAction="#displayDelete" prefHeight="109.0" prefWidth="172.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Delete an Employee">
+               <font>
+                  <Font name="Gill Sans MT" size="13.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <AnchorPane fx:id="mainAnchor" layoutX="149.0" layoutY="62.0" prefHeight="341.0" prefWidth="453.0">
+         <children>
+            <Text layoutX="87.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Manage Employees" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Text>
+            <Text layoutX="121.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please select what you would like to do using the left side menu." textAlignment="CENTER" wrappingWidth="186.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="createAnchor" layoutX="153.0" layoutY="61.0" prefHeight="341.0" prefWidth="453.0" visible="false">
+         <children>
+            <TextField fx:id="idText" layoutX="89.0" layoutY="80.0" prefHeight="25.0" prefWidth="115.0" />
+            <TextField fx:id="fNameText" layoutX="101.0" layoutY="126.0" prefHeight="25.0" prefWidth="115.0" />
+            <TextField fx:id="lNameText" layoutX="286.0" layoutY="126.0" prefHeight="25.0" prefWidth="115.0" />
+            <Text layoutX="40.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID:" textAlignment="RIGHT" wrappingWidth="40.13671875" />
+            <Text layoutX="30.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name:" textAlignment="RIGHT" wrappingWidth="60.13671875" />
+            <Text layoutX="221.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name:" textAlignment="RIGHT" wrappingWidth="60.13671875" />
+            <Text layoutX="87.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee Type:" textAlignment="RIGHT" wrappingWidth="96.13671875" />
+            <ComboBox fx:id="empTypeBox" layoutX="195.0" layoutY="178.0" prefHeight="25.0" prefWidth="115.0" />
+            <BorderPane layoutX="-2.0" layoutY="3.0" prefHeight="45.0" prefWidth="453.0">
+               <center>
+                  <Label prefHeight="32.0" prefWidth="373.0" text="Please enter the information of the Employee you would like to create!" BorderPane.alignment="CENTER" />
+               </center>
+            </BorderPane>
+            <TextField fx:id="passwordText" layoutX="295.0" layoutY="80.0" prefHeight="25.0" prefWidth="115.0" />
+            <Text layoutX="223.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" textAlignment="RIGHT" wrappingWidth="60.13671875" />
+            <Button fx:id="cCreateButton" layoutX="200.0" layoutY="223.0" mnemonicParsing="false" text="Create Employee" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="deleteAnchor" layoutX="153.0" layoutY="61.0" prefHeight="341.0" prefWidth="453.0" visible="false">
+         <children>
+            <TextField fx:id="dIDButton" layoutX="143.0" layoutY="128.0" />
+            <BorderPane layoutX="3.0" prefHeight="68.0" prefWidth="428.0">
+               <center>
+                  <Label text="Please enter the ID of the Employee you would like to delete!" BorderPane.alignment="CENTER" />
+               </center>
+            </BorderPane>
+            <Text layoutX="107.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Text>
+            <Button fx:id="dDeleteButton" layoutX="165.0" layoutY="178.0" mnemonicParsing="false" text="Delete Employee" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
