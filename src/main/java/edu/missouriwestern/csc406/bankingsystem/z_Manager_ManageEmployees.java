@@ -25,7 +25,7 @@ public class z_Manager_ManageEmployees {
 
     /* --- NAV BUTTONS --- */
     @FXML
-    private Button returnTellerButton;
+    private Button returnManagerButton;
     @FXML
     private Button createEmployeeButton;
     @FXML
@@ -63,7 +63,7 @@ public class z_Manager_ManageEmployees {
     private AnchorPane mainAnchor;
 
     /* --- NAV FUNCTIONS --- */
-    public void toTeller(ActionEvent event) throws IOException {
+    public void toManager(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("Manager.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -127,8 +127,8 @@ public class z_Manager_ManageEmployees {
     @FXML
     private void initialize(){
         // Customer Button
-        returnTellerButton.setOnMouseEntered(event -> returnTellerButton.setStyle("-fx-background-color: #E8ADAD; -fx-border-color: #000000"));
-        returnTellerButton.setOnMouseExited(event -> returnTellerButton.setStyle("-fx-background-color: #d4d4d4; -fx-border-color:  #b0b0b0"));
+        returnManagerButton.setOnMouseEntered(event -> returnManagerButton.setStyle("-fx-background-color: #E8ADAD; -fx-border-color: #000000"));
+        returnManagerButton.setOnMouseExited(event -> returnManagerButton.setStyle("-fx-background-color: #d4d4d4; -fx-border-color:  #b0b0b0"));
 
         createEmployeeButton.setOnMouseEntered(event -> createEmployeeButton.setStyle("-fx-background-color: #E8ADAD; -fx-border-color: #000000"));
         createEmployeeButton.setOnMouseExited(event -> createEmployeeButton.setStyle("-fx-background-color: #d4d4d4; -fx-border-color:  #b0b0b0"));

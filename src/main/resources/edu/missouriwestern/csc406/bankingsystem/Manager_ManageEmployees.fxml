@@ -36,7 +36,7 @@
                   </Text>
                </children>
             </Pane>
-            <Button fx:id="returnTellerButton" alignment="CENTER" mnemonicParsing="false" onAction="#toTeller" prefHeight="102.0" prefWidth="172.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Return to Manager" textAlignment="CENTER">
+            <Button fx:id="returnManagerButton" alignment="CENTER" mnemonicParsing="false" onAction="#toManager" prefHeight="102.0" prefWidth="172.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Return to Manager" textAlignment="CENTER">
                <font>
                   <Font name="Gill Sans MT" size="13.0" />
                </font>
@@ -60,7 +60,7 @@
             </Button>
          </children>
       </VBox>
-      <AnchorPane fx:id="mainAnchor" layoutX="149.0" layoutY="62.0" prefHeight="341.0" prefWidth="453.0" visible="false">
+      <AnchorPane fx:id="mainAnchor" layoutX="149.0" layoutY="62.0" prefHeight="341.0" prefWidth="453.0">
          <children>
             <Text layoutX="87.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Manage Employees" textAlignment="CENTER">
                <font>
@@ -74,7 +74,7 @@
             </Text>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="createAnchor" layoutX="153.0" layoutY="61.0" prefHeight="341.0" prefWidth="453.0">
+      <AnchorPane fx:id="createAnchor" layoutX="153.0" layoutY="61.0" prefHeight="341.0" prefWidth="453.0" visible="false">
          <children>
             <TextField fx:id="idText" layoutX="89.0" layoutY="80.0" prefHeight="25.0" prefWidth="115.0" />
             <TextField fx:id="fNameText" layoutX="101.0" layoutY="126.0" prefHeight="25.0" prefWidth="115.0" />

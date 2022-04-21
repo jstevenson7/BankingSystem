@@ -1,14 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="edu.missouriwestern.csc406.bankingsystem.z_Manager_SetRates"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.missouriwestern.csc406.bankingsystem.z_Manager_SetRates">
+   <children>
+      <HBox alignment="CENTER" prefHeight="46.0" prefWidth="600.0" style="-fx-background-color: red;">
+         <children>
+            <ImageView fitHeight="62.0" fitWidth="200.0">
+               <image>
+                  <Image url="@../../../../Images/PB_Horizontal.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <VBox alignment="TOP_CENTER" layoutY="62.0" prefHeight="341.0" prefWidth="149.0" style="-fx-background-color: #E0E0E0; -fx-border-color: #AEAEAE; -fx-background-insets: 0;">
+         <children>
+            <Pane prefHeight="29.0" prefWidth="198.0" style="-fx-border-color: #C0C0C0;">
+               <children>
+                  <Text layoutX="-7.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage Customers" textAlignment="CENTER" wrappingWidth="162.0">
+                     <font>
+                        <Font name="Gill Sans MT Bold" size="14.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <Button fx:id="returnManagerButton" alignment="CENTER" mnemonicParsing="false" onAction="#toManager" prefHeight="102.0" prefWidth="172.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Return to Manager" textAlignment="CENTER">
+               <font>
+                  <Font name="Gill Sans MT" size="13.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/backArrow1.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </VBox>
+      <AnchorPane fx:id="mainAnchor" layoutX="149.0" layoutY="62.0" prefHeight="341.0" prefWidth="453.0">
+         <children>
+            <Text layoutX="87.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Set Interest Rates" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Text>
+            <Text layoutX="121.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please select what you would like to do using the left side menu." textAlignment="CENTER" wrappingWidth="186.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </children>
 </AnchorPane>
