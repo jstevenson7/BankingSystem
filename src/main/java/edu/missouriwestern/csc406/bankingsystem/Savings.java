@@ -34,13 +34,15 @@ public class Savings {
 
     }
 
-    public Savings(String savingsID, double balance, double interestRate, String startDate, String customerID) {
+    public Savings(String savingsID, double balance, double interestRate, String startDate, String customerID) throws ParseException {
         this.savingsID = savingsID;
         this.balance = balance;
         this.interestRate = interestRate;
         this.startDate = startDate;
         this.customerID = customerID;
-        this.currentDate = "04-21-2022";
+        this.currentDate = "04-20-2022";
+        dailyInterest();
+
     }
 
     public void dailyInterest () throws ParseException {
@@ -49,15 +51,16 @@ public class Savings {
         Date startingdate = sdf.parse(startDate);
         Date currentdate = sdf.parse(currentDate);
 
-        long diffInTime = Math.abs(currentdate.getTime() - startingdate.getTime());
-        long diff = TimeUnit.DAYS.convert(diffInTime, TimeUnit.DAYS);
+        long diffInTime = currentdate.getTime() - startingdate.getTime();
+        long diffInDay = (diffInTime/(1000*60*60*24));
+        int count = (int) diffInDay;
 
-        while (diff > 0) {
-
-
-            balance += (interestRate / 365) * balance;
-            diff--;
+        while (count > 0)
+        {
+            balance = balance + balance*(interestRate/365);
+            count--;
         }
+
     }
 
 
@@ -74,8 +77,19 @@ public class Savings {
 
     public void writecheck (Check check)
     {
-        balance-=check.getAmount();
-        withdrawchecklist.add(check);
+        if (check.getAmount() <= balance)
+        {
+            balance-=check.getAmount();
+            withdrawchecklist.add(check);
+        }
+        else if(check.getAmount() >= balance)
+        {
+            System.out.println("Account balance exceeded, cannot process check");
+        }
+
+
+
+
 
     }
     public void depositcheck(Check check)

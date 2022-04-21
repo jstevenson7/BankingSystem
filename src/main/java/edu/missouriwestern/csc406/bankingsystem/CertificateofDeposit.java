@@ -8,7 +8,6 @@ import java.util.ArrayList;
 
 public class CertificateofDeposit {
 
-
     @CsvBindByName
     private String CDID;
     @CsvBindByName
