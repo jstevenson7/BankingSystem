@@ -123,7 +123,7 @@ public class z_Teller_ManageCustomers {
                 "MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX",
                 "UT","VT","VA","WA","WV","WI","WY");
         cStateBox.setVisibleRowCount(9);
-        cAccountBox.getItems().addAll("Checking", "Saving", "Loan", "CD");
+        cAccountBox.getItems().addAll("Checking - TMB", "Checking - Gold/Diamond", "Savings - Simple", "CD", "Loan - Mortgage", "Loan - Short","Loan - Credit Card");
         cAccountBox.setVisibleRowCount(5);
     }
 }
