@@ -102,7 +102,7 @@
                   <Label prefHeight="17.0" prefWidth="340.0" text="Now please select initial account the Customer will be opening." BorderPane.alignment="CENTER" />
                </center>
             </BorderPane>
-            <Button fx:id="cCreateButton" layoutX="292.0" layoutY="282.0" mnemonicParsing="false" onAction="#createCustomer" prefHeight="46.0" prefWidth="105.0" text="Create Customer &amp; Initial Account" wrapText="true" />
+            <Button fx:id="cCreateButton" layoutX="292.0" layoutY="282.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="105.0" text="Create Customer &amp; Initial Account" wrapText="true" />
             <TextField fx:id="cCustIDText" layoutX="266.0" layoutY="42.0" prefHeight="25.0" prefWidth="115.0" />
             <Text layoutX="217.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CustID:" textAlignment="RIGHT" wrappingWidth="40.13671875" />
             <Text layoutX="262.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ATMPin:" textAlignment="RIGHT" wrappingWidth="60.13671875" />
