@@ -9,13 +9,13 @@ public class Customer {
     private int Zip;
     private String firstName;
     private String lastName;
-    private int atmNumber;
+    private String atmNumber;
     private int atmPin;
     private int creditCardPin;
     private String customerID;
     // Constructor
     public Customer(String SSN, String Address, String City, String State, int Zip, String firstName, String lastName,
-                    int atmNumber, int atmPin, int creditCardPin, String customerID) {
+                    String atmNumber, int atmPin, int creditCardPin, String customerID) {
         setSSN(SSN);
         setAddress(Address);
         setCity(City);
@@ -39,7 +39,7 @@ public class Customer {
     public int getZip() {return Zip;}
     public String getFirstName() {return firstName;}
     public String getLastName() {return lastName;}
-    public int getAtmNumber() {return atmNumber;}
+    public String getAtmNumber() {return atmNumber;}
     public int getAtmPin() {return atmPin;}
     public int getCreditCardPin() {return creditCardPin;}
     public String getCustomerID() {return customerID;}
@@ -51,7 +51,7 @@ public class Customer {
     public void setZip(int zip) {Zip = zip;}
     public void setFirstName(String firstName) {this.firstName = firstName;}
     public void setLastName(String lastName) {this.lastName = lastName;}
-    public void setAtmNumber(int atmNumber) {this.atmNumber = atmNumber;}
+    public void setAtmNumber(String atmNumber) {this.atmNumber = atmNumber;}
     public void setAtmPin(int atmPin) {this.atmPin = atmPin;}
     public void setCreditCardPin(int creditCardPin) {this.creditCardPin = creditCardPin;}
     public void setCustomerID(String customerID) {this.customerID = customerID;}

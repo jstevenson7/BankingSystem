@@ -352,17 +352,17 @@ public class DB {
         }
         return null;
     }
-    public static Customer searchATMCustomer(int atmNumber, ArrayList<Customer> customers) {
+    public static Customer searchATMCustomer(String atmNumber, ArrayList<Customer> customers) {
         for (Customer c: customers) {
-            if (c.getAtmNumber()==atmNumber) {
+            if (c.getAtmNumber().equals(atmNumber)) {
                 return c;
             }
         }
         return null;
     }
-    public static Customer searchAtmNumberCustomer(int atmNumber, ArrayList<Customer> customers) {
+    public static Customer searchAtmNumberCustomer(String atmNumber, ArrayList<Customer> customers) {
         for (Customer c: customers) {
-            if (c.getAtmNumber()==atmNumber) {
+            if (c.getAtmNumber().equals(atmNumber)) {
                 return c;
             }
         }
@@ -394,9 +394,9 @@ public class DB {
         }
         return false;
     }
-    public static Boolean verifyAtmNumberCustomer(int atmNumber, ArrayList<Customer> customers) {
+    public static Boolean verifyAtmNumberCustomer(String atmNumber, ArrayList<Customer> customers) {
         for (Customer c: customers) {
-            if (c.getAtmNumber()==atmNumber) {
+            if (c.getAtmNumber().equals(atmNumber)) {
                 return true;
             }
         }
@@ -405,6 +405,14 @@ public class DB {
     public static Boolean verifyBalance(Double amount, Checking checking) {
         if (checking.getBalance() >= amount) {
             return true;
+        }
+        return false;
+    }
+    public static Boolean verifyCustomer(String SSN, ArrayList<Customer> customers) {
+        for (Customer c: customers) {
+            if (c.getSSN().equals(SSN)) {
+                return true;
+            }
         }
         return false;
     }

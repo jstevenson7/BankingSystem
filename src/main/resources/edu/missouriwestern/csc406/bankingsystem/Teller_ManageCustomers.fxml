@@ -60,7 +60,7 @@
             </Button>
          </children>
       </VBox>
-      <AnchorPane fx:id="mainAnchor" layoutX="149.0" layoutY="62.0" prefHeight="341.0" prefWidth="453.0">
+      <AnchorPane fx:id="mainAnchor" layoutX="149.0" layoutY="62.0" prefHeight="341.0" prefWidth="453.0" visible="false">
          <children>
             <Text layoutX="87.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Manage Customers" textAlignment="CENTER">
                <font>
@@ -74,7 +74,7 @@
             </Text>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="createAnchor" layoutX="150.0" layoutY="61.0" prefHeight="341.0" prefWidth="453.0" visible="false">
+      <AnchorPane fx:id="createAnchor" layoutX="150.0" layoutY="61.0" prefHeight="341.0" prefWidth="453.0">
          <children>
             <TextField fx:id="cSSNText" layoutX="71.0" layoutY="42.0" prefHeight="25.0" prefWidth="115.0" />
             <TextField fx:id="cFNameText" layoutX="71.0" layoutY="88.0" prefHeight="25.0" prefWidth="115.0" />
@@ -115,7 +115,7 @@
       </AnchorPane>
       <AnchorPane fx:id="deleteAnchor" layoutX="153.0" layoutY="61.0" prefHeight="341.0" prefWidth="453.0" visible="false">
          <children>
-            <TextField layoutX="143.0" layoutY="128.0" />
+            <TextField fx:id="deleteCustomerSSN" layoutX="143.0" layoutY="128.0" />
             <BorderPane layoutX="3.0" prefHeight="68.0" prefWidth="428.0">
                <center>
                   <Label text="Please enter the SSN of the Customer you would like to delete!" BorderPane.alignment="CENTER" />
@@ -126,7 +126,8 @@
                   <Font size="17.0" />
                </font>
             </Text>
-            <Button fx:id="dDeleteButton" layoutX="165.0" layoutY="178.0" mnemonicParsing="false" text="Delete Customer" />
+            <Button fx:id="dDeleteButton" layoutX="165.0" layoutY="178.0" mnemonicParsing="false" onAction="#deleteCustomer" text="Delete Customer" />
+            <Label fx:id="deleteMessage" alignment="TOP_CENTER" layoutX="165.0" layoutY="78.0" prefHeight="17.0" prefWidth="105.0" textAlignment="CENTER" />
          </children>
       </AnchorPane>
    </children>

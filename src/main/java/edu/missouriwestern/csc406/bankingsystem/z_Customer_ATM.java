@@ -73,10 +73,10 @@ public class z_Customer_ATM {
         // Read in customers
         customers = DB.readCustomersCSV();
         // Check for valid atmNumber
-        if (DB.verifyAtmNumberCustomer(Integer.parseInt(cardNumText.getText()), customers)) {
+        if (DB.verifyAtmNumberCustomer(cardNumText.getText(), customers)) {
             // if valid atm Number
             // set customer to customer with login credentials
-            customer = DB.searchAtmNumberCustomer(Integer.parseInt(cardNumText.getText()), customers);
+            customer = DB.searchAtmNumberCustomer(cardNumText.getText(), customers);
             assert customer != null;
             // verify pin
             if (customer.getAtmPin() == Integer.parseInt(pinText.getText())) {
