@@ -84,8 +84,8 @@ public class z_Customer_ATM {
                 atmLabel.setText("Please enter the amount you would like to withdraw.");
                 atmLabel.setTextFill(Color.BLACK);
                 pinText.setVisible(false);
-                cardNumText.clear();
                 withdrawAmtText.setVisible(true);
+                cardNumText.setDisable(true);
             } else {
                 // invalid pin
                 atmLabel.setText("Invalid PIN. Please try again.");
