@@ -75,18 +75,32 @@ public class z_Teller_ManageCustomers {
         stage.setResizable(false);
         stage.show();
     } //End of toTeller.
-
+    public void createCustomer(ActionEvent event) throws IOException {
+        //Load customers
+        ArrayList<Customer> customers = DB.readCustomersCSV();
+        //Placeholder for future new cust, but stands in now - RM 4/20/22 17:50
+        Customer newCust = new Customer(cSSNText.getText(), cAddressText.getText(), cCityText.getText(),
+                cStateBox.getValue(), Integer.parseInt(cZipText.getText()), cFNameText.getText(),
+                cLNameText.getText(), Integer.parseInt(cATMNumText.getText()), Integer.parseInt(cATMPinText.getText()),
+                Integer.parseInt(cCCPinText.getText()), cCustIDText.getText());
+        customers.add(newCust);
+        DB.writeCustomerCSV(customers);
+        cSSNText.clear();
+        cAddressText.clear();
+        cCityText.clear();
+        cZipText.clear();
+        cFNameText.clear();
+        cLNameText.clear();
+        cATMNumText.clear();
+        cATMPinText.clear();
+        cCCPinText.clear();
+        cCustIDText.clear();
+    }
     public void displayCreate(ActionEvent event) throws IOException {
         mainAnchor.setVisible(false);
         deleteAnchor.setVisible(false);
         createAnchor.setVisible(true);
 
-        //Load customers
-        ArrayList<Customer> customers = DB.readCustomersCSV();
-        //Placeholder for future new cust, but stands in now - RM 4/20/22 17:50
-        Customer newCust = new Customer(cSSNText.getText(), cAddressText.getText(), cCityText.getText(), cStateBox.getValue(), Integer.parseInt(cZipText.getText()), cFNameText.getText(), cLNameText.getText(), customers.get(customers.size() - 1).getAtmNumber() + 1, customers.get(customers.size() - 1).getAtmPin() + 1, customers.get(customers.size() - 1).getCreditCardPin() + 1, customers.get(customers.size() - 1).getCustomerID() + 1);
-        customers.add(newCust);
-        DB.writeCustomerCSV(customers);
     } //End of displayCreate.
 
     public void displayDelete(ActionEvent event) throws IOException {
