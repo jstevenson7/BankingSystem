@@ -33,6 +33,7 @@ public class CertificateofDeposit {
         this.startDate = startDate;
         this.endDate = endDate;
         this.withdrawDate = withdrawDate;
+        withdrawamt();
     }
 
     public void withdrawamt ()
