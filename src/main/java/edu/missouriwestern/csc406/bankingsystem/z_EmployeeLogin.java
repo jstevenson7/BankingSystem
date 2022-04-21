@@ -1,7 +1,5 @@
-package edu.missouriwestern.csc406.bankingsystem.controllers;
+package edu.missouriwestern.csc406.bankingsystem;
 
-import edu.missouriwestern.csc406.bankingsystem.DB;
-import edu.missouriwestern.csc406.bankingsystem.Employee;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,7 +15,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class EmployeeLogin {
+public class z_EmployeeLogin {
 
     private Stage stage;
     private Scene scene;
@@ -53,7 +51,7 @@ public class EmployeeLogin {
         }
     }
     public void toActor(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("Actor.fxml"));
+        root = FXMLLoader.load(getClass().getResource("SystemMain.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

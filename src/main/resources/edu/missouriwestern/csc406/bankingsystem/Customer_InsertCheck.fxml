@@ -4,20 +4,20 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.missouriwestern.csc406.bankingsystem.controllers.InsertCheck">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.missouriwestern.csc406.bankingsystem.z_Customer_InsertCheck">
    <children>
       <HBox alignment="CENTER" prefHeight="74.0" prefWidth="608.0" style="-fx-background-color: black;">
          <children>
             <ImageView fitHeight="47.0" fitWidth="215.0">
                <image>
-                  <Image url="@../../../../../Images/hbox_red_logo.png" />
+                  <Image url="@../../../../Images/hbox_red_logo.png" />
                </image>
             </ImageView>
          </children>
       </HBox>
       <ImageView fitHeight="238.0" fitWidth="532.0" layoutX="38.0" layoutY="108.0">
          <image>
-            <Image url="@../../../../../Images/CheckForm.png" />
+            <Image url="@../../../../Images/CheckForm.png" />
          </image>
       </ImageView>
       <TextField fx:id="payToText" layoutX="146.0" layoutY="202.0" prefHeight="25.0" prefWidth="233.0" promptText="Recipient" />

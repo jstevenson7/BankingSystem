@@ -1,4 +1,4 @@
-package edu.missouriwestern.csc406.bankingsystem.controllers;
+package edu.missouriwestern.csc406.bankingsystem;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,7 +13,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import java.io.IOException;
 
-public class ManageAccounts {
+public class z_Teller_ManageAccounts {
 
     private Stage stage;
     private Scene scene;

@@ -1,4 +1,4 @@
-package edu.missouriwestern.csc406.bankingsystem.controllers;
+package edu.missouriwestern.csc406.bankingsystem;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class Teller {
+public class z_Teller {
 
     private Stage stage;
     private Scene scene;
@@ -41,7 +41,7 @@ public class Teller {
     }
 
     public void toManageCustomers(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("ManageCustomers.fxml"));
+        root = FXMLLoader.load(getClass().getResource("Teller_ManageCustomers.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -49,7 +49,7 @@ public class Teller {
         stage.show();
     }
     public void toManageAccounts(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("ManageAccounts.fxml"));
+        root = FXMLLoader.load(getClass().getResource("Teller_ManageAccounts.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -57,7 +57,7 @@ public class Teller {
         stage.show();
     }
     public void toManageTransactions(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("ManageTransactions.fxml"));
+        root = FXMLLoader.load(getClass().getResource("Teller_ManageTransactions.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -65,7 +65,7 @@ public class Teller {
         stage.show();
     }
     public void toMoreOptions(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("MoreOptions.fxml"));
+        root = FXMLLoader.load(getClass().getResource("Teller_MoreOptions.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -74,7 +74,7 @@ public class Teller {
     }
 
     public void toReviewCustomer(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("ReviewCustomer.fxml"));
+        root = FXMLLoader.load(getClass().getResource("Teller_ReviewCustomer.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

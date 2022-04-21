@@ -9,20 +9,20 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.missouriwestern.csc406.bankingsystem.controllers.CC">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.missouriwestern.csc406.bankingsystem.z_Customer_CC">
    <children>
       <HBox alignment="CENTER" prefHeight="74.0" prefWidth="603.0" style="-fx-background-color: black;">
          <children>
             <ImageView fitHeight="47.0" fitWidth="215.0">
                <image>
-                  <Image url="@../../../../../Images/hbox_red_logo.png" />
+                  <Image url="@../../../../Images/hbox_red_logo.png" />
                </image>
             </ImageView>
          </children>
       </HBox>
       <ImageView fitHeight="265.0" fitWidth="292.0" layoutX="28.0" layoutY="93.0">
          <image>
-            <Image url="@../../../../../Images/useCC.png" />
+            <Image url="@../../../../Images/useCC.png" />
          </image>
       </ImageView>
       <Button fx:id="returnCustomerButton" layoutX="364.0" layoutY="93.0" mnemonicParsing="false" onAction="#toCustomer" prefHeight="25.0" prefWidth="209.0" style="-fx-background-color: black;" text="Return to Customer Portal" textFill="#605a5a" />
@@ -33,7 +33,7 @@
       </BorderPane>
       <ImageView fitHeight="126.0" fitWidth="215.0" layoutX="361.0" layoutY="213.0">
          <image>
-            <Image url="@../../../../../Images/PBcc.png" />
+            <Image url="@../../../../Images/PBcc.png" />
          </image>
       </ImageView>
       <TextField fx:id="cardNumText" layoutX="409.0" layoutY="281.0" onAction="#validateCard" prefHeight="9.0" prefWidth="120.0" promptText="Card Number" style="-fx-background-color: white;" />

@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.missouriwestern.csc406.bankingsystem.z_SystemMain">
+   <children>
+      <VBox prefHeight="400.0" prefWidth="217.0" style="-fx-background-color: #990000;">
+         <children>
+            <Pane prefHeight="85.0" prefWidth="217.0">
+               <children>
+                  <Button fx:id="logoButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#toSystemMain" prefHeight="76.0" prefWidth="217.0" style="-fx-background-color: #990000;">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="20.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="76.0" fitWidth="191.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../Images/PB_Horizontal.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </Pane>
+            <Button fx:id="selectActorButton" mnemonicParsing="false" onAction="#toSelectActor" prefHeight="56.0" prefWidth="220.0" style="-fx-background-color: #990000;" text="  Select Actor" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="29.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/selectact.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="loadDataButton" mnemonicParsing="false" onAction="#toLoadData" prefHeight="56.0" prefWidth="220.0" style="-fx-background-color: #990000;" text="Load Data" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="29.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/laod.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="runTestsButton" mnemonicParsing="false" onAction="#toRunTests" prefHeight="56.0" prefWidth="220.0" style="-fx-background-color: #990000;" text="  Run Tests" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="29.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/test.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="checkPointButton" mnemonicParsing="false" onAction="#toCheckPoint" prefHeight="56.0" prefWidth="220.0" style="-fx-background-color: #990000;" text="  Check Point" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="29.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/restore.jpg" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </VBox>
+      <AnchorPane fx:id="mainAnchor" layoutX="218.0" prefHeight="400.0" prefWidth="385.0">
+         <children>
+            <HBox alignment="CENTER" layoutX="-2.0" layoutY="30.0" prefHeight="103.0" prefWidth="387.0" style="-fx-background-color: #cc0000;">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="THE CREATORS" textAlignment="CENTER" wrappingWidth="195.208984375">
+                     <font>
+                        <Font name="Verdana Bold" size="17.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <Pane layoutY="142.0" prefHeight="257.0" prefWidth="150.0">
+               <children>
+                  <Text layoutX="35.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NAME">
+                     <font>
+                        <Font name="SansSerif Bold" size="15.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="35.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Marshall Stone" textAlignment="RIGHT" />
+                  <Text layoutX="35.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Christin Wilson" textAlignment="RIGHT" />
+                  <Text layoutX="35.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Justice Touchstone" textAlignment="RIGHT" />
+                  <Text layoutX="35.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Riley McNeely" textAlignment="RIGHT" />
+                  <Text layoutX="35.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Josh Stevenson" textAlignment="RIGHT" />
+                  <Text layoutX="35.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kaleb Morcha" textAlignment="RIGHT" />
+                  <Text layoutX="35.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Josh Mesmer" textAlignment="RIGHT" />
+               </children>
+            </Pane>
+            <Pane layoutX="150.0" layoutY="142.0" prefHeight="257.0" prefWidth="229.0">
+               <children>
+                  <Text layoutX="20.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ROLES" wrappingWidth="53.1715087890625">
+                     <font>
+                        <Font name="SansSerif Bold" size="15.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="30.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Primary" textAlignment="RIGHT">
+                     <font>
+                        <Font name="System Italic" size="10.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="125.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Secondary" textAlignment="RIGHT">
+                     <font>
+                        <Font name="System Italic" size="10.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="20.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Team Lead" textAlignment="RIGHT" />
+                  <Text layoutX="130.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Misc" textAlignment="RIGHT" />
+                  <Text layoutX="20.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Designer" textAlignment="RIGHT" />
+                  <Text layoutX="20.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DBMS Manager" textAlignment="RIGHT" />
+                  <Text layoutX="20.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Developer" textAlignment="RIGHT" />
+                  <Text layoutX="20.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Developer" textAlignment="RIGHT" />
+                  <Text layoutX="20.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Developer" textAlignment="RIGHT" />
+                  <Text layoutX="20.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Documenter" textAlignment="RIGHT" />
+                  <Text layoutX="130.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Developer" textAlignment="RIGHT" />
+                  <Text layoutX="130.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Documenter" textAlignment="RIGHT" />
+                  <Text layoutX="130.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DBMS Asst." textAlignment="RIGHT" />
+                  <Text layoutX="130.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tester" textAlignment="RIGHT" />
+                  <Text layoutX="130.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Documenter" textAlignment="RIGHT" />
+                  <Text layoutX="130.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tester" textAlignment="RIGHT" />
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="selectActorAnchor" layoutX="218.0" prefHeight="400.0" prefWidth="385.0" visible="false">
+         <children>
+            <HBox alignment="CENTER" layoutX="-2.0" layoutY="30.0" prefHeight="103.0" prefWidth="387.0" style="-fx-background-color: #cc0000;">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Please select an actor." textAlignment="CENTER" wrappingWidth="195.208984375">
+                     <font>
+                        <Font name="Verdana" size="17.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="-2.0" layoutY="133.0" prefHeight="264.0" prefWidth="191.0">
+               <children>
+                  <Button fx:id="customerButton" mnemonicParsing="false" onAction="#toCustomer" prefHeight="84.0" prefWidth="121.0" style="-fx-background-color: #d4d4d4; -fx-border-color: #b0b0b0;" text="Customer" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="190.0" layoutY="136.0" prefHeight="258.0" prefWidth="191.0">
+               <children>
+                  <Button fx:id="employeeButton" mnemonicParsing="false" onAction="#toEmployee" prefHeight="84.0" prefWidth="121.0" style="-fx-background-color: #d4d4d4; -fx-border-color: #b0b0b0;" text="Employee" />
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="checkPointAnchor" layoutX="218.0" prefHeight="400.0" prefWidth="385.0" visible="false">
+         <children>
+            <HBox alignment="CENTER" layoutX="-2.0" layoutY="30.0" prefHeight="103.0" prefWidth="387.0" style="-fx-background-color: #cc0000;">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CHECK POINT" textAlignment="CENTER" wrappingWidth="195.208984375">
+                     <font>
+                        <Font name="Verdana" size="17.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="runTestsAnchor" layoutX="218.0" prefHeight="400.0" prefWidth="385.0" visible="false">
+         <children>
+            <HBox alignment="CENTER" layoutX="-2.0" layoutY="30.0" prefHeight="103.0" prefWidth="387.0" style="-fx-background-color: #cc0000;">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="RUN TESTS" textAlignment="CENTER" wrappingWidth="195.208984375">
+                     <font>
+                        <Font name="Verdana" size="17.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="loadDataAnchor" layoutX="218.0" prefHeight="400.0" prefWidth="385.0" visible="false">
+         <children>
+            <HBox alignment="CENTER" layoutX="-2.0" layoutY="30.0" prefHeight="103.0" prefWidth="387.0" style="-fx-background-color: #cc0000;">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="LOAD DATA" textAlignment="CENTER" wrappingWidth="195.208984375">
+                     <font>
+                        <Font name="Verdana" size="17.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

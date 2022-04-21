@@ -1,4 +1,4 @@
-package edu.missouriwestern.csc406.bankingsystem.controllers;
+package edu.missouriwestern.csc406.bankingsystem;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class Manager {
+public class z_Manager {
     private Stage stage;
     private Scene scene;
     private Parent root;

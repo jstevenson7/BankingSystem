@@ -1,4 +1,4 @@
-package edu.missouriwestern.csc406.bankingsystem.controllers;
+package edu.missouriwestern.csc406.bankingsystem;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,7 +10,7 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import java.io.IOException;
 
-public class CustomerScene {
+public class z_Customer {
 
     private Stage stage;
     private Scene scene;
@@ -28,7 +28,7 @@ public class CustomerScene {
 
 
     public void toActor(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("Actor.fxml"));
+        root = FXMLLoader.load(getClass().getResource("SystemMain.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -37,7 +37,7 @@ public class CustomerScene {
     }
 
     public void toATM(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("ATM.fxml"));
+        root = FXMLLoader.load(getClass().getResource("Customer_ATM.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -46,7 +46,7 @@ public class CustomerScene {
     }
 
     public void toInsertCheck(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("InsertCheck.fxml"));
+        root = FXMLLoader.load(getClass().getResource("Customer_InsertCheck.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -55,7 +55,7 @@ public class CustomerScene {
     }
 
     public void toUseCC(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("CC.fxml"));
+        root = FXMLLoader.load(getClass().getResource("Customer_CC.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

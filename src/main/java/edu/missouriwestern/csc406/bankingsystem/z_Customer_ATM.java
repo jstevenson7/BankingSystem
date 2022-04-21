@@ -1,9 +1,5 @@
-package edu.missouriwestern.csc406.bankingsystem.controllers;
+package edu.missouriwestern.csc406.bankingsystem;
 
-import edu.missouriwestern.csc406.bankingsystem.Check;
-import edu.missouriwestern.csc406.bankingsystem.Checking;
-import edu.missouriwestern.csc406.bankingsystem.Customer;
-import edu.missouriwestern.csc406.bankingsystem.DB;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,7 +13,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 
-public class ATM {
+public class z_Customer_ATM {
     // Database data to store for page
     ArrayList<Customer> customers;
     ArrayList<Checking> checkings;

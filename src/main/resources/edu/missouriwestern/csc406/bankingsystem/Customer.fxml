@@ -10,13 +10,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.missouriwestern.csc406.bankingsystem.controllers.CustomerScene">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.missouriwestern.csc406.bankingsystem.z_Customer">
    <children>
       <HBox alignment="CENTER" prefHeight="74.0" prefWidth="600.0" style="-fx-background-color: black;">
          <children>
             <ImageView fitHeight="47.0" fitWidth="215.0">
                <image>
-                  <Image url="@../../../../../Images/hbox_red_logo.png" />
+                  <Image url="@../../../../Images/hbox_red_logo.png" />
                </image>
             </ImageView>
          </children>
@@ -39,7 +39,7 @@
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../Images/backArrow1.png" />
+                        <Image url="@../../../../Images/backArrow1.png" />
                      </image></ImageView>
                </graphic>
             </Button>
@@ -50,7 +50,7 @@
                <graphic>
                   <ImageView fitHeight="31.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../Images/Check.png" />
+                        <Image url="@../../../../Images/Check.png" />
                      </image></ImageView>
                </graphic>
             </Button>
@@ -61,7 +61,7 @@
                <graphic>
                   <ImageView fitHeight="22.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../Images/atmBold.jpg" />
+                        <Image url="@../../../../Images/atmBold.jpg" />
                      </image>
                   </ImageView>
                </graphic>
@@ -73,7 +73,7 @@
                <graphic>
                   <ImageView fitHeight="28.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../Images/cc.png" />
+                        <Image url="@../../../../Images/cc.png" />
                      </image></ImageView>
                </graphic>
             </Button>

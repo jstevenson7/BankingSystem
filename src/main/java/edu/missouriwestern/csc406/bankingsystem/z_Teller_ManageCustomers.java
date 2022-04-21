@@ -1,7 +1,5 @@
-package edu.missouriwestern.csc406.bankingsystem.controllers;
+package edu.missouriwestern.csc406.bankingsystem;
 
-import edu.missouriwestern.csc406.bankingsystem.Customer;
-import edu.missouriwestern.csc406.bankingsystem.DB;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,7 +12,7 @@ import javafx.stage.Stage;
 import java.util.ArrayList;
 import java.io.IOException;
 
-public class ManageCustomers {
+public class z_Teller_ManageCustomers {
 
     private Stage stage;
     private Scene scene;
