@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import java.util.ArrayList;
 import java.io.IOException;
@@ -55,12 +56,16 @@ public class z_Teller_ManageCustomers {
     private ComboBox<String> cAccountBox;
     @FXML
     private Button cCreateButton;
+    @FXML
+    private TextField deleteCustomerSSN;
 
     /* --- DELETE ANCHOR DATA --- */
     @FXML
     private AnchorPane deleteAnchor;
     @FXML
     private Button dDeleteButton;
+    @FXML
+    private Label deleteMessage;
 
     /* --- MAIN ANCHOR DATA --- */
     @FXML
@@ -82,7 +87,7 @@ public class z_Teller_ManageCustomers {
         //Placeholder for future new cust, but stands in now - RM 4/20/22 17:50
         Customer newCust = new Customer(cSSNText.getText(), cAddressText.getText(), cCityText.getText(),
                 cStateBox.getValue(), Integer.parseInt(cZipText.getText()), cFNameText.getText(),
-                cLNameText.getText(), Integer.parseInt(cATMNumText.getText()), Integer.parseInt(cATMPinText.getText()),
+                cLNameText.getText(), cATMNumText.getText(), Integer.parseInt(cATMPinText.getText()),
                 Integer.parseInt(cCCPinText.getText()), cCustIDText.getText());
         customers.add(newCust);
         DB.writeCustomerCSV(customers);
@@ -97,6 +102,31 @@ public class z_Teller_ManageCustomers {
         cCCPinText.clear();
         cCustIDText.clear();
     }
+    public void deleteCustomer(ActionEvent event) throws IOException {
+        // Read customers from database/csv
+        ArrayList<Customer> customers = DB.readCustomersCSV();
+        // find customer with matching ssn
+        if (DB.verifyCustomer(deleteCustomerSSN.getText(), customers)) {
+            for (Customer cust: customers) {
+                if (cust.getSSN().equals(deleteCustomerSSN.getText())) {
+                    // remove customer if matches
+                    customers.remove(cust);
+                    deleteMessage.setText("Deleted!");
+                    deleteMessage.setTextFill(Color.GREEN);
+                    break;
+                }
+            }
+        } else {
+            deleteMessage.setText("Invalid SSN!");
+            deleteMessage.setTextFill(Color.RED);
+        }
+
+        // write customers back to database/csv
+        DB.writeCustomerCSV(customers);
+        // clear box
+        deleteCustomerSSN.clear();
+    }
+
     public void displayCreate(ActionEvent event) throws IOException {
         mainAnchor.setVisible(false);
         deleteAnchor.setVisible(false);
