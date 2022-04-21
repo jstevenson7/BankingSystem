@@ -2,7 +2,13 @@ package edu.missouriwestern.csc406.bankingsystem;
 
 import com.opencsv.bean.CsvBindByName;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 
 public class Savings {
@@ -18,6 +24,8 @@ public class Savings {
     @CsvBindByName
     private String customerID;
 
+    private String currentDate;
+
     private ArrayList<Check> depositchecklist = new ArrayList<Check>();
     private ArrayList<Check> withdrawchecklist = new ArrayList<Check>();
 
@@ -32,6 +40,48 @@ public class Savings {
         this.interestRate = interestRate;
         this.startDate = startDate;
         this.customerID = customerID;
+        this.currentDate = "04-21-2022";
+    }
+
+    public void dailyInterest () throws ParseException {
+
+        SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy");
+        Date startingdate = sdf.parse(startDate);
+        Date currentdate = sdf.parse(currentDate);
+
+        long diffInTime = Math.abs(currentdate.getTime() - startingdate.getTime());
+        long diff = TimeUnit.DAYS.convert(diffInTime, TimeUnit.DAYS);
+
+        while (diff > 0) {
+
+
+            balance += (interestRate / 365) * balance;
+            diff--;
+        }
+    }
+
+
+
+    public void deposit(Double amount)
+    {
+        balance+= amount;
+    }
+
+    public void withdraw(Double amount)
+    {
+        balance-= amount;
+    }
+
+    public void writecheck (Check check)
+    {
+        balance-=check.getAmount();
+        withdrawchecklist.add(check);
+
+    }
+    public void depositcheck(Check check)
+    {
+        balance+=check.getAmount();
+        depositchecklist.add(check);
     }
 
     public String getSavingsID() {
