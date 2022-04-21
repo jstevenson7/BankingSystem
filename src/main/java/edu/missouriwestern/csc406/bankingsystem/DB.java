@@ -416,4 +416,12 @@ public class DB {
         }
         return false;
     }
+    public static Boolean verifyEmployee(String empID, ArrayList<Employee> employees) {
+        for (Employee emp: employees) {
+            if (emp.getEmployeeID().equals(empID)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

@@ -60,7 +60,7 @@
             </Button>
          </children>
       </VBox>
-      <AnchorPane fx:id="mainAnchor" layoutX="149.0" layoutY="62.0" prefHeight="341.0" prefWidth="453.0">
+      <AnchorPane fx:id="mainAnchor" layoutX="149.0" layoutY="62.0" prefHeight="341.0" prefWidth="453.0" visible="false">
          <children>
             <Text layoutX="87.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Manage Employees" textAlignment="CENTER">
                <font>
@@ -74,7 +74,7 @@
             </Text>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="createAnchor" layoutX="153.0" layoutY="61.0" prefHeight="341.0" prefWidth="453.0" visible="false">
+      <AnchorPane fx:id="createAnchor" layoutX="153.0" layoutY="61.0" prefHeight="341.0" prefWidth="453.0">
          <children>
             <TextField fx:id="idText" layoutX="89.0" layoutY="80.0" prefHeight="25.0" prefWidth="115.0" />
             <TextField fx:id="fNameText" layoutX="101.0" layoutY="126.0" prefHeight="25.0" prefWidth="115.0" />
@@ -91,7 +91,7 @@
             </BorderPane>
             <TextField fx:id="passwordText" layoutX="295.0" layoutY="80.0" prefHeight="25.0" prefWidth="115.0" />
             <Text layoutX="223.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" textAlignment="RIGHT" wrappingWidth="60.13671875" />
-            <Button fx:id="cCreateButton" layoutX="200.0" layoutY="223.0" mnemonicParsing="false" text="Create Employee" />
+            <Button fx:id="cCreateButton" layoutX="200.0" layoutY="223.0" mnemonicParsing="false" onAction="#createEmployee" text="Create Employee" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="deleteAnchor" layoutX="153.0" layoutY="61.0" prefHeight="341.0" prefWidth="453.0" visible="false">
@@ -107,7 +107,8 @@
                   <Font size="17.0" />
                </font>
             </Text>
-            <Button fx:id="dDeleteButton" layoutX="165.0" layoutY="178.0" mnemonicParsing="false" text="Delete Employee" />
+            <Button fx:id="dDeleteButton" layoutX="165.0" layoutY="178.0" mnemonicParsing="false" onAction="#deleteEmployee" text="Delete Employee" />
+            <Label fx:id="deleteMessage" alignment="CENTER" layoutX="164.0" layoutY="81.0" prefHeight="18.0" prefWidth="106.0" textAlignment="CENTER" />
          </children>
       </AnchorPane>
    </children>

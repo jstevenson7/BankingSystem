@@ -8,11 +8,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class z_Manager_ManageEmployees {
 
@@ -52,6 +55,8 @@ public class z_Manager_ManageEmployees {
     private Button dDeleteButton;
     @FXML
     private TextField dIDButton;
+    @FXML
+    private Label deleteMessage;
 
     /* --- MAIN ANCHOR DATA --- */
     @FXML
@@ -79,6 +84,45 @@ public class z_Manager_ManageEmployees {
         createAnchor.setVisible(false);
         deleteAnchor.setVisible(true);
     } //End of displayDelete.
+
+    public void createEmployee (ActionEvent event) throws IOException {
+        ArrayList<Employee> employees = DB.readEmployeeCSV();
+        int empType;
+        if (empTypeBox.getValue().equals("Manager")) {
+            empType = 1;
+        } else {
+            empType = 0;
+        }
+        Employee employee = new Employee(idText.getText(), lNameText.getText(),
+                fNameText.getText(), empType, passwordText.getText());
+        employees.add(employee);
+        DB.writeEmployeeCSV(employees);
+        idText.clear();
+        lNameText.clear();
+        fNameText.clear();
+        passwordText.clear();
+    }
+    public void deleteEmployee (ActionEvent event) throws IOException {
+        ArrayList<Employee> employees = DB.readEmployeeCSV();
+        // find customer with matching ssn
+
+        if (DB.verifyEmployee(dIDButton.getText(), employees)) {
+            for (Employee emp: employees) {
+                if (emp.getEmployeeID().equals(dIDButton.getText())) {
+                    // remove customer if matches
+                    employees.remove(emp);
+                    deleteMessage.setText("Deleted!");
+                    deleteMessage.setTextFill(Color.GREEN);
+                    break;
+                }
+            }
+        } else {
+            deleteMessage.setText("Invalid ID!");
+            deleteMessage.setTextFill(Color.RED);
+        }
+        DB.writeEmployeeCSV(employees);
+        dIDButton.clear();
+    }
 
     @FXML
     private void initialize(){
