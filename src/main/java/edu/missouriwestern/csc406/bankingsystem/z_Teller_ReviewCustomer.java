@@ -30,4 +30,12 @@ public class z_Teller_ReviewCustomer {
         stage.show();
     } //End of toTeller.
 
+    @FXML
+    private void initialize() {
+        // Customer Button
+        returnTellerButton.setOnMouseEntered(event -> returnTellerButton.setStyle("-fx-background-color: #E8ADAD; -fx-border-color: #000000"));
+        returnTellerButton.setOnMouseExited(event -> returnTellerButton.setStyle("-fx-background-color: #d4d4d4; -fx-border-color:  #b0b0b0"));
+
+    }
+
 }
