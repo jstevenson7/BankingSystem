@@ -164,6 +164,12 @@
                   </Text>
                </children>
             </HBox>
+            <Text layoutX="90.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Our systems check point modify reset happens upon action. Similar to how auto-saving works, however, it is more based upon actions of confirmation such as clicking a button. We load data on the program start and read and write to and from the files needed." textAlignment="CENTER" wrappingWidth="203.13671875" />
+            <Text layoutX="32.0" layoutY="354.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Note: Potentially create a way to see changes made in this tab">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+            </Text>
          </children>
       </AnchorPane>
       <AnchorPane fx:id="runTestsAnchor" layoutX="218.0" prefHeight="400.0" prefWidth="385.0" visible="false">

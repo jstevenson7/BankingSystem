@@ -47,7 +47,6 @@ public class z_EmployeeLogin {
             loginLabel.setText("Incorrect Login Credentials");
             employeeID.clear();
             password.clear();
-
         }
     }
     public void toActor(ActionEvent event) throws IOException {
