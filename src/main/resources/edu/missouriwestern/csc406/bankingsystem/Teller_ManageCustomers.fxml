@@ -14,9 +14,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.missouriwestern.csc406.bankingsystem.z_Teller_ManageCustomers">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.missouriwestern.csc406.bankingsystem.z_Teller_ManageCustomers">
    <children>
-      <HBox alignment="CENTER" prefHeight="46.0" prefWidth="600.0" style="-fx-background-color: red;">
+      <HBox alignment="CENTER" prefHeight="68.0" prefWidth="950.0" style="-fx-background-color: red;">
          <children>
             <ImageView fitHeight="62.0" fitWidth="200.0">
                <image>
@@ -25,18 +25,18 @@
             </ImageView>
          </children>
       </HBox>
-      <VBox alignment="TOP_CENTER" layoutY="62.0" prefHeight="341.0" prefWidth="149.0" style="-fx-background-color: #E0E0E0; -fx-border-color: #AEAEAE; -fx-background-insets: 0;">
+      <VBox alignment="TOP_CENTER" layoutY="68.0" prefHeight="587.0" prefWidth="228.0" style="-fx-background-color: #E0E0E0; -fx-border-color: #AEAEAE; -fx-background-insets: 0;">
          <children>
-            <Pane prefHeight="29.0" prefWidth="198.0" style="-fx-border-color: #C0C0C0;">
+            <Pane prefHeight="89.0" prefWidth="226.0" style="-fx-border-color: #C0C0C0;">
                <children>
-                  <Text layoutX="-7.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage Customers" textAlignment="CENTER" wrappingWidth="162.0">
+                  <Text layoutX="32.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage Customers" textAlignment="CENTER" wrappingWidth="162.0">
                      <font>
-                        <Font name="Gill Sans MT Bold" size="14.0" />
+                        <Font name="Gill Sans MT Bold" size="18.0" />
                      </font>
                   </Text>
                </children>
             </Pane>
-            <Button fx:id="returnTellerButton" alignment="CENTER" mnemonicParsing="false" onAction="#toTeller" prefHeight="102.0" prefWidth="172.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Return to Teller" textAlignment="CENTER">
+            <Button fx:id="returnTellerButton" alignment="CENTER" mnemonicParsing="false" onAction="#toTeller" prefHeight="102.0" prefWidth="230.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Return to Teller" textAlignment="CENTER">
                <font>
                   <Font name="Gill Sans MT" size="13.0" />
                </font>
@@ -48,33 +48,33 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="createACustomerButton" alignment="CENTER" mnemonicParsing="false" onAction="#displayCreate" prefHeight="102.0" prefWidth="172.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Create a Customer" textAlignment="CENTER">
+            <Button fx:id="createACustomerButton" alignment="CENTER" mnemonicParsing="false" onAction="#displayCreate" prefHeight="102.0" prefWidth="232.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Create a Customer" textAlignment="CENTER">
                <font>
                   <Font name="Gill Sans MT" size="13.0" />
                </font>
             </Button>
-            <Button fx:id="deleteACustomerButton" alignment="CENTER" mnemonicParsing="false" onAction="#displayDelete" prefHeight="109.0" prefWidth="172.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Delete a Customer">
+            <Button fx:id="deleteACustomerButton" alignment="CENTER" mnemonicParsing="false" onAction="#displayDelete" prefHeight="109.0" prefWidth="230.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Delete a Customer">
                <font>
                   <Font name="Gill Sans MT" size="13.0" />
                </font>
             </Button>
          </children>
       </VBox>
-      <AnchorPane fx:id="mainAnchor" layoutX="149.0" layoutY="62.0" prefHeight="341.0" prefWidth="453.0">
+      <AnchorPane fx:id="mainAnchor" layoutX="229.0" layoutY="68.0" prefHeight="581.0" prefWidth="722.0">
          <children>
-            <Text layoutX="87.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Manage Customers" textAlignment="CENTER">
+            <Text layoutX="234.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Manage Customers" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </Text>
-            <Text layoutX="121.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please select what you would like to do using the left side menu." textAlignment="CENTER" wrappingWidth="186.0">
+            <Text layoutX="268.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please select what you would like to do using the left side menu." textAlignment="CENTER" wrappingWidth="186.0">
                <font>
                   <Font size="15.0" />
                </font>
             </Text>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="createAnchor" layoutX="150.0" layoutY="61.0" prefHeight="341.0" prefWidth="453.0" visible="false">
+      <AnchorPane fx:id="createAnchor" layoutX="228.0" layoutY="68.0" prefHeight="581.0" prefWidth="722.0" visible="false">
          <children>
             <TextField fx:id="cSSNText" layoutX="60.0" layoutY="42.0" prefHeight="25.0" prefWidth="115.0" />
             <TextField fx:id="cFNameText" layoutX="60.0" layoutY="76.0" prefHeight="25.0" prefWidth="115.0" />
@@ -113,7 +113,7 @@
             </Text>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="deleteAnchor" layoutX="153.0" layoutY="61.0" prefHeight="341.0" prefWidth="453.0" visible="false">
+      <AnchorPane fx:id="deleteAnchor" layoutX="228.0" layoutY="68.0" prefHeight="581.0" prefWidth="722.0" visible="false">
          <children>
             <TextField fx:id="deleteCustomerSSN" layoutX="143.0" layoutY="128.0" />
             <BorderPane layoutX="3.0" prefHeight="68.0" prefWidth="428.0">

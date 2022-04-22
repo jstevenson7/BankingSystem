@@ -10,9 +10,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.missouriwestern.csc406.bankingsystem.z_Manager_ManageLoans">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.missouriwestern.csc406.bankingsystem.z_Manager_ManageLoans">
    <children>
-      <HBox alignment="CENTER" prefHeight="46.0" prefWidth="600.0" style="-fx-background-color: red;">
+      <HBox alignment="CENTER" prefHeight="62.0" prefWidth="950.0" style="-fx-background-color: red;">
          <children>
             <ImageView fitHeight="62.0" fitWidth="200.0">
                <image>
@@ -21,7 +21,7 @@
             </ImageView>
          </children>
       </HBox>
-      <VBox alignment="TOP_CENTER" layoutY="62.0" prefHeight="341.0" prefWidth="149.0" style="-fx-background-color: #E0E0E0; -fx-border-color: #AEAEAE; -fx-background-insets: 0;">
+      <VBox alignment="TOP_CENTER" layoutY="62.0" prefHeight="591.0" prefWidth="149.0" style="-fx-background-color: #E0E0E0; -fx-border-color: #AEAEAE; -fx-background-insets: 0;">
          <children>
             <Pane prefHeight="29.0" prefWidth="198.0" style="-fx-border-color: #C0C0C0;">
                <children>
@@ -46,7 +46,7 @@
             </Button>
          </children>
       </VBox>
-      <AnchorPane fx:id="mainAnchor" layoutX="149.0" layoutY="62.0" prefHeight="341.0" prefWidth="453.0">
+      <AnchorPane fx:id="mainAnchor" layoutX="149.0" layoutY="62.0" prefHeight="591.0" prefWidth="804.0">
          <children>
             <Text layoutX="87.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Manage Loans" textAlignment="CENTER">
                <font>

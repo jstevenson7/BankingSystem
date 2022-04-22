@@ -5,16 +5,15 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.missouriwestern.csc406.bankingsystem.z_Manager">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.missouriwestern.csc406.bankingsystem.z_Manager">
    <children>
-      <HBox alignment="CENTER" prefHeight="74.0" prefWidth="600.0" style="-fx-background-color: red;">
+      <HBox alignment="CENTER" prefHeight="74.0" prefWidth="950.0" style="-fx-background-color: red;">
          <children>
             <ImageView fitHeight="71.0" fitWidth="200.0">
                <image>
@@ -23,7 +22,7 @@
             </ImageView>
          </children>
       </HBox>
-      <VBox alignment="TOP_CENTER" layoutY="74.0" prefHeight="328.0" prefWidth="181.0" style="-fx-background-color: #E0E0E0; -fx-border-color: #AEAEAE; -fx-background-insets: 0;">
+      <VBox alignment="TOP_CENTER" layoutY="74.0" prefHeight="574.0" prefWidth="200.0" style="-fx-background-color: #E0E0E0; -fx-border-color: #AEAEAE; -fx-background-insets: 0;">
          <children>
             <Pane prefHeight="69.0" prefWidth="179.0" style="-fx-border-color: #C0C0C0;">
                <children>
@@ -34,7 +33,7 @@
                   </Text>
                </children>
             </Pane>
-            <Button fx:id="returnEmployeeButton" alignment="CENTER" mnemonicParsing="false" onAction="#toEmployee" prefHeight="60.0" prefWidth="179.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Return to Login">
+            <Button fx:id="returnEmployeeButton" alignment="CENTER" mnemonicParsing="false" onAction="#toEmployee" prefHeight="60.0" prefWidth="201.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Return to Login">
                <font>
                   <Font name="Gill Sans MT" size="13.0" />
                </font>
@@ -46,60 +45,60 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="manageEmployeesButton" alignment="CENTER" mnemonicParsing="false" onAction="#toManageEmployees" prefHeight="60.0" prefWidth="179.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Manage Employees">
+            <Button fx:id="manageEmployeesButton" alignment="CENTER" mnemonicParsing="false" onAction="#toManageEmployees" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Manage Employees">
                <font>
                   <Font name="Gill Sans MT" size="13.0" />
                </font>
             </Button>
-            <Button fx:id="manageLoansButton" alignment="CENTER" mnemonicParsing="false" onAction="#toManageLoans" prefHeight="58.0" prefWidth="179.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Manage Loans">
+            <Button fx:id="manageLoansButton" alignment="CENTER" mnemonicParsing="false" onAction="#toManageLoans" prefHeight="58.0" prefWidth="201.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Manage Loans">
                <font>
                   <Font name="Gill Sans MT" size="13.0" />
                </font>
             </Button>
-            <Button fx:id="setInterestButton" alignment="CENTER" mnemonicParsing="false" onAction="#toSetRates" prefHeight="53.0" prefWidth="179.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Set Interest Rates">
+            <Button fx:id="setInterestButton" alignment="CENTER" mnemonicParsing="false" onAction="#toSetRates" prefHeight="53.0" prefWidth="196.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Set Interest Rates">
                <font>
                   <Font name="Gill Sans MT" size="13.0" />
                </font>
             </Button>
-            <Button fx:id="sendOutsButton" alignment="CENTER" mnemonicParsing="false" onAction="#toSendOuts" prefHeight="57.0" prefWidth="179.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Send Outs">
+            <Button fx:id="sendOutsButton" alignment="CENTER" mnemonicParsing="false" onAction="#toSendOuts" prefHeight="57.0" prefWidth="208.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Send Outs">
                <font>
                   <Font name="Gill Sans MT" size="13.0" />
                </font>
             </Button>
          </children>
       </VBox>
-      <BorderPane layoutX="182.0" layoutY="72.0" prefHeight="47.0" prefWidth="400.0">
-         <center>
-            <Label text="Hello, name. Welcome to the Manager Portal!" textAlignment="CENTER" wrapText="true" BorderPane.alignment="CENTER">
+      <AnchorPane layoutX="201.0" layoutY="75.0" prefHeight="574.0" prefWidth="749.0">
+         <children>
+            <Label layoutX="189.0" layoutY="21.0" text="Hello, name. Welcome to the Manager Portal!" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font name="Century Gothic Bold" size="16.0" />
                </font>
             </Label>
-         </center>
-      </BorderPane>
-      <Text layoutX="222.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage Employees" wrappingWidth="109.0">
-         <font>
-            <Font name="System Bold" size="11.0" />
-         </font>
-      </Text>
-      <Text layoutX="382.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage Loans" wrappingWidth="101.0">
-         <font>
-            <Font name="System Bold" size="11.0" />
-         </font>
-      </Text>
-      <Text layoutX="222.0" layoutY="274.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Send Outs" wrappingWidth="75.0">
-         <font>
-            <Font name="System Bold" size="11.0" />
-         </font>
-      </Text>
-      <Text layoutX="182.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Table of Contents" textAlignment="CENTER" wrappingWidth="400.0">
-         <font>
-            <Font name="Calibri" size="17.0" />
-         </font>
-      </Text>
-      <Text layoutX="227.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create an Employee" wrappingWidth="109.0" />
-      <Text layoutX="228.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Delete an Employee" wrappingWidth="109.0" />
-      <Text layoutX="228.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Send Bills" wrappingWidth="162.0" />
-      <Text layoutX="228.0" layoutY="314.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Send Roll-Over Notices" wrappingWidth="162.0" />
+            <Text layoutX="214.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage Employees" wrappingWidth="109.0">
+               <font>
+                  <Font name="System Bold" size="11.0" />
+               </font>
+            </Text>
+            <Text layoutX="374.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage Loans" wrappingWidth="101.0">
+               <font>
+                  <Font name="System Bold" size="11.0" />
+               </font>
+            </Text>
+            <Text layoutX="214.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Send Outs" wrappingWidth="75.0">
+               <font>
+                  <Font name="System Bold" size="11.0" />
+               </font>
+            </Text>
+            <Text layoutX="174.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Table of Contents" textAlignment="CENTER" wrappingWidth="400.0">
+               <font>
+                  <Font name="Calibri" size="17.0" />
+               </font>
+            </Text>
+            <Text layoutX="219.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create an Employee" wrappingWidth="109.0" />
+            <Text layoutX="220.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Delete an Employee" wrappingWidth="109.0" />
+            <Text layoutX="220.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Send Bills" wrappingWidth="162.0" />
+            <Text layoutX="220.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Send Roll-Over Notices" wrappingWidth="162.0" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: red;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.missouriwestern.csc406.bankingsystem.z_Customer_ATM">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="950.0" style="-fx-background-color: red;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.missouriwestern.csc406.bankingsystem.z_Customer_ATM">
    <children>
-      <HBox alignment="CENTER" prefHeight="74.0" prefWidth="600.0" style="-fx-background-color: black;">
+      <HBox alignment="CENTER" prefHeight="74.0" prefWidth="950.0" style="-fx-background-color: black;">
          <children>
             <ImageView fitHeight="47.0" fitWidth="215.0">
                <image>
@@ -15,34 +21,39 @@
             </ImageView>
          </children>
       </HBox>
-      <HBox alignment="CENTER" layoutX="38.0" layoutY="123.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="174.0" prefWidth="304.0" style="-fx-background-color: white; -fx-border-color: black;">
+      <HBox alignment="CENTER" layoutX="38.0" layoutY="147.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="357.0" prefWidth="530.0" style="-fx-background-color: white; -fx-border-color: black;">
          <children>
-            <BorderPane prefHeight="200.0" prefWidth="200.0">
-               <center>
-                  <Label fx:id="atmLabel" alignment="CENTER" contentDisplay="CENTER" text="Please enter your ATM card number." textAlignment="CENTER" wrapText="true" BorderPane.alignment="CENTER" />
-               </center>
-            </BorderPane>
+            <Label fx:id="atmLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="54.0" prefWidth="385.0" text="Please enter your ATM card number." textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
          </children>
       </HBox>
-      <ImageView fitHeight="95.0" fitWidth="215.0" layoutX="83.0" layoutY="309.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="104.0" fitWidth="376.0" layoutX="157.0" layoutY="516.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../Images/atmInsert.png" />
          </image>
       </ImageView>
-      <Button layoutX="372.0" layoutY="120.0" mnemonicParsing="false" prefHeight="174.0" prefWidth="165.0" style="-fx-background-color: red;" />
-      <ImageView fitHeight="47.0" fitWidth="153.0" layoutX="386.0" layoutY="324.0">
+      <ImageView fitHeight="47.0" fitWidth="273.0" layoutX="616.0" layoutY="528.0">
          <image>
             <Image url="@../../../../Images/receipt.png" />
          </image>
       </ImageView>
-      <Button fx:id="returnCustomerButton" layoutX="38.0" layoutY="87.0" mnemonicParsing="false" onAction="#toCustomer" prefHeight="25.0" prefWidth="304.0" style="-fx-background-color: black;" text="Return to Customer Portal" textFill="#605a5a" />
-      <TextField fx:id="cardNumText" layoutX="115.0" layoutY="334.0" prefHeight="6.0" prefWidth="151.0" promptText="Card Number" style="-fx-border-color: red;" />
-      <ImageView fitHeight="174.0" fitWidth="165.0" layoutX="380.0" layoutY="93.0">
+      <Button fx:id="returnCustomerButton" layoutX="38.0" layoutY="106.0" mnemonicParsing="false" onAction="#toCustomer" prefHeight="25.0" prefWidth="530.0" style="-fx-background-color: black;" text="Return to Customer Portal" textFill="#c3c1c1" />
+      <TextField fx:id="cardNumText" layoutX="203.0" layoutY="548.0" prefHeight="35.0" prefWidth="200.0" promptText="Card Number" style="-fx-border-color: red;">
+         <font>
+            <Font size="17.0" />
+         </font></TextField>
+      <ImageView fitHeight="259.0" fitWidth="222.0" layoutX="642.0" layoutY="147.0">
          <image>
             <Image url="@../../../../Images/KeyPad.png" />
          </image>
       </ImageView>
-      <PasswordField fx:id="pinText" layoutX="388.0" layoutY="282.0" onAction="#validatePIN" promptText="PIN Number" />
+      <PasswordField fx:id="pinText" layoutX="642.0" layoutY="427.0" onAction="#validatePIN" prefHeight="35.0" prefWidth="222.0" promptText="PIN Number">
+         <font>
+            <Font size="17.0" />
+         </font></PasswordField>
       <TextField fx:id="withdrawAmtText" layoutX="388.0" layoutY="282.0" onAction="#validateWithdrawAmt" promptText="Withdraw Amount" visible="false" />
       <Button fx:id="receiptButton" layoutX="402.0" layoutY="332.0" mnemonicParsing="false" onAction="#viewReceipt" prefHeight="58.0" prefWidth="122.0" style="-fx-background-color: white;" visible="false" />
    </children>

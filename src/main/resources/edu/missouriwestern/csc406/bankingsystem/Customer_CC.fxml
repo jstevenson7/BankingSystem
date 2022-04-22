@@ -8,10 +8,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.missouriwestern.csc406.bankingsystem.z_Customer_CC">
+<AnchorPane prefHeight="650.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.missouriwestern.csc406.bankingsystem.z_Customer_CC">
    <children>
-      <HBox alignment="CENTER" prefHeight="74.0" prefWidth="603.0" style="-fx-background-color: black;">
+      <HBox alignment="CENTER" prefHeight="74.0" prefWidth="950.0" style="-fx-background-color: black;">
          <children>
             <ImageView fitHeight="47.0" fitWidth="215.0">
                <image>
@@ -20,26 +21,41 @@
             </ImageView>
          </children>
       </HBox>
-      <ImageView fitHeight="265.0" fitWidth="292.0" layoutX="28.0" layoutY="93.0">
+      <ImageView fitHeight="433.0" fitWidth="441.0" layoutX="29.0" layoutY="124.0">
          <image>
             <Image url="@../../../../Images/useCC.png" />
          </image>
       </ImageView>
-      <Button fx:id="returnCustomerButton" layoutX="364.0" layoutY="93.0" mnemonicParsing="false" onAction="#toCustomer" prefHeight="25.0" prefWidth="209.0" style="-fx-background-color: black;" text="Return to Customer Portal" textFill="#605a5a" />
-      <BorderPane layoutX="47.0" layoutY="112.0" prefHeight="74.0" prefWidth="222.0" style="-fx-background-color: #d4d4d4;">
+      <Button fx:id="returnCustomerButton" layoutX="537.0" layoutY="164.0" mnemonicParsing="false" onAction="#toCustomer" prefHeight="47.0" prefWidth="321.0" style="-fx-background-color: black;" text="Return to Customer Portal" textFill="#605a5a" />
+      <BorderPane layoutX="54.0" layoutY="164.0" prefHeight="103.0" prefWidth="344.0" style="-fx-background-color: #d4d4d4;">
          <center>
-            <Label fx:id="machineLabel" prefHeight="77.0" prefWidth="144.0" text="Please insert card number." textAlignment="CENTER" wrapText="true" BorderPane.alignment="CENTER" />
+            <Label fx:id="machineLabel" prefHeight="77.0" prefWidth="189.0" text="Please insert card number." textAlignment="CENTER" wrapText="true" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
          </center>
       </BorderPane>
-      <ImageView fitHeight="126.0" fitWidth="215.0" layoutX="361.0" layoutY="213.0">
+      <ImageView fitHeight="184.0" fitWidth="311.0" layoutX="537.0" layoutY="325.0">
          <image>
             <Image url="@../../../../Images/PBcc.png" />
          </image>
       </ImageView>
-      <TextField fx:id="cardNumText" layoutX="409.0" layoutY="281.0" onAction="#validateCard" prefHeight="9.0" prefWidth="120.0" promptText="Card Number" style="-fx-background-color: white;" />
-      <TextField fx:id="purchaseAmtText" layoutX="77.0" layoutY="361.0" onAction="#validateWithdrawAmt" promptText="Purchase Amount" visible="false" />
-      <TextField fx:id="purchaseNoteText" layoutX="77.0" layoutY="361.0" onAction="#enterNote" promptText="Purchase Location" visible="false" />
-      <Button fx:id="receiptButton" layoutX="422.0" layoutY="133.0" mnemonicParsing="false" onAction="#viewReceipt" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: red;" text="View Receipt" visible="false" />
-      <TextField fx:id="zipText" layoutX="84.0" layoutY="361.0" onAction="#validatePIN" promptText="ZIP Code" visible="false" />
+      <TextField fx:id="cardNumText" layoutX="610.0" layoutY="423.0" onAction="#validateCard" prefHeight="40.0" prefWidth="174.0" promptText="Card Number" style="-fx-background-color: white;">
+         <font>
+            <Font size="16.0" />
+         </font></TextField>
+      <TextField fx:id="purchaseNoteText" layoutX="603.0" layoutY="247.0" onAction="#enterNote" prefHeight="40.0" prefWidth="190.0" promptText="Purchase Location" visible="false">
+         <font>
+            <Font size="16.0" />
+         </font></TextField>
+      <Button fx:id="receiptButton" layoutX="602.0" layoutY="544.0" mnemonicParsing="false" onAction="#viewReceipt" prefHeight="40.0" prefWidth="190.0" style="-fx-background-color: red;" text="View Receipt" visible="false" />
+      <TextField fx:id="purchaseAmtText" layoutX="603.0" layoutY="247.0" onAction="#validateWithdrawAmt" prefHeight="40.0" prefWidth="190.0" promptText="Purchase Amount" visible="false">
+         <font>
+            <Font size="16.0" />
+         </font></TextField>
+      <TextField fx:id="zipText" layoutX="603.0" layoutY="247.0" onAction="#validatePIN" prefHeight="40.0" prefWidth="190.0" promptText="ZIP Code" visible="false">
+         <font>
+            <Font size="16.0" />
+         </font></TextField>
    </children>
 </AnchorPane>
