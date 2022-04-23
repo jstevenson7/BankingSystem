@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -12,7 +13,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.missouriwestern.csc406.bankingsystem.z_Teller_MoreOptions">
    <children>
-      <HBox alignment="CENTER" prefHeight="62.0" prefWidth="950.0" style="-fx-background-color: red;">
+      <HBox alignment="CENTER" prefHeight="67.0" prefWidth="950.0" style="-fx-background-color: red;">
          <children>
             <ImageView fitHeight="62.0" fitWidth="200.0">
                <image>
@@ -21,20 +22,20 @@
             </ImageView>
          </children>
       </HBox>
-      <VBox alignment="TOP_CENTER" layoutY="62.0" prefHeight="582.0" prefWidth="234.0" style="-fx-background-color: #E0E0E0; -fx-border-color: #AEAEAE; -fx-background-insets: 0;">
+      <VBox alignment="TOP_CENTER" layoutY="65.0" prefHeight="584.0" prefWidth="245.0" style="-fx-background-color: #E0E0E0; -fx-border-color: #AEAEAE; -fx-background-insets: 0;">
          <children>
-            <Pane prefHeight="29.0" prefWidth="198.0" style="-fx-border-color: #C0C0C0;">
+            <Pane prefHeight="79.0" prefWidth="232.0" style="-fx-border-color: #C0C0C0;">
                <children>
-                  <Text layoutX="5.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage Customers" textAlignment="CENTER" wrappingWidth="162.0">
+                  <Text layoutX="61.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Public Bank More Options" textAlignment="CENTER" wrappingWidth="111.0">
                      <font>
-                        <Font name="Gill Sans MT Bold" size="14.0" />
+                        <Font name="Gill Sans MT Bold" size="17.0" />
                      </font>
                   </Text>
                </children>
             </Pane>
-            <Button fx:id="returnTellerButton" alignment="CENTER" mnemonicParsing="false" onAction="#toTeller" prefHeight="76.0" prefWidth="235.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Return to Teller" textAlignment="CENTER">
+            <Button fx:id="returnTellerButton" alignment="CENTER" mnemonicParsing="false" onAction="#toTeller" prefHeight="125.0" prefWidth="245.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Return to Teller" textAlignment="CENTER">
                <font>
-                  <Font name="Gill Sans MT" size="13.0" />
+                  <Font size="15.0" />
                </font>
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
@@ -44,24 +45,48 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="stopPaymentButton" alignment="CENTER" mnemonicParsing="false" onAction="#displayStopPayment" prefHeight="82.0" prefWidth="232.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Stop Payment" textAlignment="CENTER">
+            <Button fx:id="stopPaymentButton" alignment="CENTER" mnemonicParsing="false" onAction="#displayStopPayment" prefHeight="120.0" prefWidth="251.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="  Stop Payment" textAlignment="CENTER">
                <font>
-                  <Font name="Gill Sans MT" size="13.0" />
+                  <Font size="15.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/StopPay.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
-            <Button fx:id="autoPayButton" alignment="CENTER" mnemonicParsing="false" onAction="#displayAutoPay" prefHeight="83.0" prefWidth="237.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Set up Auto-Payment">
+            <Button fx:id="autoPayButton" alignment="CENTER" mnemonicParsing="false" onAction="#displayAutoPay" prefHeight="121.0" prefWidth="250.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text=" Set up Auto-Payment" textAlignment="CENTER">
                <font>
-                  <Font name="Gill Sans MT" size="13.0" />
+                  <Font size="15.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="37.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/AutoPay.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
-            <Button fx:id="overdraftButton" alignment="CENTER" mnemonicParsing="false" onAction="#displayOverdraft" prefHeight="77.0" prefWidth="249.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Set up Overdraft Protection">
+            <Button fx:id="overdraftButton" alignment="CENTER" graphicTextGap="20.0" mnemonicParsing="false" onAction="#displayOverdraft" prefHeight="141.0" prefWidth="248.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Set up Overdraft Protection" wrapText="true">
                <font>
-                  <Font name="Gill Sans MT" size="13.0" />
+                  <Font size="15.0" />
                </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="33.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/Protection.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
          </children>
       </VBox>
-      <AnchorPane fx:id="mainAnchor" layoutX="235.0" layoutY="62.0" prefHeight="590.0" prefWidth="718.0">
+      <AnchorPane fx:id="mainAnchor" layoutX="244.0" layoutY="68.0" prefHeight="584.0" prefWidth="709.0">
          <children>
             <Text layoutX="199.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to More Options" textAlignment="CENTER">
                <font>

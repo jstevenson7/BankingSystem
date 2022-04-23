@@ -21,20 +21,20 @@
             </ImageView>
          </children>
       </HBox>
-      <VBox alignment="TOP_CENTER" layoutY="62.0" prefHeight="589.0" prefWidth="229.0" style="-fx-background-color: #E0E0E0; -fx-border-color: #AEAEAE; -fx-background-insets: 0;">
+      <VBox alignment="TOP_CENTER" layoutY="62.0" prefHeight="589.0" prefWidth="245.0" style="-fx-background-color: #E0E0E0; -fx-border-color: #AEAEAE; -fx-background-insets: 0;">
          <children>
-            <Pane prefHeight="29.0" prefWidth="198.0" style="-fx-border-color: #C0C0C0;">
+            <Pane prefHeight="84.0" prefWidth="243.0" style="-fx-border-color: #C0C0C0;">
                <children>
-                  <Text layoutX="5.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage Customers" textAlignment="CENTER" wrappingWidth="162.0">
+                  <Text layoutX="38.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Public Bank Review Customers" textAlignment="CENTER" wrappingWidth="168.0">
                      <font>
-                        <Font name="Gill Sans MT Bold" size="14.0" />
+                        <Font name="Gill Sans MT Bold" size="19.0" />
                      </font>
                   </Text>
                </children>
             </Pane>
-            <Button fx:id="returnTellerButton" alignment="CENTER" mnemonicParsing="false" onAction="#toTeller" prefHeight="88.0" prefWidth="234.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Return to Teller" textAlignment="CENTER">
+            <Button fx:id="returnTellerButton" alignment="CENTER" mnemonicParsing="false" onAction="#toTeller" prefHeight="88.0" prefWidth="253.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Return to Teller" textAlignment="CENTER">
                <font>
-                  <Font name="Gill Sans MT" size="13.0" />
+                  <Font size="15.0" />
                </font>
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
@@ -46,7 +46,7 @@
             </Button>
          </children>
       </VBox>
-      <AnchorPane fx:id="mainAnchor" layoutX="229.0" layoutY="61.0" prefHeight="589.0" prefWidth="721.0">
+      <AnchorPane fx:id="mainAnchor" layoutX="246.0" layoutY="61.0" prefHeight="589.0" prefWidth="704.0">
          <children>
             <Text layoutX="261.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Review" textAlignment="CENTER" wrappingWidth="200.0">
                <font>

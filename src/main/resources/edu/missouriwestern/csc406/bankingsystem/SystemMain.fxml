@@ -28,7 +28,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <Button fx:id="selectActorButton" mnemonicParsing="false" onAction="#toSelectActor" prefHeight="56.0" prefWidth="246.0" style="-fx-background-color: #990000;" text="  Select Actor" textFill="WHITE">
+            <Button fx:id="selectActorButton" mnemonicParsing="false" onAction="#toSelectActor" prefHeight="90.0" prefWidth="246.0" style="-fx-background-color: #990000;" text="  Select Actor" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="29.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -36,8 +36,11 @@
                      </image>
                   </ImageView>
                </graphic>
+               <font>
+                  <Font size="15.0" />
+               </font>
             </Button>
-            <Button fx:id="loadDataButton" mnemonicParsing="false" onAction="#toLoadData" prefHeight="56.0" prefWidth="249.0" style="-fx-background-color: #990000;" text="Load Data" textFill="WHITE">
+            <Button fx:id="loadDataButton" mnemonicParsing="false" onAction="#toLoadData" prefHeight="90.0" prefWidth="249.0" style="-fx-background-color: #990000;" text="Load Data" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="29.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -45,8 +48,11 @@
                      </image>
                   </ImageView>
                </graphic>
+               <font>
+                  <Font size="15.0" />
+               </font>
             </Button>
-            <Button fx:id="runTestsButton" mnemonicParsing="false" onAction="#toRunTests" prefHeight="56.0" prefWidth="247.0" style="-fx-background-color: #990000;" text="  Run Tests" textFill="WHITE">
+            <Button fx:id="runTestsButton" mnemonicParsing="false" onAction="#toRunTests" prefHeight="90.0" prefWidth="247.0" style="-fx-background-color: #990000;" text="  Run Tests" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="29.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -54,8 +60,11 @@
                      </image>
                   </ImageView>
                </graphic>
+               <font>
+                  <Font size="15.0" />
+               </font>
             </Button>
-            <Button fx:id="checkPointButton" mnemonicParsing="false" onAction="#toCheckPoint" prefHeight="56.0" prefWidth="246.0" style="-fx-background-color: #990000;" text="  Check Point" textFill="WHITE">
+            <Button fx:id="checkPointButton" mnemonicParsing="false" onAction="#toCheckPoint" prefHeight="90.0" prefWidth="246.0" style="-fx-background-color: #990000;" text="  Check Point" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="29.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -63,6 +72,9 @@
                      </image>
                   </ImageView>
                </graphic>
+               <font>
+                  <Font size="15.0" />
+               </font>
             </Button>
          </children>
       </VBox>
@@ -72,7 +84,7 @@
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="THE CREATORS" textAlignment="CENTER" wrappingWidth="195.208984375">
                      <font>
-                        <Font name="Verdana Bold" size="17.0" />
+                        <Font name="Verdana Bold" size="21.0" />
                      </font>
                   </Text>
                </children>
@@ -114,7 +126,7 @@
                      </font></Text>
                </children>
             </Pane>
-            <Pane layoutX="323.0" layoutY="180.0" prefHeight="466.0" prefWidth="412.0">
+            <Pane layoutX="323.0" layoutY="180.0" prefHeight="466.0" prefWidth="384.0">
                <children>
                   <Text layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ROLES" wrappingWidth="110.6953125">
                      <font>
@@ -195,9 +207,9 @@
          <children>
             <HBox alignment="CENTER" layoutY="30.0" prefHeight="103.0" prefWidth="709.0" style="-fx-background-color: #cc0000;">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Please select an actor." textAlignment="CENTER" wrappingWidth="195.208984375">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Please select an actor." textAlignment="CENTER" wrappingWidth="251.208984375">
                      <font>
-                        <Font name="Verdana" size="17.0" />
+                        <Font name="Verdana" size="21.0" />
                      </font>
                   </Text>
                </children>
@@ -232,9 +244,9 @@
          <children>
             <HBox alignment="CENTER" layoutY="30.0" prefHeight="103.0" prefWidth="709.0" style="-fx-background-color: #cc0000;">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CHECK POINT" textAlignment="CENTER" wrappingWidth="195.208984375">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CHECK POINT MODIFY RESET" textAlignment="CENTER" wrappingWidth="368.208984375">
                      <font>
-                        <Font name="Verdana" size="17.0" />
+                        <Font name="Verdana Bold" size="21.0" />
                      </font>
                   </Text>
                </children>
@@ -256,7 +268,7 @@
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="RUN TESTS" textAlignment="CENTER" wrappingWidth="195.208984375">
                      <font>
-                        <Font name="Verdana" size="17.0" />
+                        <Font name="Verdana Bold" size="21.0" />
                      </font>
                   </Text>
                </children>
@@ -269,7 +281,7 @@
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="LOAD DATA" textAlignment="CENTER" wrappingWidth="195.208984375">
                      <font>
-                        <Font name="Verdana" size="17.0" />
+                        <Font name="Verdana Bold" size="21.0" />
                      </font>
                   </Text>
                </children>

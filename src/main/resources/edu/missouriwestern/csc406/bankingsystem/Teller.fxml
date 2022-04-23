@@ -5,29 +5,29 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.missouriwestern.csc406.bankingsystem.z_Teller">
    <children>
-      <VBox alignment="TOP_CENTER" layoutY="68.0" prefHeight="584.0" prefWidth="227.0" style="-fx-background-color: #E0E0E0; -fx-border-color: #AEAEAE; -fx-background-insets: 0;">
+      <VBox alignment="TOP_CENTER" layoutY="68.0" prefHeight="584.0" prefWidth="245.0" style="-fx-background-color: #E0E0E0; -fx-border-color: #AEAEAE; -fx-background-insets: 0;">
          <children>
             <Pane prefHeight="60.0" prefWidth="225.0" style="-fx-border-color: #C0C0C0;">
                <children>
-                  <Text layoutX="32.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Teller Portal" textAlignment="CENTER" wrappingWidth="162.0">
+                  <Text layoutX="49.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Public Bank Teller Portal" textAlignment="CENTER" wrappingWidth="145.0">
                      <font>
                         <Font name="Gill Sans MT Bold" size="17.0" />
                      </font>
                   </Text>
                </children>
             </Pane>
-            <Button fx:id="returnEmployeeButton" alignment="CENTER" mnemonicParsing="false" onAction="#toEmployee" prefHeight="85.0" prefWidth="225.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Return to Login">
+            <Button fx:id="returnEmployeeButton" alignment="CENTER" mnemonicParsing="false" onAction="#toEmployee" prefHeight="85.0" prefWidth="245.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Return to Login">
                <font>
-                  <Font name="Gill Sans MT" size="13.0" />
+                  <Font size="15.0" />
                </font>
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
@@ -37,115 +37,95 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="manageCustomersButton" alignment="CENTER" mnemonicParsing="false" onAction="#toManageCustomers" prefHeight="89.0" prefWidth="225.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Manage Customers" textAlignment="CENTER">
+            <Button fx:id="manageCustomersButton" alignment="CENTER" mnemonicParsing="false" onAction="#toManageCustomers" prefHeight="89.0" prefWidth="243.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="  Manage Customers" textAlignment="CENTER">
                <font>
-                  <Font name="Gill Sans MT" size="13.0" />
+                  <Font size="15.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/CustomerManage.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
-            <Button fx:id="manageAccountsButton" alignment="CENTER" mnemonicParsing="false" onAction="#toManageAccounts" prefHeight="95.0" prefWidth="225.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Manage Accounts">
+            <Button fx:id="manageAccountsButton" alignment="CENTER" mnemonicParsing="false" onAction="#toManageAccounts" prefHeight="95.0" prefWidth="246.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="  Manage Accounts">
                <font>
-                  <Font name="Gill Sans MT" size="13.0" />
+                  <Font size="15.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="27.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/account.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
-            <Button fx:id="manageTransactionsButton" alignment="CENTER" mnemonicParsing="false" onAction="#toManageTransactions" prefHeight="88.0" prefWidth="225.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Manage Transactions">
+            <Button fx:id="manageTransactionsButton" alignment="CENTER" mnemonicParsing="false" onAction="#toManageTransactions" prefHeight="88.0" prefWidth="247.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="  Manage Transactions">
                <font>
-                  <Font name="Gill Sans MT" size="13.0" />
+                  <Font size="15.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="44.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/Transaction.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
-            <Button fx:id="moreOptionsButton" alignment="CENTER" mnemonicParsing="false" onAction="#toMoreOptions" prefHeight="80.0" prefWidth="225.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="More Options" textAlignment="CENTER" wrapText="true">
+            <Button fx:id="moreOptionsButton" alignment="CENTER" mnemonicParsing="false" onAction="#toMoreOptions" prefHeight="80.0" prefWidth="259.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text=" More Options" textAlignment="CENTER" wrapText="true">
                <font>
-                  <Font name="Gill Sans MT" size="13.0" />
+                  <Font size="15.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/Options.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
-            <Button fx:id="reviewCustomerButton" mnemonicParsing="false" onAction="#toReviewCustomer" prefHeight="84.0" prefWidth="225.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Review A Customer">
+            <Button fx:id="reviewCustomerButton" mnemonicParsing="false" onAction="#toReviewCustomer" prefHeight="84.0" prefWidth="260.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Review A Customer">
                <font>
-                  <Font name="Gill Sans MT" size="13.0" />
+                  <Font size="15.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="33.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/Review.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
          </children>
       </VBox>
       <HBox alignment="CENTER" prefHeight="68.0" prefWidth="950.0" style="-fx-background-color: red;">
          <children>
-            <ImageView fitHeight="62.0" fitWidth="200.0">
+            <ImageView fitHeight="69.0" fitWidth="201.0">
                <image>
                   <Image url="@../../../../Images/PB_Horizontal.png" />
                </image>
             </ImageView>
          </children>
       </HBox>
-      <BorderPane layoutX="367.0" layoutY="84.0" prefHeight="47.0" prefWidth="400.0">
-         <center>
-            <Label text="Hello, name. Welcome to the Teller Portal!" textAlignment="CENTER" wrapText="true" BorderPane.alignment="CENTER">
+      <Text layoutX="227.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Table of Contents" textAlignment="CENTER" wrappingWidth="724.0">
+         <font>
+            <Font name="Calibri" size="23.0" />
+         </font>
+      </Text>
+      <TextFlow layoutX="227.0" layoutY="102.0" prefHeight="52.0" prefWidth="724.0" textAlignment="CENTER">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="47.0" prefWidth="432.0" text="Hello, name. Welcome to the Teller Portal!" textAlignment="CENTER" wrapText="true">
                <font>
-                  <Font name="Century Gothic Bold" size="16.0" />
+                  <Font name="Century Gothic Bold" size="21.0" />
                </font>
             </Label>
-         </center>
-      </BorderPane>
-      <Text layoutX="404.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage Transactions" wrappingWidth="120.0">
-         <font>
-            <Font name="System Bold" size="11.0" />
-         </font>
-      </Text>
-      <Text layoutX="404.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage Customers" wrappingWidth="109.0">
-         <font>
-            <Font name="System Bold" size="11.0" />
-         </font>
-      </Text>
-      <Text layoutX="564.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage Accounts" wrappingWidth="101.0">
-         <font>
-            <Font name="System Bold" size="11.0" />
-         </font>
-      </Text>
-      <Text layoutX="564.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="More Options" wrappingWidth="75.0">
-         <font>
-            <Font name="System Bold" size="11.0" />
-         </font>
-      </Text>
-      <Text layoutX="367.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Table of Contents" textAlignment="CENTER" wrappingWidth="400.0">
-         <font>
-            <Font name="Calibri" size="17.0" />
-         </font>
-      </Text>
-      <Text layoutX="406.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create a Customer" wrappingWidth="145.0">
-         <font>
-            <Font size="16.0" />
-         </font></Text>
-      <Text layoutX="403.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Delete a Customer" wrappingWidth="145.0">
-         <font>
-            <Font size="16.0" />
-         </font></Text>
-      <Text layoutX="567.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create a Account" wrappingWidth="145.0">
-         <font>
-            <Font size="16.0" />
-         </font></Text>
-      <Text layoutX="570.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Delete a Account" wrappingWidth="139.0">
-         <font>
-            <Font size="16.0" />
-         </font></Text>
-      <Text layoutX="409.0" layoutY="322.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Deposit" wrappingWidth="69.0">
-         <font>
-            <Font size="16.0" />
-         </font></Text>
-      <Text layoutX="409.0" layoutY="344.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Withdraw" wrappingWidth="75.0">
-         <font>
-            <Font size="16.0" />
-         </font></Text>
-      <Text layoutX="569.0" layoutY="322.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stop Payment" wrappingWidth="162.0">
-         <font>
-            <Font size="16.0" />
-         </font></Text>
-      <Text layoutX="569.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Set up Auto-Payment" wrappingWidth="162.0">
-         <font>
-            <Font size="16.0" />
-         </font></Text>
-      <Text layoutX="410.0" layoutY="366.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Transfer" wrappingWidth="57.0">
-         <font>
-            <Font size="16.0" />
-         </font></Text>
-      <Text layoutX="569.0" layoutY="356.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Set up Overdraft Protection" wrappingWidth="162.0">
-         <font>
-            <Font size="16.0" />
-         </font></Text>
+         </children>
+      </TextFlow>
+      <ImageView fitHeight="391.0" fitWidth="628.0" layoutX="344.0" layoutY="202.0" preserveRatio="true">
+         <image>
+            <Image url="@../../../../Images/TellerContents.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

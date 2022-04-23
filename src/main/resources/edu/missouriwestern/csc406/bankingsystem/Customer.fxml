@@ -34,7 +34,7 @@
             </Pane>
             <Button fx:id="returnActorButton" alignment="CENTER" mnemonicParsing="false" onAction="#toActor" prefHeight="114.0" prefWidth="265.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Return to System Main">
                <font>
-                  <Font name="Gill Sans MT" size="16.0" />
+                  <Font size="15.0" />
                </font>
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
@@ -45,7 +45,7 @@
             </Button>
             <Button fx:id="insertCheckButton" mnemonicParsing="false" onAction="#toInsertCheck" prefHeight="124.0" prefWidth="265.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0;" text="Insert Check">
                <font>
-                  <Font name="Gill Sans MT" size="16.0" />
+                  <Font size="15.0" />
                </font>
                <graphic>
                   <ImageView fitHeight="31.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
@@ -54,9 +54,9 @@
                      </image></ImageView>
                </graphic>
             </Button>
-            <Button fx:id="useATMButton" mnemonicParsing="false" onAction="#toATM" prefHeight="124.0" prefWidth="265.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0;" text="Use ATM">
+            <Button fx:id="useATMButton" mnemonicParsing="false" onAction="#toATM" prefHeight="124.0" prefWidth="265.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0;" text=" Use ATM">
                <font>
-                  <Font name="Gill Sans MT" size="16.0" />
+                  <Font size="15.0" />
                </font>
                <graphic>
                   <ImageView fitHeight="22.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
@@ -66,9 +66,9 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="useCCButton" mnemonicParsing="false" onAction="#toUseCC" prefHeight="120.0" prefWidth="265.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0;" text="Use Credit Card">
+            <Button fx:id="useCCButton" mnemonicParsing="false" onAction="#toUseCC" prefHeight="120.0" prefWidth="265.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0;" text=" Use Credit Card">
                <font>
-                  <Font name="Gill Sans MT" size="16.0" />
+                  <Font size="15.0" />
                </font>
                <graphic>
                   <ImageView fitHeight="28.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">

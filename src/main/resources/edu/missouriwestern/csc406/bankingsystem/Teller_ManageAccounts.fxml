@@ -16,20 +16,20 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.missouriwestern.csc406.bankingsystem.z_Teller_ManageAccounts">
    <children>
-      <VBox alignment="TOP_CENTER" layoutY="67.0" prefHeight="584.0" prefWidth="234.0" style="-fx-background-color: #E0E0E0; -fx-border-color: #AEAEAE; -fx-background-insets: 0;">
+      <VBox alignment="TOP_CENTER" layoutY="67.0" prefHeight="584.0" prefWidth="245.0" style="-fx-background-color: #E0E0E0; -fx-border-color: #AEAEAE; -fx-background-insets: 0;">
          <children>
             <Pane prefHeight="98.0" prefWidth="232.0" style="-fx-border-color: #C0C0C0;">
                <children>
-                  <Text layoutX="35.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage Accounts" textAlignment="CENTER" wrappingWidth="162.0">
+                  <Text layoutX="47.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Public Bank Manage Accounts" textAlignment="CENTER" wrappingWidth="149.0">
                      <font>
                         <Font name="Gill Sans MT Bold" size="17.0" />
                      </font>
                   </Text>
                </children>
             </Pane>
-            <Button fx:id="returnTellerButton" alignment="CENTER" mnemonicParsing="false" onAction="#toTeller" prefHeight="102.0" prefWidth="235.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Return to Teller" textAlignment="CENTER">
+            <Button fx:id="returnTellerButton" alignment="CENTER" mnemonicParsing="false" onAction="#toTeller" prefHeight="149.0" prefWidth="243.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Return to Teller" textAlignment="CENTER">
                <font>
-                  <Font name="Gill Sans MT" size="13.0" />
+                  <Font size="15.0" />
                </font>
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
@@ -39,15 +39,29 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="createAccountButton" alignment="CENTER" mnemonicParsing="false" onAction="#displayCreate" prefHeight="102.0" prefWidth="234.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Create an Account" textAlignment="CENTER">
+            <Button fx:id="createAccountButton" alignment="CENTER" mnemonicParsing="false" onAction="#displayCreate" prefHeight="162.0" prefWidth="243.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="  Create an Account" textAlignment="CENTER">
                <font>
-                  <Font name="Gill Sans MT" size="13.0" />
+                  <Font size="15.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="33.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/CreateAcct.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
-            <Button fx:id="deleteAccountButton" alignment="CENTER" mnemonicParsing="false" onAction="#displayDelete" prefHeight="109.0" prefWidth="244.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Delete an Account">
+            <Button fx:id="deleteAccountButton" alignment="CENTER" mnemonicParsing="false" onAction="#displayDelete" prefHeight="174.0" prefWidth="243.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="  Delete an Account">
                <font>
-                  <Font name="Gill Sans MT" size="13.0" />
+                  <Font size="15.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="38.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/RemoveAcct.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
          </children>
       </VBox>
@@ -60,7 +74,7 @@
             </ImageView>
          </children>
       </HBox>
-      <AnchorPane fx:id="mainAnchor" layoutX="234.0" layoutY="68.0" prefHeight="584.0" prefWidth="717.0">
+      <AnchorPane fx:id="mainAnchor" layoutX="244.0" layoutY="68.0" prefHeight="584.0" prefWidth="707.0">
          <children>
             <Text layoutX="237.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Manage Accounts" textAlignment="CENTER">
                <font>

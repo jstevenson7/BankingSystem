@@ -25,19 +25,28 @@
       </VBox>
       <AnchorPane layoutX="441.0" prefHeight="650.0" prefWidth="509.0">
          <children>
-            <Button fx:id="returnActorButton" layoutX="99.0" layoutY="397.0" mnemonicParsing="false" onAction="#toActor" prefHeight="33.0" prefWidth="174.0" text="Return to System Main" />
-            <Button fx:id="loginButton" layoutX="296.0" layoutY="397.0" mnemonicParsing="false" onAction="#login" prefHeight="33.0" prefWidth="122.0" text="Login " />
+            <Button fx:id="returnActorButton" layoutX="99.0" layoutY="397.0" mnemonicParsing="false" onAction="#toActor" prefHeight="33.0" prefWidth="174.0" text="Return to System Main">
+               <font>
+                  <Font size="13.0" />
+               </font></Button>
+            <Button fx:id="loginButton" layoutX="296.0" layoutY="397.0" mnemonicParsing="false" onAction="#login" prefHeight="33.0" prefWidth="122.0" text="Login ">
+               <font>
+                  <Font size="13.0" />
+               </font></Button>
             <Label fx:id="loginLabel" layoutX="165.0" layoutY="234.0" prefHeight="27.0" prefWidth="217.0" textAlignment="CENTER" textFill="RED">
                <font>
                   <Font size="18.0" />
                </font></Label>
-            <Text layoutX="89.0" layoutY="355.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" textAlignment="RIGHT" wrappingWidth="85.47009325027466">
+            <Text layoutX="89.0" layoutY="354.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" textAlignment="RIGHT" wrappingWidth="85.47009325027466">
                <font>
                   <Font size="19.0" />
                </font>
             </Text>
-            <PasswordField fx:id="password" layoutX="186.0" layoutY="331.0" onAction="#login" prefHeight="33.0" prefWidth="193.0" promptText="Employee Password" />
-            <Text layoutX="60.0" layoutY="299.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee ID:" textAlignment="RIGHT" wrappingWidth="113.47009325027466">
+            <PasswordField fx:id="password" layoutX="186.0" layoutY="331.0" onAction="#login" prefHeight="33.0" prefWidth="193.0" promptText="Employee Password">
+               <font>
+                  <Font size="15.0" />
+               </font></PasswordField>
+            <Text layoutX="60.0" layoutY="298.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee ID:" textAlignment="RIGHT" wrappingWidth="113.47009325027466">
                <font>
                   <Font size="19.0" />
                </font>
@@ -46,6 +55,9 @@
                <opaqueInsets>
                   <Insets bottom="20.0" />
                </opaqueInsets>
+               <font>
+                  <Font size="15.0" />
+               </font>
             </TextField>
          </children>
       </AnchorPane>

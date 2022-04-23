@@ -21,20 +21,20 @@
             </ImageView>
          </children>
       </HBox>
-      <VBox alignment="TOP_CENTER" layoutY="62.0" prefHeight="592.0" prefWidth="218.0" style="-fx-background-color: #E0E0E0; -fx-border-color: #AEAEAE; -fx-background-insets: 0;">
+      <VBox alignment="TOP_CENTER" layoutY="62.0" prefHeight="592.0" prefWidth="245.0" style="-fx-background-color: #E0E0E0; -fx-border-color: #AEAEAE; -fx-background-insets: 0;">
          <children>
             <Pane prefHeight="72.0" prefWidth="216.0" style="-fx-border-color: #C0C0C0;">
                <children>
-                  <Text layoutX="27.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage Customers" textAlignment="CENTER" wrappingWidth="162.0">
+                  <Text layoutX="35.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Public Bank Manage Transactions" textAlignment="CENTER" wrappingWidth="174.0">
                      <font>
-                        <Font name="Gill Sans MT Bold" size="14.0" />
+                        <Font name="Gill Sans MT Bold" size="16.0" />
                      </font>
                   </Text>
                </children>
             </Pane>
-            <Button fx:id="returnTellerButton" alignment="CENTER" mnemonicParsing="false" onAction="#toTeller" prefHeight="76.0" prefWidth="219.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Return to Teller" textAlignment="CENTER">
+            <Button fx:id="returnTellerButton" alignment="CENTER" mnemonicParsing="false" onAction="#toTeller" prefHeight="116.0" prefWidth="243.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Return to Teller" textAlignment="CENTER">
                <font>
-                  <Font name="Gill Sans MT" size="13.0" />
+                  <Font size="15.0" />
                </font>
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
@@ -44,24 +44,45 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="depositButton" alignment="CENTER" mnemonicParsing="false" onAction="#displayDeposit" prefHeight="82.0" prefWidth="234.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Deposit" textAlignment="CENTER">
+            <Button fx:id="depositButton" alignment="CENTER" mnemonicParsing="false" onAction="#displayDeposit" prefHeight="133.0" prefWidth="243.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Deposit" textAlignment="CENTER">
                <font>
-                  <Font name="Gill Sans MT" size="13.0" />
+                  <Font size="15.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/Deposit.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
-            <Button fx:id="withdrawButton" alignment="CENTER" mnemonicParsing="false" onAction="#displayWithdraw" prefHeight="83.0" prefWidth="216.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Withdraw">
+            <Button fx:id="withdrawButton" alignment="CENTER" mnemonicParsing="false" onAction="#displayWithdraw" prefHeight="133.0" prefWidth="243.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text=" Withdraw">
                <font>
-                  <Font name="Gill Sans MT" size="13.0" />
+                  <Font size="15.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="43.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/Withdraw.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
-            <Button fx:id="transferButton" alignment="CENTER" mnemonicParsing="false" onAction="#displayTransfer" prefHeight="77.0" prefWidth="256.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Transfer">
+            <Button fx:id="transferButton" alignment="CENTER" mnemonicParsing="false" onAction="#displayTransfer" prefHeight="144.0" prefWidth="243.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="  Transfer">
                <font>
-                  <Font name="Gill Sans MT" size="13.0" />
+                  <Font size="15.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/Transfer.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
          </children>
       </VBox>
-      <AnchorPane fx:id="mainAnchor" layoutX="218.0" layoutY="62.0" prefHeight="592.0" prefWidth="735.0">
+      <AnchorPane fx:id="mainAnchor" layoutX="243.0" layoutY="62.0" prefHeight="592.0" prefWidth="710.0">
          <children>
             <Text layoutX="207.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Manage Transactions" textAlignment="CENTER">
                <font>

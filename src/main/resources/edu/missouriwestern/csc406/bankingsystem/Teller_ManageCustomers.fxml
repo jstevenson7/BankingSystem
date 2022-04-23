@@ -18,27 +18,27 @@
    <children>
       <HBox alignment="CENTER" prefHeight="68.0" prefWidth="950.0" style="-fx-background-color: red;">
          <children>
-            <ImageView fitHeight="62.0" fitWidth="200.0">
+            <ImageView fitHeight="68.0" fitWidth="208.0">
                <image>
                   <Image url="@../../../../Images/PB_Horizontal.png" />
                </image>
             </ImageView>
          </children>
       </HBox>
-      <VBox alignment="TOP_CENTER" layoutY="68.0" prefHeight="587.0" prefWidth="228.0" style="-fx-background-color: #E0E0E0; -fx-border-color: #AEAEAE; -fx-background-insets: 0;">
+      <VBox alignment="TOP_CENTER" layoutY="67.0" prefHeight="584.0" prefWidth="245.0" style="-fx-background-color: #E0E0E0; -fx-border-color: #AEAEAE; -fx-background-insets: 0;">
          <children>
             <Pane prefHeight="89.0" prefWidth="226.0" style="-fx-border-color: #C0C0C0;">
                <children>
-                  <Text layoutX="32.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage Customers" textAlignment="CENTER" wrappingWidth="162.0">
+                  <Text layoutX="39.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Public Bank Manage Customers" textAlignment="CENTER" wrappingWidth="166.0">
                      <font>
                         <Font name="Gill Sans MT Bold" size="18.0" />
                      </font>
                   </Text>
                </children>
             </Pane>
-            <Button fx:id="returnTellerButton" alignment="CENTER" mnemonicParsing="false" onAction="#toTeller" prefHeight="102.0" prefWidth="230.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Return to Teller" textAlignment="CENTER">
+            <Button fx:id="returnTellerButton" alignment="CENTER" mnemonicParsing="false" onAction="#toTeller" prefHeight="145.0" prefWidth="243.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Return to Teller Portal" textAlignment="CENTER">
                <font>
-                  <Font name="Gill Sans MT" size="13.0" />
+                  <Font size="15.0" />
                </font>
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
@@ -48,19 +48,33 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="createACustomerButton" alignment="CENTER" mnemonicParsing="false" onAction="#displayCreate" prefHeight="102.0" prefWidth="232.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Create a Customer" textAlignment="CENTER">
+            <Button fx:id="createACustomerButton" alignment="CENTER" mnemonicParsing="false" onAction="#displayCreate" prefHeight="185.0" prefWidth="243.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="  Create a Customer" textAlignment="CENTER">
                <font>
-                  <Font name="Gill Sans MT" size="13.0" />
+                  <Font size="15.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="38.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/AddCust.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
-            <Button fx:id="deleteACustomerButton" alignment="CENTER" mnemonicParsing="false" onAction="#displayDelete" prefHeight="109.0" prefWidth="230.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Delete a Customer">
+            <Button fx:id="deleteACustomerButton" alignment="CENTER" mnemonicParsing="false" onAction="#displayDelete" prefHeight="172.0" prefWidth="243.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="  Delete a Customer">
                <font>
-                  <Font name="Gill Sans MT" size="13.0" />
+                  <Font size="15.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="45.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/DeleteCust.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
          </children>
       </VBox>
-      <AnchorPane fx:id="mainAnchor" layoutX="229.0" layoutY="68.0" prefHeight="581.0" prefWidth="722.0">
+      <AnchorPane fx:id="mainAnchor" layoutX="245.0" layoutY="68.0" prefHeight="581.0" prefWidth="706.0">
          <children>
             <Text layoutX="234.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Manage Customers" textAlignment="CENTER">
                <font>
