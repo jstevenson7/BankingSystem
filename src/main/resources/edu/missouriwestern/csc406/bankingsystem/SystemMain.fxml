@@ -78,7 +78,7 @@
             </Button>
          </children>
       </VBox>
-      <AnchorPane fx:id="mainAnchor" layoutX="244.0" prefHeight="646.0" prefWidth="709.0">
+      <AnchorPane fx:id="mainAnchor" layoutX="244.0" prefHeight="646.0" prefWidth="709.0" visible="false">
          <children>
             <HBox alignment="CENTER" layoutY="30.0" prefHeight="103.0" prefWidth="709.0" style="-fx-background-color: #cc0000;">
                <children>
@@ -262,7 +262,7 @@
             </Text>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="runTestsAnchor" layoutX="244.0" layoutY="-2.0" prefHeight="650.0" prefWidth="709.0" visible="false">
+      <AnchorPane fx:id="runTestsAnchor" layoutX="244.0" layoutY="-2.0" prefHeight="650.0" prefWidth="709.0">
          <children>
             <HBox alignment="CENTER" layoutY="30.0" prefHeight="103.0" prefWidth="709.0" style="-fx-background-color: #cc0000;">
                <children>
@@ -274,7 +274,11 @@
                </children>
             </HBox>
             <AnchorPane layoutX="24.0" layoutY="158.0" prefHeight="411.0" prefWidth="661.0" style="-fx-background-color: #dedede; -fx-border-color: black;" />
-            <Button fx:id="runtTestButton" layoutX="321.0" layoutY="589.0" mnemonicParsing="false" onAction="#runTest" text="Run Tests" />
+            <Button fx:id="runtTestButton" layoutX="308.0" layoutY="589.0" mnemonicParsing="false" onAction="#runTest" text="Run Savings Tests" />
+            <Button fx:id="runtTestButton1" layoutX="52.0" layoutY="589.0" mnemonicParsing="false" onAction="#runTest" text="Run General Tests" />
+            <Button fx:id="runtTestButton2" layoutX="173.0" layoutY="589.0" mnemonicParsing="false" onAction="#runTest" text="Run Checking Tests" />
+            <Button fx:id="runtTestButton3" layoutX="430.0" layoutY="589.0" mnemonicParsing="false" onAction="#runTest" text="Run CD Tests" />
+            <Button fx:id="runtTestButton31" layoutX="531.0" layoutY="589.0" mnemonicParsing="false" onAction="#runTest" text="Run Loan Tests" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="loadDataAnchor" layoutX="244.0" prefHeight="650.0" prefWidth="709.0" visible="false">
