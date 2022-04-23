@@ -88,9 +88,6 @@ public class Savings {
         }
 
 
-
-
-
     }
     public void depositcheck(Check check)
     {

@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import java.io.IOException;
@@ -44,11 +45,17 @@ public class z_SystemMain {
     private Button employeeButton;
 
 
-    /* --- OPTIONAL ANCHORS --- */
+    /* --- CHECK POINT ANCHOR --- */
     @FXML
     private AnchorPane checkPointAnchor;
+
+    /* --- RUN TESTS ANCHOR --- */
     @FXML
     private AnchorPane runTestsAnchor;
+    @FXML
+    private Button runtTestButton;
+
+    /* --- VIEW TABLES/ LOAD DATA ANCHOR --- */
     @FXML
     private AnchorPane loadDataAnchor;
 
@@ -111,6 +118,11 @@ public class z_SystemMain {
         stage.show();
     }
 
+    public void runTest(ActionEvent event) {
+
+    }
+
+
     @FXML
     private void initialize(){
         /* --- SYSTEM --- */
@@ -136,6 +148,7 @@ public class z_SystemMain {
         // Employee Button
         employeeButton.setOnMouseEntered(event -> employeeButton.setStyle("-fx-background-color: #E8ADAD; -fx-border-color:#000000;"));
         employeeButton.setOnMouseExited(event -> employeeButton.setStyle("-fx-background-color: #d4d4d4; -fx-border-color:  #b0b0b0;"));
+
     }
 
 

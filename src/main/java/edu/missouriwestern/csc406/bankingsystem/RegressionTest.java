@@ -20,5 +20,7 @@ public class RegressionTest {
         CertificateofDeposit CD = new CertificateofDeposit("29863",20000,.039,"02-02-2015", "02-02-2020", "02-02-2020");
         System.out.println("CD Balance =" + CD.getBalance());
 
+
+
     }
 }

@@ -24,6 +24,7 @@ public class Checking {
         setAccountType(accountType);
         setCustomerID(customerID);
     }
+
     public Checking() {
         // No arg constructor for opencsv
     }

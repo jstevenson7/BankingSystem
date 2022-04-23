@@ -40,11 +40,11 @@
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button fx:id="loadDataButton" mnemonicParsing="false" onAction="#toLoadData" prefHeight="90.0" prefWidth="249.0" style="-fx-background-color: #990000;" text="Load Data" textFill="WHITE">
+            <Button fx:id="checkPointButton" mnemonicParsing="false" onAction="#toCheckPoint" prefHeight="90.0" prefWidth="246.0" style="-fx-background-color: #990000;" text="  Check Point" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="29.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../Images/laod.png" />
+                        <Image url="@../../../../Images/restore.jpg" />
                      </image>
                   </ImageView>
                </graphic>
@@ -64,11 +64,11 @@
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button fx:id="checkPointButton" mnemonicParsing="false" onAction="#toCheckPoint" prefHeight="90.0" prefWidth="246.0" style="-fx-background-color: #990000;" text="  Check Point" textFill="WHITE">
+            <Button fx:id="loadDataButton" mnemonicParsing="false" onAction="#toLoadData" prefHeight="90.0" prefWidth="249.0" style="-fx-background-color: #990000;" text="Load Data" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="29.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../Images/restore.jpg" />
+                        <Image url="@../../../../Images/laod.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -262,7 +262,7 @@
             </Text>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="runTestsAnchor" layoutX="244.0" prefHeight="650.0" prefWidth="709.0" visible="false">
+      <AnchorPane fx:id="runTestsAnchor" layoutX="244.0" layoutY="-2.0" prefHeight="650.0" prefWidth="709.0" visible="false">
          <children>
             <HBox alignment="CENTER" layoutY="30.0" prefHeight="103.0" prefWidth="709.0" style="-fx-background-color: #cc0000;">
                <children>
@@ -273,6 +273,8 @@
                   </Text>
                </children>
             </HBox>
+            <AnchorPane layoutX="24.0" layoutY="158.0" prefHeight="411.0" prefWidth="661.0" style="-fx-background-color: #dedede; -fx-border-color: black;" />
+            <Button fx:id="runtTestButton" layoutX="321.0" layoutY="589.0" mnemonicParsing="false" onAction="#runTest" text="Run Tests" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="loadDataAnchor" layoutX="244.0" prefHeight="650.0" prefWidth="709.0" visible="false">
