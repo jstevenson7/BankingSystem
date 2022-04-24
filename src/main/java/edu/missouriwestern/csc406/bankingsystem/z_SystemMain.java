@@ -7,11 +7,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -122,66 +120,99 @@ public class z_SystemMain {
         stage.show();
     }
 
-
     @FXML
     private Button generalTestsButton;
     @FXML
     private Label testTitleLabel;
     @FXML
+    private Label createCustLabel;
+    @FXML
     private ImageView createCustSuccess;
     @FXML
     private ImageView createCustFail;
+    @FXML
+    private Label deleteCustLabel;
+    @FXML
+    private ImageView deleteCustSuccess;
+    @FXML
+    private ImageView deleteCustFail;
+
     public void runGeneralTests(ActionEvent event) {
         // General Tests Include:
         testTitleLabel.setText("Running general tests...");
+        createCustLabel.setVisible(true);
+        deleteCustLabel.setVisible(true);
         // - Create/Deleting Customers
+        ArrayList<Customer> testingList = null;
+        Customer cust = null;
+        int found = 0;
         try {
-            //Adding customer to the Customers csv.
+            //Initializing ArrayList and test Customer.
             ArrayList<Customer> customers = DB.readCustomersCSV();
             Customer testCustomer = new Customer("000-00-0000", "0000 Address St", "Saint Joseph","MO",00000,
                     "Jane","Doe","000000000",0000,0000,"0");
-            customers.add(testCustomer);
-            String testSSN = testCustomer.getSSN();
-            DB.writeCustomerCSV(customers);
-
-            //Ensuring the customer is in the file using SSN.
-            ArrayList<Customer> testingAddition = DB.readCustomersCSV();
-            int found = 0;
-            for (int i = 0; i < testingAddition.size(); i++) {
-                if (testingAddition.get(i).getSSN().equals(testSSN)) {
-                    //Will make this an on-screen label eventually.
-                    System.out.println("Customer added to customers.csv!");
-                    System.out.println("Customer information: ");
-                    System.out.println(testingAddition.get(i));
-                    found += 1;
+            //Ensuring we are not adding a duplicate.
+            int duplicate = 0;
+            for(int i =0; i < customers.size(); i++) {
+                if (customers.get(i).getSSN().equals(testCustomer.getSSN())) {
+                    duplicate++;
+                } //End of if.
+            }
+            //If there was not a duplicate and customer was added...
+            if(duplicate == 0) {
+                customers.add(testCustomer);
+                DB.writeCustomerCSV(customers);
+                //Ensure the customer is in the file using SSN.
+                testingList = DB.readCustomersCSV();
+                for (int i = 0; i < testingList.size(); i++) {
+                    if (testingList.get(i).getSSN().equals(testCustomer.getSSN())) {
+                        cust = testingList.get(i);
+                        found++;
+                    } //End of if.
+                } //End of for.
+                //Write result to interface.
+                if (found < 1) {
+                    createCustLabel.setText("Customer not found in customers.csv.");
+                    createCustFail.setVisible(true);
+                } else {
+                    createCustLabel.setText("Customer successfully created and added!");
                     createCustSuccess.setVisible(true);
-                }
-            }
-            if(found < 1 ) {
-                System.out.println("Customer was not found in customers.csv.");
-                createCustSuccess.setVisible(false);
+                } //End of else.
+            } else {
+                createCustLabel.setText("Could not add customer. A customer with the test SSN already exists.");
                 createCustFail.setVisible(true);
-            } else if(found > 1) {
-                System.out.println("Multiple customers with the ssn " + testSSN + " found in customers.csv.");
-                createCustSuccess.setVisible(false);
-                createCustFail.setVisible(true);
-            }
-
-            // Deleting
-            for (int i = 0; i < testingAddition.size(); i++) {
-                if (testingAddition.get(i).getSSN().equals(testSSN)) {
-                    testingAddition.remove(testingAddition.get(i));
-                }
-            }
-
+            } //End of else.
         } catch (IOException e) {
-            e.getMessage();
+            createCustLabel.setText("Error reading/writing to customers.csv.");
+            createCustFail.setVisible(true);
+        } //End of catch.
+
+        //Now delete the created Customer.
+        if(found == 1) {
+            testingList.remove(cust);
+            try {
+                DB.writeCustomerCSV(testingList);
+                found = 0;
+                for (int i = 0; i < testingList.size(); i++) {
+                    if (testingList.get(i).getSSN().equals(cust.getSSN())) {
+                        found++;
+                    } //End of if.
+                    if (found != 0) {
+                        deleteCustLabel.setText("Customer still found in customers.csv");
+                        deleteCustFail.setVisible(true);
+                    } else {
+                        deleteCustLabel.setText("Customer successfully deleted from customers.csv");
+                        deleteCustSuccess.setVisible(true);
+                    }
+                } //End of for.
+            } catch (IOException e) {
+                deleteCustLabel.setText("Error reading/writing to customers.csv.");
+                deleteCustFail.setVisible(true);
+            }
+        } else {
+            deleteCustLabel.setText("Customer to delete was not found.");
+            deleteCustFail.setVisible(true);
         }
-
-
-
-
-
         // - Creating/Deleting Accounts
         // - Creating/Deleting Employees
         // - Reviewing a Customer and all accounts

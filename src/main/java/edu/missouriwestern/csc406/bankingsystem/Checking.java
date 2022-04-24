@@ -1,9 +1,7 @@
 package edu.missouriwestern.csc406.bankingsystem;
 
 import com.opencsv.bean.CsvBindByName;
-
 import java.text.DecimalFormat;
-import java.util.ArrayList;
 
 public class Checking {
     @CsvBindByName

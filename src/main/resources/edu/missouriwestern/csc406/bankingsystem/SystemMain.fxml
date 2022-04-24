@@ -80,7 +80,7 @@
             </Button>
          </children>
       </VBox>
-      <AnchorPane fx:id="mainAnchor" layoutX="244.0" prefHeight="646.0" prefWidth="709.0" visible="false">
+      <AnchorPane fx:id="mainAnchor" layoutX="244.0" prefHeight="646.0" prefWidth="709.0">
          <children>
             <HBox alignment="CENTER" layoutY="30.0" prefHeight="103.0" prefWidth="709.0" style="-fx-background-color: #cc0000;">
                <children>
@@ -264,7 +264,7 @@
             </Text>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="runTestsAnchor" layoutX="244.0" layoutY="-2.0" prefHeight="650.0" prefWidth="709.0">
+      <AnchorPane fx:id="runTestsAnchor" layoutX="244.0" layoutY="-2.0" prefHeight="650.0" prefWidth="709.0" visible="false">
          <children>
             <HBox alignment="CENTER" layoutY="30.0" prefHeight="103.0" prefWidth="709.0" style="-fx-background-color: #cc0000;">
                <children>
@@ -279,16 +279,30 @@
                <children>
                   <BorderPane prefHeight="69.0" prefWidth="661.0">
                      <center>
-                        <Label fx:id="testTitleLabel" prefHeight="17.0" prefWidth="239.0" text="Please select the tests you would like to run." textAlignment="CENTER" BorderPane.alignment="CENTER" />
+                        <Label fx:id="testTitleLabel" alignment="CENTER" prefHeight="21.0" prefWidth="316.0" text="Please select the tests you would like to run." textAlignment="CENTER" BorderPane.alignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font></Label>
                      </center>
                   </BorderPane>
-                  <Label layoutX="86.0" layoutY="95.0" text="Creating a customer." />
-                  <ImageView fx:id="createCustSuccess" fitHeight="33.0" fitWidth="32.0" layoutX="40.0" layoutY="83.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                  <Label fx:id="createCustLabel" layoutX="177.0" layoutY="80.0" prefHeight="17.0" prefWidth="315.0" text="Creating a customer." visible="false" wrapText="true" />
+                  <ImageView fx:id="createCustSuccess" fitHeight="33.0" fitWidth="32.0" layoutX="134.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true" visible="false">
                      <image>
                         <Image url="@../../../../Images/testSuccess.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="createCustFail" fitHeight="33.0" fitWidth="32.0" layoutX="41.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                  <ImageView fx:id="createCustFail" fitHeight="33.0" fitWidth="32.0" layoutX="135.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../../../../Images/testFail.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="deleteCustLabel" layoutX="178.0" layoutY="130.0" prefHeight="17.0" prefWidth="315.0" text="Deleting a customer." visible="false" wrapText="true" />
+                  <ImageView fx:id="deleteCustSuccess" fitHeight="33.0" fitWidth="32.0" layoutX="135.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../../../../Images/testSuccess.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="deleteCustFail" fitHeight="33.0" fitWidth="32.0" layoutX="136.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true" visible="false">
                      <image>
                         <Image url="@../../../../Images/testFail.png" />
                      </image>
