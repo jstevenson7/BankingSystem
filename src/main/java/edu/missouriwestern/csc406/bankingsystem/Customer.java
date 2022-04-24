@@ -12,10 +12,9 @@ public class Customer {
     private String atmNumber;
     private int atmPin;
     private int creditCardPin;
-    private String customerID;
     // Constructor
     public Customer(String SSN, String Address, String City, String State, int Zip, String firstName, String lastName,
-                    String atmNumber, int atmPin, int creditCardPin, String customerID) {
+                    String atmNumber, int atmPin, int creditCardPin) {
         setSSN(SSN);
         setAddress(Address);
         setCity(City);
@@ -26,7 +25,6 @@ public class Customer {
         setAtmNumber(atmNumber);
         setAtmPin(atmPin);
         setCreditCardPin(creditCardPin);
-        setCustomerID(customerID);
     }
     public Customer() {
         // no arg constructor for opencsv
@@ -42,7 +40,6 @@ public class Customer {
     public String getAtmNumber() {return atmNumber;}
     public int getAtmPin() {return atmPin;}
     public int getCreditCardPin() {return creditCardPin;}
-    public String getCustomerID() {return customerID;}
     // Setters
     public void setSSN(String SSN) {this.SSN = SSN;}
     public void setAddress(String address) {Address = address;}
@@ -54,7 +51,6 @@ public class Customer {
     public void setAtmNumber(String atmNumber) {this.atmNumber = atmNumber;}
     public void setAtmPin(int atmPin) {this.atmPin = atmPin;}
     public void setCreditCardPin(int creditCardPin) {this.creditCardPin = creditCardPin;}
-    public void setCustomerID(String customerID) {this.customerID = customerID;}
 
 
     @Override
@@ -70,7 +66,6 @@ public class Customer {
                 ", atmNumber='" + atmNumber + '\'' +
                 ", atmPin=" + atmPin +
                 ", creditCardPin=" + creditCardPin +
-                ", customerID='" + customerID + '\'' +
                 '}';
     }
 }

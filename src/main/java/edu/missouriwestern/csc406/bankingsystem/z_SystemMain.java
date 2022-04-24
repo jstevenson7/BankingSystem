@@ -150,7 +150,7 @@ public class z_SystemMain {
             //Initializing ArrayList and test Customer.
             ArrayList<Customer> customers = DB.readCustomersCSV();
             Customer testCustomer = new Customer("000-00-0000", "0000 Address St", "Saint Joseph","MO",00000,
-                    "Jane","Doe","000000000",0000,0000,"0");
+                    "Jane","Doe","000000000",0000,0000);
             //Ensuring we are not adding a duplicate.
             int duplicate = 0;
             for(int i =0; i < customers.size(); i++) {

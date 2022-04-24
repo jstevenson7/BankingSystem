@@ -88,7 +88,7 @@ public class z_Teller_ManageCustomers {
         Customer newCust = new Customer(cSSNText.getText(), cAddressText.getText(), cCityText.getText(),
                 cStateBox.getValue(), Integer.parseInt(cZipText.getText()), cFNameText.getText(),
                 cLNameText.getText(), cATMNumText.getText(), Integer.parseInt(cATMPinText.getText()),
-                Integer.parseInt(cCCPinText.getText()), cCustIDText.getText());
+                Integer.parseInt(cCCPinText.getText()));
         customers.add(newCust);
         DB.writeCustomerCSV(customers);
         cSSNText.clear();
