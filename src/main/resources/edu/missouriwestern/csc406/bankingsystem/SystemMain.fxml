@@ -5,6 +5,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
@@ -276,7 +277,22 @@
             </HBox>
             <AnchorPane layoutX="24.0" layoutY="158.0" prefHeight="411.0" prefWidth="661.0" style="-fx-background-color: #dedede; -fx-border-color: black;">
                <children>
-                  <Label layoutY="38.0" prefHeight="17.0" prefWidth="666.0" text="Please select the tests you would like to run." textAlignment="CENTER" />
+                  <BorderPane prefHeight="69.0" prefWidth="661.0">
+                     <center>
+                        <Label fx:id="testTitleLabel" prefHeight="17.0" prefWidth="239.0" text="Please select the tests you would like to run." textAlignment="CENTER" BorderPane.alignment="CENTER" />
+                     </center>
+                  </BorderPane>
+                  <Label layoutX="86.0" layoutY="95.0" text="Creating a customer." />
+                  <ImageView fx:id="createCustSuccess" fitHeight="33.0" fitWidth="32.0" layoutX="40.0" layoutY="83.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../../../../Images/testSuccess.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="createCustFail" fitHeight="33.0" fitWidth="32.0" layoutX="41.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../../../../Images/testFail.png" />
+                     </image>
+                  </ImageView>
                </children></AnchorPane>
             <Button fx:id="generalTestsButton" layoutX="24.0" layoutY="589.0" mnemonicParsing="false" onAction="#runGeneralTests" text="Run General Tests" />
          </children>
