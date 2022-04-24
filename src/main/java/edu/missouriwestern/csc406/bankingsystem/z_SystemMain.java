@@ -119,37 +119,42 @@ public class z_SystemMain {
         stage.show();
     }
 
-    public void runCheckingTests(ActionEvent event) {
+
+    @FXML
+    private Button generalTestsButton;
+    public void runGeneralTests(ActionEvent event) {
         // General Tests Include:
         // - Create/Deleting Customers
+        //Creating
+        try {
+            //Adding customer to the Customers csv.
+            ArrayList<Customer> customers = DB.readCustomersCSV();
+            Customer testCustomer = new Customer("000-00-0000", "0000 Address St", "Saint Joseph","MO",00000,
+                    "Jane","Doe","000000000",0000,0000,"0");
+            customers.add(testCustomer);
+            String testSSN = testCustomer.getSSN();
+            DB.writeCustomerCSV(customers);
 
-            //Creating
-                try {
-                    //Adding customer to the Customers csv.
-                    ArrayList<Customer> customers = DB.readCustomersCSV();
-                    Customer testCustomer = new Customer("000-00-0000", "0000 Address St", "Saint Joseph","MO",00000,
-                            "Jane","Doe","000000000",0000,0000,"0");
-                    customers.add(testCustomer);
-                    String testSSN = testCustomer.getSSN();
-                    DB.writeCustomerCSV(customers);
-
-                    //Ensuring the customer is in the file using SSN.
-                    ArrayList<Customer> testingAddition = DB.readCustomersCSV();
-                    for (int i = 0; i <= testingAddition.size(); i++) {
-                        if (testingAddition.get(i).getSSN().equals(testSSN)) {
-                            System.out.println();
-                        }
-                    }
-
-
-                } catch (IOException e) {
-                    e.printStackTrace();
+            //Ensuring the customer is in the file using SSN.
+            ArrayList<Customer> testingAddition = DB.readCustomersCSV();
+            for (int i = 0; i <= testingAddition.size(); i++) {
+                if (testingAddition.get(i).getSSN().equals(testSSN)) {
+                    //Will make this an on-screen label eventually.
+                    System.out.println("Customer found in customers.csv!");
+                    System.out.println("Customer information: ");
+                    System.out.println(testingAddition.get(i));
                 }
-
-
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         // - Creating/Deleting Accounts
         // - Creating/Deleting Employees
         // - Reviewing a Customer and all accounts
+    }
+
+    public void runCheckingTests(ActionEvent event) {
+
     }
 
     public void runSavingsTests(ActionEvent event) {
@@ -159,7 +164,6 @@ public class z_SystemMain {
     public void runLoanTests(ActionEvent event) {
 
     }
-
 
     @FXML
     private void initialize(){

@@ -55,4 +55,24 @@ public class Customer {
     public void setAtmPin(int atmPin) {this.atmPin = atmPin;}
     public void setCreditCardPin(int creditCardPin) {this.creditCardPin = creditCardPin;}
     public void setCustomerID(String customerID) {this.customerID = customerID;}
+
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "SSN='" + SSN + '\'' +
+                ", Address='" + Address + '\'' +
+                ", City='" + City + '\'' +
+                ", State='" + State + '\'' +
+                ", Zip=" + Zip +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", atmNumber='" + atmNumber + '\'' +
+                ", atmPin=" + atmPin +
+                ", creditCardPin=" + creditCardPin +
+                ", customerID='" + customerID + '\'' +
+                '}';
+    }
 }
+
+
