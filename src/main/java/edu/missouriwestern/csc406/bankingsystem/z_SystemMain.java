@@ -8,7 +8,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -122,10 +125,16 @@ public class z_SystemMain {
 
     @FXML
     private Button generalTestsButton;
+    @FXML
+    private Label testTitleLabel;
+    @FXML
+    private ImageView createCustSuccess;
+    @FXML
+    private ImageView createCustFail;
     public void runGeneralTests(ActionEvent event) {
         // General Tests Include:
+        testTitleLabel.setText("Running general tests...");
         // - Create/Deleting Customers
-        //Creating
         try {
             //Adding customer to the Customers csv.
             ArrayList<Customer> customers = DB.readCustomersCSV();
@@ -137,17 +146,42 @@ public class z_SystemMain {
 
             //Ensuring the customer is in the file using SSN.
             ArrayList<Customer> testingAddition = DB.readCustomersCSV();
-            for (int i = 0; i <= testingAddition.size(); i++) {
+            int found = 0;
+            for (int i = 0; i < testingAddition.size(); i++) {
                 if (testingAddition.get(i).getSSN().equals(testSSN)) {
                     //Will make this an on-screen label eventually.
-                    System.out.println("Customer found in customers.csv!");
+                    System.out.println("Customer added to customers.csv!");
                     System.out.println("Customer information: ");
                     System.out.println(testingAddition.get(i));
+                    found += 1;
+                    createCustSuccess.setVisible(true);
                 }
             }
+            if(found < 1 ) {
+                System.out.println("Customer was not found in customers.csv.");
+                createCustSuccess.setVisible(false);
+                createCustFail.setVisible(true);
+            } else if(found > 1) {
+                System.out.println("Multiple customers with the ssn " + testSSN + " found in customers.csv.");
+                createCustSuccess.setVisible(false);
+                createCustFail.setVisible(true);
+            }
+
+            // Deleting
+            for (int i = 0; i < testingAddition.size(); i++) {
+                if (testingAddition.get(i).getSSN().equals(testSSN)) {
+                    testingAddition.remove(testingAddition.get(i));
+                }
+            }
+
         } catch (IOException e) {
-            e.printStackTrace();
+            e.getMessage();
         }
+
+
+
+
+
         // - Creating/Deleting Accounts
         // - Creating/Deleting Employees
         // - Reviewing a Customer and all accounts
