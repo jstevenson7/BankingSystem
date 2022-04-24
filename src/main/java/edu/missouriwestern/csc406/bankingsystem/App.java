@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.util.ArrayList;
 
 
 /**
@@ -19,12 +20,12 @@ public class App extends Application {
     public static void main(String[] args) throws IOException {
         /**
         ArrayList<Customer> customers = DB.readCustomersCSV();
-        Customer customer = DB.searchCustomer(customers.get(0).getCustomerID(), customers);
-        System.out.println(customer.getFirstName()+" "+customer.getLastName()+" "+customer.getCustomerID()+" "+customer.getAtmPin());
+        Customer customer = DB.searchCustomer(customers.get(0).getSSN(), customers);
+        System.out.println(customer.getFirstName()+" "+customer.getLastName()+" "+customer.getSSN()+" "+customer.getAtmPin());
 
         ArrayList<Checking> checkings = DB.readCheckingCSV();
-        Checking checking = DB.searchChecking(customer.getCustomerID(), checkings);
-        System.out.println(checking.getAccountNumber()+" "+checking.getBalance());
+        Checking checking = DB.searchChecking(customer.getSSN(), checkings);
+        System.out.println(checking.getAccountNumber()+" "+checking.getBalance()+" "+checking.getSSN());
 
         ArrayList<Check> checks = DB.readUnprocessedCheckCSV();
         Check check = DB.searchChecks("001", checking.getAccountNumber(), checks);

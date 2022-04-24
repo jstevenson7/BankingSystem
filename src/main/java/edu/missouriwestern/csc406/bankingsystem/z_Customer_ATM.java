@@ -130,7 +130,7 @@ public class z_Customer_ATM {
         // read in the checking accounts
         checkings = DB.readCheckingCSV();
         // set checking account to customer checking
-        checking = DB.searchChecking(customer.getCustomerID(), checkings);
+        checking = DB.searchChecking(customer.getSSN(), checkings);
         // verify sufficient funds
         if (DB.verifyBalance(withdrawAmt, checking)) {
             // withdraw amount

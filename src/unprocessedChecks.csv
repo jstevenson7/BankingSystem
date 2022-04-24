@@ -15,3 +15,5 @@ checkID,amount,date,recipient,description,accountNumber,routingNumber
 003,500.0,4/19/2022,Kent Pickett,Tip,9998,111
 001,555.22,4/21/2022,Josh Mesmer,Work,9993,111
 123,12.32,12,Christin,sfasda,9991,12231
+005,200.0,4/21/2022,Josh Stevenson,Work,9991,111
+008,500.12,4/20/2022,Bill Jones,work,9991,111

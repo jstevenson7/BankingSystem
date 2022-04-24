@@ -13,16 +13,13 @@ public class Checking {
     @CsvBindByName
     private int accountType;
     @CsvBindByName
-    private String customerID;
+    private String SSN;
 
-    private ArrayList<Check> depositchecklist = new ArrayList<Check>();
-    private ArrayList<Check> withdrawchecklist = new ArrayList<Check>();
-
-    public Checking(String accountNumber, double balance, int accountType, String customerID) {
+    public Checking(String accountNumber, double balance, int accountType, String SSN) {
         setAccountNumber(accountNumber);
         setBalance(balance);
         setAccountType(accountType);
-        setCustomerID(customerID);
+        setSSN(SSN);
     }
 
     public Checking() {
@@ -33,12 +30,12 @@ public class Checking {
     public String getAccountNumber() {return accountNumber;}
     public double getBalance() {return balance;}
     public int getAccountType() {return accountType;}
-    public String getCustomerID() {return customerID;}
+    public String getSSN() {return SSN;}
     // Setters
     public void setAccountNumber(String accountNumber) {this.accountNumber = accountNumber;}
     public void setBalance(double balance) {this.balance = balance;}
     public void setAccountType(int accountType) {this.accountType = accountType;}
-    public void setCustomerID(String customerID) {this.customerID = customerID;}
+    public void setSSN(String SSN) {this.SSN = SSN;}
 
     public void testaccount()
     {
@@ -79,17 +76,6 @@ public class Checking {
         }
         testaccount();
 
-    }
-    public void writecheck (Check check)
-    {
-        double withdrawamt = check.getAmount();
-        balance -= withdrawamt;
-        withdrawchecklist.add(check);
-        testaccount();
-        if (accountType==0)
-        {
-            balance-=.5;
-        }
     }
 
     public void transfer (double transferamt, Account account)

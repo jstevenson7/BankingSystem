@@ -36,7 +36,7 @@ public class DB {
         // Set class type for strategy
         strat.setType(Customer.class);
         // Set columns
-        strat.setColumnMapping(new String[]{"SSN", "Address", "City", "State", "Zip", "firstName", "lastName","atmNumber","atmPin","creditCardPin","customerID"});
+        strat.setColumnMapping(new String[]{"SSN", "Address", "City", "State", "Zip", "firstName", "lastName","atmNumber","atmPin","creditCardPin"});
         // Create bean of type customer
         CsvToBean<Customer> bean = new CsvToBeanBuilder<Customer>(reader).withMappingStrategy(strat).withSkipLines(1).build();
 
@@ -68,12 +68,12 @@ public class DB {
         // Set class type for the mapping strategy
         strat.setType(Customer.class);
         // Set column names for the mapping strategy
-        strat.setColumnMapping(new String[]{"SSN", "Address", "City", "State", "Zip", "firstName", "lastName","atmNumber", "atmPin","creditCardPin","customerID"});
+        strat.setColumnMapping(new String[]{"SSN", "Address", "City", "State", "Zip", "firstName", "lastName","atmNumber", "atmPin","creditCardPin"});
         // Create bean of type Customers with the created mapping strategy
         StatefulBeanToCsv<Customer> beanToCsv = new StatefulBeanToCsvBuilder<Customer>(writer).withApplyQuotesToAll(false).withMappingStrategy(strat).build();
         try {
             // Write the header first
-            writer.write("SSN,Address,City,State,Zip,firstName,lastName,atmNumber,atmPin,creditCartPin,customerID\n");
+            writer.write("SSN,Address,City,State,Zip,firstName,lastName,atmNumber,atmPin,creditCartPin\n");
             // Write the customers arrayList to the customers.csv file
             beanToCsv.write(customers);
         } catch (CsvDataTypeMismatchException e) {
@@ -170,7 +170,7 @@ public class DB {
         // Set strategy class type
         strat.setType(Checking.class);
         // Set column names
-        strat.setColumnMapping(new String[]{"accountNumber", "balance", "accountType", "customerID"});
+        strat.setColumnMapping(new String[]{"accountNumber", "balance", "accountType", "SSN"});
         // Create bean of type
         CsvToBean<Checking> bean = new CsvToBeanBuilder<Checking>(reader).withMappingStrategy(strat).withSkipLines(1).build();
 
@@ -193,12 +193,12 @@ public class DB {
         // Set mapping strategy class type
         strat.setType(Checking.class);
         // Set mapping strategy column names
-        strat.setColumnMapping(new String[]{"accountNumber", "balance", "accountType", "customerID"});
+        strat.setColumnMapping(new String[]{"accountNumber", "balance", "accountType", "SSN"});
         // Create bean of type employee
         StatefulBeanToCsv<Checking> beanToCsv = new StatefulBeanToCsvBuilder<Checking>(writer).withApplyQuotesToAll(false).withMappingStrategy(strat).build();
         try {
             // Write header column names
-            writer.write("accountNumber,balance,accountType,customerID\n");
+            writer.write("accountNumber,balance,accountType,SSN\n");
             // Write contents of employee arrayList to employee.csv
             beanToCsv.write(checkings);
         } catch (CsvDataTypeMismatchException e) {
@@ -319,25 +319,25 @@ public class DB {
         return null;
     }
     /*
-     * This method takes an customerID (String) and an ArrayList of customers
-     * and return the customer object of the customerID passed in
+     * This method takes an SSN (String) and an ArrayList of customers
+     * and return the customer object of the SSN passed in
      * EXAMPLE:
-     * Customer cst = DB.searchCustomer("someID", customerArrayList");
+     * Customer cst = DB.searchCustomer("SSN", customerArrayList");
      *
      * NOTE: Returns NULL if customer not found
      * */
-    public static Customer searchCustomer(String customerID, ArrayList<Customer> customers) {
+    public static Customer searchCustomer(String SSN, ArrayList<Customer> customers) {
         for (Customer c: customers) {
-            if (c.getCustomerID().equals(customerID)) {
+            if (c.getSSN().equals(SSN)) {
                 return c;
             }
         }
         return null;
     }
-    // Searches through Checking arraylist and return checking where matches customerID
-    public static Checking searchChecking(String customerID, ArrayList<Checking> checkings) {
+    // Searches through Checking arraylist and return checking where matches SSN
+    public static Checking searchChecking(String SSN, ArrayList<Checking> checkings) {
         for (Checking c: checkings) {
-            if (c.getCustomerID().equals(customerID)) {
+            if (c.getSSN().equals(SSN)) {
                 return c;
             }
         }
