@@ -68,6 +68,8 @@ public class z_SystemMain {
         checkPointAnchor.setVisible(false);
         runTestsAnchor.setVisible(false);
         loadDataAnchor.setVisible(false);
+        generalTestsAnchor.setVisible(false);
+        testTitleLabel.setText("Please select the tests you would like to run.");
     }
 
     public void toSelectActor(ActionEvent event) throws IOException {
@@ -76,6 +78,8 @@ public class z_SystemMain {
        checkPointAnchor.setVisible(false);
        runTestsAnchor.setVisible(false);
        loadDataAnchor.setVisible(false);
+        generalTestsAnchor.setVisible(false);
+        testTitleLabel.setText("Please select the tests you would like to run.");
     }
 
     public void toCheckPoint(ActionEvent event) throws IOException {
@@ -84,6 +88,8 @@ public class z_SystemMain {
         checkPointAnchor.setVisible(true);
         runTestsAnchor.setVisible(false);
         loadDataAnchor.setVisible(false);
+        generalTestsAnchor.setVisible(false);
+        testTitleLabel.setText("Please select the tests you would like to run.");
     }
 
     public void toRunTests(ActionEvent event) throws IOException {
@@ -92,6 +98,8 @@ public class z_SystemMain {
         checkPointAnchor.setVisible(false);
         runTestsAnchor.setVisible(true);
         loadDataAnchor.setVisible(false);
+        generalTestsAnchor.setVisible(false);
+        testTitleLabel.setText("Please select the tests you would like to run.");
     }
 
     public void toLoadData(ActionEvent event) throws IOException {
@@ -100,6 +108,8 @@ public class z_SystemMain {
         checkPointAnchor.setVisible(false);
         runTestsAnchor.setVisible(false);
         loadDataAnchor.setVisible(true);
+        generalTestsAnchor.setVisible(false);
+        testTitleLabel.setText("Please select the tests you would like to run.");
     }
 
     public void toCustomer(ActionEvent event) throws IOException {
@@ -109,6 +119,7 @@ public class z_SystemMain {
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
+        testTitleLabel.setText("Please select the tests you would like to run.");
     }
 
     public void toEmployee(ActionEvent event) throws IOException {
@@ -118,8 +129,11 @@ public class z_SystemMain {
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
+        testTitleLabel.setText("Please select the tests you would like to run.");
     }
 
+    @FXML
+    private AnchorPane generalTestsAnchor;
     @FXML
     private Button generalTestsButton;
     @FXML
@@ -137,11 +151,13 @@ public class z_SystemMain {
     @FXML
     private ImageView deleteCustFail;
 
+
     public void runGeneralTests(ActionEvent event) {
         // General Tests Include:
         testTitleLabel.setText("Running general tests...");
         createCustLabel.setVisible(true);
         deleteCustLabel.setVisible(true);
+        generalTestsAnchor.setVisible(true);
         // - Create/Deleting Customers
         ArrayList<Customer> testingList = null;
         Customer cust = null;

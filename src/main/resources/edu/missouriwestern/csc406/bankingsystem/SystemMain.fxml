@@ -264,7 +264,7 @@
             </Text>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="runTestsAnchor" layoutX="244.0" layoutY="-2.0" prefHeight="650.0" prefWidth="709.0" visible="false">
+      <AnchorPane fx:id="runTestsAnchor" layoutX="244.0" prefHeight="650.0" prefWidth="709.0" visible="false">
          <children>
             <HBox alignment="CENTER" layoutY="30.0" prefHeight="103.0" prefWidth="709.0" style="-fx-background-color: #cc0000;">
                <children>
@@ -282,32 +282,38 @@
                         <Label fx:id="testTitleLabel" alignment="CENTER" prefHeight="21.0" prefWidth="316.0" text="Please select the tests you would like to run." textAlignment="CENTER" BorderPane.alignment="CENTER">
                            <font>
                               <Font name="System Bold" size="15.0" />
-                           </font></Label>
+                           </font>
+                        </Label>
                      </center>
                   </BorderPane>
-                  <Label fx:id="createCustLabel" layoutX="177.0" layoutY="80.0" prefHeight="17.0" prefWidth="315.0" text="Creating a customer." visible="false" wrapText="true" />
-                  <ImageView fx:id="createCustSuccess" fitHeight="33.0" fitWidth="32.0" layoutX="134.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                     <image>
-                        <Image url="@../../../../Images/testSuccess.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="createCustFail" fitHeight="33.0" fitWidth="32.0" layoutX="135.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                     <image>
-                        <Image url="@../../../../Images/testFail.png" />
-                     </image>
-                  </ImageView>
-                  <Label fx:id="deleteCustLabel" layoutX="178.0" layoutY="130.0" prefHeight="17.0" prefWidth="315.0" text="Deleting a customer." visible="false" wrapText="true" />
-                  <ImageView fx:id="deleteCustSuccess" fitHeight="33.0" fitWidth="32.0" layoutX="135.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                     <image>
-                        <Image url="@../../../../Images/testSuccess.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="deleteCustFail" fitHeight="33.0" fitWidth="32.0" layoutX="136.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                     <image>
-                        <Image url="@../../../../Images/testFail.png" />
-                     </image>
-                  </ImageView>
-               </children></AnchorPane>
+                  <AnchorPane fx:id="generalTestsAnchor" layoutY="65.0" prefHeight="346.0" prefWidth="663.0">
+                     <children>
+                        <Label fx:id="createCustLabel" layoutX="174.0" layoutY="24.0" prefHeight="17.0" prefWidth="315.0" text="Creating a customer." visible="false" wrapText="true" />
+                        <ImageView fx:id="createCustSuccess" fitHeight="33.0" fitWidth="32.0" layoutX="134.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                           <image>
+                              <Image url="@../../../../Images/testSuccess.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="createCustFail" fitHeight="33.0" fitWidth="32.0" layoutX="134.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                           <image>
+                              <Image url="@../../../../Images/testFail.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="deleteCustLabel" layoutX="174.0" layoutY="74.0" prefHeight="17.0" prefWidth="315.0" text="Deleting a customer." visible="false" wrapText="true" />
+                        <ImageView fx:id="deleteCustSuccess" fitHeight="33.0" fitWidth="32.0" layoutX="134.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                           <image>
+                              <Image url="@../../../../Images/testSuccess.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="deleteCustFail" fitHeight="33.0" fitWidth="32.0" layoutX="134.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                           <image>
+                              <Image url="@../../../../Images/testFail.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
             <Button fx:id="generalTestsButton" layoutX="24.0" layoutY="589.0" mnemonicParsing="false" onAction="#runGeneralTests" text="Run General Tests" />
          </children>
       </AnchorPane>

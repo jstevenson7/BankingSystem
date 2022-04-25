@@ -71,6 +71,7 @@ public class z_Teller_ManageCustomers {
     @FXML
     private AnchorPane mainAnchor;
 
+
     /* --- NAV FUNCTIONS --- */
     public void toTeller(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("Teller.fxml"));
@@ -139,6 +140,8 @@ public class z_Teller_ManageCustomers {
         createAnchor.setVisible(false);
         deleteAnchor.setVisible(true);
     } //End of displayDelete.
+
+
 
     /* --- INITIALIZE --- */
     @FXML

@@ -88,60 +88,117 @@
             </Text>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="createAnchor" layoutX="228.0" layoutY="68.0" prefHeight="581.0" prefWidth="722.0" visible="false">
+      <AnchorPane fx:id="createAnchor" layoutX="245.0" layoutY="68.0" prefHeight="581.0" prefWidth="706.0" visible="false">
          <children>
-            <TextField fx:id="cSSNText" layoutX="60.0" layoutY="42.0" prefHeight="25.0" prefWidth="115.0" />
-            <TextField fx:id="cFNameText" layoutX="60.0" layoutY="76.0" prefHeight="25.0" prefWidth="115.0" />
-            <TextField fx:id="cLNameText" layoutX="261.0" layoutY="76.0" prefHeight="25.0" prefWidth="115.0" />
-            <TextField fx:id="cAddressText" layoutX="61.0" layoutY="113.0" prefHeight="25.0" prefWidth="139.0" />
-            <Text layoutX="9.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SSN:" textAlignment="RIGHT" wrappingWidth="40.13671875" />
-            <TextField fx:id="cCityText" layoutX="260.0" layoutY="113.0" prefHeight="25.0" prefWidth="115.0" />
-            <Text layoutX="9.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First:" textAlignment="RIGHT" wrappingWidth="40.13671875" />
-            <Text layoutX="209.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last:" textAlignment="RIGHT" wrappingWidth="40.13671875" />
-            <Text layoutX="2.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address:" textAlignment="RIGHT" wrappingWidth="54.13671875" />
-            <Text layoutX="21.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="State:" textAlignment="RIGHT" wrappingWidth="40.13671875" />
-            <Text layoutX="218.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City:" textAlignment="RIGHT" wrappingWidth="34.46484375" />
-            <ComboBox fx:id="cStateBox" layoutX="68.0" layoutY="151.0" prefHeight="25.0" prefWidth="69.0" />
-            <Text layoutX="154.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zip:" textAlignment="RIGHT" wrappingWidth="24.13671875" />
-            <TextField fx:id="cZipText" layoutX="183.0" layoutY="153.0" prefHeight="25.0" prefWidth="69.0" />
-            <Text layoutX="9.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Type:" textAlignment="RIGHT" wrappingWidth="88.13671875" />
-            <ComboBox fx:id="cAccountBox" layoutX="107.0" layoutY="291.0" prefHeight="25.0" prefWidth="139.0" />
-            <BorderPane layoutX="-2.0" layoutY="3.0" prefHeight="25.0" prefWidth="453.0">
+            <TextField fx:id="cSSNText" layoutX="187.0" layoutY="76.0" prefHeight="31.0" prefWidth="132.0" promptText="999-99-9999">
+               <font>
+                  <Font size="15.0" />
+               </font></TextField>
+            <TextField fx:id="cFNameText" layoutX="187.0" layoutY="120.0" prefHeight="31.0" prefWidth="132.0" promptText="John">
+               <font>
+                  <Font size="15.0" />
+               </font></TextField>
+            <TextField fx:id="cLNameText" layoutX="415.0" layoutY="116.0" prefHeight="31.0" prefWidth="139.0" promptText="Doe">
+               <font>
+                  <Font size="15.0" />
+               </font></TextField>
+            <TextField fx:id="cAddressText" layoutX="187.0" layoutY="168.0" prefHeight="31.0" prefWidth="376.0" promptText="1234 Wall St">
+               <font>
+                  <Font size="15.0" />
+               </font></TextField>
+            <Text layoutX="136.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SSN:" textAlignment="RIGHT" wrappingWidth="40.13671875">
+               <font>
+                  <Font size="15.0" />
+               </font></Text>
+            <TextField fx:id="cCityText" layoutX="187.0" layoutY="214.0" prefHeight="25.0" prefWidth="115.0" promptText="Saint Joseph">
+               <font>
+                  <Font size="15.0" />
+               </font></TextField>
+            <Text layoutX="98.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name:" textAlignment="RIGHT" wrappingWidth="76.13671875">
+               <font>
+                  <Font size="15.0" />
+               </font></Text>
+            <Text layoutX="328.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name:" textAlignment="RIGHT" wrappingWidth="76.13671875">
+               <font>
+                  <Font size="15.0" />
+               </font></Text>
+            <Text layoutX="107.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address:" textAlignment="RIGHT" wrappingWidth="69.0">
+               <font>
+                  <Font size="15.0" />
+               </font></Text>
+            <Text layoutX="317.0" layoutY="235.0" strokeType="OUTSIDE" strokeWidth="0.0" text="State:" textAlignment="RIGHT" wrappingWidth="40.13671875">
+               <font>
+                  <Font size="15.0" />
+               </font></Text>
+            <Text layoutX="144.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City:" textAlignment="RIGHT" wrappingWidth="34.46484375">
+               <font>
+                  <Font size="15.0" />
+               </font></Text>
+            <ComboBox fx:id="cStateBox" layoutX="363.0" layoutY="214.0" prefHeight="31.0" prefWidth="69.0" />
+            <Text layoutX="447.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zip:" textAlignment="RIGHT" wrappingWidth="34.46484375">
+               <font>
+                  <Font size="15.0" />
+               </font></Text>
+            <TextField fx:id="cZipText" layoutX="490.0" layoutY="214.0" prefHeight="25.0" prefWidth="69.0" promptText="00000">
+               <font>
+                  <Font size="15.0" />
+               </font></TextField>
+            <Text layoutX="172.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Type:" textAlignment="RIGHT" wrappingWidth="115.0">
+               <font>
+                  <Font size="15.0" />
+               </font></Text>
+            <ComboBox fx:id="cAccountBox" layoutX="309.0" layoutY="346.0" prefHeight="31.0" prefWidth="194.0" />
+            <BorderPane layoutX="-1.0" layoutY="2.0" prefHeight="68.0" prefWidth="706.0">
                <center>
-                  <Label prefHeight="15.0" prefWidth="373.0" text="Please enter the information of the Customer you would like to create!" BorderPane.alignment="CENTER" />
+                  <Label prefHeight="21.0" prefWidth="508.0" text="Please enter the information of the Customer you would like to create!" BorderPane.alignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font></Label>
                </center>
             </BorderPane>
-            <Button fx:id="cCreateButton" layoutX="292.0" layoutY="282.0" mnemonicParsing="false" onAction="#createCustomer" prefHeight="46.0" prefWidth="105.0" text="Create Customer &amp; Initial Account" wrapText="true" />
-            <TextField fx:id="cCustIDText" layoutX="101.0" layoutY="216.0" prefHeight="25.0" prefWidth="115.0" />
-            <Text layoutX="52.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CustID:" textAlignment="RIGHT" wrappingWidth="40.13671875" />
-            <Text layoutX="261.0" layoutY="231.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ATMPin:" textAlignment="RIGHT" wrappingWidth="60.13671875" />
-            <TextField fx:id="cATMPinText" layoutX="323.0" layoutY="214.0" prefHeight="25.0" prefWidth="69.0" />
-            <TextField fx:id="cCCPinText" layoutX="330.0" layoutY="247.0" prefHeight="25.0" prefWidth="69.0" />
-            <TextField fx:id="cATMNumText" layoutX="100.0" layoutY="246.0" prefHeight="25.0" prefWidth="139.0" />
-            <Text layoutX="14.0" layoutY="261.0" strokeType="OUTSIDE" strokeWidth="0.0" text="atmNumber:" textAlignment="RIGHT" wrappingWidth="76.13671875" />
-            <Text layoutX="261.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CCPin:" textAlignment="RIGHT" wrappingWidth="60.13671875" />
-            <Text layoutX="61.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Note: We will be creating random generators for the below items">
+            <Button fx:id="cCreateButton" layoutX="203.0" layoutY="396.0" mnemonicParsing="false" onAction="#createCustomer" prefHeight="31.0" prefWidth="298.0" text="Create Customer &amp; Initial Account" wrapText="true" />
+            <Text layoutX="301.0" layoutY="545.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ATMPin:" textAlignment="RIGHT" wrappingWidth="60.13671875" />
+            <TextField fx:id="cATMPinText" layoutX="358.0" layoutY="530.0" prefHeight="25.0" prefWidth="69.0" />
+            <TextField fx:id="cCCPinText" layoutX="504.0" layoutY="529.0" prefHeight="25.0" prefWidth="69.0" />
+            <TextField fx:id="cATMNumText" layoutX="147.0" layoutY="531.0" prefHeight="25.0" prefWidth="139.0" />
+            <Text layoutX="61.0" layoutY="546.0" strokeType="OUTSIDE" strokeWidth="0.0" text="atmNumber:" textAlignment="RIGHT" wrappingWidth="76.13671875" />
+            <Text layoutX="435.0" layoutY="545.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CCPin:" textAlignment="RIGHT" wrappingWidth="60.13671875" />
+            <Text layoutX="217.0" layoutY="513.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Note: We will be creating random generators for the below items">
                <font>
                   <Font name="System Italic" size="12.0" />
                </font>
             </Text>
-         </children>
-      </AnchorPane>
-      <AnchorPane fx:id="deleteAnchor" layoutX="228.0" layoutY="68.0" prefHeight="581.0" prefWidth="722.0" visible="false">
-         <children>
-            <TextField fx:id="deleteCustomerSSN" layoutX="143.0" layoutY="128.0" />
-            <BorderPane layoutX="3.0" prefHeight="68.0" prefWidth="428.0">
+            <BorderPane layoutY="270.0" prefHeight="60.0" prefWidth="706.0">
                <center>
-                  <Label text="Please enter the SSN of the Customer you would like to delete!" BorderPane.alignment="CENTER" />
+                  <Label prefHeight="58.0" prefWidth="507.0" text="Every new Customer must set up an initial account. Please choose the account type and enter any neccessary information." textAlignment="CENTER" wrapText="true" BorderPane.alignment="CENTER">
+                     <font>
+                        <Font name="System Italic" size="15.0" />
+                     </font>
+                  </Label>
                </center>
             </BorderPane>
-            <Text layoutX="95.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SSN:">
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="deleteAnchor" layoutX="244.0" layoutY="68.0" prefHeight="581.0" prefWidth="706.0" visible="false">
+         <children>
+            <TextField fx:id="deleteCustomerSSN" layoutX="295.0" layoutY="79.0" prefHeight="31.0" prefWidth="154.0" promptText="999-99-9999">
                <font>
-                  <Font size="17.0" />
+                  <Font size="15.0" />
+               </font></TextField>
+            <BorderPane layoutX="3.0" prefHeight="68.0" prefWidth="700.0">
+               <center>
+                  <Label text="Please enter the SSN of the Customer you would like to delete!" BorderPane.alignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font></Label>
+               </center>
+            </BorderPane>
+            <Text layoutX="258.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SSN:">
+               <font>
+                  <Font size="15.0" />
                </font>
             </Text>
-            <Button fx:id="dDeleteButton" layoutX="165.0" layoutY="178.0" mnemonicParsing="false" onAction="#deleteCustomer" text="Delete Customer" />
-            <Label fx:id="deleteMessage" alignment="TOP_CENTER" layoutX="165.0" layoutY="78.0" prefHeight="17.0" prefWidth="105.0" textAlignment="CENTER" />
+            <Button fx:id="dDeleteButton" layoutX="296.0" layoutY="132.0" mnemonicParsing="false" onAction="#deleteCustomer" prefHeight="31.0" prefWidth="154.0" text="Delete Customer" />
          </children>
       </AnchorPane>
    </children>
