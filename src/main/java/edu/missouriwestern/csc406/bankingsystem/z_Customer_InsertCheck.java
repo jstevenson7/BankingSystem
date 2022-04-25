@@ -9,7 +9,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -37,7 +42,7 @@ public class z_Customer_InsertCheck {
     @FXML
     private TextField checkNumText;
     @FXML
-    private TextField insertCheckButton;
+    private Button insertCheckButton;
     @FXML
     private Label checkLabel;
     @FXML
@@ -84,8 +89,49 @@ public class z_Customer_InsertCheck {
             receiptButton.setDisable(false);
             checkLabel.setTextFill(Color.BLACK);
             checkLabel.setText("Check is valid you can now view your check submission receipt!");
+            insertCheckButton.setDisable(true);
             // If boxes are not all filled
         }
+    }
+
+    public void viewReceipt(ActionEvent event) {
+        displayAlert("Checking", "tesst");
+    }
+    public void renewScene() {
+        payToText.clear();
+        dateText.clear();
+        amtText.clear();
+        accNumText.clear();
+    }
+
+
+    public void displayAlert(String alertTitle, String alertMessage) {
+        //-------general--------
+        Stage alertBox = new Stage();
+        alertBox.setTitle(alertTitle);
+        //------window display customization-------
+        alertBox.initModality(Modality.APPLICATION_MODAL);
+        alertBox.setResizable(false);
+        //-------alert text customization------
+        Text alertText = new Text( "Error: " + alertMessage);
+        alertText.setStroke(Color.INDIANRED);
+        alertText.setFont(Font.font("Tw Cen MT", 16));
+        alertText.setLayoutX(25);
+        alertText.setLayoutY(25);
+        alertText.setWrappingWidth(150);
+        alertText.setTextAlignment(TextAlignment.CENTER);
+        //-----close button customization------
+        Button closeAlert = new Button("OK, CLOSE.");
+        closeAlert.setLayoutX(60);
+        closeAlert.setLayoutY(120);
+        closeAlert.setOnAction(e -> alertBox.close());
+        //----------pane----------
+        AnchorPane alertPane = new AnchorPane();
+        alertPane.getChildren().addAll(alertText, closeAlert);
+        //----------scene----------
+        Scene alertScene = new Scene(alertPane, 200, 150);
+        alertBox.setScene(alertScene);
+        alertBox.show();
     }
 
     @FXML
@@ -93,6 +139,13 @@ public class z_Customer_InsertCheck {
 
         returnCustomerButton.setOnMouseEntered(event -> returnCustomerButton.setStyle("-fx-background-color: #ffffff"));
         returnCustomerButton.setOnMouseExited(event -> returnCustomerButton.setStyle("-fx-background-color:  #000000"));
+
+        insertCheckButton.setOnMouseEntered(event -> insertCheckButton.setStyle("-fx-background-color: #ffffff"));
+        insertCheckButton.setOnMouseExited(event -> insertCheckButton.setStyle("-fx-background-color:  #000000"));
+
+        receiptButton.setOnMouseEntered(event -> receiptButton.setStyle("-fx-background-color: #ffffff"));
+        receiptButton.setOnMouseExited(event -> receiptButton.setStyle("-fx-background-color:  #000000"));
+
 
     }
 }
