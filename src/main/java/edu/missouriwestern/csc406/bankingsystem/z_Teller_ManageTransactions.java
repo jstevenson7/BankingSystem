@@ -7,7 +7,12 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Paint;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import java.io.IOException;
 
@@ -36,6 +41,22 @@ public class z_Teller_ManageTransactions {
     /* --- DEPOSIT ANCHOR DATA --- */
     @FXML
     private AnchorPane depositAnchor;
+    @FXML
+    private Button depositAnchorButton;
+    @FXML
+    private TextField ssnText;
+    @FXML
+    private ComboBox acctTypeBox;
+    @FXML
+    private TextField acctNumText;
+    @FXML
+    private TextField checkNumText;
+    @FXML
+    private Text checkNumT;
+    @FXML
+    private TextField depositAmtText;
+    @FXML
+    private CheckBox checkBox;
 
     /* --- WITHDRAW ANCHOR DATA --- */
     @FXML
@@ -107,6 +128,26 @@ public class z_Teller_ManageTransactions {
 
         processChecksButton.setOnMouseEntered(event -> processChecksButton.setStyle("-fx-background-color: #E8ADAD; -fx-border-color: #000000"));
         processChecksButton.setOnMouseExited(event -> processChecksButton.setStyle("-fx-background-color: #d4d4d4; -fx-border-color:  #b0b0b0"));
+        acctTypeBox.getItems().addAll("Checking - TMB", "Checking - Gold/Diamond", "Savings - Simple", "CD");
+        acctTypeBox.setVisibleRowCount(5);
 
     }
+
+    public void depositCheck(ActionEvent event) {
+        if(checkBox.isSelected()){
+            checkNumText.setDisable(false);
+            checkNumT.setVisible(true);
+        } else {
+            checkNumText.setDisable(true);
+            checkNumT.setVisible(false);
+            checkNumText.clear();
+        }
+    }
+
+
+
+
+
+
+
 }
