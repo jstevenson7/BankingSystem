@@ -8,10 +8,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class z_Teller_ManageAccounts {
 
@@ -36,6 +39,8 @@ public class z_Teller_ManageAccounts {
     private TextField cSSNText;
     @FXML
     private Button cCreateButton;
+    @FXML
+    private Label cMessage;
 
     /* --- DELETE ANCHOR DATA --- */
     @FXML
@@ -46,6 +51,8 @@ public class z_Teller_ManageAccounts {
     private TextField dSSNText;
     @FXML
     private TextField dAccountNumText;
+    @FXML
+    private Label dMessage;
 
     /* --- MAIN ANCHOR DATA --- */
     @FXML
@@ -73,6 +80,37 @@ public class z_Teller_ManageAccounts {
         deleteAnchor.setVisible(true);
     } //End of displayDelete.
 
+    /* --- Logic Functions --- */
+    public void createAccount(ActionEvent event) throws IOException {
+        // verify SSN exists in customers
+        if (DB.verifyCustomerSSN(cSSNText.getText(), DB.readCustomersCSV())) {
+            if (cAccountBox.getValue().equals("Checking")) {
+                // if checking is selected
+                // read in current checking accounts
+                ArrayList<Checking> checkings = DB.readCheckingCSV();
+                // if customer already has checking
+                if (!DB.verifyCheckingSSN(cSSNText.getText(), checkings)) {
+                    // create new checking account, default TMB with $0 balance
+                    Checking checking = new Checking(DB.generateAccountNumber(), 0, 0, cSSNText.getText());
+                    // add to arraylist
+                    checkings.add(checking);
+                    // write to database
+                    DB.writeCheckingCSV(checkings);
+                    cMessage.setText("Success!");
+                    cMessage.setTextFill(Color.GREEN);
+                    cSSNText.clear();
+                } else {
+                    cMessage.setText("Checking already exist!");
+                    cMessage.setTextFill(Color.RED);
+                }
+            } // end of if Checking
+
+        } else {
+            // If SSN is not found
+            cMessage.setText("SSN not found!");
+            cMessage.setTextFill(Color.RED);
+        }
+    }
     /* --- INITIALIZE --- */
     @FXML
     private void initialize(){
