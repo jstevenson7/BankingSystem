@@ -11,6 +11,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Random;
 
 public class DB {
     public DB () {
@@ -380,6 +381,14 @@ public class DB {
         }
         return false;
     }
+    public static Boolean verifySavingsIDNumber(String savingsID, ArrayList<Savings> savings) {
+        for (Savings s: savings) {
+            if (s.getSavingsID().equals(savingsID)) {
+                return true;
+            }
+        }
+        return false;
+    }
     // Searches through unprocessedChecks and processedChecks arraylist and returns true if check exists
     public static Boolean verifyChecks(String checkID, String accountNumber, ArrayList<Check> unprocessedChecks, ArrayList<Check> processedChecks) {
         for (Check c: unprocessedChecks) {
@@ -424,4 +433,39 @@ public class DB {
         }
         return false;
     }
+    public static Boolean verifyCustomerSSN(String SSN, ArrayList<Customer> customers) {
+        for (Customer c: customers) {
+            if (c.getSSN().equals(SSN)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    public static Boolean verifyCheckingSSN(String SSN, ArrayList<Checking> checkings) {
+        for (Checking c: checkings) {
+            if (c.getSSN().equals(SSN)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    public static String verifyNewAccountNumber(ArrayList<Checking> checkings, ArrayList<Savings> savings, ArrayList<Loans> loans) {
+        while(true) {
+            String num = generateAccountNumber();
+            // WILL NEED TO ADD VERIFYACCOUNT FOR SAVINGS AND LOANS
+            if(!DB.verifyAccountNumber(num, checkings) && !DB.verifySavingsIDNumber(num, savings)) {
+                return num;
+            }
+        }
+    }
+    /**
+     * Other Utility Methods
+     */
+    public static String generateAccountNumber() {
+        // This method will return a random 9 digit number.
+        Random rnd = new Random();
+        int num = rnd.nextInt(999999999);
+        return String.format("%09d", num);
+    }
+
 }

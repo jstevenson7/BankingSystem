@@ -58,6 +58,8 @@ public class z_Teller_ManageCustomers {
     private Button cCreateButton;
     @FXML
     private TextField deleteCustomerSSN;
+    @FXML
+    private Label messageLabel;
 
     /* --- DELETE ANCHOR DATA --- */
     @FXML
@@ -85,23 +87,73 @@ public class z_Teller_ManageCustomers {
     public void createCustomer(ActionEvent event) throws IOException {
         //Load customers
         ArrayList<Customer> customers = DB.readCustomersCSV();
-        //Placeholder for future new cust, but stands in now - RM 4/20/22 17:50
-        Customer newCust = new Customer(cSSNText.getText(), cAddressText.getText(), cCityText.getText(),
-                cStateBox.getValue(), Integer.parseInt(cZipText.getText()), cFNameText.getText(),
-                cLNameText.getText(), cATMNumText.getText(), Integer.parseInt(cATMPinText.getText()),
-                Integer.parseInt(cCCPinText.getText()));
-        customers.add(newCust);
-        DB.writeCustomerCSV(customers);
-        cSSNText.clear();
-        cAddressText.clear();
-        cCityText.clear();
-        cZipText.clear();
-        cFNameText.clear();
-        cLNameText.clear();
-        cATMNumText.clear();
-        cATMPinText.clear();
-        cCCPinText.clear();
-        cCustIDText.clear();
+        // if SSN doesn't already exist
+        if (cSSNText.getText().length() < 11 || cSSNText.getText().length() > 11){
+            messageLabel.setText("Invalid SSN!");
+            messageLabel.setTextFill(Color.RED);
+        } else if (cSSNText.getText().isBlank() || cAddressText.getText().isBlank() || cCityText.getText().isBlank() ||
+        cStateBox.getValue().isBlank() || cZipText.getText().isBlank() || cFNameText.getText().isBlank() ||
+        cLNameText.getText().isBlank() || cATMNumText.getText().isBlank() || cATMPinText.getText().isBlank() ||
+        cCCPinText.getText().isBlank()) {
+            // If fields are not all filled
+            messageLabel.setText("All fields are required!");
+            messageLabel.setTextFill(Color.RED);
+        } else if (!DB.verifyCustomer(cSSNText.getText(), customers)) {
+            // Create customer
+            try {
+                Customer newCust = new Customer(cSSNText.getText(), cAddressText.getText(), cCityText.getText(),
+                        cStateBox.getValue(), Integer.parseInt(cZipText.getText()), cFNameText.getText(),
+                        cLNameText.getText(), cATMNumText.getText(), Integer.parseInt(cATMPinText.getText()),
+                        Integer.parseInt(cCCPinText.getText()));
+                // Add new customer to the ArrayList
+                customers.add(newCust);
+                messageLabel.setText("Success!");
+                messageLabel.setTextFill(Color.GREEN);
+                DB.writeCustomerCSV(customers);
+                // check for type of account in cAccountBox
+                // if Checking - TMB = create new checking account of balance $0
+                if (cAccountBox.getValue().equals("Checking - TMB")) {
+                    // Read in current checking accounts
+                    ArrayList<Checking> checkings = DB.readCheckingCSV();
+                    // create new checking account
+                    Checking checking = new Checking(DB.generateAccountNumber(), 0, 0, cSSNText.getText());
+                    // add checking account
+                    checkings.add(checking);
+                    // write checking accounts
+                    DB.writeCheckingCSV(checkings);
+                }
+                // if Checking - Gold/Diamond = create new checking account of balance $1000
+                if (cAccountBox.getValue().equals("Checking - Gold/Diamond")) {
+                    // Read in current checking accounts
+                    ArrayList<Checking> checkings = DB.readCheckingCSV();
+                    // create new checking account
+                    Checking checking = new Checking(DB.generateAccountNumber(), 1000, 1, cSSNText.getText());
+                    // add checking account
+                    checkings.add(checking);
+                    // write checking accounts
+                    DB.writeCheckingCSV(checkings);
+                }
+                // if Savings - Simple = new Savings of balance $0
+                // if CD = create new CD of balance $1000
+                cSSNText.clear();
+                cAddressText.clear();
+                cCityText.clear();
+                cZipText.clear();
+                cFNameText.clear();
+                cLNameText.clear();
+                cATMNumText.clear();
+                cATMPinText.clear();
+                cCCPinText.clear();
+            } catch (NumberFormatException e) {
+                messageLabel.setText("Error: Verify correct values are entered.");
+                messageLabel.setTextFill(Color.RED);
+            }
+        }
+
+
+
+
+
     }
     public void deleteCustomer(ActionEvent event) throws IOException {
         // Read customers from database/csv

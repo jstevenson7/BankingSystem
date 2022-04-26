@@ -159,8 +159,8 @@ public class z_Customer_InsertCheck {
         } else {
             // create check from textFields
             Check check = new Check(checkNumText.getText(), Double.parseDouble(amtText.getText()),
-                dateText.getText(), payToText.getText(), noteText.getText(),
-                accNumText.getText(), routNumText.getText());
+                    dateText.getText(), payToText.getText(), noteText.getText(),
+                    accNumText.getText(), routNumText.getText());
             // add new check
             unprocessedChecks.add(check);
             // Write back to csv
@@ -169,7 +169,6 @@ public class z_Customer_InsertCheck {
             checkLabel.setTextFill(Color.BLACK);
             checkLabel.setText("Check is valid you can now view your check submission receipt!");
             insertCheckButton.setDisable(true);
-            // If boxes are not all filled
         }
     }
 
