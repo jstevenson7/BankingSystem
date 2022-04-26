@@ -33,7 +33,7 @@ public class App extends Application {
 
         ArrayList<Savings> savings = DB.readSavingsCSV();
         Savings savings1 = DB.searchSavings(customer.getSSN(), savings);
-        System.out.println(savings1.getBalance());
+        System.out.println(savings1.getSavingsAccNumber()+" "+savings1.getBalance());
         **/
         launch();
     } //End of main.

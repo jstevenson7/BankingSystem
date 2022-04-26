@@ -24,10 +24,7 @@ public class Savings {
     @CsvBindByName
     private String SSN;
 
-    private String currentDate;
-
-    private ArrayList<Check> depositchecklist = new ArrayList<Check>();
-    private ArrayList<Check> withdrawchecklist = new ArrayList<Check>();
+    //private String currentDate;
 
     public Savings()
     {
@@ -35,9 +32,14 @@ public class Savings {
     }
 
     public Savings(String savingsAccNumber, double balance, double interestRate, String SSN) throws ParseException {
+        //LocalDate date
+        LocalDate date = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/YYYY");
+
         setSavingsAccNumber(savingsAccNumber);
         setBalance(balance);
         setInterestRate(interestRate);
+        setStartDate(formatter.format(date));
         setSSN(SSN);
         dailyInterest();
 
@@ -45,9 +47,9 @@ public class Savings {
 
     public void dailyInterest () throws ParseException {
 
-        SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/YYYY");
         Date startingdate = sdf.parse(startDate);
-        Date currentdate = sdf.parse(currentDate);
+        Date currentdate = sdf.parse(calcCurrentDate());
 
         long diffInTime = currentdate.getTime() - startingdate.getTime();
         long diffInDay = (diffInTime/(1000*60*60*24));
@@ -60,9 +62,12 @@ public class Savings {
         }
 
     }
-
-
-
+    // returns string of current date
+    public String calcCurrentDate() {
+        LocalDate date = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/YYYY");
+        return formatter.format(date);
+    }
     public void deposit(Double amount)
     {
         balance+= amount;
@@ -73,30 +78,11 @@ public class Savings {
         balance-= amount;
     }
 
-    public void writecheck (Check check)
-    {
-        if (check.getAmount() <= balance)
-        {
-            balance-=check.getAmount();
-            withdrawchecklist.add(check);
-        }
-        else if(check.getAmount() >= balance)
-        {
-            System.out.println("Account balance exceeded, cannot process check");
-        }
-
-
-    }
-    public void depositcheck(Check check)
-    {
-        balance+=check.getAmount();
-        depositchecklist.add(check);
-    }
-
+    // Getters and Setters
     public String getSavingsAccNumber() {
         return savingsAccNumber;
     }
-    public void setSavingsAccNumber(String savingsID) {
+    public void setSavingsAccNumber(String savingsAccNumber) {
         this.savingsAccNumber = savingsAccNumber;
     }
     public double getBalance() {
@@ -122,5 +108,15 @@ public class Savings {
     }
     public void setSSN(String SSN) {
         this.SSN = SSN;
+    }
+    @Override
+    public String toString() {
+        return "Savings{" +
+                "savingsAccNumber='" + savingsAccNumber + '\'' +
+                ", balance=" + balance +
+                ", interestRate=" + interestRate +
+                ", startDate='" + startDate + '\'' +
+                ", SSN='" + SSN + '\'' +
+                '}';
     }
 }
