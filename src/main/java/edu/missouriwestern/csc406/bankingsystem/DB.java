@@ -381,9 +381,9 @@ public class DB {
         }
         return false;
     }
-    public static Boolean verifySavingsIDNumber(String savingsID, ArrayList<Savings> savings) {
+    public static Boolean verifySavingsAccountNumber(String savingsAccountNumber, ArrayList<Savings> savings) {
         for (Savings s: savings) {
-            if (s.getSavingsID().equals(savingsID)) {
+            if (s.getSavingsAccNumber().equals(savingsAccountNumber)) {
                 return true;
             }
         }
@@ -453,7 +453,7 @@ public class DB {
         while(true) {
             String num = generateAccountNumber();
             // WILL NEED TO ADD VERIFYACCOUNT FOR SAVINGS AND LOANS
-            if(!DB.verifyAccountNumber(num, checkings) && !DB.verifySavingsIDNumber(num, savings)) {
+            if(!DB.verifyAccountNumber(num, checkings) && !DB.verifySavingsAccountNumber(num, savings)) {
                 return num;
             }
         }
