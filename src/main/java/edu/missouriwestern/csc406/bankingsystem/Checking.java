@@ -13,6 +13,8 @@ public class Checking {
     private int accountType;
     @CsvBindByName
     private String SSN;
+    @CsvBindByName
+    private String overdraftAccountNumber;
 
     //int hasOverdraft if == 1 has, if == 0 doesn't have
 
@@ -22,6 +24,7 @@ public class Checking {
         setBalance(balance);
         setAccountType(accountType);
         setSSN(SSN);
+        setOverdraftAccountNumber("0");
     }
 
     public Checking() {
@@ -33,11 +36,13 @@ public class Checking {
     public double getBalance() {return balance;}
     public int getAccountType() {return accountType;}
     public String getSSN() {return SSN;}
+    public String getOverdraftAccountNumber() {return overdraftAccountNumber;}
     // Setters
     public void setAccountNumber(String accountNumber) {this.accountNumber = accountNumber;}
     public void setBalance(double balance) {this.balance = balance;}
     public void setAccountType(int accountType) {this.accountType = accountType;}
     public void setSSN(String SSN) {this.SSN = SSN;}
+    public void setOverdraftAccountNumber(String overdraftAccountNumber) {this.overdraftAccountNumber=overdraftAccountNumber;}
 
     public void testaccount()
     {

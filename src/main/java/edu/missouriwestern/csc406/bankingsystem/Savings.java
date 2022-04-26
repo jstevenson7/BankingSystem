@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 public class Savings {
 
     @CsvBindByName
-    private String savingsID; //account num
+    private String savingsAccNumber; //account num
     @CsvBindByName
     private double balance;
     @CsvBindByName
@@ -22,7 +22,7 @@ public class Savings {
     @CsvBindByName
     private String startDate;
     @CsvBindByName
-    private String customerID;
+    private String SSN;
 
     private String currentDate;
 
@@ -34,13 +34,11 @@ public class Savings {
 
     }
 
-    public Savings(String savingsID, double balance, double interestRate, String startDate, String customerID) throws ParseException {
-        this.savingsID = savingsID;
-        this.balance = balance;
-        this.interestRate = interestRate;
-        this.startDate = startDate;
-        this.customerID = customerID;
-        this.currentDate = "04-20-2022";
+    public Savings(String savingsAccNumber, double balance, double interestRate, String SSN) throws ParseException {
+        setSavingsAccNumber(savingsAccNumber);
+        setBalance(balance);
+        setInterestRate(interestRate);
+        setSSN(SSN);
         dailyInterest();
 
     }
@@ -95,59 +93,34 @@ public class Savings {
         depositchecklist.add(check);
     }
 
-    public String getSavingsID() {
-        return savingsID;
+    public String getSavingsAccNumber() {
+        return savingsAccNumber;
     }
-
-    public void setSavingsID(String savingsID) {
-        this.savingsID = savingsID;
+    public void setSavingsAccNumber(String savingsID) {
+        this.savingsAccNumber = savingsAccNumber;
     }
-
     public double getBalance() {
         return balance;
     }
-
     public void setBalance(double balance) {
         this.balance = balance;
     }
-
     public double getInterestRate() {
         return interestRate;
     }
-
     public void setInterestRate(double interestRate) {
         this.interestRate = interestRate;
     }
-
     public String getStartDate() {
         return startDate;
     }
-
     public void setStartDate(String startDate) {
         this.startDate = startDate;
     }
-
-    public String getCustomerID() {
-        return customerID;
+    public String getSSN() {
+        return SSN;
     }
-
-    public void setCustomerID(String customerID) {
-        this.customerID = customerID;
-    }
-
-    public ArrayList<Check> getDepositchecklist() {
-        return depositchecklist;
-    }
-
-    public void setDepositchecklist(ArrayList<Check> depositchecklist) {
-        this.depositchecklist = depositchecklist;
-    }
-
-    public ArrayList<Check> getWithdrawchecklist() {
-        return withdrawchecklist;
-    }
-
-    public void setWithdrawchecklist(ArrayList<Check> withdrawchecklist) {
-        this.withdrawchecklist = withdrawchecklist;
+    public void setSSN(String SSN) {
+        this.SSN = SSN;
     }
 }

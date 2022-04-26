@@ -6,7 +6,8 @@ import java.text.ParseException;
 public class RegressionTest {
 
     public static void main(String[] args) throws IOException, ParseException {
-
+        // Need to update this
+        /**
         Savings savings = new Savings("1234", 400, .006, "04-10-2019", "1");
         System.out.println(savings.getBalance());
         Check check = new Check("001", 399.33, "4-10-2022", "Grace Smith", "Job", "9992", "111");
@@ -19,6 +20,6 @@ public class RegressionTest {
 
         CertificateofDeposit CD = new CertificateofDeposit("29863",20000,.039,"02-02-2015", "02-02-2020", "02-02-2020");
         System.out.println("CD Balance =" + CD.getBalance());
-
+        **/
     }
 }
