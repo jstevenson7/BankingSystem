@@ -30,6 +30,10 @@ public class App extends Application {
         ArrayList<Check> checks = DB.readUnprocessedCheckCSV();
         Check check = DB.searchChecks("001", checking.getAccountNumber(), checks);
         System.out.println(check.getCheckID()+" "+check.getAmount());
+
+        ArrayList<Savings> savings = DB.readSavingsCSV();
+        Savings savings1 = DB.searchSavings(customer.getSSN(), savings);
+        System.out.println(savings1.getBalance());
         **/
         launch();
     } //End of main.

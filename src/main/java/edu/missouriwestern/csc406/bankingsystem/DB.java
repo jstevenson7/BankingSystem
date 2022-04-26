@@ -17,6 +17,7 @@ public class DB {
     public DB () {
         // No arg constructor
     }
+    /** Reading and Writing to POJOs **/
     /*
     * This is a hard coded method to read from the customers.csv file (located in src) and returns
     * an arrayList of customer objects.
@@ -307,7 +308,53 @@ public class DB {
         }
         writer.close();
     }
+    public static ArrayList<Savings> readSavingsCSV() throws IOException {
+        // Create an arrayList to hold savings objects
+        ArrayList<Savings> savings = new ArrayList<>();
+        // Create reader to read from the savings.csv file located in src
+        Reader reader = Files.newBufferedReader(Path.of("src/savings.csv"));
+        // Set column mapping strategy
+        ColumnPositionMappingStrategy<Savings> strat = new ColumnPositionMappingStrategyBuilder<Savings>().build();
+        // Set strategy class type
+        strat.setType(Savings.class);
+        // Set column names
+        strat.setColumnMapping(new String[]{"savingsAccNumber","balance","interestRate","startDate","SSN"});
+        // Create bean of type savings
+        CsvToBean<Savings> bean = new CsvToBeanBuilder<Savings>(reader).withMappingStrategy(strat).withSkipLines(1).build();
 
+        // iterate through bean and add to list
+        Iterator<Savings> checkingIterator = bean.iterator();
+        while (checkingIterator.hasNext()) {
+            Savings saving= checkingIterator.next();
+            savings.add(saving);
+        }
+        reader.close();
+        // return arrayList
+        return savings;
+    }
+    public static void writeSavingsCSV(ArrayList<Savings> savings) throws IOException {
+        // Create writer to write to the savings.csv file located in src
+        Writer writer = Files.newBufferedWriter(Paths.get("src/savings.csv"));
+        // Create mapping strategy for columns
+        ColumnPositionMappingStrategy<Savings> strat = new ColumnPositionMappingStrategyBuilder<Savings>().build();
+        // Set mapping strategy class type
+        strat.setType(Savings.class);
+        // Set mapping strategy column names
+        strat.setColumnMapping(new String[]{"savingsAccNumber","balance","interestRate","startDate","SSN"});
+        // Create bean of type savings
+        StatefulBeanToCsv<Savings> beanToCsv = new StatefulBeanToCsvBuilder<Savings>(writer).withApplyQuotesToAll(false).withMappingStrategy(strat).build();
+        try {
+            // Write header column names
+            writer.write("savingsAccNumber,balance,interestRate,startDate,SSN\n");
+            // Write contents of savings to savings.csv
+            beanToCsv.write(savings);
+        } catch (CsvDataTypeMismatchException e) {
+            e.printStackTrace();
+        } catch (CsvRequiredFieldEmptyException e) {
+            e.printStackTrace();
+        }
+        writer.close();
+    }
     /**
      *   Search Methods
      */
@@ -369,7 +416,14 @@ public class DB {
         }
         return null;
     }
-
+    public static Savings searchSavings(String SSN, ArrayList<Savings> savings) {
+        for (Savings s: savings) {
+            if (s.getSSN().equals(SSN)) {
+                return s;
+            }
+        }
+        return null;
+    }
     /**
      *  Verify Methods
      */
