@@ -14,6 +14,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
 
 public class z_Teller_ManageAccounts {
@@ -82,7 +83,7 @@ public class z_Teller_ManageAccounts {
     } //End of displayDelete.
 
     /* --- Logic Functions --- */
-    public void createAccount(ActionEvent event) throws IOException {
+    public void createAccount(ActionEvent event) throws IOException, ParseException {
         // verify SSN exists in customers
         if (DB.verifyCustomerSSN(cSSNText.getText(), DB.readCustomersCSV())) {
             if (cAccountBox.getValue().equals("Checking - TMB") || cAccountBox.getValue().equals("Checking - Gold/Diamond")) {
@@ -113,7 +114,24 @@ public class z_Teller_ManageAccounts {
                     cMessage.setTextFill(Color.RED);
                 }
             } // end of if Checking
-
+            else if (cAccountBox.getValue().equals("Savings - Simple")) {
+                // read in current savings accounts
+                ArrayList<Savings> savings = DB.readSavingsCSV();
+                // check to see if savings already exists
+                if (!DB.verifySavingsSSN(cSSNText.getText(), savings)) {
+                    Savings savings1 = new Savings(DB.generateAccountNumber(), 0, 0, cSSNText.getText());
+                    savings.add(savings1);
+                    DB.writeSavingsCSV(savings);
+                    cMessage.setVisible(true);
+                    cMessage.setText("Success!");
+                    cMessage.setTextFill(Color.GREEN);
+                    cSSNText.clear();
+                } else {
+                    cMessage.setVisible(true);
+                    cMessage.setText("Checking already exist!");
+                    cMessage.setTextFill(Color.RED);
+                }
+            } // end of if Savings
         } else {
             // If SSN is not found
             cMessage.setText("SSN not found!");

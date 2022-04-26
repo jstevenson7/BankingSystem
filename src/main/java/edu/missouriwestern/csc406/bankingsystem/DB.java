@@ -502,6 +502,14 @@ public class DB {
         }
         return false;
     }
+    public static Boolean verifySavingsSSN(String SSN, ArrayList<Savings> savings) {
+        for (Savings s: savings) {
+            if (s.getSSN().equals(SSN)) {
+                return true;
+            }
+        }
+        return false;
+    }
     public static String verifyNewAccountNumber(ArrayList<Checking> checkings, ArrayList<Savings> savings, ArrayList<Loans> loans) {
         while(true) {
             String num = generateAccountNumber();

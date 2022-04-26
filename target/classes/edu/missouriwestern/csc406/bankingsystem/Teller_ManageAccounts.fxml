@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.missouriwestern.csc406.bankingsystem.z_Teller_ManageAccounts">
+   <children>
+      <VBox alignment="TOP_CENTER" layoutY="67.0" prefHeight="584.0" prefWidth="245.0" style="-fx-background-color: #E0E0E0; -fx-border-color: #AEAEAE; -fx-background-insets: 0;">
+         <children>
+            <Pane prefHeight="98.0" prefWidth="232.0" style="-fx-border-color: #C0C0C0;">
+               <children>
+                  <Text layoutX="47.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Public Bank Manage Accounts" textAlignment="CENTER" wrappingWidth="149.0">
+                     <font>
+                        <Font name="Gill Sans MT Bold" size="17.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <Button fx:id="returnTellerButton" alignment="CENTER" mnemonicParsing="false" onAction="#toTeller" prefHeight="149.0" prefWidth="243.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Return to Teller" textAlignment="CENTER">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/backArrow1.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="createAccountButton" alignment="CENTER" mnemonicParsing="false" onAction="#displayCreate" prefHeight="162.0" prefWidth="243.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="  Create an Account" textAlignment="CENTER">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="33.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/CreateAcct.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="deleteAccountButton" alignment="CENTER" mnemonicParsing="false" onAction="#displayDelete" prefHeight="174.0" prefWidth="243.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="  Delete an Account">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="38.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/RemoveAcct.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </VBox>
+      <HBox alignment="CENTER" prefHeight="68.0" prefWidth="950.0" style="-fx-background-color: red;">
+         <children>
+            <ImageView fitHeight="62.0" fitWidth="200.0">
+               <image>
+                  <Image url="@../../../../Images/PB_Horizontal.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <AnchorPane fx:id="mainAnchor" layoutX="244.0" layoutY="68.0" prefHeight="584.0" prefWidth="707.0">
+         <children>
+            <Text layoutX="237.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Manage Accounts" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Text>
+            <Text layoutX="266.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please select what you would like to do using the left side menu." textAlignment="CENTER" wrappingWidth="186.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="createAnchor" layoutX="244.0" layoutY="68.0" prefHeight="584.0" prefWidth="707.0" visible="false">
+         <children>
+            <TextField fx:id="cSSNText" layoutX="290.0" layoutY="108.0" prefHeight="25.0" prefWidth="128.0">
+               <font>
+                  <Font size="15.0" />
+               </font></TextField>
+            <Text layoutX="232.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SSN:" textAlignment="RIGHT" wrappingWidth="40.13671875">
+               <font>
+                  <Font size="15.0" />
+               </font></Text>
+            <Text layoutX="174.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Type:" textAlignment="RIGHT" wrappingWidth="98.0">
+               <font>
+                  <Font size="15.0" />
+               </font></Text>
+            <ComboBox fx:id="cAccountBox" layoutX="290.0" layoutY="162.0" prefHeight="31.0" prefWidth="164.0" />
+            <BorderPane layoutX="-2.0" layoutY="3.0" prefHeight="68.0" prefWidth="707.0">
+               <center>
+                  <Label prefHeight="21.0" prefWidth="397.0" text="Please enter the information need to create an account!" textAlignment="CENTER" BorderPane.alignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font></Label>
+               </center>
+            </BorderPane>
+            <Button fx:id="cCreateButton" layoutX="290.0" layoutY="211.0" mnemonicParsing="false" onAction="#createAccount" prefHeight="39.0" prefWidth="128.0" text="Create Account" wrapText="true" />
+            <Label fx:id="cMessage" alignment="CENTER" contentDisplay="CENTER" layoutX="296.0" layoutY="275.0" prefHeight="17.0" prefWidth="128.0" text="Label" textAlignment="CENTER" visible="false" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="deleteAnchor" layoutX="244.0" layoutY="68.0" prefHeight="584.0" prefWidth="707.0" visible="false">
+         <children>
+            <TextField fx:id="dSSNText" layoutX="279.0" layoutY="83.0">
+               <font>
+                  <Font size="15.0" />
+               </font></TextField>
+            <BorderPane layoutX="3.0" prefHeight="68.0" prefWidth="701.0">
+               <center>
+                  <Label text="Please enter the information needed to remove a Customer's account!" BorderPane.alignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font></Label>
+               </center>
+            </BorderPane>
+            <Text layoutX="232.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SSN:">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Button fx:id="dDeleteButton" layoutX="315.0" layoutY="198.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="116.0" text="Delete Account" />
+            <TextField fx:id="dAccountNumText" layoutX="279.0" layoutY="140.0">
+               <font>
+                  <Font size="15.0" />
+               </font></TextField>
+            <Text layoutX="147.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Number:">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -10,6 +10,8 @@ import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.io.IOException;
 
@@ -80,7 +82,7 @@ public class z_Teller_ManageCustomers {
         stage.show();
     } //End of toTeller.
 
-    public void createCustomer(ActionEvent event) throws IOException {
+    public void createCustomer(ActionEvent event) throws IOException, ParseException {
         //Load customers
         ArrayList<Customer> customers = DB.readCustomersCSV();
         // if SSN doesn't already exist
@@ -130,6 +132,12 @@ public class z_Teller_ManageCustomers {
                     DB.writeCheckingCSV(checkings);
                 }
                 // if Savings - Simple = new Savings of balance $0
+                if (cAccountBox.getValue().equals("Savings - Simple")){
+                    ArrayList<Savings> savings = DB.readSavingsCSV();
+                    Savings savings1 = new Savings(DB.generateAccountNumber(), 0, 0, cSSNText.getText());
+                    savings.add(savings1);
+                    DB.writeSavingsCSV(savings);
+                }
                 // if CD = create new CD of balance $1000
                 cSSNText.clear();
                 cAddressText.clear();
