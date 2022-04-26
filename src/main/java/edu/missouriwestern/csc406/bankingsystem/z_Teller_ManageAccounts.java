@@ -102,10 +102,12 @@ public class z_Teller_ManageAccounts {
                     }
                     // write to database
                     DB.writeCheckingCSV(checkings);
+                    cMessage.setVisible(true);
                     cMessage.setText("Success!");
                     cMessage.setTextFill(Color.GREEN);
                     cSSNText.clear();
                 } else {
+                    cMessage.setVisible(true);
                     cMessage.setText("Checking already exist!");
                     cMessage.setTextFill(Color.RED);
                 }
