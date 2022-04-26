@@ -240,22 +240,151 @@
             <DatePicker fx:id="w_dateDP" layoutX="302.0" layoutY="84.0" prefHeight="31.0" prefWidth="164.0" promptText="mm/dd/yyyy" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="transferAnchor" layoutX="243.0" layoutY="61.0" prefHeight="592.0" prefWidth="710.0" visible="false">
+      <AnchorPane fx:id="transferAnchor" layoutX="244.0" layoutY="62.0" prefHeight="592.0" prefWidth="710.0" visible="false">
          <children>
-            <Text layoutX="266.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Transfer!">
+            <Text layoutX="143.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please enter the information for the transfer!">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Text>
+            <Text layoutX="172.0" layoutY="481.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Transfer Amount:">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <TextField fx:id="t_amountTF" layoutX="298.0" layoutY="460.0" prefHeight="27.0" prefWidth="137.0" promptText="000.00">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <Button fx:id="t_transferButton" layoutX="298.0" layoutY="512.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="137.0" text="Transfer">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Text layoutX="138.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date:">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <DatePicker fx:id="t_dateDP" layoutX="189.0" layoutY="90.0" prefHeight="31.0" prefWidth="164.0" promptText="mm/dd/yyyy" />
+            <Text layoutX="366.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SSN:">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <TextField fx:id="t_amountTF111" layoutX="416.0" layoutY="90.0" prefHeight="27.0" prefWidth="137.0" promptText="000-00-0000">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <AnchorPane layoutX="105.0" layoutY="147.0" prefHeight="144.0" prefWidth="485.0" style="-fx-background-color: #e6e6e6;">
+               <children>
+                  <ComboBox fx:id="t_toAcctTypeCB" layoutX="232.0" layoutY="42.0" prefHeight="31.0" prefWidth="194.0" />
+                  <Text layoutX="125.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Type:">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="106.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Number:">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="t_toAcctNumTF" layoutX="234.0" layoutY="86.0" prefHeight="27.0" prefWidth="137.0" promptText="999999999">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </TextField>
+                  <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TO:" textAlignment="RIGHT" wrappingWidth="45.13671875">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="103.0" layoutY="302.0" prefHeight="144.0" prefWidth="485.0" style="-fx-background-color: #e6e6e6;">
+               <children>
+                  <ComboBox fx:id="t_toAcctTypeCB1" layoutX="236.0" layoutY="43.0" prefHeight="31.0" prefWidth="194.0" />
+                  <Text layoutX="129.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Type:">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="110.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Number:">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="t_toAcctNumTF1" layoutX="238.0" layoutY="87.0" prefHeight="27.0" prefWidth="137.0" promptText="999999999">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </TextField>
+                  <Text layoutX="12.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FROM:" textAlignment="RIGHT" wrappingWidth="87.52294921875">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="processChecksAnchor" layoutX="244.0" layoutY="62.0" prefHeight="592.0" prefWidth="710.0" visible="false">
+      <AnchorPane fx:id="payBillsAnchor" layoutX="244.0" layoutY="62.0" prefHeight="592.0" prefWidth="710.0" visible="false">
          <children>
-            <Text layoutX="222.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Process Checks!">
+            <Text layoutX="121.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please enter the information for the bill payment!">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Text>
+            <ComboBox layoutX="254.0" layoutY="194.0" prefHeight="31.0" prefWidth="164.0" visibleRowCount="5" />
+            <Text layoutX="195.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date:">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text layoutX="156.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment to:">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <DatePicker fx:id="t_dateDP1" layoutX="254.0" layoutY="100.0" prefHeight="31.0" prefWidth="164.0" promptText="mm/dd/yyyy" />
+            <Text layoutX="121.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Form of Payment:">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text fx:id="d_checkNumT1" disable="true" layoutX="134.0" layoutY="325.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Check Number:" visible="false">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <ComboBox layoutX="254.0" layoutY="246.0" prefHeight="31.0" prefWidth="164.0" visibleRowCount="5" />
+            <Text layoutX="185.0" layoutY="322.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount:">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <TextField fx:id="t_amountTF1" layoutX="255.0" layoutY="301.0" prefHeight="27.0" prefWidth="137.0" promptText="000.00">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <Button layoutX="255.0" layoutY="365.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="137.0" text="Process Payment">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Text layoutX="205.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SSN:">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <TextField fx:id="t_amountTF11" layoutX="255.0" layoutY="150.0" prefHeight="27.0" prefWidth="137.0" promptText="000-00-0000">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
          </children>
       </AnchorPane>
    </children>

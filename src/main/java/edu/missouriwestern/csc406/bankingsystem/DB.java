@@ -393,7 +393,7 @@ public class DB {
     // Searches through checks arraylist and returns check where checkID matches
     public static Check searchChecks(String checkID, String accountNumber, ArrayList<Check> checks) {
         for (Check c: checks) {
-            if (c.getCheckID().equals(checkID) && c.getAccountNumber().equals(accountNumber)) {
+            if (c.getCheckNum().equals(checkID) && c.getAccountNumber().equals(accountNumber)) {
                 return c;
             }
         }
@@ -417,7 +417,7 @@ public class DB {
     }
     public static Savings searchSavings(String SSN, ArrayList<Savings> savings) {
         for (Savings s: savings) {
-            if (s.getSSN().equals(SSN)) {
+            if (s.getSsn().equals(SSN)) {
                 return s;
             }
         }
@@ -428,7 +428,7 @@ public class DB {
      */
     public static Boolean verifyAccountNumber(String accountNumber, ArrayList<Checking> checkings) {
         for (Checking c: checkings) {
-            if (c.getAccountNumber().equals(accountNumber)) {
+            if (c.getCheckingAcctNum().equals(accountNumber)) {
                 return true;
             }
         }
@@ -436,7 +436,7 @@ public class DB {
     }
     public static Boolean verifySavingsAccountNumber(String savingsAccountNumber, ArrayList<Savings> savings) {
         for (Savings s: savings) {
-            if (s.getSavingsAccNumber().equals(savingsAccountNumber)) {
+            if (s.getSavingsAcctNum().equals(savingsAccountNumber)) {
                 return true;
             }
         }
@@ -445,12 +445,12 @@ public class DB {
     // Searches through unprocessedChecks and processedChecks arraylist and returns true if check exists
     public static Boolean verifyChecks(String checkID, String accountNumber, ArrayList<Check> unprocessedChecks, ArrayList<Check> processedChecks) {
         for (Check c: unprocessedChecks) {
-            if (c.getCheckID().equals(checkID) && c.getAccountNumber().equals(accountNumber)) {
+            if (c.getCheckNum().equals(checkID) && c.getAccountNumber().equals(accountNumber)) {
                 return true;
             }
         }
         for (Check c: processedChecks) {
-            if (c.getCheckID().equals(checkID) && c.getAccountNumber().equals(accountNumber)) {
+            if (c.getCheckNum().equals(checkID) && c.getAccountNumber().equals(accountNumber)) {
                 return true;
             }
         }
@@ -504,7 +504,7 @@ public class DB {
     }
     public static Boolean verifySavingsSSN(String SSN, ArrayList<Savings> savings) {
         for (Savings s: savings) {
-            if (s.getSSN().equals(SSN)) {
+            if (s.getSsn().equals(SSN)) {
                 return true;
             }
         }

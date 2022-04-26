@@ -5,14 +5,13 @@ import com.opencsv.bean.CsvBindByName;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
 import java.util.Calendar;
 import java.util.Date;
 
 public class Loans  {
 
     @CsvBindByName
-    private String LoanID;
+    private String loanAcctNum;
     @CsvBindByName
     private double balance;
     @CsvBindByName
@@ -45,8 +44,8 @@ public class Loans  {
 
     }
 
-    public Loans(String loanID, double balance, double interestRate, String startDate, String endDate, int loanType) throws ParseException {
-        LoanID = loanID;
+    public Loans(String loanAcctNum, double balance, double interestRate, String startDate, String endDate, int loanType) throws ParseException {
+        this.loanAcctNum = loanAcctNum;
         this.balance = balance;
         this.interestRate = interestRate;
         this.startDate = startDate;
@@ -116,7 +115,7 @@ public class Loans  {
     @Override
     public String toString() {
         return "Loans{" +
-                "LoanID='" + LoanID + '\'' +
+                "LoanID='" + loanAcctNum + '\'' +
                 ", balance=" + balance +
                 ", interestRate=" + interestRate +
                 ", startDate='" + startDate + '\'' +
@@ -125,12 +124,12 @@ public class Loans  {
                 '}';
     }
 
-    public String getLoanID() {
-        return LoanID;
+    public String getLoanAcctNum() {
+        return loanAcctNum;
     }
 
-    public void setLoanID(String loanID) {
-        LoanID = loanID;
+    public void setLoanAcctNum(String loanAcctNum) {
+        this.loanAcctNum = loanAcctNum;
     }
 
     public double getBalance() {

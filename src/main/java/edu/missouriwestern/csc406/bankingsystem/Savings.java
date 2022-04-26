@@ -6,15 +6,13 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.concurrent.TimeUnit;
 
 
 public class Savings {
 
     @CsvBindByName
-    private String savingsAccNumber; //account num
+    private String savingsAcctNum;
     @CsvBindByName
     private double balance;
     @CsvBindByName
@@ -22,7 +20,7 @@ public class Savings {
     @CsvBindByName
     private String startDate;
     @CsvBindByName
-    private String SSN;
+    private String ssn;
 
     //private String currentDate;
 
@@ -31,16 +29,16 @@ public class Savings {
 
     }
 
-    public Savings(String savingsAccNumber, double balance, double interestRate, String SSN) throws ParseException {
+    public Savings(String savingsAcctNum, double balance, double interestRate, String ssn) throws ParseException {
         //LocalDate date
         LocalDate date = LocalDate.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/YYYY");
 
-        setSavingsAccNumber(savingsAccNumber);
+        setSavingsAcctNum(savingsAcctNum);
         setBalance(balance);
         setInterestRate(interestRate);
         setStartDate(formatter.format(date));
-        setSSN(SSN);
+        setSsn(ssn);
         dailyInterest();
 
     }
@@ -79,11 +77,11 @@ public class Savings {
     }
 
     // Getters and Setters
-    public String getSavingsAccNumber() {
-        return savingsAccNumber;
+    public String getSavingsAcctNum() {
+        return savingsAcctNum;
     }
-    public void setSavingsAccNumber(String savingsAccNumber) {
-        this.savingsAccNumber = savingsAccNumber;
+    public void setSavingsAcctNum(String savingsAcctNum) {
+        this.savingsAcctNum = savingsAcctNum;
     }
     public double getBalance() {
         return balance;
@@ -103,20 +101,20 @@ public class Savings {
     public void setStartDate(String startDate) {
         this.startDate = startDate;
     }
-    public String getSSN() {
-        return SSN;
+    public String getSsn() {
+        return ssn;
     }
-    public void setSSN(String SSN) {
-        this.SSN = SSN;
+    public void setSsn(String ssn) {
+        this.ssn = ssn;
     }
     @Override
     public String toString() {
         return "Savings{" +
-                "savingsAccNumber='" + savingsAccNumber + '\'' +
+                "savingsAccNumber='" + savingsAcctNum + '\'' +
                 ", balance=" + balance +
                 ", interestRate=" + interestRate +
                 ", startDate='" + startDate + '\'' +
-                ", SSN='" + SSN + '\'' +
+                ", SSN='" + ssn + '\'' +
                 '}';
     }
 }

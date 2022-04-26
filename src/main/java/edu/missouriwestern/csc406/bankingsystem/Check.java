@@ -1,7 +1,7 @@
 package edu.missouriwestern.csc406.bankingsystem;
 public class Check {
     // Data Fields
-    private String checkID;
+    private String checkNum;
     private double amount;
     private String date;
     private String recipient;
@@ -9,8 +9,8 @@ public class Check {
     private String accountNumber;
     private String routingNumber;
     // Constructors
-    public Check(String checkID, double amount, String date, String recipient, String description, String accountNumber, String routingNumber) {
-        setCheckID(checkID);
+    public Check(String checkNum, double amount, String date, String recipient, String description, String accountNumber, String routingNumber) {
+        setCheckNum(checkNum);
         setAmount(amount);
         setDate(date);
         setRecipient(recipient);
@@ -22,7 +22,7 @@ public class Check {
         // No arg constructor for opencsv
     }
     // Getters
-    public String getCheckID() {return checkID;}
+    public String getCheckNum() {return checkNum;}
     public double getAmount() {return amount;}
     public String getDate() {return date;}
     public String getRecipient() {return recipient;}
@@ -30,7 +30,7 @@ public class Check {
     public String getAccountNumber() {return accountNumber;}
     public String getRoutingNumber() {return routingNumber;}
     // Setters
-    public void setCheckID(String checkID) {this.checkID = checkID;}
+    public void setCheckNum(String checkNum) {this.checkNum = checkNum;}
     public void setAmount(double amount) {this.amount = amount;}
     public void setDate(String date) {this.date = date;}
     public void setRecipient(String recipient) {this.recipient = recipient;}
@@ -40,6 +40,6 @@ public class Check {
 
     @Override
     public String toString() {
-        return ""+checkID+","+amount+","+date+","+recipient+","+description+","+accountNumber+","+routingNumber;
+        return ""+ checkNum +","+amount+","+date+","+recipient+","+description+","+accountNumber+","+routingNumber;
     }
 }

@@ -8,7 +8,7 @@ import java.util.Date;
 public class CreditCards {
 
     @CsvBindByName
-    private String LoanID;
+    private String loanAcctNum;
     @CsvBindByName
     private double balance;
     @CsvBindByName

@@ -19,7 +19,7 @@ public class RegressionTest {
         System.out.println(savings.getDepositchecklist().toString());
         System.out.println(savings.getBalance());
         **/
-        CertificateofDeposit CD = new CertificateofDeposit("29863",20000,.039,"02-02-2015", "02-02-2020", "02-02-2020");
+        CD CD = new CD("29863",20000,.039,"02-02-2015", "02-02-2020", "02-02-2020");
         System.out.println("CD Balance =" + CD.getBalance());
 
     }

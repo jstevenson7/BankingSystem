@@ -45,7 +45,7 @@ public class z_Teller_ManageTransactions {
         depositAnchor.setVisible(true);
         withdrawAnchor.setVisible(false);
         transferAnchor.setVisible(false);
-        processChecksAnchor.setVisible(false);
+        payBillsAnchor.setVisible(false);
     } //End of displayCreate.
 
     public void displayChecks(ActionEvent event) throws IOException {
@@ -53,7 +53,7 @@ public class z_Teller_ManageTransactions {
         depositAnchor.setVisible(false);
         withdrawAnchor.setVisible(false);
         transferAnchor.setVisible(false);
-        processChecksAnchor.setVisible(true);
+        payBillsAnchor.setVisible(true);
     } //End of displayCreate.
 
     public void displayWithdraw(ActionEvent event) throws IOException {
@@ -61,7 +61,7 @@ public class z_Teller_ManageTransactions {
         depositAnchor.setVisible(false);
         withdrawAnchor.setVisible(true);
         transferAnchor.setVisible(false);
-        processChecksAnchor.setVisible(false);
+        payBillsAnchor.setVisible(false);
     } //End of displayDelete.
 
     public void displayTransfer(ActionEvent event) throws IOException {
@@ -69,7 +69,7 @@ public class z_Teller_ManageTransactions {
         depositAnchor.setVisible(false);
         withdrawAnchor.setVisible(false);
         transferAnchor.setVisible(true);
-        processChecksAnchor.setVisible(false);
+        payBillsAnchor.setVisible(false);
     } //End of displayDelete.
 
 
@@ -135,10 +135,25 @@ public class z_Teller_ManageTransactions {
     /* ------------- TRANSFER ANCHOR ------------- */
     @FXML
     private AnchorPane transferAnchor;
+    @FXML
+    private Button t_transferButton;
+    @FXML
+    private ComboBox t_toAcctTypeCB;
+    @FXML
+    private TextField t_toAcctNumTF;
+    @FXML
+    private ComboBox t_fromAcctTypeCB;
+    @FXML
+    private TextField t_fromAcctNumTF;
+    @FXML
+    private TextField t_amountTF;
+    @FXML
+    private DatePicker t_dateDP;
+
 
     /* ------------- PAY BILLS ANCHOR ------------- */
     @FXML
-    private AnchorPane processChecksAnchor;
+    private AnchorPane payBillsAnchor;
 
 
     /* ------------- INITIALIZE ------------- */

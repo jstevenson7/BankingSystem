@@ -4,12 +4,11 @@ import com.opencsv.bean.CsvBindByName;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 
-public class CertificateofDeposit {
+public class CD {
 
     @CsvBindByName
-    private String CDID; //account num
+    private String cdAcctNum; //account num
     @CsvBindByName
     private double balance;
     @CsvBindByName
@@ -21,13 +20,13 @@ public class CertificateofDeposit {
     @CsvBindByName
     private String withdrawDate;
 
-    public CertificateofDeposit()
+    public CD()
     {
 
     }
 
-    public CertificateofDeposit(String CDID, double balance, double interestRate, String startDate, String endDate, String withdrawDate) {
-        this.CDID = CDID;
+    public CD(String cdAcctNum, double balance, double interestRate, String startDate, String endDate, String withdrawDate) {
+        this.cdAcctNum = cdAcctNum;
         this.balance = balance;
         this.interestRate = interestRate;
         this.startDate = startDate;
@@ -53,12 +52,12 @@ public class CertificateofDeposit {
         }
     }
 
-    public String getCDID() {
-        return CDID;
+    public String getCdAcctNum() {
+        return cdAcctNum;
     }
 
-    public void setCDID(String CDID) {
-        this.CDID = CDID;
+    public void setCdAcctNum(String cdAcctNum) {
+        this.cdAcctNum = cdAcctNum;
     }
 
     public double getBalance() {

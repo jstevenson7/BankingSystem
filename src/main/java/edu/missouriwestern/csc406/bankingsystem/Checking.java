@@ -6,7 +6,7 @@ import java.text.DecimalFormat;
 public class Checking {
 
     @CsvBindByName
-    private String accountNumber;
+    private String checkingAcctNum;
     @CsvBindByName
     private double balance;
     @CsvBindByName
@@ -19,8 +19,8 @@ public class Checking {
     //int hasOverdraft if == 1 has, if == 0 doesn't have
 
 
-    public Checking(String accountNumber, double balance, int accountType, String SSN) {
-        setAccountNumber(accountNumber);
+    public Checking(String checkingAcctNum, double balance, int accountType, String SSN) {
+        setCheckingAcctNum(checkingAcctNum);
         setBalance(balance);
         setAccountType(accountType);
         setSSN(SSN);
@@ -32,13 +32,13 @@ public class Checking {
     }
 
     // Getters
-    public String getAccountNumber() {return accountNumber;}
+    public String getCheckingAcctNum() {return checkingAcctNum;}
     public double getBalance() {return balance;}
     public int getAccountType() {return accountType;}
     public String getSSN() {return SSN;}
     public String getOverdraftAccountNumber() {return overdraftAccountNumber;}
     // Setters
-    public void setAccountNumber(String accountNumber) {this.accountNumber = accountNumber;}
+    public void setCheckingAcctNum(String checkingAcctNum) {this.checkingAcctNum = checkingAcctNum;}
     public void setBalance(double balance) {this.balance = balance;}
     public void setAccountType(int accountType) {this.accountType = accountType;}
     public void setSSN(String SSN) {this.SSN = SSN;}
