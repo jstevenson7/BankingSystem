@@ -6,12 +6,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import java.io.IOException;
@@ -22,7 +18,7 @@ public class z_Teller_ManageTransactions {
     private Scene scene;
     private Parent root;
 
-    /* --- NAV BUTTONS --- */
+    /* ------------- NAV BUTTONS ------------- */
     @FXML
     private Button returnTellerButton;
     @FXML
@@ -34,43 +30,7 @@ public class z_Teller_ManageTransactions {
     @FXML
     private Button processChecksButton;
 
-    /* --- MAIN ANCHOR DATA --- */
-    @FXML
-    private AnchorPane mainAnchor;
-
-    /* --- DEPOSIT ANCHOR DATA --- */
-    @FXML
-    private AnchorPane depositAnchor;
-    @FXML
-    private Button depositAnchorButton;
-    @FXML
-    private TextField ssnText;
-    @FXML
-    private ComboBox acctTypeBox;
-    @FXML
-    private TextField acctNumText;
-    @FXML
-    private TextField checkNumText;
-    @FXML
-    private Text checkNumT;
-    @FXML
-    private TextField depositAmtText;
-    @FXML
-    private CheckBox checkBox;
-
-    /* --- WITHDRAW ANCHOR DATA --- */
-    @FXML
-    private AnchorPane withdrawAnchor;
-
-    /* --- TRANSFER ANCHOR DATA --- */
-    @FXML
-    private AnchorPane transferAnchor;
-
-    /* --- PROCESS CHECKS ANCHOR DATA --- */
-    @FXML
-    private AnchorPane processChecksAnchor;
-
-    /* --- NAV FUNCTIONS --- */
+    /* ------------- NAV FUNCTIONS ------------- */
     public void toTeller(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("Teller.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -111,9 +71,80 @@ public class z_Teller_ManageTransactions {
         transferAnchor.setVisible(true);
         processChecksAnchor.setVisible(false);
     } //End of displayDelete.
+
+
+    /* ------------- MAIN ANCHOR ------------- */
+    @FXML
+    private AnchorPane mainAnchor;
+
+    /* ------------- DEPOSIT ANCHOR ------------- */
+    // DEPOSIT ANCHOR DATA
+    @FXML
+    private AnchorPane depositAnchor;
+    @FXML
+    private DatePicker d_dateDP;
+    @FXML
+    private Button d_depositButton;
+    @FXML
+    private TextField d_ssnTF;
+    @FXML
+    private ComboBox d_acctTypeCB;
+    @FXML
+    private TextField d_acctNumTF;
+    @FXML
+    private TextField d_checkNumTF;
+    @FXML
+    private Text d_checkNumT;
+    @FXML
+    private TextField d_amountTF;
+    @FXML
+    private CheckBox d_checkCKB;
+
+    // DEPOSIT ANCHOR FUNCTIONS
+    public void depositCheck(ActionEvent event) {
+        if(d_checkCKB.isSelected()){
+            d_checkNumTF.setDisable(false);
+            d_checkNumT.setVisible(true);
+        } else {
+            d_checkNumTF.setDisable(true);
+            d_checkNumT.setVisible(false);
+            d_checkNumTF.clear();
+        } //End of else.
+    } //End of depositCheck.
+
+    /* ------------- WITHDRAW ANCHOR DATA ------------- */
+    // WITHDRAW ANCHOR DATA
+    @FXML
+    private AnchorPane withdrawAnchor;
+    @FXML
+    private DatePicker w_dateDP;
+    @FXML
+    private Button w_withdrawButton;
+    @FXML
+    private TextField w_ssnTF;
+    @FXML
+    private ComboBox w_acctTypeCB;
+    @FXML
+    private TextField w_acctNumTF;
+    @FXML
+    private TextField w_amountTF;
+
+    // WITHDRAW ANCHOR FUNCTIONS
+
+
+    /* ------------- TRANSFER ANCHOR ------------- */
+    @FXML
+    private AnchorPane transferAnchor;
+
+    /* ------------- PAY BILLS ANCHOR ------------- */
+    @FXML
+    private AnchorPane processChecksAnchor;
+
+
+    /* ------------- INITIALIZE ------------- */
     @FXML
     private void initialize() {
-        // Customer Button
+
         returnTellerButton.setOnMouseEntered(event -> returnTellerButton.setStyle("-fx-background-color: #E8ADAD; -fx-border-color: #000000"));
         returnTellerButton.setOnMouseExited(event -> returnTellerButton.setStyle("-fx-background-color: #d4d4d4; -fx-border-color:  #b0b0b0"));
 
@@ -128,21 +159,12 @@ public class z_Teller_ManageTransactions {
 
         processChecksButton.setOnMouseEntered(event -> processChecksButton.setStyle("-fx-background-color: #E8ADAD; -fx-border-color: #000000"));
         processChecksButton.setOnMouseExited(event -> processChecksButton.setStyle("-fx-background-color: #d4d4d4; -fx-border-color:  #b0b0b0"));
-        acctTypeBox.getItems().addAll("Checking - TMB", "Checking - Gold/Diamond", "Savings - Simple", "CD");
-        acctTypeBox.setVisibleRowCount(5);
+        d_acctTypeCB.getItems().addAll("Checking - TMB", "Checking - Gold/Diamond", "Savings - Simple", "CD");
+        d_acctTypeCB.setVisibleRowCount(5);
 
-    }
+    } //End of initialize.
 
-    public void depositCheck(ActionEvent event) {
-        if(checkBox.isSelected()){
-            checkNumText.setDisable(false);
-            checkNumT.setVisible(true);
-        } else {
-            checkNumText.setDisable(true);
-            checkNumT.setVisible(false);
-            checkNumText.clear();
-        }
-    }
+
 
 
 

@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -97,7 +98,7 @@
             </Button>
          </children>
       </VBox>
-      <AnchorPane fx:id="mainAnchor" layoutX="243.0" layoutY="62.0" prefHeight="592.0" prefWidth="710.0" visible="false">
+      <AnchorPane fx:id="mainAnchor" layoutX="244.0" layoutY="61.0" prefHeight="592.0" prefWidth="710.0">
          <children>
             <Text layoutX="207.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Manage Transactions" textAlignment="CENTER">
                <font>
@@ -111,79 +112,132 @@
             </Text>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="depositAnchor" layoutX="243.0" layoutY="61.0" prefHeight="592.0" prefWidth="710.0">
+      <AnchorPane fx:id="depositAnchor" layoutX="243.0" layoutY="61.0" prefHeight="592.0" prefWidth="710.0" visible="false">
          <children>
-            <Text layoutX="197.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please enter the information for the deposit!">
+            <Text layoutX="194.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please enter the information for the deposit!">
                <font>
-                  <Font name="System Bold" size="15.0" />
+                  <Font name="System Bold" size="17.0" />
                </font>
             </Text>
-            <ComboBox fx:id="acctTypeBox" layoutX="276.0" layoutY="134.0" prefHeight="31.0" prefWidth="194.0" />
-            <Text layoutX="169.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Type:">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Text>
-            <Text layoutX="232.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SSN:">
+            <ComboBox fx:id="d_acctTypeCB" layoutX="276.0" layoutY="167.0" prefHeight="31.0" prefWidth="194.0" />
+            <Text layoutX="169.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Type:">
                <font>
                   <Font size="15.0" />
                </font>
             </Text>
-            <TextField fx:id="ssnText" layoutX="276.0" layoutY="92.0" prefHeight="27.0" prefWidth="137.0" promptText="999-99-9999">
+            <Text layoutX="232.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SSN:">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <TextField fx:id="d_ssnTF" layoutX="276.0" layoutY="125.0" prefHeight="27.0" prefWidth="137.0" promptText="999-99-9999">
                <font>
                   <Font size="15.0" />
                </font>
             </TextField>
-            <Text layoutX="151.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Deposit Amount:">
+            <Text layoutX="151.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Deposit Amount:">
                <font>
                   <Font size="15.0" />
                </font>
             </Text>
-            <TextField fx:id="depositAmtText" layoutX="276.0" layoutY="222.0" prefHeight="27.0" prefWidth="137.0" promptText="000.00">
+            <TextField fx:id="d_amountTF" layoutX="276.0" layoutY="255.0" prefHeight="27.0" prefWidth="137.0" promptText="000.00">
                <font>
                   <Font size="15.0" />
                </font>
             </TextField>
-            <Text layoutX="148.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Number:">
+            <Text layoutX="148.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Number:">
                <font>
                   <Font size="15.0" />
                </font>
             </Text>
-            <TextField fx:id="acctNumText" layoutX="276.0" layoutY="176.0" prefHeight="27.0" prefWidth="137.0" promptText="999999999">
+            <TextField fx:id="d_acctNumTF" layoutX="276.0" layoutY="209.0" prefHeight="27.0" prefWidth="137.0" promptText="999999999">
                <font>
                   <Font size="15.0" />
                </font>
             </TextField>
-            <CheckBox fx:id="checkBox" layoutX="276.0" layoutY="279.0" mnemonicParsing="false" onAction="#depositCheck" prefHeight="17.0" prefWidth="164.0" text="Are you depositing check?" />
-            <Text disable="true" fill="#bcb7b7" layoutX="157.0" layoutY="331.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Check Number:">
+            <CheckBox fx:id="d_checkCKB" layoutX="276.0" layoutY="312.0" mnemonicParsing="false" onAction="#depositCheck" prefHeight="17.0" prefWidth="164.0" text="Are you depositing check?" />
+            <Text disable="true" fill="#bcb7b7" layoutX="157.0" layoutY="364.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Check Number:">
                <font>
                   <Font size="15.0" />
                </font>
             </Text>
-            <TextField fx:id="checkNumText" disable="true" layoutX="282.0" layoutY="310.0" prefHeight="27.0" prefWidth="137.0" promptText="000">
+            <TextField fx:id="d_checkNumTF" disable="true" layoutX="282.0" layoutY="343.0" prefHeight="27.0" prefWidth="137.0" promptText="000">
                <font>
                   <Font size="15.0" />
                </font>
             </TextField>
-            <Button fx:id="depositAnchorButton" layoutX="282.0" layoutY="373.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="137.0" text="Deposit">
+            <Button fx:id="d_depositButton" layoutX="282.0" layoutY="406.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="137.0" text="Deposit">
                <font>
                   <Font size="15.0" />
                </font>
             </Button>
-            <Text fx:id="checkNumT" disable="true" layoutX="157.0" layoutY="331.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Check Number:" visible="false">
+            <Text fx:id="d_checkNumT" disable="true" layoutX="156.0" layoutY="364.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Check Number:" visible="false">
                <font>
                   <Font size="15.0" />
                </font>
             </Text>
+            <Text layoutX="232.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date:">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <DatePicker fx:id="d_dateDP" layoutX="277.0" layoutY="84.0" prefHeight="31.0" prefWidth="164.0" promptText="mm/dd/yyyy" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="withdrawAnchor" layoutX="243.0" layoutY="61.0" prefHeight="582.0" prefWidth="710.0" visible="false">
          <children>
-            <Text layoutX="259.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Withdraw!">
+            <Text layoutX="136.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please enter the information for the withdraw!">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Text>
+            <ComboBox fx:id="w_acctTypeCB" layoutX="302.0" layoutY="169.0" prefHeight="31.0" prefWidth="194.0" />
+            <Text layoutX="195.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Type:">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text layoutX="258.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SSN:">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <TextField fx:id="w_ssnTF" layoutX="302.0" layoutY="127.0" prefHeight="27.0" prefWidth="137.0" promptText="999-99-9999">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <Text layoutX="170.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Withdraw Amount:">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <TextField fx:id="w_amountTF" layoutX="302.0" layoutY="257.0" prefHeight="27.0" prefWidth="137.0" promptText="000.00">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <Text layoutX="174.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Number:">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <TextField fx:id="w_acctNumTF" layoutX="302.0" layoutY="211.0" prefHeight="27.0" prefWidth="137.0" promptText="999999999">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <Button fx:id="w_withdrawButton" layoutX="302.0" layoutY="313.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="137.0" text="Withdraw">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Text layoutX="257.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date:">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <DatePicker fx:id="w_dateDP" layoutX="302.0" layoutY="84.0" prefHeight="31.0" prefWidth="164.0" promptText="mm/dd/yyyy" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="transferAnchor" layoutX="243.0" layoutY="61.0" prefHeight="592.0" prefWidth="710.0" visible="false">
