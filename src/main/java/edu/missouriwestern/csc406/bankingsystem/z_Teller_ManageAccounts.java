@@ -84,16 +84,22 @@ public class z_Teller_ManageAccounts {
     public void createAccount(ActionEvent event) throws IOException {
         // verify SSN exists in customers
         if (DB.verifyCustomerSSN(cSSNText.getText(), DB.readCustomersCSV())) {
-            if (cAccountBox.getValue().equals("Checking")) {
+            if (cAccountBox.getValue().equals("Checking - TMB") || cAccountBox.getValue().equals("Checking - Gold/Diamond")) {
                 // if checking is selected
                 // read in current checking accounts
                 ArrayList<Checking> checkings = DB.readCheckingCSV();
                 // if customer already has checking
                 if (!DB.verifyCheckingSSN(cSSNText.getText(), checkings)) {
-                    // create new checking account, default TMB with $0 balance
-                    Checking checking = new Checking(DB.generateAccountNumber(), 0, 0, cSSNText.getText());
-                    // add to arraylist
-                    checkings.add(checking);
+                    // create new checking account, check type of checking to create
+                    if (cAccountBox.getValue().equals("Checking - Gold/Diamond")) {
+                        Checking checking = new Checking(DB.generateAccountNumber(), 1000, 1, cSSNText.getText());
+                        // add to arraylist
+                        checkings.add(checking);
+                    } else {
+                        Checking checking = new Checking(DB.generateAccountNumber(), 0, 0, cSSNText.getText());
+                        // add to arraylist
+                        checkings.add(checking);
+                    }
                     // write to database
                     DB.writeCheckingCSV(checkings);
                     cMessage.setText("Success!");
@@ -121,7 +127,7 @@ public class z_Teller_ManageAccounts {
         createAccountButton.setOnMouseExited(event -> createAccountButton.setStyle("-fx-background-color: #d4d4d4; -fx-border-color:  #b0b0b0"));
         deleteAccountButton.setOnMouseEntered(event -> deleteAccountButton.setStyle("-fx-background-color: #E8ADAD; -fx-border-color: #000000"));
         deleteAccountButton.setOnMouseExited(event -> deleteAccountButton.setStyle("-fx-background-color: #d4d4d4; -fx-border-color:  #b0b0b0"));
-        cAccountBox.getItems().addAll("Checking", "Saving", "Loan", "CD");
+        cAccountBox.getItems().addAll("Checking - TMB","Checking - Gold/Diamond", "Saving", "Loan", "CD");
         cAccountBox.setVisibleRowCount(5);
     }
 }

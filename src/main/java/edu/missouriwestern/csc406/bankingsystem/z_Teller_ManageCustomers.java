@@ -35,10 +35,6 @@ public class z_Teller_ManageCustomers {
     @FXML
     private TextField cFNameText;
     @FXML
-    private TextField cCustIDText;
-    @FXML
-    private TextField cATMNumText;
-    @FXML
     private TextField cATMPinText;
     @FXML
     private TextField cCCPinText;
@@ -93,7 +89,7 @@ public class z_Teller_ManageCustomers {
             messageLabel.setTextFill(Color.RED);
         } else if (cSSNText.getText().isBlank() || cAddressText.getText().isBlank() || cCityText.getText().isBlank() ||
         cStateBox.getValue().isBlank() || cZipText.getText().isBlank() || cFNameText.getText().isBlank() ||
-        cLNameText.getText().isBlank() || cATMNumText.getText().isBlank() || cATMPinText.getText().isBlank() ||
+        cLNameText.getText().isBlank() || cATMPinText.getText().isBlank() ||
         cCCPinText.getText().isBlank()) {
             // If fields are not all filled
             messageLabel.setText("All fields are required!");
@@ -103,7 +99,7 @@ public class z_Teller_ManageCustomers {
             try {
                 Customer newCust = new Customer(cSSNText.getText(), cAddressText.getText(), cCityText.getText(),
                         cStateBox.getValue(), Integer.parseInt(cZipText.getText()), cFNameText.getText(),
-                        cLNameText.getText(), cATMNumText.getText(), Integer.parseInt(cATMPinText.getText()),
+                        cLNameText.getText(), DB.generateAccountNumber(), Integer.parseInt(cATMPinText.getText()),
                         Integer.parseInt(cCCPinText.getText()));
                 // Add new customer to the ArrayList
                 customers.add(newCust);
@@ -141,7 +137,6 @@ public class z_Teller_ManageCustomers {
                 cZipText.clear();
                 cFNameText.clear();
                 cLNameText.clear();
-                cATMNumText.clear();
                 cATMPinText.clear();
                 cCCPinText.clear();
             } catch (NumberFormatException e) {
