@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class CertificateofDeposit {
 
     @CsvBindByName
-    private String CDID;
+    private String CDID; //account num
     @CsvBindByName
     private double balance;
     @CsvBindByName

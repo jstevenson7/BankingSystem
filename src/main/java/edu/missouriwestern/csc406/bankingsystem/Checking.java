@@ -4,6 +4,7 @@ import com.opencsv.bean.CsvBindByName;
 import java.text.DecimalFormat;
 
 public class Checking {
+
     @CsvBindByName
     private String accountNumber;
     @CsvBindByName
@@ -12,6 +13,9 @@ public class Checking {
     private int accountType;
     @CsvBindByName
     private String SSN;
+
+    //int hasOverdraft if == 1 has, if == 0 doesn't have
+
 
     public Checking(String accountNumber, double balance, int accountType, String SSN) {
         setAccountNumber(accountNumber);

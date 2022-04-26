@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.missouriwestern.csc406.bankingsystem.Tables">
+   <children>
+      <TableView editable="true" layoutX="31.0" layoutY="90.0" prefHeight="416.0" prefWidth="881.0">
+         <columns>
+            <TableColumn prefWidth="98.0" text="SSN" />
+            <TableColumn prefWidth="131.0" text="Address" />
+            <TableColumn prefWidth="93.0" text="City" />
+            <TableColumn prefWidth="39.0" text="State" />
+            <TableColumn prefWidth="57.0" text="Zip" />
+            <TableColumn prefWidth="108.0" text="First Name" />
+            <TableColumn prefWidth="106.0" text="Last Name" />
+            <TableColumn prefWidth="115.0" text="ATM Number" />
+            <TableColumn prefWidth="64.0" text="ATM PIN" />
+            <TableColumn prefWidth="69.0" text="CC PIN" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>

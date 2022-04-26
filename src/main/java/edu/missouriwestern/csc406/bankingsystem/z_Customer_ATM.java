@@ -14,18 +14,17 @@ import java.util.ArrayList;
 
 
 public class z_Customer_ATM {
-    // Database data to store for page
-    ArrayList<Customer> customers;
-    ArrayList<Checking> checkings;
-    Customer customer;
-    Checking checking;
 
+    /* --- STAGE/SCENE DATA --- */
     private Stage stage;
     private Scene scene;
     private Parent root;
 
+    /* --- NAV BUTTONS --- */
     @FXML
     private Button returnCustomerButton;
+
+    /* --- SCENE ATTRIBUTES --- */
     @FXML
     private TextField cardNumText;
     @FXML
@@ -38,6 +37,7 @@ public class z_Customer_ATM {
     private Button receiptButton;
 
 
+    /* --- NAV METHODS --- */
     public void toCustomer(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("Customer.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -46,29 +46,49 @@ public class z_Customer_ATM {
         stage.setResizable(false);
         stage.show();
         renewScene(event);
-    }
-/*
-    public void validateCard(ActionEvent event) throws IOException {
+    } //End of toCustomer.
 
-        //atmLabel.setText("Welcome "+ customer.getFirstName()+"!");
+    /* --- INITIALIZE --- */
+    @FXML
+    private void initialize(){
+        // Return Customer Screen Button.
+        returnCustomerButton.setOnMouseEntered(event -> returnCustomerButton.setStyle("-fx-background-color: #ffffff"));
+        returnCustomerButton.setOnMouseExited(event -> returnCustomerButton.setStyle("-fx-background-color:  #000000"));
+    } //End of initialize.
 
-        //Need to validate.
-        int cardNum = Integer.parseInt(cardNumText.getText());
+    public void viewReceipt(ActionEvent event) throws IOException {
+        Alert receiptPopup = new Alert(Alert.AlertType.CONFIRMATION);
+        double withdrawAmt = 0;
+        String name = "Jimmy";
+        double newBalance = 0;
+        int acc = 123;
+        String s = String.format("See you next time %s!\nAmount withdrawn: %f\n" +
+                "From Account: %d \nNew Balance: %f", name, withdrawAmt, acc, newBalance);
+        receiptPopup.setContentText(s);
+        receiptPopup.showAndWait();
+        renewScene(event);
+        receiptButton.setVisible(false);
+    } //End of viewReceipt.
 
-        //If valid continue to enter pin
-        if (cardNum == 1) {
-            atmLabel.setText("Please enter your pin.");
-            atmLabel.setTextFill(Color.BLACK);
-            pinText.setVisible(true);
-            cardNumText.setDisable(true);
-        } else if(cardNum == 0) {
-            //Else stay at position red message pops up on screen.
-            atmLabel.setText("Card not recognized. Please try again.");
-            atmLabel.setTextFill(Color.RED);
-            cardNumText.clear();
-        }
-    }
-*/
+    public void renewScene(ActionEvent event) throws IOException {
+        atmLabel.setText("Please enter your ATM card number.");
+        cardNumText.clear();
+        pinText.clear();
+        withdrawAmtText.clear();
+        pinText.setVisible(false);
+        withdrawAmtText.setVisible(false);
+        cardNumText.setDisable(false);
+        //Set visible receipt off when I make new pop up with close button.
+    } //End of renewScene.
+
+    /** -------------------------------------- LOGIC METHODS ----------------------------------------------- */
+
+    /* --- DATABASE DATA --- */
+    ArrayList<Customer> customers;
+    ArrayList<Checking> checkings;
+    Customer customer;
+    Checking checking;
+
     public void validatePIN(ActionEvent event) throws IOException {
         // Read in customers
         customers = DB.readCustomersCSV();
@@ -164,37 +184,8 @@ public class z_Customer_ATM {
          **/
     }
 
-    public void viewReceipt(ActionEvent event) throws IOException {
 
-        Alert receiptPopup = new Alert(Alert.AlertType.CONFIRMATION);
-        double withdrawAmt = 0;
-        String name = "Jimmy";
-        double newBalance = 0;
-        int acc = 123;
-        String s = String.format("See you next time %s!\nAmount withdrawn: %f\n" +
-                "From Account: %d \nNew Balance: %f", name, withdrawAmt, acc, newBalance);
-        receiptPopup.setContentText(s);
-        receiptPopup.showAndWait();
-        renewScene(event);
-        receiptButton.setVisible(false);
-    }
 
-    public void renewScene(ActionEvent event) throws IOException {
-       atmLabel.setText("Please enter your ATM card number.");
-       cardNumText.clear();
-       pinText.clear();
-       withdrawAmtText.clear();
-       pinText.setVisible(false);
-       withdrawAmtText.setVisible(false);
-       cardNumText.setDisable(false);
-       //Set visible receipt off when I make new pop up with close button.
-    }
-
-    @FXML
-    private void initialize(){
-        returnCustomerButton.setOnMouseEntered(event -> returnCustomerButton.setStyle("-fx-background-color: #ffffff"));
-        returnCustomerButton.setOnMouseExited(event -> returnCustomerButton.setStyle("-fx-background-color:  #000000"));
-    }
 
 
 }

@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 public class Savings {
 
     @CsvBindByName
-    private String savingsID;
+    private String savingsID; //account num
     @CsvBindByName
     private double balance;
     @CsvBindByName

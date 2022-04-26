@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TitledPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -21,12 +22,18 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class z_Customer_InsertCheck {
+
+    /* --- STAGE/SCENE DATA --- */
     private Stage stage;
     private Scene scene;
     private Parent root;
 
+
+    /* --- NAV BUTTONS --- */
     @FXML
     private Button returnCustomerButton;
+
+    /* --- SCENE ATTRIBUTES --- */
     @FXML
     private TextField payToText;
     @FXML
@@ -44,10 +51,11 @@ public class z_Customer_InsertCheck {
     @FXML
     private Button insertCheckButton;
     @FXML
-    private Label checkLabel;
-    @FXML
     private Button receiptButton;
+    @FXML
+    private Label checkLabel;
 
+    /* --- NAV METHODS --- */
     public void toCustomer(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("Customer.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -55,7 +63,78 @@ public class z_Customer_InsertCheck {
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
+    } //End of toCustomer.
+
+    /* --- INITIALIZE --- */
+    @FXML
+    private void initialize(){
+
+        returnCustomerButton.setOnMouseEntered(event -> returnCustomerButton.setStyle("-fx-background-color: #ffffff"));
+        returnCustomerButton.setOnMouseExited(event -> returnCustomerButton.setStyle("-fx-background-color:  #000000"));
+
+        insertCheckButton.setOnMouseEntered(event -> insertCheckButton.setStyle("-fx-background-color: #ffffff"));
+        insertCheckButton.setOnMouseExited(event -> insertCheckButton.setStyle("-fx-background-color:  #000000"));
+
+        receiptButton.setOnMouseEntered(event -> receiptButton.setStyle("-fx-background-color: #ffffff"));
+        receiptButton.setOnMouseExited(event -> receiptButton.setStyle("-fx-background-color:  #000000"));
+
+
+        receiptCloseButton.setOnMouseEntered(event -> receiptCloseButton.setStyle("-fx-background-color: #EA6E6E"));
+        receiptCloseButton.setOnMouseExited(event -> receiptCloseButton.setStyle("-fx-background-color: #ebebeb; -fx-border-color: grey"));
+    } //End of initialize.
+
+    /* --- OTHER METHODS --- */
+    @FXML
+    private AnchorPane receiptAnchor;
+    @FXML
+    private Label receiptDateLabel;
+    @FXML
+    private Label receiptCheckNumLabel;
+    @FXML
+    private Label receiptPayToLabel;
+    @FXML
+    private Label receiptAmtLabel;
+    @FXML
+    private Label receiptAcctLabel;
+    @FXML
+    private Label receiptRoutLabel;
+    @FXML
+    private Label receiptForLabel;
+
+    public void viewReceipt(ActionEvent event) {
+        receiptAnchor.setVisible(true);
+        receiptDateLabel.setText(dateText.getText());
+        receiptCheckNumLabel.setText(checkNumText.getText());
+        receiptPayToLabel.setText(payToText.getText());
+        receiptAmtLabel.setText("$" + amtText.getText());
+        receiptAcctLabel.setText(accNumText.getText());
+        receiptRoutLabel.setText(routNumText.getText());
+        receiptForLabel.setText(noteText.getText());
     }
+
+    @FXML
+    private Button receiptCloseButton;
+
+    public void closeReceipt(ActionEvent event) {
+        renewScene();
+    }
+
+    public void renewScene() {
+        payToText.clear();
+        dateText.clear();
+        amtText.clear();
+        accNumText.clear();
+        noteText.clear();
+        routNumText.clear();
+        checkNumText.clear();
+        receiptAnchor.setVisible(false);
+        checkLabel.setText("Please insert the complete check.");
+        insertCheckButton.setDisable(false);
+        receiptButton.setDisable(true);
+    } //End of renewScene.
+
+
+    /** -------------------------------------- LOGIC METHODS ----------------------------------------------- */
 
     public void validateCheck(ActionEvent event) throws IOException {
         // Read in checks to ArrayList from csv file
@@ -94,58 +173,5 @@ public class z_Customer_InsertCheck {
         }
     }
 
-    public void viewReceipt(ActionEvent event) {
-        displayAlert("Checking", "tesst");
-    }
-    public void renewScene() {
-        payToText.clear();
-        dateText.clear();
-        amtText.clear();
-        accNumText.clear();
-    }
 
-
-    public void displayAlert(String alertTitle, String alertMessage) {
-        //-------general--------
-        Stage alertBox = new Stage();
-        alertBox.setTitle(alertTitle);
-        //------window display customization-------
-        alertBox.initModality(Modality.APPLICATION_MODAL);
-        alertBox.setResizable(false);
-        //-------alert text customization------
-        Text alertText = new Text( "Error: " + alertMessage);
-        alertText.setStroke(Color.INDIANRED);
-        alertText.setFont(Font.font("Tw Cen MT", 16));
-        alertText.setLayoutX(25);
-        alertText.setLayoutY(25);
-        alertText.setWrappingWidth(150);
-        alertText.setTextAlignment(TextAlignment.CENTER);
-        //-----close button customization------
-        Button closeAlert = new Button("OK, CLOSE.");
-        closeAlert.setLayoutX(60);
-        closeAlert.setLayoutY(120);
-        closeAlert.setOnAction(e -> alertBox.close());
-        //----------pane----------
-        AnchorPane alertPane = new AnchorPane();
-        alertPane.getChildren().addAll(alertText, closeAlert);
-        //----------scene----------
-        Scene alertScene = new Scene(alertPane, 200, 150);
-        alertBox.setScene(alertScene);
-        alertBox.show();
-    }
-
-    @FXML
-    private void initialize(){
-
-        returnCustomerButton.setOnMouseEntered(event -> returnCustomerButton.setStyle("-fx-background-color: #ffffff"));
-        returnCustomerButton.setOnMouseExited(event -> returnCustomerButton.setStyle("-fx-background-color:  #000000"));
-
-        insertCheckButton.setOnMouseEntered(event -> insertCheckButton.setStyle("-fx-background-color: #ffffff"));
-        insertCheckButton.setOnMouseExited(event -> insertCheckButton.setStyle("-fx-background-color:  #000000"));
-
-        receiptButton.setOnMouseEntered(event -> receiptButton.setStyle("-fx-background-color: #ffffff"));
-        receiptButton.setOnMouseExited(event -> receiptButton.setStyle("-fx-background-color:  #000000"));
-
-
-    }
-}
+} //End of InsertCheck Controller Class.

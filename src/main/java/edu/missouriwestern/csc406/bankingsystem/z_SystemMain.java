@@ -229,7 +229,6 @@ public class z_SystemMain {
             deleteCustLabel.setText("Customer to delete was not found.");
             deleteCustFail.setVisible(true);
         }
-        // - Creating/Deleting Accounts
         // - Creating/Deleting Employees
         // - Reviewing a Customer and all accounts
     }
@@ -264,7 +263,6 @@ public class z_SystemMain {
 
         logoButton.setOnMouseEntered(event -> logoButton.setStyle("-fx-background-color: #cc0000"));
         logoButton.setOnMouseExited(event -> logoButton.setStyle("-fx-background-color:  #990000"));
-
         // Customer Button
         customerButton.setOnMouseEntered(event -> customerButton.setStyle("-fx-background-color: #E8ADAD; -fx-border-color: #000000"));
         customerButton.setOnMouseExited(event -> customerButton.setStyle("-fx-background-color: #d4d4d4; -fx-border-color:  #b0b0b0"));

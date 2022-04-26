@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="650.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.missouriwestern.csc406.bankingsystem.z_Customer_InsertCheck">
+<AnchorPane prefHeight="650.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.missouriwestern.csc406.bankingsystem.z_Customer_InsertCheck">
    <children>
       <HBox alignment="CENTER" prefHeight="74.0" prefWidth="950.0" style="-fx-background-color: black;">
          <children>
@@ -58,5 +63,47 @@
          </font></Label>
       <Button fx:id="receiptButton" disable="true" layoutX="625.0" layoutY="584.0" mnemonicParsing="false" onAction="#viewReceipt" prefHeight="39.0" prefWidth="267.0" style="-fx-background-color: black;" text="View Receipt" textFill="#ff8585" />
       <Line endX="100.0" layoutX="733.0" layoutY="347.0" startX="-85.0" />
+      <AnchorPane fx:id="receiptAnchor" layoutX="341.0" layoutY="133.0" prefHeight="377.0" prefWidth="267.0" style="-fx-background-color: #ebebeb;" visible="false">
+         <children>
+            <HBox alignment="CENTER" layoutY="-1.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="34.0" prefWidth="269.0" style="-fx-background-color: #b8b8b8; -fx-border-color: #949494;">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Check Successfully Inserted!" textAlignment="CENTER" wrappingWidth="267.13671875">
+                     <font>
+                        <Font name="Gill Sans MT" size="15.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <AnchorPane fx:id="receiptTP" layoutY="33.0" prefHeight="352.0" prefWidth="269.0" style="-fx-border-color: #949494;">
+               <children>
+                  <Text layoutX="53.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thank you for using Public Bank! See you next time." textAlignment="CENTER" wrappingWidth="164.0">
+                     <font>
+                        <Font name="Gill Sans MT" size="15.0" />
+                     </font>
+                  </Text>
+                  <ImageView fitHeight="237.0" fitWidth="247.0" layoutX="16.0" layoutY="71.0" opacity="0.05" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/logo.png" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="15.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Check Number:" x="25.0" y="25.0" />
+                  <Text layoutX="62.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pay to:" x="25.0" y="25.0" />
+                  <Text layoutX="51.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount:" x="25.0" y="25.0" />
+                  <Text layoutX="68.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date:" x="25.0" y="25.0" />
+                  <Text layoutX="2.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Number:" x="25.0" y="25.0" />
+                  <Text layoutX="3.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Routing Number:" x="25.0" y="25.0" />
+                  <Text layoutX="73.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="For:" x="25.0" y="25.0" />
+                  <Label fx:id="receiptDateLabel" layoutX="135.0" layoutY="106.0" prefHeight="17.0" prefWidth="62.0" text="Label" />
+                  <Label fx:id="receiptCheckNumLabel" layoutX="135.0" layoutY="131.0" prefHeight="17.0" prefWidth="62.0" text="Label" />
+                  <Label fx:id="receiptPayToLabel" layoutX="135.0" layoutY="158.0" prefHeight="17.0" prefWidth="62.0" text="Label" />
+                  <Label fx:id="receiptAmtLabel" layoutX="135.0" layoutY="184.0" prefHeight="17.0" prefWidth="62.0" text="Label" />
+                  <Label fx:id="receiptAcctLabel" layoutX="135.0" layoutY="214.0" prefHeight="17.0" prefWidth="62.0" text="Label" />
+                  <Label fx:id="receiptRoutLabel" layoutX="135.0" layoutY="240.0" prefHeight="17.0" prefWidth="62.0" text="Label" />
+                  <Label fx:id="receiptForLabel" layoutX="135.0" layoutY="268.0" prefHeight="17.0" prefWidth="62.0" text="Label" />
+                  <Button fx:id="receiptCloseButton" layoutX="162.0" layoutY="313.0" mnemonicParsing="false" onAction="#closeReceipt" prefHeight="25.0" prefWidth="91.0" style="-fx-background-color: #f5dada; -fx-border-color: grey;" text="Okay, close." />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

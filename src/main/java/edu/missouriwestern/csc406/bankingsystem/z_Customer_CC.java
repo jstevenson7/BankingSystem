@@ -13,6 +13,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class z_Customer_CC {
+
+
     private Stage stage;
     private Scene scene;
     private Parent root;

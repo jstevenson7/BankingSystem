@@ -12,29 +12,46 @@ import java.io.IOException;
 
 public class z_Customer {
 
+    /* --- STAGE/SCENE DATA --- */
     private Stage stage;
     private Scene scene;
     private Parent root;
 
-    /* --- ACTOR BUTTONS & METHODS --- */
+    /* --- NAV BUTTONS --- */
     @FXML
-    private Button returnActorButton;
+    private Button returnMainButton;
     @FXML
-    private Button insertCheckButton;
+    private Button toInsertCheckButton;
     @FXML
-    private Button useATMButton;
+    private Button toUseATMButton;
     @FXML
-    private Button useCCButton;
+    private Button toUseCCButton;
 
+    @FXML
+    private void initialize(){
+        // Return Main Button
+        returnMainButton.setOnMouseEntered(event -> returnMainButton.setStyle("-fx-background-color: #E8ADAD"));
+        returnMainButton.setOnMouseExited(event -> returnMainButton.setStyle("-fx-background-color:  #DCDCDC; -fx-border-color:  #C0C0C0;"));
+        // To Insert Check Button
+        toInsertCheckButton.setOnMouseEntered(event -> toInsertCheckButton.setStyle("-fx-background-color: #E8ADAD"));
+        toInsertCheckButton.setOnMouseExited(event -> toInsertCheckButton.setStyle("-fx-background-color:  #DCDCDC; -fx-border-color:  #C0C0C0;"));
+        // To Use ATM Button
+        toUseATMButton.setOnMouseEntered(event -> toUseATMButton.setStyle("-fx-background-color: #E8ADAD"));
+        toUseATMButton.setOnMouseExited(event -> toUseATMButton.setStyle("-fx-background-color:  #DCDCDC; -fx-border-color:  #C0C0C0;"));
+        // To Use CC Button
+        toUseCCButton.setOnMouseEntered(event -> toUseCCButton.setStyle("-fx-background-color: #E8ADAD"));
+        toUseCCButton.setOnMouseExited(event -> toUseCCButton.setStyle("-fx-background-color:  #DCDCDC; -fx-border-color:  #C0C0C0;"));
+    } //End of initialize.
 
-    public void toActor(ActionEvent event) throws IOException {
+    /* --- NAV METHODS --- */
+    public void toSystemMain(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("SystemMain.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
-    }
+    }  //End of toSystemMain.
 
     public void toATM(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("Customer_ATM.fxml"));
@@ -43,7 +60,7 @@ public class z_Customer {
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
-    }
+    }  //End of toATM.
 
     public void toInsertCheck(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("Customer_InsertCheck.fxml"));
@@ -52,7 +69,7 @@ public class z_Customer {
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
-    }
+    } //End of toInsertCheck.
 
     public void toUseCC(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("Customer_CC.fxml"));
@@ -61,22 +78,6 @@ public class z_Customer {
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
-    }
+    } //End of toUseCC.
 
-
-    @FXML
-    private void initialize(){
-
-        returnActorButton.setOnMouseEntered(event -> returnActorButton.setStyle("-fx-background-color: #E8ADAD"));
-        returnActorButton.setOnMouseExited(event -> returnActorButton.setStyle("-fx-background-color:  #DCDCDC; -fx-border-color:  #C0C0C0;"));
-
-        insertCheckButton.setOnMouseEntered(event -> insertCheckButton.setStyle("-fx-background-color: #E8ADAD"));
-        insertCheckButton.setOnMouseExited(event -> insertCheckButton.setStyle("-fx-background-color:  #DCDCDC; -fx-border-color:  #C0C0C0;"));
-
-        useATMButton.setOnMouseEntered(event -> useATMButton.setStyle("-fx-background-color: #E8ADAD"));
-        useATMButton.setOnMouseExited(event -> useATMButton.setStyle("-fx-background-color:  #DCDCDC; -fx-border-color:  #C0C0C0;"));
-
-        useCCButton.setOnMouseEntered(event -> useCCButton.setStyle("-fx-background-color: #E8ADAD"));
-        useCCButton.setOnMouseExited(event -> useCCButton.setStyle("-fx-background-color:  #DCDCDC; -fx-border-color:  #C0C0C0;"));
-    }
-}
+} //End of Customer Controller Class.
