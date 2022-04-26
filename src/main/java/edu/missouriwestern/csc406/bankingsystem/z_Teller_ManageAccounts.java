@@ -129,7 +129,7 @@ public class z_Teller_ManageAccounts {
         createAccountButton.setOnMouseExited(event -> createAccountButton.setStyle("-fx-background-color: #d4d4d4; -fx-border-color:  #b0b0b0"));
         deleteAccountButton.setOnMouseEntered(event -> deleteAccountButton.setStyle("-fx-background-color: #E8ADAD; -fx-border-color: #000000"));
         deleteAccountButton.setOnMouseExited(event -> deleteAccountButton.setStyle("-fx-background-color: #d4d4d4; -fx-border-color:  #b0b0b0"));
-        cAccountBox.getItems().addAll("Checking - TMB","Checking - Gold/Diamond", "Saving", "Loan", "CD");
+        cAccountBox.getItems().addAll("Checking - TMB", "Checking - Gold/Diamond", "Savings - Simple", "CD");
         cAccountBox.setVisibleRowCount(5);
     }
 }
