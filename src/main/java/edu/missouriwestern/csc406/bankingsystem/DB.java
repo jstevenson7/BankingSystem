@@ -573,6 +573,7 @@ public class DB {
             if(checkings.get(i).getSSN().equals(SSN))
             {
                 balance = balance + checkings.get(i).getBalance();
+                checkings.remove(i);
             }//end of if
         }//end of for
 
@@ -588,6 +589,7 @@ public class DB {
             if(savings.get(i).getSSN().equals(SSN))
             {
                 balance = balance + savings.get(i).getBalance();
+                savings.remove(i);
             }//end of if
         }//end of for
 
