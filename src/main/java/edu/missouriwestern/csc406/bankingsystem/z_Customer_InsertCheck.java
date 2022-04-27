@@ -6,10 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.control.TitledPane;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -39,7 +36,8 @@ public class z_Customer_InsertCheck {
     @FXML
     private TextField amtText;
     @FXML
-    private TextField dateText;
+    private DatePicker datePicker;
+    String  fdatePicker;
     @FXML
     private TextField noteText;
     @FXML
@@ -68,19 +66,27 @@ public class z_Customer_InsertCheck {
     /* --- INITIALIZE --- */
     @FXML
     private void initialize(){
-
+        // Return Customer Button
         returnCustomerButton.setOnMouseEntered(event -> returnCustomerButton.setStyle("-fx-background-color: #ffffff"));
         returnCustomerButton.setOnMouseExited(event -> returnCustomerButton.setStyle("-fx-background-color:  #000000"));
-
+        // Insert Check Button
         insertCheckButton.setOnMouseEntered(event -> insertCheckButton.setStyle("-fx-background-color: #ffffff"));
         insertCheckButton.setOnMouseExited(event -> insertCheckButton.setStyle("-fx-background-color:  #000000"));
-
+        // View Receipt Button
         receiptButton.setOnMouseEntered(event -> receiptButton.setStyle("-fx-background-color: #ffffff"));
         receiptButton.setOnMouseExited(event -> receiptButton.setStyle("-fx-background-color:  #000000"));
-
-
+        // Close Receipt Button
         receiptCloseButton.setOnMouseEntered(event -> receiptCloseButton.setStyle("-fx-background-color: #EA6E6E"));
         receiptCloseButton.setOnMouseExited(event -> receiptCloseButton.setStyle("-fx-background-color: #ebebeb; -fx-border-color: grey"));
+        // TextFields
+        payToText.setStyle(" -fx-focus-color: #ffc7c7; -fx-faint-focus-color: #ffc7c7");
+        amtText.setStyle(" -fx-focus-color: #ffc7c7; -fx-faint-focus-color: #ffc7c7");
+        datePicker.setStyle(" -fx-focus-color: #ffc7c7; -fx-faint-focus-color: #ffc7c7");
+        noteText.setStyle(" -fx-focus-color: #ffc7c7; -fx-faint-focus-color: #ffc7c7");
+        accNumText.setStyle(" -fx-focus-color: #ffc7c7; -fx-faint-focus-color: #ffc7c7");
+        routNumText.setStyle(" -fx-focus-color: #ffc7c7; -fx-faint-focus-color: #ffc7c7");
+        checkNumText.setStyle(" -fx-focus-color: #ffc7c7; -fx-faint-focus-color: #ffc7c7");
+
     } //End of initialize.
 
     /* --- OTHER METHODS --- */
@@ -103,7 +109,7 @@ public class z_Customer_InsertCheck {
 
     public void viewReceipt(ActionEvent event) {
         receiptAnchor.setVisible(true);
-        receiptDateLabel.setText(dateText.getText());
+        receiptDateLabel.setText(fdatePicker);
         receiptCheckNumLabel.setText(checkNumText.getText());
         receiptPayToLabel.setText(payToText.getText());
         receiptAmtLabel.setText("$" + amtText.getText());
@@ -121,7 +127,8 @@ public class z_Customer_InsertCheck {
 
     public void renewScene() {
         payToText.clear();
-        dateText.clear();
+        fdatePicker = null;
+        datePicker.getEditor().clear();
         amtText.clear();
         accNumText.clear();
         noteText.clear();
@@ -133,6 +140,11 @@ public class z_Customer_InsertCheck {
         receiptButton.setDisable(true);
     } //End of renewScene.
 
+    public void getDateText(ActionEvent event) {
+        String[] dateArr = String.valueOf(datePicker.getValue()).split("-");
+        fdatePicker = dateArr[1] + "/" + dateArr[2] + "/" + dateArr[0];
+    }
+
 
     /** -------------------------------------- LOGIC METHODS ----------------------------------------------- */
 
@@ -143,7 +155,7 @@ public class z_Customer_InsertCheck {
         ArrayList<Checking> checkings = DB.readCheckingCSV();
         // Need to verify that all boxes are filled
         if(checkNumText.getText().isBlank() || amtText.getText().isBlank() ||
-                dateText.getText().isBlank() || payToText.getText().isBlank() ||
+                fdatePicker == null || payToText.getText().isBlank() ||
                 noteText.getText().isBlank() || accNumText.getText().isBlank() ||
                 routNumText.getText().isBlank()) {
             checkLabel.setText("All fields are required. Please try again.");
@@ -159,7 +171,7 @@ public class z_Customer_InsertCheck {
         } else {
             // create check from textFields
             Check check = new Check(checkNumText.getText(), Double.parseDouble(amtText.getText()),
-                    dateText.getText(), payToText.getText(), noteText.getText(),
+                    fdatePicker, payToText.getText(), noteText.getText(),
                     accNumText.getText(), routNumText.getText());
             // add new check
             unprocessedChecks.add(check);
