@@ -129,11 +129,12 @@
                   <Font size="15.0" />
                </font>
             </Text>
-            <Button fx:id="s_stopPaymentButton" layoutX="291.0" layoutY="214.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="156.0" text="Stop Payment">
+            <Button fx:id="s_stopPaymentButton" layoutX="291.0" layoutY="214.0" mnemonicParsing="false" onAction="#stopPayment" prefHeight="31.0" prefWidth="156.0" text="Stop Payment">
                <font>
                   <Font size="15.0" />
                </font>
             </Button>
+            <Label fx:id="s_message" alignment="CENTER" contentDisplay="CENTER" layoutX="242.0" layoutY="284.0" prefHeight="17.0" prefWidth="254.0" textAlignment="CENTER" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="autoPayAnchor" layoutX="243.0" layoutY="67.0" prefHeight="584.0" prefWidth="709.0" visible="false">

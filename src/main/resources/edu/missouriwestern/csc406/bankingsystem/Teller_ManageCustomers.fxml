@@ -205,6 +205,7 @@
                         <Font size="15.0" />
                      </font>
                   </Button>
+                  <Label fx:id="messageLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="154.0" layoutY="439.0" prefHeight="17.0" prefWidth="243.0" textAlignment="CENTER" />
                </children>
             </AnchorPane>
          </children>

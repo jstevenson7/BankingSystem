@@ -83,7 +83,14 @@ public class Checking {
         testaccount();
 
     }
-
+    public void deduct(Double amount) {
+        DecimalFormat f = new DecimalFormat("##.00");
+        setBalance(Double.parseDouble(f.format((balance -= amount))));
+    }
+    public void add(Double amount) {
+        DecimalFormat f = new DecimalFormat("##.00");
+        setBalance(Double.parseDouble(f.format((balance += amount))));
+    }
     public void transfer (double transferamt, Account account)
     {
         account.setBalance(account.getBalance()+transferamt);

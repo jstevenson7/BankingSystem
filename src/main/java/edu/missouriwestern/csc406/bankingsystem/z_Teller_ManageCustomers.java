@@ -89,7 +89,10 @@ public class z_Teller_ManageCustomers {
         if (cSSNText.getText().length() < 11 || cSSNText.getText().length() > 11){
             messageLabel.setText("Invalid SSN!");
             messageLabel.setTextFill(Color.RED);
-        } else if (cSSNText.getText().isBlank() || cAddressText.getText().isBlank() || cCityText.getText().isBlank() ||
+        } else if(DB.verifyCustomerSSN(cSSNText.getText(), customers)){
+            messageLabel.setText("Customer already exists!");
+            messageLabel.setTextFill(Color.RED);
+        }else if (cSSNText.getText().isBlank() || cAddressText.getText().isBlank() || cCityText.getText().isBlank() ||
         cStateBox.getValue().isBlank() || cZipText.getText().isBlank() || cFNameText.getText().isBlank() ||
         cLNameText.getText().isBlank() || cATMPinText.getText().isBlank() ||
         cCCPinText.getText().isBlank()) {

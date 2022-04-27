@@ -45,6 +45,8 @@ public class z_Teller_MoreOptions {
     private TextField s_ssnTF;
     @FXML
     private TextField s_checkNumTF;
+    @FXML
+    private Label s_message;
 
     /* --- AUTO-PAY ANCHOR --- */
     @FXML
@@ -127,6 +129,44 @@ public class z_Teller_MoreOptions {
         } else {
             o_message.setText("Customer not found!");
             o_message.setTextFill(Color.RED);
+        }
+    }
+    public void stopPayment(ActionEvent event) throws IOException {
+        // Read in current unprocessed checks
+        ArrayList<Check> unproccessedChecks = DB.readUnprocessedCheckCSV();
+        // Read in checking accounts
+        ArrayList<Checking> checkings = DB.readCheckingCSV();
+        // find the checking account
+        Checking checking = DB.searchChecking(s_ssnTF.getText(), checkings);
+
+        if (checking!=null) {
+            // find the check
+            Check check = DB.searchChecks(s_checkNumTF.getText(), checking.getCheckingAcctNum(), unproccessedChecks);
+            if (check!=null) {
+                if (checking.getBalance() >= 15.0) {
+                    // remove the check from the arraylist
+                    unproccessedChecks.remove(check);
+                    // write the change to the database
+                    DB.writeUnprocessedCheckCSV(unproccessedChecks);
+                    // charge fee
+                    checking.deduct(15.0);
+                    DB.writeCheckingCSV(checkings);
+                    // show success
+                    s_message.setText("Success!");
+                    s_message.setTextFill(Color.GREEN);
+                    s_ssnTF.clear();
+                    s_checkNumTF.clear();
+                } else {
+                    s_message.setText("Insufficient funds!");
+                    s_message.setTextFill(Color.RED);
+                }
+            } else {
+                s_message.setText("Unknown check!");
+                s_message.setTextFill(Color.RED);
+            }
+        } else {
+            s_message.setText("Unknown account!");
+            s_message.setTextFill(Color.RED);
         }
     }
 
