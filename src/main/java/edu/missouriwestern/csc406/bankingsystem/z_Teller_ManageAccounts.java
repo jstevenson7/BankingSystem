@@ -128,7 +128,7 @@ public class z_Teller_ManageAccounts {
                     cSSNText.clear();
                 } else {
                     cMessage.setVisible(true);
-                    cMessage.setText("Checking already exist!");
+                    cMessage.setText("Savings already exist!");
                     cMessage.setTextFill(Color.RED);
                 }
             } // end of if Savings

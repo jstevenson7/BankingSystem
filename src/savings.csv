@@ -1,4 +1,4 @@
-savingsAccNumber,balance,interestRate,startDate,SSN
+savingsAcctNum,balance,interestRate,startDate,SSN
 453245114,20000.0,1.56,02/02/1916,042-34-5324
 345653425,15.0,3.24,06-28-1999,345-65-3425
 423148894,100000.0,5.45,08-22-2000,423-14-8894

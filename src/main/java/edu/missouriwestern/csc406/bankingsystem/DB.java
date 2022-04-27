@@ -171,7 +171,7 @@ public class DB {
         // Set strategy class type
         strat.setType(Checking.class);
         // Set column names
-        strat.setColumnMapping(new String[]{"accountNumber", "balance", "accountType", "SSN", "overdraftAccountNumber"});
+        strat.setColumnMapping(new String[]{"checkingAcctNum", "balance", "accountType", "SSN", "overdraftAccountNumber"});
         // Create bean of type
         CsvToBean<Checking> bean = new CsvToBeanBuilder<Checking>(reader).withMappingStrategy(strat).withSkipLines(1).build();
 
@@ -194,12 +194,12 @@ public class DB {
         // Set mapping strategy class type
         strat.setType(Checking.class);
         // Set mapping strategy column names
-        strat.setColumnMapping(new String[]{"accountNumber", "balance", "accountType", "SSN", "overdraftAccountNumber"});
+        strat.setColumnMapping(new String[]{"checkingAcctNum", "balance", "accountType", "SSN", "overdraftAccountNumber"});
         // Create bean of type employee
         StatefulBeanToCsv<Checking> beanToCsv = new StatefulBeanToCsvBuilder<Checking>(writer).withApplyQuotesToAll(false).withMappingStrategy(strat).build();
         try {
             // Write header column names
-            writer.write("accountNumber,balance,accountType,SSN,overdraftAccountNumber\n");
+            writer.write("checkingAcctNum,balance,accountType,SSN,overdraftAccountNumber\n");
             // Write contents of employee arrayList to employee.csv
             beanToCsv.write(checkings);
         } catch (CsvDataTypeMismatchException e) {
@@ -220,7 +220,7 @@ public class DB {
         // Set strategy class type
         strat.setType(Check.class);
         // Set column names
-        strat.setColumnMapping(new String[]{"checkID","amount","date","recipient","description","accountNumber","routingNumber"});
+        strat.setColumnMapping(new String[]{"checkNum","amount","date","recipient","description","accountNumber","routingNumber"});
         // Create bean of type
         CsvToBean<Check> bean = new CsvToBeanBuilder<Check>(reader).withMappingStrategy(strat).withSkipLines(1).build();
 
@@ -243,12 +243,12 @@ public class DB {
         // Set mapping strategy class type
         strat.setType(Check.class);
         // Set mapping strategy column names
-        strat.setColumnMapping(new String[]{"checkID","amount","date","recipient","description","accountNumber","routingNumber"});
+        strat.setColumnMapping(new String[]{"checkNum","amount","date","recipient","description","accountNumber","routingNumber"});
         // Create bean of type employee
         StatefulBeanToCsv<Check> beanToCsv = new StatefulBeanToCsvBuilder<Check>(writer).withApplyQuotesToAll(false).withMappingStrategy(strat).build();
         try {
             // Write header column names
-            writer.write("checkID,amount,date,recipient,description,accountNumber,routingNumber\n");
+            writer.write("checkNum,amount,date,recipient,description,accountNumber,routingNumber\n");
             // Write contents of employee arrayList to employee.csv
             beanToCsv.write(checks);
         } catch (CsvDataTypeMismatchException e) {
@@ -269,7 +269,7 @@ public class DB {
         // Set strategy class type
         strat.setType(Check.class);
         // Set column names
-        strat.setColumnMapping(new String[]{"checkID","amount","date","recipient","description","accountNumber","routingNumber"});
+        strat.setColumnMapping(new String[]{"checkNum","amount","date","recipient","description","accountNumber","routingNumber"});
         // Create bean of type
         CsvToBean<Check> bean = new CsvToBeanBuilder<Check>(reader).withMappingStrategy(strat).withSkipLines(1).build();
 
@@ -292,12 +292,12 @@ public class DB {
         // Set mapping strategy class type
         strat.setType(Check.class);
         // Set mapping strategy column names
-        strat.setColumnMapping(new String[]{"checkID","amount","date","recipient","description","accountNumber","routingNumber"});
+        strat.setColumnMapping(new String[]{"checkNum","amount","date","recipient","description","accountNumber","routingNumber"});
         // Create bean of type check
         StatefulBeanToCsv<Check> beanToCsv = new StatefulBeanToCsvBuilder<Check>(writer).withApplyQuotesToAll(false).withMappingStrategy(strat).build();
         try {
             // Write header column names
-            writer.write("checkID,amount,date,recipient,description,accountNumber,routingNumber\n");
+            writer.write("checkNum,amount,date,recipient,description,accountNumber,routingNumber\n");
             // Write contents of checks to check.csv
             beanToCsv.write(checks);
         } catch (CsvDataTypeMismatchException e) {
@@ -317,7 +317,7 @@ public class DB {
         // Set strategy class type
         strat.setType(Savings.class);
         // Set column names
-        strat.setColumnMapping(new String[]{"savingsAccNumber","balance","interestRate","startDate","SSN"});
+        strat.setColumnMapping(new String[]{"savingsAcctNum","balance","interestRate","startDate","SSN"});
         // Create bean of type savings
         CsvToBean<Savings> bean = new CsvToBeanBuilder<Savings>(reader).withMappingStrategy(strat).withSkipLines(1).build();
 
@@ -339,12 +339,12 @@ public class DB {
         // Set mapping strategy class type
         strat.setType(Savings.class);
         // Set mapping strategy column names
-        strat.setColumnMapping(new String[]{"savingsAccNumber","balance","interestRate","startDate","SSN"});
+        strat.setColumnMapping(new String[]{"savingsAcctNum","balance","interestRate","startDate","SSN"});
         // Create bean of type savings
         StatefulBeanToCsv<Savings> beanToCsv = new StatefulBeanToCsvBuilder<Savings>(writer).withApplyQuotesToAll(false).withMappingStrategy(strat).build();
         try {
             // Write header column names
-            writer.write("savingsAccNumber,balance,interestRate,startDate,SSN\n");
+            writer.write("savingsAcctNum,balance,interestRate,startDate,SSN\n");
             // Write contents of savings to savings.csv
             beanToCsv.write(savings);
         } catch (CsvDataTypeMismatchException e) {
@@ -391,9 +391,9 @@ public class DB {
         return null;
     }
     // Searches through checks arraylist and returns check where checkID matches
-    public static Check searchChecks(String checkID, String accountNumber, ArrayList<Check> checks) {
+    public static Check searchChecks(String checkNum, String accountNumber, ArrayList<Check> checks) {
         for (Check c: checks) {
-            if (c.getCheckNum().equals(checkID) && c.getAccountNumber().equals(accountNumber)) {
+            if (c.getCheckNum().equals(checkNum) && c.getAccountNumber().equals(accountNumber)) {
                 return c;
             }
         }
@@ -417,7 +417,7 @@ public class DB {
     }
     public static Savings searchSavings(String SSN, ArrayList<Savings> savings) {
         for (Savings s: savings) {
-            if (s.getSsn().equals(SSN)) {
+            if (s.getSSN().equals(SSN)) {
                 return s;
             }
         }
@@ -504,7 +504,7 @@ public class DB {
     }
     public static Boolean verifySavingsSSN(String SSN, ArrayList<Savings> savings) {
         for (Savings s: savings) {
-            if (s.getSsn().equals(SSN)) {
+            if (s.getSSN().equals(SSN)) {
                 return true;
             }
         }

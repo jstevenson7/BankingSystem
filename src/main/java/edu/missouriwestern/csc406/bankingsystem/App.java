@@ -25,15 +25,15 @@ public class App extends Application {
 
         ArrayList<Checking> checkings = DB.readCheckingCSV();
         Checking checking = DB.searchChecking(customer.getSSN(), checkings);
-        System.out.println(checking.getAccountNumber()+" "+checking.getBalance()+" "+checking.getSSN());
+        System.out.println(checking.getCheckingAcctNum()+" "+checking.getBalance()+" "+checking.getSSN());
 
         ArrayList<Check> checks = DB.readUnprocessedCheckCSV();
-        Check check = DB.searchChecks("001", checking.getAccountNumber(), checks);
-        System.out.println(check.getCheckID()+" "+check.getAmount());
+        Check check = DB.searchChecks("001", checking.getCheckingAcctNum(), checks);
+        System.out.println(check.getCheckNum()+" "+check.getAmount());
 
         ArrayList<Savings> savings = DB.readSavingsCSV();
         Savings savings1 = DB.searchSavings(customer.getSSN(), savings);
-        System.out.println(savings1.getSavingsAccNumber()+" "+savings1.getBalance());
+        System.out.println(savings1.getSavingsAcctNum()+" "+savings1.getBalance());
         **/
         launch();
     } //End of main.

@@ -20,7 +20,7 @@ public class Savings {
     @CsvBindByName
     private String startDate;
     @CsvBindByName
-    private String ssn;
+    private String SSN;
 
     //private String currentDate;
 
@@ -38,7 +38,7 @@ public class Savings {
         setBalance(balance);
         setInterestRate(interestRate);
         setStartDate(formatter.format(date));
-        setSsn(ssn);
+        setSSN(ssn);
         dailyInterest();
 
     }
@@ -101,11 +101,11 @@ public class Savings {
     public void setStartDate(String startDate) {
         this.startDate = startDate;
     }
-    public String getSsn() {
-        return ssn;
+    public String getSSN() {
+        return SSN;
     }
-    public void setSsn(String ssn) {
-        this.ssn = ssn;
+    public void setSSN(String SSN) {
+        this.SSN = SSN;
     }
     @Override
     public String toString() {
@@ -114,7 +114,7 @@ public class Savings {
                 ", balance=" + balance +
                 ", interestRate=" + interestRate +
                 ", startDate='" + startDate + '\'' +
-                ", SSN='" + ssn + '\'' +
+                ", SSN='" + SSN + '\'' +
                 '}';
     }
 }

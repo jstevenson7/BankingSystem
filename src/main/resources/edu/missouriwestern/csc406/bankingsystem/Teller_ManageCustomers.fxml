@@ -156,18 +156,11 @@
                      </font></Label>
                </center>
             </BorderPane>
-            <Button fx:id="cCreateButton" layoutX="203.0" layoutY="396.0" mnemonicParsing="false" onAction="#createCustomer" prefHeight="31.0" prefWidth="298.0" text="Create Customer &amp; Initial Account" wrapText="true" />
-            <Text layoutX="301.0" layoutY="545.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ATMPin:" textAlignment="RIGHT" wrappingWidth="60.13671875" />
-            <TextField fx:id="cATMPinText" layoutX="358.0" layoutY="530.0" prefHeight="25.0" prefWidth="69.0" />
-            <TextField fx:id="cCCPinText" layoutX="504.0" layoutY="529.0" prefHeight="25.0" prefWidth="69.0" />
-            <TextField fx:id="cATMNumText" layoutX="147.0" layoutY="531.0" prefHeight="25.0" prefWidth="139.0" />
-            <Text layoutX="61.0" layoutY="546.0" strokeType="OUTSIDE" strokeWidth="0.0" text="atmNumber:" textAlignment="RIGHT" wrappingWidth="76.13671875" />
-            <Text layoutX="435.0" layoutY="545.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CCPin:" textAlignment="RIGHT" wrappingWidth="60.13671875" />
-            <Text layoutX="217.0" layoutY="513.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Note: We will be creating random generators for the below items">
-               <font>
-                  <Font name="System Italic" size="12.0" />
-               </font>
-            </Text>
+            <Button fx:id="cCreateButton" layoutX="204.0" layoutY="451.0" mnemonicParsing="false" onAction="#createCustomer" prefHeight="31.0" prefWidth="298.0" text="Create Customer &amp; Initial Account" wrapText="true" />
+            <Text layoutX="192.0" layoutY="418.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ATM Pin:" textAlignment="RIGHT" wrappingWidth="60.13671875" />
+            <TextField fx:id="cATMPinText" layoutX="253.0" layoutY="401.0" prefHeight="25.0" prefWidth="69.0" />
+            <TextField fx:id="cCCPinText" layoutX="430.0" layoutY="401.0" prefHeight="25.0" prefWidth="69.0" />
+            <Text layoutX="324.0" layoutY="418.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Credit Card Pin:" textAlignment="RIGHT" wrappingWidth="102.13671875" />
             <BorderPane layoutY="270.0" prefHeight="60.0" prefWidth="706.0">
                <center>
                   <Label prefHeight="58.0" prefWidth="507.0" text="Every new Customer must set up an initial account. Please choose the account type and enter any neccessary information." textAlignment="CENTER" wrapText="true" BorderPane.alignment="CENTER">
@@ -177,6 +170,7 @@
                   </Label>
                </center>
             </BorderPane>
+            <Label fx:id="messageLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="232.0" layoutY="509.0" prefHeight="17.0" prefWidth="243.0" textAlignment="CENTER" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="deleteAnchor" layoutX="244.0" layoutY="68.0" prefHeight="581.0" prefWidth="706.0" visible="false">
