@@ -16,8 +16,6 @@ public class Checking {
     @CsvBindByName
     private String overdraftAccountNumber;
 
-    //int hasOverdraft if == 1 has, if == 0 doesn't have
-
 
     public Checking(String checkingAcctNum, double balance, int accountType, String SSN) {
         setCheckingAcctNum(checkingAcctNum);
@@ -60,6 +58,7 @@ public class Checking {
     {
         testaccount();
         DecimalFormat f = new DecimalFormat("##.00");
+        // make sure
         setBalance(Double.parseDouble(f.format((balance += amount))));
 
         if (accountType==0)

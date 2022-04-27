@@ -54,7 +54,7 @@
          <font>
             <Font size="17.0" />
          </font></PasswordField>
-      <TextField fx:id="withdrawAmtText" layoutX="388.0" layoutY="282.0" onAction="#validateWithdrawAmt" promptText="Withdraw Amount" visible="false" />
+      <TextField fx:id="withdrawAmtText" layoutX="642.0" layoutY="426.0" onAction="#validateWithdrawAmt" prefHeight="40.0" prefWidth="222.0" promptText="Withdraw Amount" visible="false" />
       <Button fx:id="receiptButton" layoutX="402.0" layoutY="332.0" mnemonicParsing="false" onAction="#viewReceipt" prefHeight="58.0" prefWidth="122.0" style="-fx-background-color: white;" visible="false" />
    </children>
 </AnchorPane>

@@ -2,6 +2,7 @@ package edu.missouriwestern.csc406.bankingsystem;
 
 import com.opencsv.bean.CsvBindByName;
 
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -68,12 +69,14 @@ public class Savings {
     }
     public void deposit(Double amount)
     {
-        balance+= amount;
+        DecimalFormat f = new DecimalFormat("##.00");
+        setBalance(Double.parseDouble(f.format((balance += amount))));
     }
 
     public void withdraw(Double amount)
     {
-        balance-= amount;
+        DecimalFormat f = new DecimalFormat("##.00");
+        setBalance(Double.parseDouble(f.format((balance -= amount))));
     }
 
     // Getters and Setters

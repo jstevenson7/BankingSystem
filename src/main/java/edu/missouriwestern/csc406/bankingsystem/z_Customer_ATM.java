@@ -161,6 +161,21 @@ public class z_Customer_ATM {
             // write checking back to database/csv
             DB.writeCheckingCSV(checkings);
             withdrawAmtText.clear();
+        } else if (DB.verifyOverdraft(checking)) {
+            int exitCode = DB.overdraft(checking, withdrawAmt);
+            if (exitCode==0) {
+                // Display Success
+                atmLabel.setText("Success! (overdraft)");
+                atmLabel.setTextFill(Color.GREEN);
+                // write checking back to database/csv
+                DB.writeCheckingCSV(checkings);
+                withdrawAmtText.clear();
+            } else {
+                // error message
+                atmLabel.setText("Insufficient funds. Please try again. (overdraft)");
+                atmLabel.setTextFill(Color.RED);
+                withdrawAmtText.clear();
+            }
         } else {
             // error message
             atmLabel.setText("Insufficient funds. Please try again.");

@@ -8,6 +8,7 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
@@ -519,6 +520,12 @@ public class DB {
             }
         }
     }
+    public static Boolean verifyOverdraft(Checking checking) {
+        if (!checking.getOverdraftAccountNumber().equals("0")) {
+            return true;
+        }
+        return false;
+    }
     /**
      * Other Utility Methods
      */
@@ -595,4 +602,42 @@ public class DB {
 
         return balance;
     }//end of removeSavings
+    public static int overdraft(Checking checking, Double amount) throws IOException {
+        DecimalFormat f = new DecimalFormat("##.00");
+        // if checking has an overdraft account set
+        if (!checking.getOverdraftAccountNumber().equals("0")) {
+            // empty checking balance
+            // if TMB
+            if (checking.getAccountType()==0) {
+                Double checkingCurrentBalance = Double.valueOf(f.format(checking.getBalance()-.5));
+                checking.withdraw(checkingCurrentBalance);
+                ArrayList<Savings> savings = DB.readSavingsCSV();
+                Savings savings1 = DB.searchSavings(checking.getSSN(), savings);
+                if (savings1.getBalance() < (Double.parseDouble(f.format(amount-checkingCurrentBalance)))) {
+                    return 1;
+                } else {
+                    // withdraw remaining balance
+                    savings1.withdraw(Double.valueOf(f.format(amount - checkingCurrentBalance)));
+                    DB.writeSavingsCSV(savings);
+                    return 0;
+                }
+            } else {
+                // if Gold/Diamond
+                Double checkingCurrentBalance = checking.getBalance();
+                checking.withdraw(checkingCurrentBalance);
+                // Read in savings accounts
+                ArrayList<Savings> savings = DB.readSavingsCSV();
+                Savings savings1 = DB.searchSavings(checking.getSSN(), savings);
+                if (savings1.getBalance() < Double.parseDouble(f.format(amount-checkingCurrentBalance))) {
+                    return 1;
+                } else {
+                    // withdraw remaining balance
+                    savings1.withdraw(Double.valueOf(f.format(amount - checkingCurrentBalance)));
+                    DB.writeSavingsCSV(savings);
+                    return 0;
+                }
+            }
+        }
+        return 1;
+    }
 }
