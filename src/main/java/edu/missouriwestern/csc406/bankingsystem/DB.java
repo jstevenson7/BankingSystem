@@ -529,4 +529,68 @@ public class DB {
         return String.format("%09d", num);
     }
 
+    /**
+     * Following methods are for removing customers from the CSV file
+     * Since we commit during each switch of the screen, we can remove accounts and write easy
+     *
+     * Options:
+     * 0 - remove just checking account
+     * 1 - remove just savings account
+     * 2 - remove both accounts
+     * 4(?) - remove both accounts and remove customer account
+     *
+     * -RM
+     */
+    public static double CustomerManagers(String SSN, ArrayList<Checking> checkings, ArrayList<Savings> savings, int option)
+    {
+        double balance = 0;
+
+        switch (option)
+        {
+            case 0:
+                balance = balance + removeChecking(checkings, SSN);
+                return balance;
+            case 1:
+                balance = balance + removeSavings(savings, SSN);
+                return balance;
+            case 2:
+                balance = balance + removeChecking(checkings, SSN);
+                balance = balance + removeSavings(savings, SSN);
+                return balance;
+            default:
+                //invalid option, no action taken
+        }
+
+        return balance;
+    }//end of Customer Managers
+
+    public static double removeChecking(ArrayList<Checking> checkings, String SSN)
+    {
+        double balance = 0;
+
+        for(int i = 0; i < checkings.size(); i++)
+        {
+            if(checkings.get(i).getSSN().equals(SSN))
+            {
+                balance = balance + checkings.get(i).getBalance();
+            }//end of if
+        }//end of for
+
+        return balance;
+    }//end of removeChecking
+
+    public static double removeSavings(ArrayList<Savings> savings, String SSN)
+    {
+        double balance = 0;
+
+        for(int i = 0; i < savings.size(); i++)
+        {
+            if(savings.get(i).getSSN().equals(SSN))
+            {
+                balance = balance + savings.get(i).getBalance();
+            }//end of if
+        }//end of for
+
+        return balance;
+    }//end of removeSavings
 }
