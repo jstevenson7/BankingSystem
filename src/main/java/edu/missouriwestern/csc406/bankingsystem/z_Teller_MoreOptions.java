@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -32,17 +33,31 @@ public class z_Teller_MoreOptions {
     @FXML
     private AnchorPane mainAnchor;
 
-    /* --- DEPOSIT ANCHOR DATA --- */
+    /* --- STOP PAYMENT ANCHOR --- */
     @FXML
     private AnchorPane stopPaymentAnchor;
+    @FXML
+    private Button s_stopPaymentButton;
+    @FXML
+    private TextField s_ssnTF;
+    @FXML
+    private TextField s_checkNumTF;
 
-    /* --- WITHDRAW ANCHOR DATA --- */
+    /* --- AUTO-PAY ANCHOR --- */
     @FXML
     private AnchorPane autoPayAnchor;
 
-    /* --- TRANSFER ANCHOR DATA --- */
+    /* --- OVERDRAFT PROTECTION ANCHOR --- */
     @FXML
     private AnchorPane overdraftAnchor;
+    @FXML
+    private Button o_overdraftButton;
+    @FXML
+    private TextField o_ssnTF;
+    @FXML
+    private TextField o_savingsAcctNumTF;
+    @FXML
+    private TextField o_checkingAcctNumTF;
 
     /* --- NAV FUNCTIONS --- */
     public void toTeller(ActionEvent event) throws IOException {

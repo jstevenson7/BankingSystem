@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -69,7 +70,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="overdraftButton" alignment="CENTER" graphicTextGap="20.0" mnemonicParsing="false" onAction="#displayOverdraft" prefHeight="141.0" prefWidth="248.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Set up Overdraft Protection" wrapText="true">
+            <Button fx:id="overdraftButton" alignment="CENTER" graphicTextGap="0.0" mnemonicParsing="false" onAction="#displayOverdraft" prefHeight="141.0" prefWidth="248.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Set up Overdraft Protection" wrapText="true">
                <font>
                   <Font size="15.0" />
                </font>
@@ -77,7 +78,7 @@
                   <Insets />
                </VBox.margin>
                <graphic>
-                  <ImageView fitHeight="33.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="37.0" fitWidth="35.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../../Images/Protection.png" />
                      </image>
@@ -100,29 +101,85 @@
             </Text>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="stopPaymentAnchor" layoutX="234.0" layoutY="61.0" prefHeight="590.0" prefWidth="718.0" visible="false">
+      <AnchorPane fx:id="stopPaymentAnchor" layoutX="243.0" layoutY="67.0" prefHeight="584.0" prefWidth="709.0" visible="false">
          <children>
-            <Text layoutX="108.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Stop Payment" textAlignment="CENTER">
+            <Text layoutX="133.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please enter the information needed to stop a payment" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Text>
+            <TextField fx:id="s_ssnTF" layoutX="289.0" layoutY="111.0" prefHeight="31.0" prefWidth="156.0" promptText="000-00-0000">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="s_checkNumTF" layoutX="291.0" layoutY="155.0" prefHeight="31.0" prefWidth="156.0" promptText="000">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <Text layoutX="233.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SSN:" wrappingWidth="33.9375">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text layoutX="164.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Check Number:" wrappingWidth="103.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Button fx:id="s_stopPaymentButton" layoutX="291.0" layoutY="214.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="156.0" text="Stop Payment">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="autoPayAnchor" layoutX="243.0" layoutY="67.0" prefHeight="584.0" prefWidth="709.0" visible="false">
+         <children>
+            <Text layoutX="218.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Set up Auto-Payment" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </Text>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="autoPayAnchor" layoutX="234.0" layoutY="61.0" prefHeight="590.0" prefWidth="718.0" visible="false">
+      <AnchorPane fx:id="overdraftAnchor" layoutX="244.0" layoutY="68.0" prefHeight="584.0" prefWidth="709.0" visible="false">
          <children>
-            <Text layoutX="81.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Set up Auto-Payment" textAlignment="CENTER">
+            <Text layoutX="94.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please enter the information need to set up overdraft protection!" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </Text>
-         </children>
-      </AnchorPane>
-      <AnchorPane fx:id="overdraftAnchor" layoutX="235.0" layoutY="62.0" prefHeight="590.0" prefWidth="718.0" visible="false">
-         <children>
-            <Text layoutX="56.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Set up Overdraft Protection" textAlignment="CENTER">
+            <Button fx:id="o_overdraftButton" layoutX="305.0" layoutY="261.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="156.0" text="Link Accounts" />
+            <TextField fx:id="o_ssnTF" layoutX="305.0" layoutY="108.0" prefHeight="31.0" prefWidth="156.0" promptText="000-00-0000">
                <font>
-                  <Font name="System Bold" size="17.0" />
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <Text layoutX="249.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SSN:" wrappingWidth="33.9375">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <TextField fx:id="o_savingsAcctNumTF" layoutX="305.0" layoutY="153.0" prefHeight="31.0" prefWidth="156.0" promptText="000000000">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <Text layoutX="113.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Savings Account Number:" wrappingWidth="186.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <TextField fx:id="o_checkingAcctNumTF" layoutX="305.0" layoutY="202.0" prefHeight="31.0" prefWidth="156.0" promptText="000000000">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <Text layoutX="103.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Checking Account Number:" wrappingWidth="186.0">
+               <font>
+                  <Font size="15.0" />
                </font>
             </Text>
          </children>
