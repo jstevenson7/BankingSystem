@@ -247,7 +247,7 @@ public class z_Customer_ATM {
                     accountType="Checking - TMB";
                 }
                 Transaction transaction = new Transaction(DB.generateTransactionNumber(), checking.getSSN(), accountType, checking.getCheckingAcctNum(),
-                        withdrawAmt, fDatePicker, "0");
+                        (0 - withdrawAmt), fDatePicker, "0");
                 transactions.add(transaction);
                 DB.writeTransactionsCSV(transactions);
                 // Getting other info for receipt
@@ -322,8 +322,4 @@ public class z_Customer_ATM {
             withdrawAmtText.clear();
         }
     }
-
-
-
-
 }

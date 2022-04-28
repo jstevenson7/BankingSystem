@@ -229,7 +229,7 @@
                   <Font size="15.0" />
                </font>
             </TextField>
-            <Button fx:id="w_withdrawButton" layoutX="302.0" layoutY="313.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="137.0" text="Withdraw">
+            <Button fx:id="w_withdrawButton" layoutX="302.0" layoutY="313.0" mnemonicParsing="false" onAction="#withDraw" prefHeight="31.0" prefWidth="137.0" text="Withdraw">
                <font>
                   <Font size="15.0" />
                </font>
@@ -239,7 +239,7 @@
                   <Font size="15.0" />
                </font>
             </Text>
-            <DatePicker fx:id="w_dateDP" layoutX="302.0" layoutY="84.0" prefHeight="31.0" prefWidth="164.0" promptText="mm/dd/yyyy" />
+            <DatePicker fx:id="w_dateDP" layoutX="302.0" layoutY="84.0" onAction="#getWithdrawDateText" prefHeight="31.0" prefWidth="164.0" promptText="mm/dd/yyyy" />
             <Label fx:id="w_message" alignment="CENTER" contentDisplay="CENTER" layoutX="228.0" layoutY="382.0" prefHeight="17.0" prefWidth="286.0" textAlignment="CENTER" />
          </children>
       </AnchorPane>
