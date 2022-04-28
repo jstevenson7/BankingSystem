@@ -355,6 +355,52 @@ public class DB {
         }
         writer.close();
     }
+    public static ArrayList<Transaction> readTransactionsCSV() throws IOException {
+        // Create an arrayList to hold check objects
+        ArrayList<Transaction> transactions = new ArrayList<>();
+        // Create reader to read from the checks.csv file located in src
+        Reader reader = Files.newBufferedReader(Path.of("src/transactions.csv"));
+        // Set column mapping strategy
+        ColumnPositionMappingStrategy<Transaction> strat = new ColumnPositionMappingStrategyBuilder<Transaction>().build();
+        // Set strategy class type
+        strat.setType(Transaction.class);
+        // Set column names
+        strat.setColumnMapping(new String[]{"transactionNum","SSN","accountType","accountNum","amount","date","checkNum"});
+        // Create bean of type
+        CsvToBean<Transaction> bean = new CsvToBeanBuilder<Transaction>(reader).withMappingStrategy(strat).withSkipLines(1).build();
+
+        // iterate through bean and add to list
+        Iterator<Transaction> checkingIterator = bean.iterator();
+        while (checkingIterator.hasNext()) {
+            Transaction transaction = checkingIterator.next();
+            transactions.add(transaction);
+        }
+        reader.close();
+        // return arrayList
+        return transactions;
+    }public static void writeTransactionsCSV(ArrayList<Transaction> transactions) throws IOException {
+        // Create writer to write to the savings.csv file located in src
+        Writer writer = Files.newBufferedWriter(Paths.get("src/transactions.csv"));
+        // Create mapping strategy for columns
+        ColumnPositionMappingStrategy<Transaction> strat = new ColumnPositionMappingStrategyBuilder<Transaction>().build();
+        // Set mapping strategy class type
+        strat.setType(Transaction.class);
+        // Set mapping strategy column names
+        strat.setColumnMapping(new String[]{"transactionNum","SSN","accountType","accountNum","amount","date","checkNum"});
+        // Create bean of type savings
+        StatefulBeanToCsv<Transaction> beanToCsv = new StatefulBeanToCsvBuilder<Transaction>(writer).withApplyQuotesToAll(false).withMappingStrategy(strat).build();
+        try {
+            // Write header column names
+            writer.write("transactionNum,SSN,accountType,accountNum,amount,date,checkNum\n");
+            // Write contents of savings to savings.csv
+            beanToCsv.write(transactions);
+        } catch (CsvDataTypeMismatchException e) {
+            e.printStackTrace();
+        } catch (CsvRequiredFieldEmptyException e) {
+            e.printStackTrace();
+        }
+        writer.close();
+    }
     /**
      *   Search Methods
      */
@@ -362,6 +408,14 @@ public class DB {
         for (Employee e: employees) {
             if (e.getEmployeeID().equals(employeeID)) {
                 return e;
+            }
+        }
+        return null;
+    }
+    public static Transaction searchTransactions(String transactionNum, ArrayList<Transaction> transactions) {
+        for (Transaction t: transactions) {
+            if (t.getTransactionNum().equals(transactionNum)) {
+                return t;
             }
         }
         return null;
@@ -511,11 +565,28 @@ public class DB {
         }
         return false;
     }
+    public static Boolean verifyTransaction(String transactionNum, ArrayList<Transaction> transactions) {
+        for (Transaction t: transactions) {
+            if (t.getTransactionNum().equals(transactionNum)) {
+                return true;
+            }
+        }
+        return false;
+    }
     public static String verifyNewAccountNumber(ArrayList<Checking> checkings, ArrayList<Savings> savings, ArrayList<Loans> loans) {
         while(true) {
             String num = generateAccountNumber();
             // WILL NEED TO ADD VERIFYACCOUNT FOR SAVINGS AND LOANS
             if(!DB.verifyAccountNumber(num, checkings) && !DB.verifySavingsAccountNumber(num, savings)) {
+                return num;
+            }
+        }
+    }
+    public static String generateNewTransactionNumber(ArrayList<Transaction> transactions) {
+        while(true) {
+            String num = generateTransactionNumber();
+            // WILL NEED TO ADD VERIFYACCOUNT FOR SAVINGS AND LOANS
+            if(!DB.verifyTransaction(num, transactions)) {
                 return num;
             }
         }
@@ -534,6 +605,16 @@ public class DB {
         Random rnd = new Random();
         int num = rnd.nextInt(999999999);
         return String.format("%09d", num);
+    }
+    public static String generateTransactionNumber() {
+        // This method will return a random 9 digit number.
+        Random rnd = new Random();
+        char[] digits = new char[12];
+        digits[0] = (char) (rnd.nextInt(9) + '1');
+        for (int i = 1; i < 12; i++) {
+            digits[i] = (char) (rnd.nextInt(10) + '0');
+        }
+        return new String(digits);
     }
 
     /**

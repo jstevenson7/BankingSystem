@@ -4,6 +4,7 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -166,7 +167,7 @@
                   <Font size="15.0" />
                </font>
             </TextField>
-            <Button fx:id="d_depositButton" layoutX="282.0" layoutY="406.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="137.0" text="Deposit">
+            <Button fx:id="d_depositButton" layoutX="282.0" layoutY="406.0" mnemonicParsing="false" onAction="#deposit" prefHeight="31.0" prefWidth="137.0" text="Deposit">
                <font>
                   <Font size="15.0" />
                </font>
@@ -181,7 +182,8 @@
                   <Font size="15.0" />
                </font>
             </Text>
-            <DatePicker fx:id="d_dateDP" layoutX="277.0" layoutY="84.0" prefHeight="31.0" prefWidth="164.0" promptText="mm/dd/yyyy" />
+            <DatePicker fx:id="d_dateDP" layoutX="277.0" layoutY="84.0" onAction="#getDepositDateText" prefHeight="31.0" prefWidth="164.0" promptText="mm/dd/yyyy" />
+            <Label fx:id="d_message" alignment="CENTER" contentDisplay="CENTER" layoutX="208.0" layoutY="479.0" prefHeight="17.0" prefWidth="286.0" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="withdrawAnchor" layoutX="243.0" layoutY="61.0" prefHeight="582.0" prefWidth="710.0" visible="false">
@@ -238,6 +240,7 @@
                </font>
             </Text>
             <DatePicker fx:id="w_dateDP" layoutX="302.0" layoutY="84.0" prefHeight="31.0" prefWidth="164.0" promptText="mm/dd/yyyy" />
+            <Label fx:id="w_message" alignment="CENTER" contentDisplay="CENTER" layoutX="228.0" layoutY="382.0" prefHeight="17.0" prefWidth="286.0" textAlignment="CENTER" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="transferAnchor" layoutX="244.0" layoutY="62.0" prefHeight="592.0" prefWidth="710.0" visible="false">

@@ -238,6 +238,18 @@ public class z_Customer_ATM {
                 r_StartBalLabel.setText("$" + checking.getBalance());
                 // withdraw amount
                 checking.withdraw(withdrawAmt);
+                // record transaction
+                ArrayList<Transaction> transactions = DB.readTransactionsCSV();
+                String accountType;
+                if (checking.getAccountType()==1) {
+                    accountType="Checking - Gold/Diamond";
+                } else {
+                    accountType="Checking - TMB";
+                }
+                Transaction transaction = new Transaction(DB.generateTransactionNumber(), checking.getSSN(), accountType, checking.getCheckingAcctNum(),
+                        withdrawAmt, fDatePicker, "0");
+                transactions.add(transaction);
+                DB.writeTransactionsCSV(transactions);
                 // Getting other info for receipt
                 r_WithdrawAmtLabel.setText(String.format("$%.2f", withdrawAmt));
                 r_AmtWithdrawn.setText(String.format("%.2f", withdrawAmt));

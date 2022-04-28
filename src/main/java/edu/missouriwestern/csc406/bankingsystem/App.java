@@ -35,6 +35,10 @@ public class App extends Application {
         ArrayList<Savings> savings = DB.readSavingsCSV();
         Savings savings1 = DB.searchSavings(customer.getSSN(), savings);
         System.out.println(savings1.getSavingsAcctNum()+" "+savings1.getBalance());
+
+        ArrayList<Transaction> transactions = DB.readTransactionsCSV();
+        Transaction transaction = DB.searchTransactions("111111111111", transactions);
+        System.out.println(transaction.getTransactionNum()+" "+transaction.getCheckNum());
         **/
         launch();
     } //End of main.

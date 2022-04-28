@@ -8,9 +8,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class z_Teller_ManageTransactions {
 
@@ -83,6 +85,7 @@ public class z_Teller_ManageTransactions {
     private AnchorPane depositAnchor;
     @FXML
     private DatePicker d_dateDP;
+    String dfDatePicker;
     @FXML
     private Button d_depositButton;
     @FXML
@@ -99,6 +102,8 @@ public class z_Teller_ManageTransactions {
     private TextField d_amountTF;
     @FXML
     private CheckBox d_checkCKB;
+    @FXML
+    private Label d_message;
 
     // DEPOSIT ANCHOR FUNCTIONS
     public void depositCheck(ActionEvent event) {
@@ -118,6 +123,7 @@ public class z_Teller_ManageTransactions {
     private AnchorPane withdrawAnchor;
     @FXML
     private DatePicker w_dateDP;
+    String wfDatePicker;
     @FXML
     private Button w_withdrawButton;
     @FXML
@@ -128,6 +134,8 @@ public class z_Teller_ManageTransactions {
     private TextField w_acctNumTF;
     @FXML
     private TextField w_amountTF;
+    @FXML
+    private Label w_message;
 
     // WITHDRAW ANCHOR FUNCTIONS
 
@@ -155,6 +163,139 @@ public class z_Teller_ManageTransactions {
     @FXML
     private AnchorPane payBillsAnchor;
 
+    /* ------------ Logic ------------- */
+    public void deposit(ActionEvent event) throws IOException {
+        if (!d_ssnTF.getText().isBlank() || !d_acctNumTF.getText().isBlank() || !d_amountTF.getText().isBlank()) {
+            ArrayList<Customer> customers = DB.readCustomersCSV();
+            if (DB.verifyCustomerSSN(d_ssnTF.getText(), customers)) {
+                Customer customer = DB.searchCustomer(d_ssnTF.getText(), customers);
+                if (d_acctTypeCB.getValue().equals("Checking - TMB")) {
+                    ArrayList<Checking> checkings = DB.readCheckingCSV();
+                    Checking checking = DB.searchChecking(d_ssnTF.getText(), checkings);
+                    if (checking.getCheckingAcctNum().equals(d_acctNumTF.getText())) {
+                        if (d_checkCKB.isSelected()) {
+                            // deposit
+                            checking.deposit(Double.valueOf(d_amountTF.getText()));
+                            // add transaction
+                            ArrayList<Transaction> transactions = DB.readTransactionsCSV();
+                            Transaction transaction = new Transaction(DB.generateTransactionNumber(), d_ssnTF.getText(), (String) d_acctTypeCB.getValue(),
+                                    d_acctNumTF.getText(), Double.parseDouble(d_amountTF.getText()), dfDatePicker, d_checkNumTF.getText());
+                            transactions.add(transaction);
+                            DB.writeTransactionsCSV(transactions);
+                            DB.writeCheckingCSV(checkings);
+                            d_message.setText("Success!");
+                            d_message.setTextFill(Color.GREEN);
+                            d_ssnTF.clear();
+                            d_acctNumTF.clear();
+                            d_amountTF.clear();
+                        } else {
+                            // deposit
+                            checking.deposit(Double.valueOf(d_amountTF.getText()));
+                            // add transaction
+                            ArrayList<Transaction> transactions = DB.readTransactionsCSV();
+                            Transaction transaction = new Transaction(DB.generateTransactionNumber(), d_ssnTF.getText(), (String) d_acctTypeCB.getValue(),
+                                    d_acctNumTF.getText(), Double.parseDouble(d_amountTF.getText()), dfDatePicker, "0");
+                            transactions.add(transaction);
+                            DB.writeTransactionsCSV(transactions);
+                            DB.writeCheckingCSV(checkings);
+                            d_message.setText("Success!");
+                            d_message.setTextFill(Color.GREEN);
+                            d_ssnTF.clear();
+                            d_acctNumTF.clear();
+                            d_amountTF.clear();
+                        }
+                    } else {
+                        d_message.setText("Unknown Account Number!");
+                        d_message.setTextFill(Color.RED);
+                    }
+                } else if (d_acctTypeCB.getValue().equals("Checking - Gold/Diamond")) {
+                    ArrayList<Checking> checkings = DB.readCheckingCSV();
+                    Checking checking = DB.searchChecking(d_ssnTF.getText(), checkings);
+                    if (checking.getCheckingAcctNum().equals(d_acctNumTF.getText())) {
+                        if (d_checkCKB.isSelected()) {
+                            // deposit
+                            checking.deposit(Double.valueOf(d_amountTF.getText()));
+                            // add transaction
+                            ArrayList<Transaction> transactions = DB.readTransactionsCSV();
+                            Transaction transaction = new Transaction(DB.generateTransactionNumber(), d_ssnTF.getText(), (String) d_acctTypeCB.getValue(),
+                                    d_acctNumTF.getText(), Double.parseDouble(d_amountTF.getText()), dfDatePicker, d_checkNumTF.getText());
+                            transactions.add(transaction);
+                            DB.writeTransactionsCSV(transactions);
+                            DB.writeCheckingCSV(checkings);
+                            d_message.setText("Success!");
+                            d_message.setTextFill(Color.GREEN);
+                            d_ssnTF.clear();
+                            d_acctNumTF.clear();
+                            d_amountTF.clear();
+                        } else {
+                            // deposit
+                            checking.deposit(Double.valueOf(d_amountTF.getText()));
+                            // add transaction
+                            ArrayList<Transaction> transactions = DB.readTransactionsCSV();
+                            Transaction transaction = new Transaction(DB.generateTransactionNumber(), d_ssnTF.getText(), (String) d_acctTypeCB.getValue(),
+                                    d_acctNumTF.getText(), Double.parseDouble(d_amountTF.getText()), dfDatePicker, "0");
+                            transactions.add(transaction);
+                            DB.writeTransactionsCSV(transactions);
+                            DB.writeCheckingCSV(checkings);
+                            d_message.setText("Success!");
+                            d_message.setTextFill(Color.GREEN);
+                            d_ssnTF.clear();
+                            d_acctNumTF.clear();
+                            d_amountTF.clear();
+                        }
+                    } else {
+                        d_message.setText("Unknown Account Number!");
+                        d_message.setTextFill(Color.RED);
+                    }
+                } else if (d_acctTypeCB.getValue().equals("Savings - Simple")) {
+                    ArrayList<Savings> savings = DB.readSavingsCSV();
+                    Savings savings1 = DB.searchSavings(d_ssnTF.getText(), savings);
+                    if (savings1.getSavingsAcctNum().equals(d_acctNumTF.getText())) {
+                        // deposit
+                        savings1.deposit(Double.valueOf(d_amountTF.getText()));
+                        // add transaction
+                        ArrayList<Transaction> transactions = DB.readTransactionsCSV();
+                        Transaction transaction = new Transaction(DB.generateTransactionNumber(), d_ssnTF.getText(), (String) d_acctTypeCB.getValue(),
+                                d_acctNumTF.getText(), Double.parseDouble(d_amountTF.getText()), dfDatePicker, "0");
+                        transactions.add(transaction);
+                        DB.writeTransactionsCSV(transactions);
+                        DB.writeSavingsCSV(savings);
+                        d_message.setText("Success!");
+                        d_message.setTextFill(Color.GREEN);
+                        d_ssnTF.clear();
+                        d_acctNumTF.clear();
+                        d_amountTF.clear();
+                    } else {
+                        d_message.setText("Unknown Account Number!");
+                        d_message.setTextFill(Color.RED);
+                    }
+                } else if (d_acctTypeCB.getValue().equals("CD")) {
+                    // once we get cd working
+                } else {
+                    d_message.setText("Unknown Account Type!");
+                    d_message.setTextFill(Color.RED);
+                }
+            } else {
+                d_message.setText("Unknown SSN");
+                d_message.setTextFill(Color.RED);
+            }
+        } else {
+            d_message.setText("All fields are required!");
+            d_message.setTextFill(Color.RED);
+        }
+    }
+    public void getDepositDateText(ActionEvent event) {
+        String[] dateArr = String.valueOf(d_dateDP.getValue()).split("-");
+        if(dateArr.length == 3) {
+            dfDatePicker = dateArr[1] + "/" + dateArr[2] + "/" + dateArr[0];
+        }
+    }
+    public void getWithdrawDateText(ActionEvent event) {
+        String[] dateArr = String.valueOf(w_dateDP.getValue()).split("-");
+        if(dateArr.length == 3) {
+            wfDatePicker = dateArr[1] + "/" + dateArr[2] + "/" + dateArr[0];
+        }
+    }
 
     /* ------------- INITIALIZE ------------- */
     @FXML
