@@ -544,29 +544,45 @@ public class DB {
      * 0 - remove just checking account
      * 1 - remove just savings account
      * 2 - remove both accounts
-     * 4(?) - remove both accounts and remove customer account
+     * 3 - remove both accounts and remove customer account
      *
      * -RM
      */
-    public static double CustomerManagers(String SSN, ArrayList<Checking> checkings, ArrayList<Savings> savings, int option)
+    public static double CustomerManagers(String SSN, ArrayList<Customer> customers, ArrayList<Checking> checkings, ArrayList<Savings> savings, int option)
     {
         double balance = 0;
 
-        switch (option)
+        try
         {
-            case 0:
-                balance = balance + removeChecking(checkings, SSN);
-                return balance;
-            case 1:
-                balance = balance + removeSavings(savings, SSN);
-                return balance;
-            case 2:
-                balance = balance + removeChecking(checkings, SSN);
-                balance = balance + removeSavings(savings, SSN);
-                return balance;
-            default:
-                //invalid option, no action taken
+            switch (option)
+            {
+                case 0:
+                    balance = balance + removeChecking(checkings, SSN);
+                    //writeCheckingCSV(checkings);
+                    return balance;
+                case 1:
+                    balance = balance + removeSavings(savings, SSN);
+                    //writeSavingsCSV(savings);
+                    return balance;
+                case 2:
+                    balance = balance + removeChecking(checkings, SSN);
+                    //writeCheckingCSV(checkings);
+                    balance = balance + removeSavings(savings, SSN);
+                    //writeSavingsCSV(savings);
+                    return balance;
+                case 3:
+                    balance = balance + removeChecking(checkings, SSN);
+                    balance = balance + removeSavings(savings, SSN);
+                    removeCustomer(customers, SSN);
+                    return balance;
+                default:
+                    //invalid option, no action taken
+            }
         }
+        catch (Exception e)
+        {
+            e.printStackTrace(); //will make more robust here in coming days
+        }//end of catch
 
         return balance;
     }//end of Customer Managers
@@ -602,6 +618,20 @@ public class DB {
 
         return balance;
     }//end of removeSavings
+
+
+    public static void removeCustomer(ArrayList<Customer> customers, String SSN)
+    {
+
+        for(int i = 0; i < customers.size(); i++)
+        {
+            if(customers.get(i).getSSN().equals(SSN))
+            {
+                customers.remove(i);
+            }//end of if
+        }//end of for
+    }//end of removeCustomer
+
     public static int overdraft(Checking checking, Double amount) throws IOException {
         DecimalFormat f = new DecimalFormat("##.00");
         // if checking has an overdraft account set
