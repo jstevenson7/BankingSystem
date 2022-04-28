@@ -24,7 +24,7 @@ public class DB {
     *
     * EXAMPLE:
     *
-    * ArrayList<Customer> customers = DB.readCustomersCSV();
+    * ArrayList<Customer> customers = DB.readCustomersCSV();ArrayList<Customer> customers = DB.readCustomersCSV();
     *
     * The arrayList now has customer objects from the csv file.
     * */
@@ -401,6 +401,59 @@ public class DB {
         }
         writer.close();
     }
+
+
+    public static ArrayList<CD> readCDCSV() throws IOException {
+        // Create an arrayList to hold check objects
+        ArrayList<CD> cds = new ArrayList<>();
+        // Create reader to read from the checks.csv file located in src
+        Reader reader = Files.newBufferedReader(Path.of("src/cd.csv"));
+        // Set column mapping strategy
+        ColumnPositionMappingStrategy<CD> strat = new ColumnPositionMappingStrategyBuilder<CD>().build();
+        // Set strategy class type
+        strat.setType(CD.class);
+        // Set column names
+        strat.setColumnMapping(new String[]{"cdAcctNum","balance","interestRate","startDate","endDate","withdrawDate","SSN"});
+        // Create bean of type
+        CsvToBean<CD> bean = new CsvToBeanBuilder<CD>(reader).withMappingStrategy(strat).withSkipLines(1).build();
+
+        // iterate through bean and add to list
+        Iterator<CD> checkingIterator = bean.iterator();
+        while (checkingIterator.hasNext()) {
+            CD cd = checkingIterator.next();
+            cds.add(cd);
+        }
+        reader.close();
+        // return arrayList
+        return cds;
+    }
+
+    public static void writeCDCSV(ArrayList<CD> cds) throws IOException {
+        // Create writer to write to the savings.csv file located in src
+        Writer writer = Files.newBufferedWriter(Paths.get("src/cd.csv"));
+        // Create mapping strategy for columns
+        ColumnPositionMappingStrategy<CD> strat = new ColumnPositionMappingStrategyBuilder<CD>().build();
+        // Set mapping strategy class type
+        strat.setType(CD.class);
+        // Set mapping strategy column names
+        strat.setColumnMapping(new String[]{"cdAcctNum","balance","interestRate","startDate","endDate","withdrawDate","SSN"});
+        // Create bean of type savings
+        StatefulBeanToCsv<CD> beanToCsv = new StatefulBeanToCsvBuilder<CD>(writer).withApplyQuotesToAll(false).withMappingStrategy(strat).build();
+        try {
+            // Write header column names
+            writer.write("cdAcctNum,balance,interestRate,startDate,endDate,withdrawDate,SSN\n");
+            // Write contents of savings to savings.csv
+            beanToCsv.write(cds);
+        } catch (CsvDataTypeMismatchException e) {
+            e.printStackTrace();
+        } catch (CsvRequiredFieldEmptyException e) {
+            e.printStackTrace();
+        }
+        writer.close();
+    }
+
+
+
     /**
      *   Search Methods
      */

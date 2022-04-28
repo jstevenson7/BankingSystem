@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -21,18 +24,18 @@
             </ImageView>
          </children>
       </HBox>
-      <VBox alignment="TOP_CENTER" layoutY="62.0" prefHeight="589.0" prefWidth="245.0" style="-fx-background-color: #E0E0E0; -fx-border-color: #AEAEAE; -fx-background-insets: 0;">
+      <VBox alignment="TOP_CENTER" layoutY="62.0" prefHeight="589.0" prefWidth="157.0" style="-fx-background-color: #E0E0E0; -fx-border-color: #AEAEAE; -fx-background-insets: 0;">
          <children>
             <Pane prefHeight="84.0" prefWidth="243.0" style="-fx-border-color: #C0C0C0;">
                <children>
-                  <Text layoutX="38.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Public Bank Review Customers" textAlignment="CENTER" wrappingWidth="168.0">
+                  <Text layoutX="24.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Public Bank Review Customers" textAlignment="CENTER" wrappingWidth="108.0">
                      <font>
                         <Font name="Gill Sans MT Bold" size="19.0" />
                      </font>
                   </Text>
                </children>
             </Pane>
-            <Button fx:id="returnTellerButton" alignment="CENTER" mnemonicParsing="false" onAction="#toTeller" prefHeight="88.0" prefWidth="253.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Return to Teller" textAlignment="CENTER">
+            <Button fx:id="returnTellerButton" alignment="CENTER" mnemonicParsing="false" onAction="#toTeller" prefHeight="88.0" prefWidth="253.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Return to Teller" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font size="15.0" />
                </font>
@@ -44,42 +47,147 @@
                   </ImageView>
                </graphic>
             </Button>
+            <Button fx:id="allCustomersButton" alignment="CENTER" mnemonicParsing="false" onAction="#toReviewAllCust" prefHeight="88.0" prefWidth="253.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Review All Customers" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="88.0" prefWidth="253.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Review a Specific Customer" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="reviewCheckingButton" alignment="CENTER" mnemonicParsing="false" onAction="#toChecking" prefHeight="88.0" prefWidth="253.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Review Checking Accounts" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="reviewSavingsButton" alignment="CENTER" mnemonicParsing="false" onAction="#toSavings" prefHeight="88.0" prefWidth="253.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Review Savings Accounts" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="reviewCDButton" alignment="CENTER" mnemonicParsing="false" onAction="#toCD" prefHeight="88.0" prefWidth="253.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Review CD Accounts" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
          </children>
       </VBox>
-      <AnchorPane fx:id="mainAnchor" layoutX="246.0" layoutY="61.0" prefHeight="589.0" prefWidth="704.0">
+      <AnchorPane fx:id="mainAnchor" layoutX="157.0" layoutY="61.0" prefHeight="589.0" prefWidth="794.0">
          <children>
-            <Text layoutX="261.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Review" textAlignment="CENTER" wrappingWidth="200.0">
+            <Text layoutX="297.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Review" textAlignment="CENTER" wrappingWidth="200.0">
                <font>
                   <Font name="System Bold" size="17.0" />
+               </font>
+            </Text>
+            <Text layoutX="304.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please select what you would like to do using the left side menu." textAlignment="CENTER" wrappingWidth="186.0">
+               <font>
+                  <Font size="15.0" />
                </font>
             </Text>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="stopPaymentAnchor" layoutX="175.0" layoutY="61.0" prefHeight="341.0" prefWidth="428.0" visible="false">
+      <AnchorPane fx:id="reviewAllCustAnchor" layoutX="154.0" layoutY="61.0" prefHeight="589.0" prefWidth="800.0" visible="false">
          <children>
-            <Text layoutX="108.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Stop Payment" textAlignment="CENTER">
+            <TableView fx:id="customerTable" editable="true" layoutX="37.0" layoutY="50.0" prefHeight="489.0" prefWidth="725.0">
+               <columns>
+                  <TableColumn fx:id="ssn" prefWidth="96.0" text="SSN" />
+                  <TableColumn fx:id="address" prefWidth="166.0" text="Address" />
+                  <TableColumn fx:id="city" prefWidth="124.0" text="City" />
+                  <TableColumn fx:id="state" minWidth="0.0" prefWidth="48.0" text="State" />
+                  <TableColumn fx:id="zip" minWidth="0.0" prefWidth="74.0" text="Zip" />
+                  <TableColumn fx:id="firstName" minWidth="0.0" prefWidth="113.0" text="First Name" />
+                  <TableColumn fx:id="lastName" minWidth="0.0" prefWidth="105.0" text="Last Name" />
+                  <TableColumn fx:id="atmNumber" minWidth="0.0" prefWidth="120.0" text="ATM Number" />
+                  <TableColumn fx:id="atmPin" prefWidth="60.0" text="ATM PIN" />
+                  <TableColumn fx:id="creditCardPin" minWidth="0.0" prefWidth="54.0" text="CC PIN" />
+               </columns>
+            </TableView>
+            <Button fx:id="loadCustomersButton" layoutX="349.0" layoutY="550.0" mnemonicParsing="false" onAction="#readToCustomersTable" text="Load Customers" />
+            <Text layoutX="315.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CUSTOMER DATA" textAlignment="CENTER" wrappingWidth="169.0000000000001">
                <font>
-                  <Font name="System Bold" size="17.0" />
+                  <Font name="System Bold" size="19.0" />
                </font>
             </Text>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="autoPayAnchor" layoutX="172.0" layoutY="61.0" prefHeight="341.0" prefWidth="434.0" visible="false">
+      <AnchorPane fx:id="reviewSpecificCustAnchor" layoutX="157.0" layoutY="61.0" prefHeight="589.0" prefWidth="794.0" visible="false">
          <children>
-            <Text layoutX="81.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Set up Auto-Payment" textAlignment="CENTER">
+            <Text layoutX="265.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Review A Specific Customer" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="17.0" />
+               </font>
+            </Text>
+            <TextField layoutX="121.0" layoutY="536.0" promptText="000-00-0000">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <Text layoutX="77.0" layoutY="554.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SSN:" wrappingWidth="30.41015625">
+               <font>
+                  <Font size="15.0" />
                </font>
             </Text>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="overdraftAnchor" layoutX="172.0" layoutY="61.0" prefHeight="341.0" prefWidth="434.0" visible="false">
+      <AnchorPane fx:id="reviewCheckingAcctsAnchor" layoutX="156.0" layoutY="61.0" prefHeight="589.0" prefWidth="794.0" visible="false">
          <children>
-            <Text layoutX="56.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Set up Overdraft Protection" textAlignment="CENTER">
+            <Text layoutX="306.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CHECKING ACCOUNTS" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </Text>
+            <TableView fx:id="checkingTable" layoutX="71.0" layoutY="81.0" prefHeight="380.0" prefWidth="638.0">
+              <columns>
+                <TableColumn fx:id="checkingAcctNum" prefWidth="148.0" text="Account Number" />
+                <TableColumn fx:id="checkingBalance" prefWidth="123.0" text="Balance" />
+                  <TableColumn fx:id="checkingAccountType" prefWidth="90.0" text="Account Type" />
+                  <TableColumn fx:id="checkingSSN" prefWidth="108.0" text="SSN" />
+                  <TableColumn fx:id="overdraftAccountNumber" prefWidth="168.0" text="Overdraft Account Number" />
+              </columns>
+            </TableView>
+            <Button fx:id="c_LoadAcctsButton" layoutX="350.0" layoutY="491.0" mnemonicParsing="false" onAction="#readToCheckingTable" text="Load Accounts" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="reviewSavingsAcctsAnchor" layoutX="156.0" layoutY="62.0" prefHeight="589.0" prefWidth="794.0" visible="false">
+         <children>
+            <Text layoutX="305.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SAVINGS ACCOUNTS" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Text>
+            <TableView fx:id="savingsTable" layoutX="71.0" layoutY="81.0" prefHeight="380.0" prefWidth="638.0">
+               <columns>
+                  <TableColumn fx:id="savingsAcctNum" prefWidth="141.0" text="Account Number" />
+                  <TableColumn fx:id="savingsBalance" prefWidth="118.0" text="Balance" />
+                  <TableColumn fx:id="savingsInterestRate" minWidth="0.0" prefWidth="113.0" text="Interest Rate" />
+                  <TableColumn fx:id="savingsDate" prefWidth="128.0" text="Start Date" />
+                  <TableColumn fx:id="savingsSSN" prefWidth="137.0" text="SSN" />
+               </columns>
+            </TableView>
+            <Button fx:id="s_LoadAcctsButton" layoutX="350.0" layoutY="491.0" mnemonicParsing="false" onAction="#readToSavingsTable" text="Load Accounts" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="reviewCDAcctsAnchor" layoutX="156.0" layoutY="62.0" prefHeight="589.0" prefWidth="794.0" visible="false">
+         <children>
+            <Text layoutX="330.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CD ACCOUNTS" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Text>
+            <TableView fx:id="cdTable" layoutX="63.0" layoutY="81.0" prefHeight="380.0" prefWidth="668.0">
+               <columns>
+                  <TableColumn fx:id="cdAcctNum" prefWidth="109.0" text="Account Number" />
+                  <TableColumn fx:id="cdBalance" minWidth="0.0" prefWidth="84.0" text="Balance" />
+                  <TableColumn fx:id="cdInterestRate" prefWidth="79.0" text="Interest Rate" />
+                  <TableColumn fx:id="cdStartDate" prefWidth="99.0" text="Start Date" />
+                  <TableColumn fx:id="cdEndDate" prefWidth="90.0" text="End Date" />
+                  <TableColumn fx:id="cdWithdrawDate" prefWidth="93.0" text="Withdraw Date" />
+                  <TableColumn fx:id="cdSSN" prefWidth="112.0" text="SSN" />
+               </columns>
+            </TableView>
+            <Button fx:id="cd_LoadAcctsButton" layoutX="350.0" layoutY="491.0" mnemonicParsing="false" onAction="#readToCDTable" text="Load Accounts" />
          </children>
       </AnchorPane>
    </children>
