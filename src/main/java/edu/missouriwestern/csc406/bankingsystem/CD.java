@@ -19,19 +19,22 @@ public class CD {
     private String endDate;
     @CsvBindByName
     private String withdrawDate;
+    @CsvBindByName
+    private String SSN;
 
     public CD()
     {
 
     }
 
-    public CD(String cdAcctNum, double balance, double interestRate, String startDate, String endDate, String withdrawDate) {
+    public CD(String cdAcctNum, double balance, double interestRate, String startDate, String endDate, String withdrawDate, String SSN) {
         this.cdAcctNum = cdAcctNum;
         this.balance = balance;
         this.interestRate = interestRate;
         this.startDate = startDate;
         this.endDate = endDate;
         this.withdrawDate = withdrawDate;
+        this.SSN = SSN;
         withdrawamt();
     }
 
@@ -98,5 +101,13 @@ public class CD {
 
     public void setWithdrawDate(String withdrawDate) {
         this.withdrawDate = withdrawDate;
+    }
+
+    public String getSSN() {
+        return SSN;
+    }
+
+    public void setSSN(String SSN) {
+        this.SSN = SSN;
     }
 }
