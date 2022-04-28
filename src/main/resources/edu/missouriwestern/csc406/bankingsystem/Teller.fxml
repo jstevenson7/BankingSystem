@@ -86,7 +86,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="reviewCustomerButton" mnemonicParsing="false" onAction="#toReviewCustomer" prefHeight="84.0" prefWidth="260.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Review A Customer">
+            <Button fx:id="reviewCustomerButton" mnemonicParsing="false" onAction="#toReviewCustomer" prefHeight="84.0" prefWidth="260.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Review ">
                <font>
                   <Font size="15.0" />
                </font>
