@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
@@ -8,7 +9,9 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="950.0" style="-fx-background-color: red;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.missouriwestern.csc406.bankingsystem.z_Customer_ATM">
    <children>
@@ -23,7 +26,7 @@
       </HBox>
       <HBox alignment="CENTER" layoutX="38.0" layoutY="147.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="357.0" prefWidth="530.0" style="-fx-background-color: white; -fx-border-color: black;">
          <children>
-            <Label fx:id="atmLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="54.0" prefWidth="385.0" text="Please enter your ATM card number." textAlignment="CENTER" wrapText="true">
+            <Label fx:id="atmLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="54.0" prefWidth="385.0" text="Please enter your ATM card number and PIN." textAlignment="CENTER" wrapText="true">
                <font>
                   <Font size="18.0" />
                </font>
@@ -54,7 +57,129 @@
          <font>
             <Font size="17.0" />
          </font></PasswordField>
-      <TextField fx:id="withdrawAmtText" layoutX="642.0" layoutY="426.0" onAction="#validateWithdrawAmt" prefHeight="40.0" prefWidth="222.0" promptText="Withdraw Amount" visible="false" />
-      <Button fx:id="receiptButton" layoutX="402.0" layoutY="332.0" mnemonicParsing="false" onAction="#viewReceipt" prefHeight="58.0" prefWidth="122.0" style="-fx-background-color: white;" visible="false" />
+      <AnchorPane fx:id="receiptAnchor" layoutX="351.0" layoutY="143.0" prefHeight="377.0" prefWidth="267.0" style="-fx-background-color: #ebebeb;" visible="false">
+         <children>
+            <HBox alignment="CENTER" layoutY="-1.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="34.0" prefWidth="269.0" style="-fx-background-color: #b8b8b8; -fx-border-color: black;">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Withdraw Successful!" textAlignment="CENTER" wrappingWidth="267.13671875">
+                     <font>
+                        <Font name="Gill Sans MT" size="15.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <AnchorPane fx:id="receiptTP" layoutY="33.0" prefHeight="352.0" prefWidth="269.0" style="-fx-border-color: black;">
+               <children>
+                  <Text layoutX="55.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thank you for using Public Bank! See you next time." textAlignment="CENTER" wrappingWidth="164.0">
+                     <font>
+                        <Font name="Gill Sans MT" size="15.0" />
+                     </font>
+                  </Text>
+                  <ImageView fitHeight="237.0" fitWidth="247.0" layoutX="16.0" layoutY="71.0" opacity="0.05" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/logo.png" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="34.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Withdraw of:" textAlignment="RIGHT" x="25.0" y="25.0" />
+                  <Text layoutX="57.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account:" textAlignment="RIGHT" x="25.0" y="25.0" />
+                  <Text layoutX="32.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Transaction:" x="25.0" y="25.0">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="74.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date:" textAlignment="RIGHT" x="25.0" y="25.0" />
+                  <Label fx:id="r_DateLabel" layoutX="141.0" layoutY="63.0" prefHeight="17.0" prefWidth="62.0" text="Label" />
+                  <Label fx:id="r_WithdrawAmtLabel" layoutX="141.0" layoutY="85.0" prefHeight="17.0" prefWidth="62.0" text="Label" />
+                  <Label fx:id="r_AcctNumLabel" layoutX="141.0" layoutY="130.0" prefHeight="17.0" prefWidth="62.0" text="Label" />
+                  <Label fx:id="r_StartBalLabel" layoutX="163.0" layoutY="189.0" prefHeight="17.0" prefWidth="62.0" text="Label" textAlignment="RIGHT" wrapText="true" />
+                  <Button fx:id="r_CloseButton" layoutX="162.0" layoutY="313.0" mnemonicParsing="false" onAction="#closeReceipt" prefHeight="25.0" prefWidth="91.0" style="-fx-background-color: #f5dada; -fx-border-color: grey;" text="Okay, close." />
+                  <Text layoutX="16.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Strating Balance" x="25.0" y="25.0" />
+                  <Text layoutX="120.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-" x="25.0" y="25.0" />
+                  <Label fx:id="r_AmtWithdrawn" layoutX="163.0" layoutY="206.0" prefHeight="17.0" prefWidth="62.0" text="Label" textAlignment="RIGHT" wrapText="true" />
+                  <Line endX="100.0" layoutX="137.0" layoutY="229.0" startX="-100.0" stroke="#464646" />
+                  <Label fx:id="r_EndBalLabel" layoutX="164.0" layoutY="237.0" prefHeight="17.0" prefWidth="62.0" text="Label" textAlignment="RIGHT" wrapText="true" />
+                  <Text layoutX="11.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Remaining Balance" x="25.0" y="25.0" />
+                  <Text layoutX="23.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Checking Type: " textAlignment="RIGHT" x="25.0" y="25.0" />
+                  <Label fx:id="r_CheckingAcctTypeLabel" layoutX="141.0" layoutY="107.0" prefHeight="17.0" prefWidth="111.0" text="Label" wrapText="true" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <TextField fx:id="withdrawAmtText" layoutX="642.0" layoutY="427.0" onAction="#validateWithdrawAmt" prefHeight="38.0" prefWidth="222.0" promptText="Withdraw Amount" visible="false">
+         <font>
+            <Font size="15.0" />
+         </font></TextField>
+      <DatePicker fx:id="datePicker" layoutX="638.0" layoutY="105.0" onAction="#getDateText" prefHeight="27.0" prefWidth="229.0" promptText="mm/dd/yyyy" />
+      <AnchorPane fx:id="receiptButtonPane" layoutX="652.0" layoutY="543.0" prefHeight="87.0" prefWidth="208.0" visible="false">
+         <children>
+            <ImageView fitHeight="96.0" fitWidth="208.0" layoutY="-6.0">
+               <image>
+                  <Image url="@../../../../Images/ReceiptATM.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="viewReceiptButton" alignment="CENTER" contentDisplay="CENTER" layoutY="-3.0" mnemonicParsing="false" onAction="#viewReceipt" opacity="0.0" prefHeight="93.0" prefWidth="209.0" style="-fx-background-color: white;" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="receiptOverdraftAnchor" layoutX="348.0" layoutY="143.0" prefHeight="377.0" prefWidth="267.0" style="-fx-background-color: #ebebeb;" visible="false">
+         <children>
+            <HBox alignment="CENTER" layoutY="-1.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="34.0" prefWidth="269.0" style="-fx-background-color: #b8b8b8; -fx-border-color: black;">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Withdraw Successful!" textAlignment="CENTER" wrappingWidth="267.13671875">
+                     <font>
+                        <Font name="Gill Sans MT" size="15.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <AnchorPane fx:id="receiptTP1" layoutY="33.0" prefHeight="434.0" prefWidth="269.0" style="-fx-border-color: black;">
+               <children>
+                  <Text layoutX="48.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thank you for using Public Bank! See you next time." textAlignment="CENTER" wrappingWidth="181.9999999999999">
+                     <font>
+                        <Font name="Gill Sans MT" size="15.0" />
+                     </font>
+                  </Text>
+                  <ImageView fitHeight="237.0" fitWidth="247.0" layoutX="16.0" layoutY="71.0" opacity="0.05" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/logo.png" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="35.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Withdraw of:" x="25.0" y="25.0" />
+                  <Text layoutX="56.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account:" x="25.0" y="25.0" />
+                  <Text layoutX="-3.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Checking Transaction:" x="25.0" y="25.0">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="76.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date:" x="25.0" y="25.0" />
+                  <Label fx:id="rOV_DateLabel" layoutX="142.0" layoutY="53.0" prefHeight="17.0" prefWidth="62.0" text="Label" />
+                  <Label fx:id="rOV_WithdrawAmtLabel" layoutX="142.0" layoutY="76.0" prefHeight="17.0" prefWidth="62.0" text="Label" />
+                  <Label fx:id="rOV_AcctNumLabel" layoutX="142.0" layoutY="97.0" prefHeight="17.0" prefWidth="62.0" text="Label" />
+                  <Label fx:id="rOV_StartBalLabel" layoutX="157.0" layoutY="172.0" prefHeight="17.0" prefWidth="62.0" text="Label" textAlignment="RIGHT" wrapText="true" />
+                  <Button fx:id="rOV_CloseButton" layoutX="164.0" layoutY="393.0" mnemonicParsing="false" onAction="#closeReceipt" prefHeight="25.0" prefWidth="91.0" style="-fx-background-color: #f5dada; -fx-border-color: grey;" text="Okay, close." />
+                  <Text layoutX="10.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Strating Balance" x="25.0" y="25.0" />
+                  <Text layoutX="114.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-" x="25.0" y="25.0" />
+                  <Label fx:id="rOV_AmtWithdrawnLabel" layoutX="157.0" layoutY="189.0" prefHeight="17.0" prefWidth="62.0" text="Label" textAlignment="RIGHT" wrapText="true" />
+                  <Line endX="100.0" layoutX="131.0" layoutY="212.0" startX="-100.0" stroke="#464646" />
+                  <Label fx:id="rOV_EndBalLabel" layoutX="158.0" layoutY="218.0" prefHeight="17.0" prefWidth="62.0" text="Label" textAlignment="RIGHT" wrapText="true" />
+                  <Text layoutX="5.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Remaining Balance" x="25.0" y="25.0" />
+                  <Text layoutX="6.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Overdraft Account:" x="25.0" y="25.0" />
+                  <Label fx:id="rOV_ovAcctNumLabel" layoutX="142.0" layoutY="114.0" prefHeight="17.0" prefWidth="62.0" text="Label" />
+                  <Text layoutX="-2.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Savings Transaction:" x="25.0" y="25.0">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Label fx:id="rOV_sStartBalLabel" layoutX="158.0" layoutY="277.0" prefHeight="17.0" prefWidth="62.0" text="Label" textAlignment="RIGHT" wrapText="true" />
+                  <Text layoutX="11.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Strating Balance" x="25.0" y="25.0" />
+                  <Text layoutX="115.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-" x="25.0" y="25.0" />
+                  <Label fx:id="rOV_sAmtWithdrawnLabel" layoutX="158.0" layoutY="294.0" prefHeight="17.0" prefWidth="62.0" text="Label" textAlignment="RIGHT" wrapText="true" />
+                  <Line endX="100.0" layoutX="132.0" layoutY="317.0" startX="-100.0" stroke="#464646" />
+                  <Label fx:id="rOV_sEndBalLabel" layoutX="159.0" layoutY="323.0" prefHeight="17.0" prefWidth="62.0" text="Label" textAlignment="RIGHT" wrapText="true" />
+                  <Text layoutX="6.0" layoutY="311.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Remaining Balance" x="25.0" y="25.0" />
+                  <Label fx:id="rOV_AcctTypeLabel" layoutX="199.0" layoutY="97.0" prefHeight="17.0" prefWidth="54.0" text="Label" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

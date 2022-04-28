@@ -76,12 +76,12 @@ public class z_Customer_InsertCheck {
         receiptButton.setOnMouseEntered(event -> receiptButton.setStyle("-fx-background-color: #ffffff"));
         receiptButton.setOnMouseExited(event -> receiptButton.setStyle("-fx-background-color:  #000000"));
         // Close Receipt Button
-        receiptCloseButton.setOnMouseEntered(event -> receiptCloseButton.setStyle("-fx-background-color: #EA6E6E"));
-        receiptCloseButton.setOnMouseExited(event -> receiptCloseButton.setStyle("-fx-background-color: #ebebeb; -fx-border-color: grey"));
+        receiptCloseButton.setOnMouseEntered(event -> receiptCloseButton.setStyle("-fx-background-color: #f7bebe; -fx-border-color: grey"));
+        receiptCloseButton.setOnMouseExited(event -> receiptCloseButton.setStyle("-fx-background-color:  #f5dada; -fx-border-color: grey"));
         // TextFields
         payToText.setStyle(" -fx-focus-color: #ffc7c7; -fx-faint-focus-color: #ffc7c7");
         amtText.setStyle(" -fx-focus-color: #ffc7c7; -fx-faint-focus-color: #ffc7c7");
-        datePicker.setStyle(" -fx-focus-color: #ffc7c7; -fx-faint-focus-color: #ffc7c7");
+        datePicker.setStyle(" -fx-focus-color: #ffc7c7; -fx-faint-focus-color: #ffc7c7; -fx-focus-traversable: false");
         noteText.setStyle(" -fx-focus-color: #ffc7c7; -fx-faint-focus-color: #ffc7c7");
         accNumText.setStyle(" -fx-focus-color: #ffc7c7; -fx-faint-focus-color: #ffc7c7");
         routNumText.setStyle(" -fx-focus-color: #ffc7c7; -fx-faint-focus-color: #ffc7c7");
