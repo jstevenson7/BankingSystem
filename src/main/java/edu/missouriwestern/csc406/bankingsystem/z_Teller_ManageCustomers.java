@@ -186,6 +186,39 @@ public class z_Teller_ManageCustomers {
         deleteCustomerSSN.clear();
     }
 
+    //method for setting up and rolling out a deletingCustomers and their accounts
+    public void deleteingCustomerAccounts(ActionEvent event) throws IOException
+    {
+        //read in customers from the DB
+        ArrayList<Customer> customers = DB.readCustomersCSV();
+
+        //(?) get from options(Need to create drop down method, gonna give a stab at it -RM)
+        if(DB.verifyCustomer(deleteCustomerSSN.getText(), customers))
+        {
+            for(Customer cust: customers)
+            {
+                if(cust.getSSN().equals(deleteCustomerSSN.getText()))
+                {
+                    /**
+                     //Holds this for now, still getting used to JavaFX/Need to make the drop menu
+                     switch()
+                     {
+                     case 0:
+
+                     case 1:
+
+                     case 2:
+
+                     case 3:
+
+                     default:
+                     }
+                     */
+                }
+            }
+        }
+    }
+
     public void displayCreate(ActionEvent event) throws IOException {
         mainAnchor.setVisible(false);
         deleteAnchor.setVisible(false);
