@@ -5,6 +5,9 @@ import com.opencsv.bean.CsvBindByName;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -29,7 +32,7 @@ public class Loans  {
     @CsvBindByName
     private double paid;
 
-    private String currentDate;
+    private ArrayList<Date> datelist = new ArrayList<>();
 
     private double payment;
 
@@ -37,8 +40,15 @@ public class Loans  {
 
     private Date paymentdate;
 
+    private int recurringpaymentdate;
+
+    private double initialbalance;
 
     private double paymentplan;
+
+    private double totalloan;
+
+    private double paymentdue;
 
     public Loans() {
 
@@ -51,60 +61,85 @@ public class Loans  {
         this.startDate = startDate;
         this.endDate = endDate;
         this.loanType = loanType;
+        this.initialbalance = balance;
         problem = 0;//accounts aren't created as problem accounts, unless specified.
-        this.currentDate = "04-20-2022";
         interest();
-        paymentplan();
 
     }
+
+
 
     public void interest () throws ParseException {
         SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy");
         Date startingdate = sdf.parse(startDate);
-        Date currentdate = sdf.parse(currentDate);
+        Date enddate = sdf.parse(endDate);
 
-        long diffInTime = currentdate.getTime() - startingdate.getTime();
-        long diffInMonth = (diffInTime/(1000*60*60*24*30));
+        double diffInTime = enddate.getTime() - startingdate.getTime();
+        System.out.println("enddate = " + enddate.getTime());
+        System.out.println("startdate = " + startingdate.getTime());
+        double diffInMonth = (diffInTime/(2592000000.00));
+        System.out.println("diffinmonth = " + diffInTime);
         int count = (int) diffInMonth;
-
-        while (count > 0)
-        {
-            balance = balance + principal *(interestRate/12);
-            count--;
-        }
-
+        System.out.println("diffinmonth = " + diffInMonth);
+        totalloan = initialbalance + (initialbalance/2) * ((count/12) * interestRate);
+        paymentplan = totalloan/diffInMonth;
+        paymentdue = paymentplan;
     }
 
-    public void paymentplan()
-    {
-        paymentplan = (principal/loanlength)/12;
-    }
 
-    public void makepayment()
-    {
+    public void makepayment(double payment) throws ParseException {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-        balance -= payment;
         Date now = new Date();
         paymentdate = now;
-        paymentontime();
-    }
 
-    public void paymentontime()
-    {
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-        Date now = new Date();
-        if (paymentdate.before(getFirstDateOfMonth(now)))
+
+        if (paymentontime(paymentdate) == true)
         {
-            problem = 0;
+            System.out.println("Thank you for your on-time payment.");
         }
-        else if(paymentdate.after((getFirstDateOfMonth(now))))
+        else if(paymentontime(paymentdate) == false)
         {
+            paymentdue +=75;
             problem = 1;
-            balance+=75;
+
         }
+
+        if (payment >= paymentdue)
+        {
+            paymentdue = 0;
+            balance -= payment;
+            System.out.println("Your balance on your loan is now: " + balance);
+        }
+        else if (payment < paymentdue)
+        {
+            paymentdue -= payment;
+            balance -= payment;
+            System.out.println("Unfortunately, you did not pay the entire amount for your loan this month.  You still owe: $" + paymentdue + " this month");
+
+        }
+    }
+
+    public boolean paymentontime(Date date) throws ParseException {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+
+        SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy");
+        Date startingdate = sdf.parse(startDate);
+
+        Date duedate = new Date();
+        duedate.setTime((long) (startingdate.getTime() + 252000000.00));
+
+
+        if(date.after(duedate))
+        {
+            return false;
+        }
+
+        return true;
 
 
     }
+
+
 
     public void amountpaid()
     {
@@ -115,12 +150,15 @@ public class Loans  {
     @Override
     public String toString() {
         return "Loans{" +
-                "LoanID='" + loanAcctNum + '\'' +
+                "loanAcctNum='" + loanAcctNum + '\'' +
                 ", balance=" + balance +
                 ", interestRate=" + interestRate +
                 ", startDate='" + startDate + '\'' +
                 ", endDate='" + endDate + '\'' +
                 ", loanType=" + loanType +
+                ", initialbalance=" + initialbalance +
+                ", paymentplan=" + paymentplan +
+                ", totalloan=" + totalloan +
                 '}';
     }
 
@@ -172,10 +210,10 @@ public class Loans  {
         this.loanType = loanType;
     }
 
-    public static Date getFirstDateOfMonth(Date date){
+    public static Date getLastDateOfMonth(Date date){
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
-        cal.set(Calendar.DAY_OF_MONTH, cal.getActualMinimum(Calendar.DAY_OF_MONTH));
+        cal.set(Calendar.DAY_OF_MONTH, cal.getActualMaximum(Calendar.DAY_OF_MONTH));
         return cal.getTime();
     }
 
