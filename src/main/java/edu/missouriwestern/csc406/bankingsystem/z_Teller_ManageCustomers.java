@@ -60,10 +60,22 @@ public class z_Teller_ManageCustomers {
     private Label messageLabel;
 
     /* --- DELETE ANCHOR DATA --- */
+    /*
     @FXML
     private AnchorPane deleteAnchor;
     @FXML
     private Button dDeleteButton;
+    @FXML
+    private Label deleteMessage;
+     */
+
+    /* --- Possible New DELETE ANCHOR DATA --- */
+    @FXML
+    private AnchorPane deleteAnchor;
+    @FXML
+    private Button dDeleteButton;
+    @FXML
+    private ComboBox<String> dDeleteOptions;
     @FXML
     private Label deleteMessage;
 
@@ -191,6 +203,10 @@ public class z_Teller_ManageCustomers {
     {
         //read in customers from the DB
         ArrayList<Customer> customers = DB.readCustomersCSV();
+        ArrayList<Checking> checkings = DB.readCheckingCSV();
+        ArrayList<Savings> savings = DB.readSavingsCSV();
+
+        double balanceToReturn = 0;
 
         //(?) get from options(Need to create drop down method, gonna give a stab at it -RM)
         if(DB.verifyCustomer(deleteCustomerSSN.getText(), customers))
@@ -199,24 +215,45 @@ public class z_Teller_ManageCustomers {
             {
                 if(cust.getSSN().equals(deleteCustomerSSN.getText()))
                 {
-                    /**
                      //Holds this for now, still getting used to JavaFX/Need to make the drop menu
-                     switch()
+                     switch(dDeleteOptions.getValue())
                      {
-                     case 0:
-
-                     case 1:
-
-                     case 2:
-
-                     case 3:
-
+                     case "Delete Checking":
+                        balanceToReturn = balanceToReturn + DB.CustomerManagers(deleteCustomerSSN.getText(), customers, checkings, savings, 0);
+                         deleteMessage.setText("Deleted Checking!");
+                         deleteMessage.setTextFill(Color.GREEN);
+                     case "Delete Savings":
+                         balanceToReturn = balanceToReturn + DB.CustomerManagers(deleteCustomerSSN.getText(), customers, checkings, savings, 1);
+                         deleteMessage.setText("Deleted! Savings");
+                         deleteMessage.setTextFill(Color.GREEN);
+                     case "Delete Checking and Savings":
+                         balanceToReturn = balanceToReturn + DB.CustomerManagers(deleteCustomerSSN.getText(), customers, checkings, savings, 2);
+                         deleteMessage.setText("Deleted Checking and Savings!");
+                         deleteMessage.setTextFill(Color.GREEN);
+                     case "Delete Checking, Savings, and Customer":
+                         balanceToReturn = balanceToReturn + DB.CustomerManagers(deleteCustomerSSN.getText(), customers, checkings, savings, 3);
+                         deleteMessage.setText("Deleted Checking, Savings, and Customer!");
+                         deleteMessage.setTextFill(Color.GREEN);
                      default:
                      }
-                     */
+                    //DB.CustomerManagers(deleteCustomerSSN.getText(), customers, checkings, savings, 7);
                 }
             }
         }
+        else
+        {
+            deleteMessage.setText("Invalid SSN!");
+            deleteMessage.setTextFill(Color.RED);
+        }
+
+        // write customers back to database/csv
+        DB.writeCustomerCSV(customers);
+        //write checking back
+        DB.writeCheckingCSV(checkings);
+        //write savings back
+        DB.writeSavingsCSV(savings);
+        // clear box
+        deleteCustomerSSN.clear();
     }
 
     public void displayCreate(ActionEvent event) throws IOException {
@@ -244,6 +281,8 @@ public class z_Teller_ManageCustomers {
         createACustomerButton.setOnMouseExited(event -> createACustomerButton.setStyle("-fx-background-color: #d4d4d4; -fx-border-color:  #b0b0b0"));
         deleteACustomerButton.setOnMouseEntered(event -> deleteACustomerButton.setStyle("-fx-background-color: #E8ADAD; -fx-border-color: #000000"));
         deleteACustomerButton.setOnMouseExited(event -> deleteACustomerButton.setStyle("-fx-background-color: #d4d4d4; -fx-border-color:  #b0b0b0"));
+        dDeleteOptions.getItems().addAll("Delete Checking", "Delete Savings", "Delete Checking and Savings", "Delete Checking, Savings, and Customer");
+        dDeleteOptions.setVisibleRowCount(4);
         cStateBox.getItems().addAll("AL","AK","AZ","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI",
                 "MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX",
                 "UT","VT","VA","WA","WV","WI","WY");
