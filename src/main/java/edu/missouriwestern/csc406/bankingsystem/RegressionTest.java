@@ -31,6 +31,11 @@ public class RegressionTest {
         System.out.println(cc.toString());
         cc.makepayment(750);
         System.out.println(cc.toString());
+        
+        
+        Loans loan = new Loans("111", 20000, .04, "02-29-2022", "02-02-2027", 2);
+        System.out.println(loan.toString());
+        loan.makepayment(372.40487536218);
 
     }
 }
