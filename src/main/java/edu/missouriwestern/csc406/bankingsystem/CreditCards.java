@@ -2,6 +2,8 @@ package edu.missouriwestern.csc406.bankingsystem;
 
 import com.opencsv.bean.CsvBindByName;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -16,13 +18,9 @@ public class CreditCards {
     @CsvBindByName
     private String SSN;
 
-    private Date paymentdate;
-
-    private double paymentplan;
-
     private double balance;
 
-    private String purchaseinfo;
+    private LocalDate datedue;
 
     private ArrayList<String> purchasehistory = new ArrayList<String>();
 
@@ -40,30 +38,46 @@ public class CreditCards {
 
     public void makepurchase (double purchaseamnt, String purchaseinformation)
     {
+        String now = calcCurrentDate();
         if ((balance + purchaseamnt) > creditcardlimit)
         {
             System.out.println("Insufficient funds");
+            System.out.println("Your current balance is " + balance + " and your credit card limit is " + creditcardlimit);
         }
         else if ((balance + purchaseamnt) <= creditcardlimit)
         {
             balance += purchaseamnt;
-            purchasehistory.add(purchaseamnt + " " + purchaseinformation);
+            purchasehistory.add("$" + purchaseamnt + " for a " + purchaseinformation + " on " + now );
         }
+
+
     }
 
     public void makepayment (double paymentamt)
     {
         if ((balance - paymentamt) < 0)
         {
-            System.out.println("Invalid amount, can't have a balance of less than 0");
+            System.out.println("Invalid amount, can't have a balance of less than.  You currently have a balance of: " + balance);
 
         }
         else if((balance - paymentamt) >= 0)
         {
 
             balance -= paymentamt;
+            System.out.println("Payment processed in the amount of " + paymentamt);
 
         }
+    }
+
+    public void paymentdue ()
+    {
+
+        LocalDate date = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/YYYY");
+
+        System.out.println(date.getMonthValue());
+
+
     }
 
     public String getCreditcardnumber() {
@@ -78,10 +92,7 @@ public class CreditCards {
                 ", creditcardlimit=" + creditcardlimit +
                 ", interestRate=" + interestRate +
                 ", SSN='" + SSN + '\'' +
-                ", paymentdate=" + paymentdate +
-                ", paymentplan=" + paymentplan +
                 ", balance=" + balance +
-                ", purchaseinfo='" + purchaseinfo + '\'' +
                 ", purchasehistory=" + purchasehistory +
                 '}';
     }
@@ -106,29 +117,8 @@ public class CreditCards {
         this.interestRate = interestRate;
     }
 
-    public Date getPaymentdate() {
-        return paymentdate;
-    }
 
-    public void setPaymentdate(Date paymentdate) {
-        this.paymentdate = paymentdate;
-    }
 
-    public double getPaymentplan() {
-        return paymentplan;
-    }
-
-    public void setPaymentplan(double paymentplan) {
-        this.paymentplan = paymentplan;
-    }
-
-    public String getPurchaseinfo() {
-        return purchaseinfo;
-    }
-
-    public void setPurchaseinfo(String purchaseinfo) {
-        this.purchaseinfo = purchaseinfo;
-    }
 
     public ArrayList<String> getPurchasehistory() {
         return purchasehistory;
@@ -143,5 +133,13 @@ public class CreditCards {
         purchasehistory.add(purchaseinfo);
     }
 
-    
+    public String calcCurrentDate() {
+        LocalDate date = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/YYYY");
+        return formatter.format(date);
+    }
+
+
+
+
 }
