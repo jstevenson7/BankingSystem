@@ -229,7 +229,8 @@
                   <Font size="15.0" />
                </font>
             </Text>
-            <Button fx:id="dDeleteButton" layoutX="296.0" layoutY="132.0" mnemonicParsing="false" onAction="#deleteCustomer" prefHeight="31.0" prefWidth="154.0" text="Delete Customer" />
+            <Button fx:id="dDeleteButton" layoutX="295.0" layoutY="203.0" mnemonicParsing="false" onAction="#deleteingCustomerAccounts" prefHeight="31.0" prefWidth="154.0" text="Delete Customer" />
+            <ComboBox fx:id="dDeleteOptions" layoutX="297.0" layoutY="134.0" prefWidth="150.0" />
          </children>
       </AnchorPane>
    </children>

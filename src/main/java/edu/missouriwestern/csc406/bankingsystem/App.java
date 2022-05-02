@@ -51,6 +51,7 @@ public class App extends Application {
             stage.getIcons().add(new Image("file:src/main/resources/Images/icon.png"));
             stage.setScene(scene);
             stage.show();
+            stage.setAlwaysOnTop(true);
         } catch(Exception e) {
             e.printStackTrace();
         }
