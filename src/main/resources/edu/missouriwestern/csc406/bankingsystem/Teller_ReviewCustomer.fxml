@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -52,7 +53,7 @@
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="88.0" prefWidth="253.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Review a Specific Customer" textAlignment="CENTER" wrapText="true">
+            <Button fx:id="transactionsButton" alignment="CENTER" mnemonicParsing="false" onAction="#toTransactions" prefHeight="88.0" prefWidth="253.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Review a Customer's Transactions" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font size="15.0" />
                </font>
@@ -112,14 +113,14 @@
             </Text>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="reviewSpecificCustAnchor" layoutX="157.0" layoutY="61.0" prefHeight="589.0" prefWidth="794.0" visible="false">
+      <AnchorPane fx:id="transactionsAnchor" layoutX="157.0" layoutY="61.0" prefHeight="589.0" prefWidth="794.0" visible="false">
          <children>
             <Text layoutX="265.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Review A Specific Customer" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </Text>
-            <TextField layoutX="121.0" layoutY="536.0" promptText="000-00-0000">
+            <TextField fx:id="transactionsSSNTF" layoutX="121.0" layoutY="536.0" promptText="000-00-0000">
                <font>
                   <Font size="15.0" />
                </font>
@@ -129,6 +130,20 @@
                   <Font size="15.0" />
                </font>
             </Text>
+            <TableView fx:id="transactionsTable" layoutX="25.0" layoutY="68.0" prefHeight="421.0" prefWidth="744.0">
+              <columns>
+                <TableColumn fx:id="transactionNum" prefWidth="129.0" text="Transaction Number" />
+                <TableColumn fx:id="transactionsSSN" prefWidth="100.0" text="SSN" />
+                  <TableColumn fx:id="transactionsAcctType" prefWidth="142.0" text="Account Type" />
+                  <TableColumn fx:id="transactionsAcctNum" prefWidth="108.0" text="Account Number" />
+                  <TableColumn fx:id="transactionsAmount" prefWidth="121.0" text="Transaction Amount" />
+                  <TableColumn fx:id="transactionsMemo" minWidth="0.0" prefWidth="144.0" text="Memo" />
+                  <TableColumn fx:id="transactionsDate" minWidth="2.0" prefWidth="84.0" text="Date" />
+                  <TableColumn fx:id="transactionsCheckNum" minWidth="3.0" prefWidth="88.0" text="Check Number" />
+              </columns>
+            </TableView>
+            <Button fx:id="loadTransactionsButton" layoutX="363.0" layoutY="539.0" mnemonicParsing="false" onAction="#readToTransactionsTable" text="Load Transactions" />
+            <Label fx:id="transactionsLabel" layoutX="121.0" layoutY="510.0" prefHeight="17.0" prefWidth="357.0" text="Please enter the customers SSN:" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="reviewCheckingAcctsAnchor" layoutX="156.0" layoutY="61.0" prefHeight="589.0" prefWidth="794.0" visible="false">
