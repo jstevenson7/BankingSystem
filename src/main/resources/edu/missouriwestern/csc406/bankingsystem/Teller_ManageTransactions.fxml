@@ -308,7 +308,7 @@
             </AnchorPane>
             <AnchorPane layoutX="103.0" layoutY="302.0" prefHeight="144.0" prefWidth="485.0" style="-fx-background-color: #e6e6e6;">
                <children>
-                  <ComboBox fx:id="t_toAcctTypeCB1" layoutX="236.0" layoutY="43.0" prefHeight="31.0" prefWidth="194.0" />
+                  <ComboBox fx:id="t_fromAcctTypeCB" layoutX="236.0" layoutY="43.0" prefHeight="31.0" prefWidth="194.0" />
                   <Text layoutX="129.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Type:">
                      <font>
                         <Font size="15.0" />
@@ -319,7 +319,7 @@
                         <Font size="15.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="t_toAcctNumTF1" layoutX="238.0" layoutY="87.0" prefHeight="27.0" prefWidth="137.0" promptText="999999999">
+                  <TextField fx:id="t_fromAcctNumTF" layoutX="238.0" layoutY="87.0" prefHeight="27.0" prefWidth="137.0" promptText="999999999">
                      <font>
                         <Font size="15.0" />
                      </font>

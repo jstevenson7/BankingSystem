@@ -456,20 +456,128 @@ public class z_Teller_ManageTransactions {
                 ArrayList<Checking> checkings = DB.readCheckingCSV();
                 ArrayList<Savings> savings = DB.readSavingsCSV();
                 // verify TO account
-                /**
-                if (DB.verifyAccountNumber(t_toAcctNumTF.getText(), checkings)) {
-                    // verify FROM account
-                } else if () {
-
-                } else if () {
-
+                if (DB.verifyCheckingSSN(t_ssnTF.getText(), checkings) && DB.verifySavingsSSN(t_ssnTF.getText(),savings)) {
+                    Checking checking = DB.searchChecking(t_ssnTF.getText(),checkings);
+                    // verify checking account type
+                    if (checking.getAccountType() == 1 && t_toAcctTypeCB.getValue().equals("Checking - Gold/Diamond")) {
+                        // verify FROM account
+                        if (DB.verifySavingsSSN(t_ssnTF.getText(), savings) && t_fromAcctTypeCB.getValue().equals("Savings - Simple")) {
+                            Savings savings1 = DB.searchSavings(t_ssnTF.getText(), savings);
+                            if (savings1.getSavingsAcctNum().equals(t_fromAcctNumTF.getText())) {
+                                if (DB.verifyBalance(Double.valueOf(t_amountTF.getText()), checking)) {
+                                    checking.withdraw(Double.valueOf(t_amountTF.getText()));
+                                    savings1.deposit(Double.valueOf(t_amountTF.getText()));
+                                    ArrayList<Transaction> transactions = DB.readTransactionsCSV();
+                                    Transaction transaction = new Transaction(DB.generateTransactionNumber(), t_ssnTF.getText(), "Checking - Gold/Diamond",
+                                            checking.getCheckingAcctNum(), (0 - Double.parseDouble(t_amountTF.getText())), "Transfer from Checking to Savings", tfDatePicker, "0");
+                                    transactions.add(transaction);
+                                    DB.writeTransactionsCSV(transactions);
+                                    DB.writeCheckingCSV(checkings);
+                                    DB.writeSavingsCSV(savings);
+                                    t_ssnTF.clear();
+                                    t_amountTF.clear();
+                                    t_fromAcctNumTF.clear();
+                                    t_toAcctNumTF.clear();
+                                    t_message.setText("Success!");
+                                    t_message.setTextFill(Color.GREEN);
+                                } else {
+                                    t_message.setText("Insufficient Funds!");
+                                    t_message.setTextFill(Color.RED);
+                                }
+                            }
+                        } else {
+                            t_message.setText("Unknown FROM Account!");
+                            t_message.setTextFill(Color.RED);
+                        }
+                    } else if (checking.getAccountType() == 0 && t_toAcctTypeCB.getValue().equals("Checking - TMB")) {
+                        // verify FROM account
+                        if (DB.verifySavingsSSN(t_ssnTF.getText(), savings) && t_fromAcctTypeCB.getValue().equals("Savings - Simple")) {
+                            Savings savings1 = DB.searchSavings(t_ssnTF.getText(), savings);
+                            if (savings1.getSavingsAcctNum().equals(t_fromAcctNumTF.getText())) {
+                                if (DB.verifyBalance(Double.valueOf(t_amountTF.getText()), checking)) {
+                                    checking.withdraw(Double.valueOf(t_amountTF.getText()));
+                                    savings1.deposit(Double.valueOf(t_amountTF.getText()));
+                                    ArrayList<Transaction> transactions = DB.readTransactionsCSV();
+                                    Transaction transaction = new Transaction(DB.generateTransactionNumber(), t_ssnTF.getText(), "Checking - TMB",
+                                            checking.getCheckingAcctNum(), (0 - Double.parseDouble(t_amountTF.getText())), "Transfer from Checking to Savings", tfDatePicker, "0");
+                                    transactions.add(transaction);
+                                    DB.writeTransactionsCSV(transactions);
+                                    DB.writeCheckingCSV(checkings);
+                                    DB.writeSavingsCSV(savings);
+                                    t_ssnTF.clear();
+                                    t_amountTF.clear();
+                                    t_fromAcctNumTF.clear();
+                                    t_toAcctNumTF.clear();
+                                    t_message.setText("Success!");
+                                    t_message.setTextFill(Color.GREEN);
+                                } else {
+                                    t_message.setText("Insufficient Funds!");
+                                    t_message.setTextFill(Color.RED);
+                                }
+                            }
+                        } else {
+                            t_message.setText("Unknown FROM Account!");
+                            t_message.setTextFill(Color.RED);
+                        }
+                    } else if (t_toAcctTypeCB.getValue().equals("Savings - Simple")) {
+                        Savings savings1 = DB.searchSavings(t_ssnTF.getText(), savings);
+                        // verify FROM account
+                        if (DB.verifyCheckingSSN(t_ssnTF.getText(), checkings) && checking.getAccountType()==1 && t_fromAcctTypeCB.getValue().equals("Checking - Gold/Diamond")) {
+                            if (DB.verifyBalance(Double.valueOf(t_amountTF.getText()), savings1)) {
+                                savings1.withdraw(Double.valueOf(t_amountTF.getText()));
+                                checking.deposit(Double.valueOf(t_amountTF.getText()));
+                                ArrayList<Transaction> transactions = DB.readTransactionsCSV();
+                                Transaction transaction = new Transaction(DB.generateTransactionNumber(), t_ssnTF.getText(), "Savings",
+                                        savings1.getSavingsAcctNum(), (0 - Double.parseDouble(t_amountTF.getText())), "Transfer from Savings to Checking", tfDatePicker, "0");
+                                transactions.add(transaction);
+                                DB.writeTransactionsCSV(transactions);
+                                DB.writeCheckingCSV(checkings);
+                                DB.writeSavingsCSV(savings);
+                                t_ssnTF.clear();
+                                t_amountTF.clear();
+                                t_fromAcctNumTF.clear();
+                                t_toAcctNumTF.clear();
+                                t_message.setText("Success!");
+                                t_message.setTextFill(Color.GREEN);
+                            } else {
+                                t_message.setText("Insufficient Funds!");
+                                t_message.setTextFill(Color.RED);
+                            }
+                        } else if (DB.verifyCheckingSSN(t_ssnTF.getText(), checkings) && checking.getAccountType()==0 && t_fromAcctTypeCB.getValue().equals("Checking - TMB")) {
+                            if (DB.verifyBalance(Double.valueOf(t_amountTF.getText()), savings1)) {
+                                savings1.withdraw(Double.valueOf(t_amountTF.getText()));
+                                checking.deposit(Double.valueOf(t_amountTF.getText()));
+                                ArrayList<Transaction> transactions = DB.readTransactionsCSV();
+                                Transaction transaction = new Transaction(DB.generateTransactionNumber(), t_ssnTF.getText(), "Savings",
+                                        savings1.getSavingsAcctNum(), (0 - Double.parseDouble(t_amountTF.getText())), "Transfer from Savings to Checking", tfDatePicker, "0");
+                                transactions.add(transaction);
+                                DB.writeTransactionsCSV(transactions);
+                                DB.writeCheckingCSV(checkings);
+                                DB.writeSavingsCSV(savings);
+                                t_ssnTF.clear();
+                                t_amountTF.clear();
+                                t_fromAcctNumTF.clear();
+                                t_toAcctNumTF.clear();
+                                t_message.setText("Success!");
+                                t_message.setTextFill(Color.GREEN);
+                            } else {
+                                t_message.setText("Insufficient Funds!");
+                                t_message.setTextFill(Color.RED);
+                            }
+                        } else {
+                            t_message.setText("Unknown FROM Account!");
+                            t_message.setTextFill(Color.RED);
+                        }
+                    } else {
+                        t_message.setText("Unknown Account Type!");
+                        t_message.setTextFill(Color.RED);
+                    }
                 } else {
-                    t_message.setText("Unknown Account Type!");
+                    t_message.setText("Unknown TO Account!");
                     t_message.setTextFill(Color.RED);
                 }
-                **/
             } else {
-                t_message.setText("Unknown SSN");
+                t_message.setText("Unknown SSN!");
                 t_message.setTextFill(Color.RED);
             }
         } else {
@@ -516,6 +624,8 @@ public class z_Teller_ManageTransactions {
         processChecksButton.setOnMouseExited(event -> processChecksButton.setStyle("-fx-background-color: #d4d4d4; -fx-border-color:  #b0b0b0"));
         d_acctTypeCB.getItems().addAll("Checking - TMB", "Checking - Gold/Diamond", "Savings - Simple");
         w_acctTypeCB.getItems().addAll("Checking - TMB", "Checking - Gold/Diamond", "Savings - Simple", "CD");
+        t_toAcctTypeCB.getItems().addAll("Checking - TMB", "Checking - Gold/Diamond", "Savings - Simple");
+        t_fromAcctTypeCB.getItems().addAll("Checking - TMB", "Checking - Gold/Diamond", "Savings - Simple");
         d_acctTypeCB.setVisibleRowCount(5);
 
     } //End of initialize.
