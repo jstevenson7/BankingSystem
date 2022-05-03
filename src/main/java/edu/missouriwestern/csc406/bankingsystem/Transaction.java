@@ -6,6 +6,7 @@ public class Transaction {
     private String accountType;
     private String accountNum;
     private double amount;
+    private String memo;
     private String date;
     private String checkNum;
     // Constructors
@@ -13,12 +14,13 @@ public class Transaction {
         // no arg constructor for opencsv
     }
     public Transaction(String transactionNum, String SSN, String accountType, String accountNum,
-                       double amount, String date, String checkNum) {
+                       double amount, String memo, String date, String checkNum) {
         setTransactionNum(transactionNum);
         setSSN(SSN);
         setAccountType(accountType);
         setAccountNum(accountNum);
         setAmount(amount);
+        setMemo(memo);
         setDate(date);
         setCheckNum(checkNum);
     }
@@ -28,6 +30,7 @@ public class Transaction {
     public String getAccountType() {return accountType;}
     public String getAccountNum() {return accountNum;}
     public double getAmount() {return amount;}
+    public String getMemo() {return memo;}
     public String getDate() {return date;}
     public String getCheckNum() {return checkNum;}
     // Setters
@@ -36,6 +39,7 @@ public class Transaction {
     public void setAccountType(String accountType) {this.accountType = accountType;}
     public void setAccountNum(String accountNum) {this.accountNum = accountNum;}
     public void setAmount(double amount) {this.amount = amount;}
+    public void setMemo(String memo) {this.memo = memo;}
     public void setDate(String date) {this.date = date;}
     public void setCheckNum(String checkNum) {this.checkNum=checkNum;}
 }

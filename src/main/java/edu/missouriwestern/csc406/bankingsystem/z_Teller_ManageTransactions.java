@@ -165,7 +165,7 @@ public class z_Teller_ManageTransactions {
 
     /* ------------ Logic ------------- */
     public void deposit(ActionEvent event) throws IOException {
-        if (!d_ssnTF.getText().isBlank() || !d_acctNumTF.getText().isBlank() || !d_amountTF.getText().isBlank()) {
+        if (!d_ssnTF.getText().isBlank() && dfDatePicker!=null &&!d_acctNumTF.getText().isBlank() && !d_amountTF.getText().isBlank()) {
             ArrayList<Customer> customers = DB.readCustomersCSV();
             // valid SSN in customers
             if (DB.verifyCustomerSSN(d_ssnTF.getText(), customers)) {
@@ -182,7 +182,7 @@ public class z_Teller_ManageTransactions {
                                 // add transaction
                                 ArrayList<Transaction> transactions = DB.readTransactionsCSV();
                                 Transaction transaction = new Transaction(DB.generateTransactionNumber(), d_ssnTF.getText(), (String) d_acctTypeCB.getValue(),
-                                        d_acctNumTF.getText(), Double.parseDouble(d_amountTF.getText()), dfDatePicker, d_checkNumTF.getText());
+                                        d_acctNumTF.getText(), Double.parseDouble(d_amountTF.getText()), "Deposit", dfDatePicker, d_checkNumTF.getText());
                                 transactions.add(transaction);
                                 DB.writeTransactionsCSV(transactions);
                                 DB.writeCheckingCSV(checkings);
@@ -198,7 +198,7 @@ public class z_Teller_ManageTransactions {
                                 // add transaction
                                 ArrayList<Transaction> transactions = DB.readTransactionsCSV();
                                 Transaction transaction = new Transaction(DB.generateTransactionNumber(), d_ssnTF.getText(), (String) d_acctTypeCB.getValue(),
-                                        d_acctNumTF.getText(), Double.parseDouble(d_amountTF.getText()), dfDatePicker, "0");
+                                        d_acctNumTF.getText(), Double.parseDouble(d_amountTF.getText()),"Deposit", dfDatePicker, "0");
                                 transactions.add(transaction);
                                 DB.writeTransactionsCSV(transactions);
                                 DB.writeCheckingCSV(checkings);
@@ -220,7 +220,7 @@ public class z_Teller_ManageTransactions {
                             // add transaction
                             ArrayList<Transaction> transactions = DB.readTransactionsCSV();
                             Transaction transaction = new Transaction(DB.generateTransactionNumber(), d_ssnTF.getText(), (String) d_acctTypeCB.getValue(),
-                                    d_acctNumTF.getText(), Double.parseDouble(d_amountTF.getText()), dfDatePicker, d_checkNumTF.getText());
+                                    d_acctNumTF.getText(), Double.parseDouble(d_amountTF.getText()),"Deposit", dfDatePicker, d_checkNumTF.getText());
                             transactions.add(transaction);
                             DB.writeTransactionsCSV(transactions);
                             DB.writeCheckingCSV(checkings);
@@ -235,7 +235,7 @@ public class z_Teller_ManageTransactions {
                             // add transaction
                             ArrayList<Transaction> transactions = DB.readTransactionsCSV();
                             Transaction transaction = new Transaction(DB.generateTransactionNumber(), d_ssnTF.getText(), (String) d_acctTypeCB.getValue(),
-                                    d_acctNumTF.getText(), Double.parseDouble(d_amountTF.getText()), dfDatePicker, "0");
+                                    d_acctNumTF.getText(), Double.parseDouble(d_amountTF.getText()),"Deposit", dfDatePicker, "0");
                             transactions.add(transaction);
                             DB.writeTransactionsCSV(transactions);
                             DB.writeCheckingCSV(checkings);
@@ -258,7 +258,7 @@ public class z_Teller_ManageTransactions {
                         // add transaction
                         ArrayList<Transaction> transactions = DB.readTransactionsCSV();
                         Transaction transaction = new Transaction(DB.generateTransactionNumber(), d_ssnTF.getText(), (String) d_acctTypeCB.getValue(),
-                                d_acctNumTF.getText(), Double.parseDouble(d_amountTF.getText()), dfDatePicker, "0");
+                                d_acctNumTF.getText(), Double.parseDouble(d_amountTF.getText()),"Deposit", dfDatePicker, "0");
                         transactions.add(transaction);
                         DB.writeTransactionsCSV(transactions);
                         DB.writeSavingsCSV(savings);
@@ -287,61 +287,155 @@ public class z_Teller_ManageTransactions {
         }
     }
     public void withDraw(ActionEvent event) throws IOException {
+        // Read in customers, checking and savings accounts from database/csv
         ArrayList<Customer> customers = DB.readCustomersCSV();
         ArrayList<Checking> checkings = DB.readCheckingCSV();
         ArrayList<Savings> savings = DB.readSavingsCSV();
-        Customer customer = DB.searchCustomer(w_ssnTF.getText(), customers);
-        Checking checking = DB.searchChecking(w_ssnTF.getText(), checkings);
         Savings savings1 = DB.searchSavings(w_ssnTF.getText(), savings);
-        if (customer!=null && !w_amountTF.getText().isBlank() && !w_acctNumTF.getText().isBlank()) {
-            if (w_acctTypeCB.getValue().equals("Checking - TMB") && checking.getAccountType()==0) {
-                    checking.withdraw(Double.valueOf(w_amountTF.getText()));
-                    ArrayList<Transaction> transactions = DB.readTransactionsCSV();
-                    Transaction transaction = new Transaction(DB.generateTransactionNumber(), w_ssnTF.getText(), (String) w_acctTypeCB.getValue(),
-                            w_acctNumTF.getText(), (0-Double.parseDouble(w_amountTF.getText())), wfDatePicker, "0");
-                    transactions.add(transaction);
-                    DB.writeTransactionsCSV(transactions);
-                    DB.writeCheckingCSV(checkings);
-                w_message.setText("Success!");
-                w_message.setTextFill(Color.GREEN);
-                w_ssnTF.clear();
-                w_acctNumTF.clear();
-                w_amountTF.clear();
-            } else if (w_acctTypeCB.getValue().equals("Checking - Gold/Diamond") && checking.getAccountType()==1) {
-                checking.withdraw(Double.valueOf(w_amountTF.getText()));
-                ArrayList<Transaction> transactions = DB.readTransactionsCSV();
-                Transaction transaction = new Transaction(DB.generateTransactionNumber(), w_ssnTF.getText(), (String) w_acctTypeCB.getValue(),
-                        w_acctNumTF.getText(), (0-Double.parseDouble(w_amountTF.getText())), wfDatePicker, "0");
-                transactions.add(transaction);
-                DB.writeTransactionsCSV(transactions);
-                DB.writeCheckingCSV(checkings);
-                w_message.setText("Success!");
-                w_message.setTextFill(Color.GREEN);
-                w_ssnTF.clear();
-                w_acctNumTF.clear();
-                w_amountTF.clear();
-            } else if(w_acctTypeCB.getValue().equals("Savings - Simple")) {
-                savings1.withdraw(Double.valueOf(w_amountTF.getText()));
-                // add transaction
-                ArrayList<Transaction> transactions = DB.readTransactionsCSV();
-                Transaction transaction = new Transaction(DB.generateTransactionNumber(), w_ssnTF.getText(), (String) w_acctTypeCB.getValue(),
-                        w_acctNumTF.getText(), (0-Double.parseDouble(w_amountTF.getText())), wfDatePicker, "0");
-                transactions.add(transaction);
-                DB.writeTransactionsCSV(transactions);
-                DB.writeSavingsCSV(savings);
-                w_message.setText("Success!");
-                w_message.setTextFill(Color.GREEN);
-                w_ssnTF.clear();
-                w_acctNumTF.clear();
-                w_amountTF.clear();
-            } else if (w_acctTypeCB.getValue().equals("CD")) {
+        // If fields are filled
+        if (!w_ssnTF.getText().isBlank() && wfDatePicker!=null && !w_amountTF.getText().isBlank() && !w_acctNumTF.getText().isBlank()) {
+            if (DB.verifyCustomerSSN(w_ssnTF.getText(), customers)) {
+                Customer customer = DB.searchCustomer(w_ssnTF.getText(), customers);
+                // Verify account type and check against customer account type
+                Checking checking = DB.searchChecking(w_ssnTF.getText(), checkings);
+                if (w_acctTypeCB.getValue().equals("Checking - TMB") && checking.getAccountType() == 0) {
+                    // verify account numbers
+                    if (checking.getCheckingAcctNum().equals(w_acctNumTF.getText())) {
+                        // check for sufficient balance or overdraft
+                        if (DB.verifyBalance(Double.valueOf(w_amountTF.getText()), checking)) {
+                            checking.withdraw(Double.valueOf(w_amountTF.getText()));
+                            ArrayList<Transaction> transactions = DB.readTransactionsCSV();
+                            Transaction transaction = new Transaction(DB.generateTransactionNumber(), w_ssnTF.getText(), (String) w_acctTypeCB.getValue(),
+                                    w_acctNumTF.getText(), (0 - Double.parseDouble(w_amountTF.getText())), "Withdrawal", wfDatePicker, "0");
+                            transactions.add(transaction);
+                            DB.writeTransactionsCSV(transactions);
+                            DB.writeCheckingCSV(checkings);
+                            w_message.setText("Success!");
+                            w_message.setTextFill(Color.GREEN);
+                            w_ssnTF.clear();
+                            w_acctNumTF.clear();
+                            w_amountTF.clear();
+                        } else if (DB.verifyOverdraft(checking)) {
+                            int exitCode = DB.overdraft(checking, Double.valueOf(w_amountTF.getText()));
+                            if (exitCode==0) {
+                                // Success
+                                ArrayList<Transaction> transactions = DB.readTransactionsCSV();
+                                Transaction transaction = new Transaction(DB.generateTransactionNumber(), w_ssnTF.getText(), (String) w_acctTypeCB.getValue(),
+                                        w_acctNumTF.getText(), (0 - Double.parseDouble(w_amountTF.getText())), "Withdrawal", wfDatePicker, "0");
+                                transactions.add(transaction);
+                                DB.writeTransactionsCSV(transactions);
+                                DB.writeCheckingCSV(checkings);
+                                w_message.setText("Success [overdraft]!");
+                                w_message.setTextFill(Color.GREEN);
+                                w_ssnTF.clear();
+                                w_acctNumTF.clear();
+                                w_amountTF.clear();
+                            } else {
+                                // Failure
+                                // error message
+                                w_message.setText("Insufficient funds. Please try again. (overdraft)");
+                                w_message.setTextFill(Color.RED);
+                                w_amountTF.clear();
+                            }
+                        } else {
+                            // error message
+                            w_message.setText("Insufficient funds. Please try again.");
+                            w_message.setTextFill(Color.RED);
+                            w_amountTF.clear();
+                        }
+                    } else {
+                        w_message.setText("Unknown Account Number!");
+                        w_message.setTextFill(Color.RED);
+                    }
+                } else if (w_acctTypeCB.getValue().equals("Checking - Gold/Diamond") && checking.getAccountType() == 1) {
+                    // verify account numbers
+                    if (checking.getCheckingAcctNum().equals(w_acctNumTF.getText())) {
+                        // check for sufficient balance or overdraft
+                        if (DB.verifyBalance(Double.valueOf(w_amountTF.getText()), checking)) {
+                            checking.withdraw(Double.valueOf(w_amountTF.getText()));
+                            ArrayList<Transaction> transactions = DB.readTransactionsCSV();
+                            Transaction transaction = new Transaction(DB.generateTransactionNumber(), w_ssnTF.getText(), (String) w_acctTypeCB.getValue(),
+                                    w_acctNumTF.getText(), (0 - Double.parseDouble(w_amountTF.getText())), "Withdrawal", wfDatePicker, "0");
+                            transactions.add(transaction);
+                            DB.writeTransactionsCSV(transactions);
+                            DB.writeCheckingCSV(checkings);
+                            w_message.setText("Success!");
+                            w_message.setTextFill(Color.GREEN);
+                            w_ssnTF.clear();
+                            w_acctNumTF.clear();
+                            w_amountTF.clear();
+                        } else if (DB.verifyOverdraft(checking)) {
+                            int exitCode = DB.overdraft(checking, Double.valueOf(w_amountTF.getText()));
+                            if (exitCode==0) {
+                                // Success
+                                ArrayList<Transaction> transactions = DB.readTransactionsCSV();
+                                Transaction transaction = new Transaction(DB.generateTransactionNumber(), w_ssnTF.getText(), (String) w_acctTypeCB.getValue(),
+                                        w_acctNumTF.getText(), (0 - Double.parseDouble(w_amountTF.getText())), "Withdrawal", wfDatePicker, "0");
+                                transactions.add(transaction);
+                                DB.writeTransactionsCSV(transactions);
+                                DB.writeCheckingCSV(checkings);
+                                w_message.setText("Success [overdraft]!");
+                                w_message.setTextFill(Color.GREEN);
+                                w_ssnTF.clear();
+                                w_acctNumTF.clear();
+                                w_amountTF.clear();
+                            } else {
+                                // Failure
+                                // error message
+                                w_message.setText("Insufficient funds. Please try again. (overdraft)");
+                                w_message.setTextFill(Color.RED);
+                                w_amountTF.clear();
+                            }
+                        } else {
+                            // error message
+                            w_message.setText("Insufficient funds. Please try again.");
+                            w_message.setTextFill(Color.RED);
+                            w_amountTF.clear();
+                        }
+                    } else {
+                        w_message.setText("Unknown Account Number!");
+                        w_message.setTextFill(Color.RED);
+                    }
+                } else if (w_acctTypeCB.getValue().equals("Savings - Simple")) {
+                    // verify account number
+                    if (savings1.getSavingsAcctNum().equals(w_acctNumTF.getText())) {
+                        // check for sufficient balance
+                        if (DB.verifyBalance(Double.valueOf(w_amountTF.getText()), savings1)) {
+                            savings1.withdraw(Double.valueOf(w_amountTF.getText()));
+                            // add transaction
+                            ArrayList<Transaction> transactions = DB.readTransactionsCSV();
+                            Transaction transaction = new Transaction(DB.generateTransactionNumber(), w_ssnTF.getText(), (String) w_acctTypeCB.getValue(),
+                                    w_acctNumTF.getText(), (0 - Double.parseDouble(w_amountTF.getText())), "Withdrawal", wfDatePicker, "0");
+                            transactions.add(transaction);
+                            DB.writeTransactionsCSV(transactions);
+                            DB.writeSavingsCSV(savings);
+                            w_message.setText("Success!");
+                            w_message.setTextFill(Color.GREEN);
+                            w_ssnTF.clear();
+                            w_acctNumTF.clear();
+                            w_amountTF.clear();
+                        } else {
+                            // error message
+                            w_message.setText("Insufficient funds. Please try again.");
+                            w_message.setTextFill(Color.RED);
+                            w_amountTF.clear();
+                        }
+                    } else {
+                        w_message.setText("Unknown Account Number!");
+                        w_message.setTextFill(Color.RED);
+                    }
+                } else if (w_acctTypeCB.getValue().equals("CD")) {
 
+                } else {
+                    w_message.setText("Unknown Account Type!");
+                    w_message.setTextFill(Color.RED);
+                }
             } else {
-                w_message.setText("Unknown Account Type!");
+                w_message.setText("Unknown SSN");
                 w_message.setTextFill(Color.RED);
             }
         } else {
-            w_message.setText("Unknown SSN!");
+            w_message.setText("All fields are required!");
             w_message.setTextFill(Color.RED);
         }
     }
@@ -376,7 +470,7 @@ public class z_Teller_ManageTransactions {
 
         processChecksButton.setOnMouseEntered(event -> processChecksButton.setStyle("-fx-background-color: #E8ADAD; -fx-border-color: #000000"));
         processChecksButton.setOnMouseExited(event -> processChecksButton.setStyle("-fx-background-color: #d4d4d4; -fx-border-color:  #b0b0b0"));
-        d_acctTypeCB.getItems().addAll("Checking - TMB", "Checking - Gold/Diamond", "Savings - Simple", "CD");
+        d_acctTypeCB.getItems().addAll("Checking - TMB", "Checking - Gold/Diamond", "Savings - Simple");
         w_acctTypeCB.getItems().addAll("Checking - TMB", "Checking - Gold/Diamond", "Savings - Simple", "CD");
         d_acctTypeCB.setVisibleRowCount(5);
 

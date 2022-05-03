@@ -365,7 +365,7 @@ public class DB {
         // Set strategy class type
         strat.setType(Transaction.class);
         // Set column names
-        strat.setColumnMapping(new String[]{"transactionNum","SSN","accountType","accountNum","amount","date","checkNum"});
+        strat.setColumnMapping(new String[]{"transactionNum","SSN","accountType","accountNum","amount","memo","date","checkNum"});
         // Create bean of type
         CsvToBean<Transaction> bean = new CsvToBeanBuilder<Transaction>(reader).withMappingStrategy(strat).withSkipLines(1).build();
 
@@ -386,12 +386,12 @@ public class DB {
         // Set mapping strategy class type
         strat.setType(Transaction.class);
         // Set mapping strategy column names
-        strat.setColumnMapping(new String[]{"transactionNum","SSN","accountType","accountNum","amount","date","checkNum"});
+        strat.setColumnMapping(new String[]{"transactionNum","SSN","accountType","accountNum","amount","memo","date","checkNum"});
         // Create bean of type savings
         StatefulBeanToCsv<Transaction> beanToCsv = new StatefulBeanToCsvBuilder<Transaction>(writer).withApplyQuotesToAll(false).withMappingStrategy(strat).build();
         try {
             // Write header column names
-            writer.write("transactionNum,SSN,accountType,accountNum,amount,date,checkNum\n");
+            writer.write("transactionNum,SSN,accountType,accountNum,amount,memo,date,checkNum\n");
             // Write contents of savings to savings.csv
             beanToCsv.write(transactions);
         } catch (CsvDataTypeMismatchException e) {
@@ -574,6 +574,12 @@ public class DB {
     }
     public static Boolean verifyBalance(Double amount, Checking checking) {
         if (checking.getBalance() >= amount) {
+            return true;
+        }
+        return false;
+    }
+    public static Boolean verifyBalance(Double amount, Savings savings) {
+        if (savings.getBalance() >= amount) {
             return true;
         }
         return false;
