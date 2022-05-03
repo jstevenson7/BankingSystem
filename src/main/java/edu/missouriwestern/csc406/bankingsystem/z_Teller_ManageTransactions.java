@@ -150,6 +150,8 @@ public class z_Teller_ManageTransactions {
     @FXML
     private TextField t_toAcctNumTF;
     @FXML
+    private TextField t_ssnTF;
+    @FXML
     private ComboBox t_fromAcctTypeCB;
     @FXML
     private TextField t_fromAcctNumTF;
@@ -157,7 +159,9 @@ public class z_Teller_ManageTransactions {
     private TextField t_amountTF;
     @FXML
     private DatePicker t_dateDP;
-
+    String tfDatePicker;
+    @FXML
+    private Label t_message;
 
     /* ------------- PAY BILLS ANCHOR ------------- */
     @FXML
@@ -439,6 +443,40 @@ public class z_Teller_ManageTransactions {
             w_message.setTextFill(Color.RED);
         }
     }
+    public void transfer(ActionEvent event) throws IOException {
+        // verify all fields are entered
+        if (tfDatePicker!=null && !t_ssnTF.getText().isBlank() && !t_toAcctNumTF.getText().isBlank() &&
+            !t_fromAcctNumTF.getText().isBlank() && !t_amountTF.getText().isBlank()) {
+            // read in all current customers and verify
+            ArrayList<Customer> customers = DB.readCustomersCSV();
+            if (DB.verifyCustomerSSN(t_ssnTF.getText(), customers)) {
+                // create customer instance
+                Customer customer = DB.searchCustomer(t_ssnTF.getText(), customers);
+                // read in checking and savings accounts
+                ArrayList<Checking> checkings = DB.readCheckingCSV();
+                ArrayList<Savings> savings = DB.readSavingsCSV();
+                // verify TO account
+                /**
+                if (DB.verifyAccountNumber(t_toAcctNumTF.getText(), checkings)) {
+                    // verify FROM account
+                } else if () {
+
+                } else if () {
+
+                } else {
+                    t_message.setText("Unknown Account Type!");
+                    t_message.setTextFill(Color.RED);
+                }
+                **/
+            } else {
+                t_message.setText("Unknown SSN");
+                t_message.setTextFill(Color.RED);
+            }
+        } else {
+            t_message.setText("All fields are required!");
+            t_message.setTextFill(Color.RED);
+        }
+    }
     public void getDepositDateText(ActionEvent event) {
         String[] dateArr = String.valueOf(d_dateDP.getValue()).split("-");
         if(dateArr.length == 3) {
@@ -449,6 +487,12 @@ public class z_Teller_ManageTransactions {
         String[] dateArr = String.valueOf(w_dateDP.getValue()).split("-");
         if(dateArr.length == 3) {
             wfDatePicker = dateArr[1] + "/" + dateArr[2] + "/" + dateArr[0];
+        }
+    }
+    public void getTransferDateText(ActionEvent event) {
+        String[] dateArr = String.valueOf(t_dateDP.getValue()).split("-");
+        if(dateArr.length == 3) {
+            tfDatePicker = dateArr[1] + "/" + dateArr[2] + "/" + dateArr[0];
         }
     }
 
