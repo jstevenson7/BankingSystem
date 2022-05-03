@@ -14,7 +14,7 @@ import java.util.Date;
 public class Loans  {
 
     @CsvBindByName
-    private String loanAcctNum;
+    private String LoanID;
     @CsvBindByName
     private double balance;
     @CsvBindByName
@@ -24,23 +24,13 @@ public class Loans  {
     @CsvBindByName
     private String endDate;
     @CsvBindByName
-    private int loanType;//identifies whether it's a long-term or short-term loan.  long-term = 3, short-term = 2, credit card = 1
-    @CsvBindByName
-    private int loanlength;
-    @CsvBindByName
-    private double principal;
-    @CsvBindByName
-    private double paid;
+    private String SSN;
 
-    private ArrayList<Date> datelist = new ArrayList<>();
-
-    private double payment;
 
     private int problem;//identifies whether the account is a problem or not.  1 is problem.
 
     private Date paymentdate;
 
-    private int recurringpaymentdate;
 
     private double initialbalance;
 
@@ -54,14 +44,14 @@ public class Loans  {
 
     }
 
-    public Loans(String loanAcctNum, double balance, double interestRate, String startDate, String endDate, int loanType) throws ParseException {
-        this.loanAcctNum = loanAcctNum;
+    public Loans(String loanAcctNum, double balance, double interestRate, String startDate, String endDate, String SSN) throws ParseException {
+        this.LoanID = loanAcctNum;
         this.balance = balance;
         this.interestRate = interestRate;
         this.startDate = startDate;
         this.endDate = endDate;
-        this.loanType = loanType;
         this.initialbalance = balance;
+        this.SSN = SSN;
         problem = 0;//accounts aren't created as problem accounts, unless specified.
         interest();
 
@@ -97,7 +87,7 @@ public class Loans  {
         {
             System.out.println("Thank you for your on-time payment.");
         }
-        else if(paymentontime(paymentdate) == false)
+        else if(paymentontime(paymentdate) == false && payment >= paymentdue)
         {
             paymentdue +=75;
             problem = 1;
@@ -140,34 +130,29 @@ public class Loans  {
     }
 
 
-
-    public void amountpaid()
-    {
-        balance -= this.paid;
-    }
-
-
     @Override
     public String toString() {
         return "Loans{" +
-                "loanAcctNum='" + loanAcctNum + '\'' +
+                "loanAcctNum='" + LoanID + '\'' +
                 ", balance=" + balance +
                 ", interestRate=" + interestRate +
                 ", startDate='" + startDate + '\'' +
                 ", endDate='" + endDate + '\'' +
-                ", loanType=" + loanType +
+                ", problem=" + problem +
+                ", paymentdate=" + paymentdate +
                 ", initialbalance=" + initialbalance +
                 ", paymentplan=" + paymentplan +
                 ", totalloan=" + totalloan +
+                ", paymentdue=" + paymentdue +
                 '}';
     }
 
     public String getLoanAcctNum() {
-        return loanAcctNum;
+        return LoanID;
     }
 
-    public void setLoanAcctNum(String loanAcctNum) {
-        this.loanAcctNum = loanAcctNum;
+    public void setLoanAcctNum(String LoanID) {
+        this.LoanID = LoanID;
     }
 
     public double getBalance() {
@@ -202,23 +187,51 @@ public class Loans  {
         this.endDate = endDate;
     }
 
-    public int getLoanType() {
-        return loanType;
+    public int getProblem() {
+        return problem;
     }
 
-    public void setLoanType(int loanType) {
-        this.loanType = loanType;
+    public void setProblem(int problem) {
+        this.problem = problem;
     }
 
-    public static Date getLastDateOfMonth(Date date){
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(date);
-        cal.set(Calendar.DAY_OF_MONTH, cal.getActualMaximum(Calendar.DAY_OF_MONTH));
-        return cal.getTime();
+    public Date getPaymentdate() {
+        return paymentdate;
     }
 
-    public void ccpurchase (double amount)
-    {
-        balance+= amount;
+    public void setPaymentdate(Date paymentdate) {
+        this.paymentdate = paymentdate;
+    }
+
+    public double getInitialbalance() {
+        return initialbalance;
+    }
+
+    public void setInitialbalance(double initialbalance) {
+        this.initialbalance = initialbalance;
+    }
+
+    public double getPaymentplan() {
+        return paymentplan;
+    }
+
+    public void setPaymentplan(double paymentplan) {
+        this.paymentplan = paymentplan;
+    }
+
+    public double getTotalloan() {
+        return totalloan;
+    }
+
+    public void setTotalloan(double totalloan) {
+        this.totalloan = totalloan;
+    }
+
+    public double getPaymentdue() {
+        return paymentdue;
+    }
+
+    public void setPaymentdue(double paymentdue) {
+        this.paymentdue = paymentdue;
     }
 }
