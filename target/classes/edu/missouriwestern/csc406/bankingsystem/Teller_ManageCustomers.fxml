@@ -74,7 +74,7 @@
             </Button>
          </children>
       </VBox>
-      <AnchorPane fx:id="mainAnchor" layoutX="245.0" layoutY="68.0" prefHeight="581.0" prefWidth="706.0" visible="false">
+      <AnchorPane fx:id="mainAnchor" layoutX="245.0" layoutY="68.0" prefHeight="581.0" prefWidth="706.0">
          <children>
             <Text layoutX="234.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Manage Customers" textAlignment="CENTER">
                <font>
@@ -210,7 +210,7 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="deleteAnchor" layoutX="244.0" layoutY="68.0" prefHeight="581.0" prefWidth="706.0">
+      <AnchorPane fx:id="deleteAnchor" layoutX="244.0" layoutY="68.0" prefHeight="581.0" prefWidth="706.0" visible="false">
          <children>
             <TextField fx:id="deleteCustomerSSN" layoutX="295.0" layoutY="79.0" prefHeight="31.0" prefWidth="154.0" promptText="999-99-9999">
                <font>

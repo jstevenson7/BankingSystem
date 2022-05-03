@@ -675,6 +675,16 @@ public class DB {
         }
         return new String(digits);
     }
+    public static ArrayList<Transaction> readCustomerTransactions(String SSN) throws IOException {
+        ArrayList<Transaction> transactions = DB.readTransactionsCSV();
+        ArrayList<Transaction> sorted = new ArrayList<Transaction>();
+        for (Transaction t: transactions) {
+            if (t.getSSN().equals(SSN)) {
+                sorted.add(t);
+            }
+        }
+        return sorted;
+    }
 
     /**
      * Following methods are for removing customers from the CSV file

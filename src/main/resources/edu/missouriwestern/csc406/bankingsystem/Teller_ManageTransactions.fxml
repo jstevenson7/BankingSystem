@@ -260,7 +260,7 @@
                   <Font size="15.0" />
                </font>
             </TextField>
-            <Button fx:id="t_transferButton" layoutX="298.0" layoutY="512.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="137.0" text="Transfer">
+            <Button fx:id="t_transferButton" layoutX="298.0" layoutY="512.0" mnemonicParsing="false" onAction="#transfer" prefHeight="37.0" prefWidth="137.0" text="Transfer">
                <font>
                   <Font size="15.0" />
                </font>
@@ -270,13 +270,13 @@
                   <Font size="15.0" />
                </font>
             </Text>
-            <DatePicker fx:id="t_dateDP" layoutX="189.0" layoutY="90.0" prefHeight="31.0" prefWidth="164.0" promptText="mm/dd/yyyy" />
+            <DatePicker fx:id="t_dateDP" layoutX="189.0" layoutY="90.0" onAction="#getTransferDateText" prefHeight="31.0" prefWidth="164.0" promptText="mm/dd/yyyy" />
             <Text layoutX="366.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SSN:">
                <font>
                   <Font size="15.0" />
                </font>
             </Text>
-            <TextField fx:id="t_amountTF111" layoutX="416.0" layoutY="90.0" prefHeight="27.0" prefWidth="137.0" promptText="000-00-0000">
+            <TextField fx:id="t_ssnTF" layoutX="416.0" layoutY="90.0" prefHeight="27.0" prefWidth="137.0" promptText="000-00-0000">
                <font>
                   <Font size="15.0" />
                </font>
@@ -331,6 +331,7 @@
                   </Text>
                </children>
             </AnchorPane>
+            <Label fx:id="t_message" alignment="CENTER" contentDisplay="CENTER" layoutX="436.0" layoutY="522.0" prefHeight="17.0" prefWidth="261.0" textAlignment="CENTER" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="payBillsAnchor" layoutX="244.0" layoutY="62.0" prefHeight="592.0" prefWidth="710.0" visible="false">
