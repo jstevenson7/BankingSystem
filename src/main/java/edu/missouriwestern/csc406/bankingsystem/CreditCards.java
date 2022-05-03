@@ -14,8 +14,6 @@ public class CreditCards {
     @CsvBindByName
     private double creditcardlimit;
     @CsvBindByName
-    private double interestRate;
-    @CsvBindByName
     private String SSN;
 
     private double balance;
@@ -29,10 +27,9 @@ public class CreditCards {
 
     }
 
-    public CreditCards(String creditcardnumber, double creditcardlimit, double interestRate, String SSN) {
+    public CreditCards(String creditcardnumber, double creditcardlimit,  String SSN) {
         this.creditcardnumber = creditcardnumber;
         this.creditcardlimit = creditcardlimit;
-        this.interestRate = interestRate;
         this.SSN = SSN;
     }
 
@@ -48,6 +45,7 @@ public class CreditCards {
         {
             balance += purchaseamnt;
             purchasehistory.add("$" + purchaseamnt + " for a " + purchaseinformation + " on " + now );
+
         }
 
 
@@ -90,7 +88,6 @@ public class CreditCards {
         return "CreditCards{" +
                 "creditcardnumber='" + creditcardnumber + '\'' +
                 ", creditcardlimit=" + creditcardlimit +
-                ", interestRate=" + interestRate +
                 ", SSN='" + SSN + '\'' +
                 ", balance=" + balance +
                 ", purchasehistory=" + purchasehistory +
@@ -109,13 +106,7 @@ public class CreditCards {
         this.creditcardlimit = creditcardlimit;
     }
 
-    public double getInterestRate() {
-        return interestRate;
-    }
 
-    public void setInterestRate(double interestRate) {
-        this.interestRate = interestRate;
-    }
 
 
 
