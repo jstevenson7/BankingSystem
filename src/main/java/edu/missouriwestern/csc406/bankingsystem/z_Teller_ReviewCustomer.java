@@ -13,11 +13,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -83,6 +82,7 @@ public class z_Teller_ReviewCustomer {
         reviewCheckingAcctsAnchor.setVisible(false);
         reviewSavingsAcctsAnchor.setVisible(false);
         reviewCDAcctsAnchor.setVisible(false);
+        transactionsAnchor.setVisible(false);
     } //End of toTeller.
 
     @FXML
@@ -114,6 +114,9 @@ public class z_Teller_ReviewCustomer {
         reviewCheckingButton.setOnMouseExited(event -> reviewCheckingButton.setStyle("-fx-background-color: #d4d4d4; -fx-border-color:  #b0b0b0"));
         reviewCDButton.setOnMouseEntered(event -> reviewCDButton.setStyle("-fx-background-color: #E8ADAD; -fx-border-color: #000000"));
         reviewCDButton.setOnMouseExited(event -> reviewCDButton.setStyle("-fx-background-color: #d4d4d4; -fx-border-color:  #b0b0b0"));
+        transactionsButton.setOnMouseEntered(event -> transactionsButton.setStyle("-fx-background-color: #E8ADAD; -fx-border-color: #000000"));
+        transactionsButton.setOnMouseExited(event -> transactionsButton.setStyle("-fx-background-color: #d4d4d4; -fx-border-color:  #b0b0b0"));
+
 
         checkingAcctNum.setCellValueFactory(new PropertyValueFactory<Checking, String>("checkingAcctNum"));
         checkingBalance.setCellValueFactory(new PropertyValueFactory<Checking, Double>("balance"));
@@ -169,6 +172,7 @@ public class z_Teller_ReviewCustomer {
         reviewCheckingAcctsAnchor.setVisible(true);
         reviewSavingsAcctsAnchor.setVisible(false);
         reviewCDAcctsAnchor.setVisible(false);
+        transactionsAnchor.setVisible(false);
     } //End of toTeller.
 
     @FXML
@@ -213,6 +217,7 @@ public class z_Teller_ReviewCustomer {
         reviewCheckingAcctsAnchor.setVisible(false);
         reviewSavingsAcctsAnchor.setVisible(true);
         reviewCDAcctsAnchor.setVisible(false);
+        transactionsAnchor.setVisible(false);
     } //End of toTeller.
 
     @FXML
@@ -256,6 +261,7 @@ public class z_Teller_ReviewCustomer {
         reviewCheckingAcctsAnchor.setVisible(false);
         reviewSavingsAcctsAnchor.setVisible(false);
         reviewCDAcctsAnchor.setVisible(true);
+        transactionsAnchor.setVisible(false);
     } //End of toTeller.
 
     @FXML
@@ -302,6 +308,7 @@ public class z_Teller_ReviewCustomer {
         reviewCheckingAcctsAnchor.setVisible(false);
         reviewSavingsAcctsAnchor.setVisible(false);
         reviewCDAcctsAnchor.setVisible(false);
+        transactionsAnchor.setVisible(true);
 
     } //End of toTeller.
 
@@ -311,6 +318,10 @@ public class z_Teller_ReviewCustomer {
     private Button transactionsButton;
     @FXML
     private Button loadTransactionsButton;
+    @FXML
+    private TextField transactionsSSNTF;
+    @FXML
+    private Label transactionsLabel;
 
     @FXML
     private TableView<Transaction> transactionsTable;
@@ -334,9 +345,28 @@ public class z_Teller_ReviewCustomer {
     public void readToTransactionsTable(ActionEvent event) {
         // Create reader to the customers.csv file
         try {
-            ArrayList<Transaction> read = DB.readTransactionsCSV();
-            transactions  = read;
-            transactionsTable.setItems(FXCollections.observableArrayList(transactions));
+            if(transactionsSSNTF.getText().isBlank()) {
+                transactionsLabel.setText("SSN field is required!");
+                transactionsLabel.setTextFill(Color.RED);
+            } else {
+                int found = 0;
+                ArrayList<Customer> customers = DB.readCustomersCSV();
+                for (int i = 0; i < customers.size(); i++) {
+                    if (transactionsSSNTF.getText().equals(customers.get(i).getSSN())) {
+                        found++;
+                    }
+                }
+                if (found == 0) {
+                    transactionsLabel.setText("Customer with SSN '" + transactionsSSNTF.getText() + "' does not exist.");
+                    transactionsLabel.setTextFill(Color.RED);
+                } else {
+                    ArrayList<Transaction> read = DB.readCustomerTransactions(transactionsSSNTF.getText());
+                    transactions = read;
+                    transactionsTable.setItems(FXCollections.observableArrayList(transactions));
+                    transactionsLabel.setText("Success!");
+                    transactionsLabel.setTextFill(Color.GREEN);
+                }
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
