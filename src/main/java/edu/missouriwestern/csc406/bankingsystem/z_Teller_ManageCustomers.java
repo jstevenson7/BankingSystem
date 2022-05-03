@@ -60,24 +60,24 @@ public class z_Teller_ManageCustomers {
     private Label messageLabel;
 
     /* --- DELETE ANCHOR DATA --- */
-    /*
+
     @FXML
     private AnchorPane deleteAnchor;
     @FXML
     private Button dDeleteButton;
     @FXML
     private Label deleteMessage;
-     */
+
 
     /* --- Possible New DELETE ANCHOR DATA --- */
-    @FXML
-    private AnchorPane deleteAnchor;
-    @FXML
-    private Button dDeleteButton;
+    //@FXML
+    //private AnchorPane deleteAnchor;
+    //@FXML
+    //private Button dDeleteButton;
     @FXML
     private ComboBox<String> dDeleteOptions;
-    @FXML
-    private Label deleteMessage;
+    //@FXML
+    //private Label deleteMessage;
 
     /* --- MAIN ANCHOR DATA --- */
     @FXML
@@ -205,6 +205,7 @@ public class z_Teller_ManageCustomers {
         ArrayList<Customer> customers = DB.readCustomersCSV();
         ArrayList<Checking> checkings = DB.readCheckingCSV();
         ArrayList<Savings> savings = DB.readSavingsCSV();
+        ArrayList<Loans> loans = DB.readLoansCSV();
 
         double balanceToReturn = 0;
 
@@ -218,23 +219,37 @@ public class z_Teller_ManageCustomers {
                      //Holds this for now, still getting used to JavaFX/Need to make the drop menu
                      switch(dDeleteOptions.getValue())
                      {
-                     case "Delete Checking":
-                        balanceToReturn = balanceToReturn + DB.CustomerManagers(deleteCustomerSSN.getText(), customers, checkings, savings, 0);
-                         deleteMessage.setText("Deleted Checking!");
-                         deleteMessage.setTextFill(Color.GREEN);
-                     case "Delete Savings":
-                         balanceToReturn = balanceToReturn + DB.CustomerManagers(deleteCustomerSSN.getText(), customers, checkings, savings, 1);
-                         deleteMessage.setText("Deleted! Savings");
-                         deleteMessage.setTextFill(Color.GREEN);
-                     case "Delete Checking and Savings":
-                         balanceToReturn = balanceToReturn + DB.CustomerManagers(deleteCustomerSSN.getText(), customers, checkings, savings, 2);
-                         deleteMessage.setText("Deleted Checking and Savings!");
-                         deleteMessage.setTextFill(Color.GREEN);
-                     case "Delete Checking, Savings, and Customer":
-                         balanceToReturn = balanceToReturn + DB.CustomerManagers(deleteCustomerSSN.getText(), customers, checkings, savings, 3);
-                         deleteMessage.setText("Deleted Checking, Savings, and Customer!");
-                         deleteMessage.setTextFill(Color.GREEN);
-                     default:
+                         case "Delete Checking":
+                             balanceToReturn = balanceToReturn + DB.CustomerManagers(deleteCustomerSSN.getText(), customers, checkings, savings, loans,0);
+                             deleteMessage.setText("Deleted Checking!");
+                             deleteMessage.setTextFill(Color.GREEN);
+                         case "Delete Savings":
+                             balanceToReturn = balanceToReturn + DB.CustomerManagers(deleteCustomerSSN.getText(), customers, checkings, savings, loans, 1);
+                             deleteMessage.setText("Deleted Savings");
+                             deleteMessage.setTextFill(Color.GREEN);
+                         case "Delete Checking and Savings":
+                             balanceToReturn = balanceToReturn + DB.CustomerManagers(deleteCustomerSSN.getText(), customers, checkings, savings, loans, 2);
+                             deleteMessage.setText("Deleted Checking and Savings!");
+                             deleteMessage.setTextFill(Color.GREEN);
+                         case "Delete Checking, Savings, and Customer":
+                             balanceToReturn = balanceToReturn + DB.CustomerManagers(deleteCustomerSSN.getText(), customers, checkings, savings, loans, 3);
+                             deleteMessage.setText("Deleted Checking, Savings, and Customer!");
+                             deleteMessage.setTextFill(Color.GREEN);
+                         case "Delete Loans":
+                             balanceToReturn = balanceToReturn + DB.CustomerManagers(deleteCustomerSSN.getText(), customers, checkings, savings, loans, 4);
+                             deleteMessage.setText("Deleted Loans!");
+                             deleteMessage.setTextFill(Color.GREEN);
+                         case "Delete Checking, Savings, and Loans":
+                             balanceToReturn = balanceToReturn + DB.CustomerManagers(deleteCustomerSSN.getText(), customers, checkings, savings, loans, 5);
+                             deleteMessage.setText("Deleted Checking, Savings, and Loans!");
+                             deleteMessage.setTextFill(Color.GREEN);
+                         case "Delete Checking, Savings, Loans, and Customer":
+                             balanceToReturn = balanceToReturn + DB.CustomerManagers(deleteCustomerSSN.getText(), customers, checkings, savings, loans, 6);
+                             deleteMessage.setText("Deleted Checking, Savings, Loans, and Customer!");
+                             deleteMessage.setTextFill(Color.GREEN);
+                         default:
+                             deleteMessage.setText("Invalid Delete Option!");
+                             deleteMessage.setTextFill(Color.RED);
                      }
                     //DB.CustomerManagers(deleteCustomerSSN.getText(), customers, checkings, savings, 7);
                 }
@@ -281,7 +296,7 @@ public class z_Teller_ManageCustomers {
         createACustomerButton.setOnMouseExited(event -> createACustomerButton.setStyle("-fx-background-color: #d4d4d4; -fx-border-color:  #b0b0b0"));
         deleteACustomerButton.setOnMouseEntered(event -> deleteACustomerButton.setStyle("-fx-background-color: #E8ADAD; -fx-border-color: #000000"));
         deleteACustomerButton.setOnMouseExited(event -> deleteACustomerButton.setStyle("-fx-background-color: #d4d4d4; -fx-border-color:  #b0b0b0"));
-        dDeleteOptions.getItems().addAll("Delete Checking", "Delete Savings", "Delete Checking and Savings", "Delete Checking, Savings, and Customer");
+        dDeleteOptions.getItems().addAll("Delete Checking", "Delete Savings", "Delete Loans", "Delete Checking and Savings", "Delete Checking, Savings, and Loans","Delete Checking, Savings, and Customer", "Delete Checking, Savings, Loans, and Customer");
         dDeleteOptions.setVisibleRowCount(4);
         cStateBox.getItems().addAll("AL","AK","AZ","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI",
                 "MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX",

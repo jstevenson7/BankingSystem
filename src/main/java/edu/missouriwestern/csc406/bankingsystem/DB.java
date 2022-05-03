@@ -807,10 +807,13 @@ public class DB {
      * 1 - remove just savings account
      * 2 - remove both accounts
      * 3 - remove both accounts and remove customer account
+     * 4 - remove loans
+     * 5 - remove checking, savings, and loans
+     * 6 - remove checking, savings, loans, and customer account
      *
      * -RM
      */
-    public static double CustomerManagers(String SSN, ArrayList<Customer> customers, ArrayList<Checking> checkings, ArrayList<Savings> savings, int option)
+    public static double CustomerManagers(String SSN, ArrayList<Customer> customers, ArrayList<Checking> checkings, ArrayList<Savings> savings, ArrayList<Loans> loans, int option)
     {
         double balance = 0;
 
@@ -820,22 +823,46 @@ public class DB {
             {
                 case 0:
                     balance = balance + removeChecking(checkings, SSN);
-                    //writeCheckingCSV(checkings);
+                    writeCheckingCSV(checkings);
                     return balance;
                 case 1:
                     balance = balance + removeSavings(savings, SSN);
-                    //writeSavingsCSV(savings);
+                    writeSavingsCSV(savings);
                     return balance;
                 case 2:
                     balance = balance + removeChecking(checkings, SSN);
-                    //writeCheckingCSV(checkings);
+                    writeCheckingCSV(checkings);
                     balance = balance + removeSavings(savings, SSN);
-                    //writeSavingsCSV(savings);
+                    writeSavingsCSV(savings);
                     return balance;
                 case 3:
                     balance = balance + removeChecking(checkings, SSN);
+                    writeCheckingCSV(checkings);
                     balance = balance + removeSavings(savings, SSN);
+                    writeSavingsCSV(savings);
                     removeCustomer(customers, SSN);
+                    writeCustomerCSV(customers);
+                    return balance;
+                case 4:
+                    removeLoans(loans, SSN);
+                    writeLoansCSV(loans);
+                case 5:
+                    balance = balance + removeChecking(checkings, SSN);
+                    writeCheckingCSV(checkings);
+                    balance = balance + removeSavings(savings, SSN);
+                    writeSavingsCSV(savings);
+                    removeLoans(loans, SSN);
+                    writeLoansCSV(loans);
+                    return balance;
+                case 6:
+                    balance = balance + removeChecking(checkings, SSN);
+                    writeCheckingCSV(checkings);
+                    balance = balance + removeSavings(savings, SSN);
+                    writeSavingsCSV(savings);
+                    removeLoans(loans, SSN);
+                    writeLoansCSV(loans);
+                    removeCustomer(customers, SSN);
+                    writeCustomerCSV(customers);
                     return balance;
                 default:
                     //invalid option, no action taken
@@ -881,6 +908,16 @@ public class DB {
         return balance;
     }//end of removeSavings
 
+    public static void removeLoans(ArrayList<Loans> loans, String SSN)
+    {
+        for(int i = 0; i < loans.size(); i++)
+        {
+            if(loans.get(i).getLoanAcctNum().equals(SSN))
+            {
+                loans.remove(i);
+            }//end of if
+        }//end of for
+    }//end of removeLoans
 
     public static void removeCustomer(ArrayList<Customer> customers, String SSN)
     {
