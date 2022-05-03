@@ -29,9 +29,6 @@ public class z_SystemMain {
     private Button checkPointButton;
     @FXML
     private Button runTestsButton;
-    @FXML
-    private Button loadDataButton;
-
 
     /* --- MAIN ANCHOR --- */
     @FXML
@@ -46,7 +43,6 @@ public class z_SystemMain {
     @FXML
     private Button employeeButton;
 
-
     /* --- CHECK POINT ANCHOR --- */
     @FXML
     private AnchorPane checkPointAnchor;
@@ -57,9 +53,7 @@ public class z_SystemMain {
     @FXML
     private Button runtTestButton;
 
-    /* --- VIEW TABLES/ LOAD DATA ANCHOR --- */
-    @FXML
-    private AnchorPane loadDataAnchor;
+
 
     /* --- NAV FUNCTIONS --- */
     public void toSystemMain(ActionEvent event) throws IOException {
@@ -67,7 +61,6 @@ public class z_SystemMain {
         selectActorAnchor.setVisible(false);
         checkPointAnchor.setVisible(false);
         runTestsAnchor.setVisible(false);
-        loadDataAnchor.setVisible(false);
         generalTestsAnchor.setVisible(false);
         testTitleLabel.setText("Please select the tests you would like to run.");
     }
@@ -77,7 +70,6 @@ public class z_SystemMain {
        selectActorAnchor.setVisible(true);
        checkPointAnchor.setVisible(false);
        runTestsAnchor.setVisible(false);
-       loadDataAnchor.setVisible(false);
         generalTestsAnchor.setVisible(false);
         testTitleLabel.setText("Please select the tests you would like to run.");
     }
@@ -87,7 +79,6 @@ public class z_SystemMain {
         selectActorAnchor.setVisible(false);
         checkPointAnchor.setVisible(true);
         runTestsAnchor.setVisible(false);
-        loadDataAnchor.setVisible(false);
         generalTestsAnchor.setVisible(false);
         testTitleLabel.setText("Please select the tests you would like to run.");
     }
@@ -97,7 +88,6 @@ public class z_SystemMain {
         selectActorAnchor.setVisible(false);
         checkPointAnchor.setVisible(false);
         runTestsAnchor.setVisible(true);
-        loadDataAnchor.setVisible(false);
         generalTestsAnchor.setVisible(false);
         testTitleLabel.setText("Please select the tests you would like to run.");
     }
@@ -107,7 +97,6 @@ public class z_SystemMain {
         selectActorAnchor.setVisible(false);
         checkPointAnchor.setVisible(false);
         runTestsAnchor.setVisible(false);
-        loadDataAnchor.setVisible(true);
         generalTestsAnchor.setVisible(false);
         testTitleLabel.setText("Please select the tests you would like to run.");
     }
@@ -251,9 +240,6 @@ public class z_SystemMain {
         // Actor Button
         selectActorButton.setOnMouseEntered(event -> selectActorButton.setStyle("-fx-background-color: #cc0000"));
         selectActorButton.setOnMouseExited(event -> selectActorButton.setStyle("-fx-background-color:  #990000"));
-        // Load Data Button
-        loadDataButton.setOnMouseEntered(event -> loadDataButton.setStyle("-fx-background-color: #cc0000"));
-        loadDataButton.setOnMouseExited(event -> loadDataButton.setStyle("-fx-background-color: #990000"));
         // Run Tests Button
         runTestsButton.setOnMouseEntered(event -> runTestsButton.setStyle("-fx-background-color: #cc0000"));
         runTestsButton.setOnMouseExited(event -> runTestsButton.setStyle("-fx-background-color:  #990000"));

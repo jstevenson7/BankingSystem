@@ -15,15 +15,14 @@ public class CreditCards {
     private double creditcardlimit;
     @CsvBindByName
     private String SSN;
-
+    @CsvBindByName
     private double balance;
 
     private LocalDate datedue;
 
-    private ArrayList<String> purchasehistory = new ArrayList<String>();
+    public ArrayList<String> purchasehistory = new ArrayList<String>();
 
-    public CreditCards()
-    {
+    public CreditCards() {
 
     }
 
@@ -106,10 +105,29 @@ public class CreditCards {
         this.creditcardlimit = creditcardlimit;
     }
 
+    public String getSSN() {
+        return SSN;
+    }
 
+    public void setSSN(String SSN) {
+        this.SSN = SSN;
+    }
 
+    public double getBalance() {
+        return balance;
+    }
 
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
 
+    public LocalDate getDatedue() {
+        return datedue;
+    }
+
+    public void setDatedue(LocalDate datedue) {
+        this.datedue = datedue;
+    }
 
     public ArrayList<String> getPurchasehistory() {
         return purchasehistory;
@@ -117,11 +135,6 @@ public class CreditCards {
 
     public void setPurchasehistory(ArrayList<String> purchasehistory) {
         this.purchasehistory = purchasehistory;
-    }
-
-    public void purchaseHistory (String purchaseinfo)
-    {
-        purchasehistory.add(purchaseinfo);
     }
 
     public String calcCurrentDate() {

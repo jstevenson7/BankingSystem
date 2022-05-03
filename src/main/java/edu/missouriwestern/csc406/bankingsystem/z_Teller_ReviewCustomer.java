@@ -39,6 +39,7 @@ public class z_Teller_ReviewCustomer {
     ArrayList<Checking> checking;
     ArrayList<Savings> savings;
     ArrayList<CD> cd;
+    ArrayList<Transaction> transactions;
 
     /*--- CUSTOMERS TABLE ---*/
     @FXML
@@ -133,6 +134,16 @@ public class z_Teller_ReviewCustomer {
         cdEndDate.setCellValueFactory(new PropertyValueFactory<CD, String>("endDate"));
         cdWithdrawDate.setCellValueFactory(new PropertyValueFactory<CD, String>("withdrawDate"));
         cdSSN.setCellValueFactory(new PropertyValueFactory<CD, String>("SSN"));
+
+        transactionNum.setCellValueFactory(new PropertyValueFactory<Transaction,String>("transactionNum"));
+        transactionsSSN.setCellValueFactory(new PropertyValueFactory<Transaction,String>("SSN"));
+        transactionsAcctType.setCellValueFactory(new PropertyValueFactory<Transaction,String>("accountType"));
+        transactionsAcctNum.setCellValueFactory(new PropertyValueFactory<Transaction,String>("accountNum"));
+        transactionsAmount.setCellValueFactory(new PropertyValueFactory<Transaction,Double>("amount"));
+        transactionsMemo.setCellValueFactory(new PropertyValueFactory<Transaction,String>("memo"));
+        transactionsDate.setCellValueFactory(new PropertyValueFactory<Transaction,String>("date"));
+        transactionsCheckNum.setCellValueFactory(new PropertyValueFactory<Transaction,String>("checkNum"));
+
     }
 
 
@@ -282,6 +293,55 @@ public class z_Teller_ReviewCustomer {
             e.printStackTrace();
         }
     }
+
+
+    /*--- TRANSACTIONS TABLE ---*/
+    public void toTransactions(ActionEvent event) throws IOException {
+        mainAnchor.setVisible(false);
+        reviewAllCustAnchor.setVisible(false);
+        reviewCheckingAcctsAnchor.setVisible(false);
+        reviewSavingsAcctsAnchor.setVisible(false);
+        reviewCDAcctsAnchor.setVisible(false);
+
+    } //End of toTeller.
+
+    @FXML
+    private AnchorPane transactionsAnchor;
+    @FXML
+    private Button transactionsButton;
+    @FXML
+    private Button loadTransactionsButton;
+
+    @FXML
+    private TableView<Transaction> transactionsTable;
+    @FXML
+    private TableColumn<Transaction, String> transactionNum;
+    @FXML
+    private TableColumn<Transaction, String> transactionsSSN;
+    @FXML
+    private TableColumn<Transaction, String> transactionsAcctType;
+    @FXML
+    private TableColumn<Transaction, String> transactionsAcctNum;
+    @FXML
+    private TableColumn<Transaction, Double> transactionsAmount;
+    @FXML
+    private TableColumn<Transaction, String> transactionsMemo;
+    @FXML
+    private TableColumn<Transaction, String> transactionsDate;
+    @FXML
+    private TableColumn<Transaction, String> transactionsCheckNum;
+
+    public void readToTransactionsTable(ActionEvent event) {
+        // Create reader to the customers.csv file
+        try {
+            ArrayList<Transaction> read = DB.readTransactionsCSV();
+            transactions  = read;
+            transactionsTable.setItems(FXCollections.observableArrayList(transactions));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 
 }

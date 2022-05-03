@@ -18,16 +18,18 @@
          <children>
             <Pane prefHeight="132.0" prefWidth="217.0">
                <children>
-                  <Button fx:id="logoButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#toSystemMain" prefHeight="76.0" prefWidth="217.0" style="-fx-background-color: #990000;">
+                  <Button fx:id="logoButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#toSystemMain" prefHeight="132.0" prefWidth="246.0" style="-fx-background-color: #990000;">
                      <font>
                         <Font name="Segoe UI Semibold" size="20.0" />
                      </font>
+                     <graphic>
+                        <ImageView fitHeight="93.0" fitWidth="221.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../Images/PB_Horizontal.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </Button>
-                  <ImageView fitHeight="93.0" fitWidth="203.0" layoutX="22.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../Images/PB_Horizontal.png" />
-                     </image>
-                  </ImageView>
                </children>
             </Pane>
             <Button fx:id="selectActorButton" mnemonicParsing="false" onAction="#toSelectActor" prefHeight="90.0" prefWidth="246.0" style="-fx-background-color: #990000;" text="  Select Actor" textFill="WHITE">
@@ -59,18 +61,6 @@
                   <ImageView fitHeight="29.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../../Images/test.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Button>
-            <Button fx:id="loadDataButton" mnemonicParsing="false" onAction="#toLoadData" prefHeight="90.0" prefWidth="249.0" style="-fx-background-color: #990000;" text="Load Data" textFill="WHITE">
-               <graphic>
-                  <ImageView fitHeight="29.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../Images/laod.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -253,15 +243,10 @@
                   </Text>
                </children>
             </HBox>
-            <Text layoutX="202.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Our systems check point modify reset happens upon action. Similar to how auto-saving works, however, it is more based upon actions of confirmation such as clicking a button. We load data on the program start and read and write to and from the files needed." textAlignment="CENTER" wrappingWidth="304.13671875">
+            <Text layoutX="140.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Our systems check point modify reset happens upon action. Similar to how auto-saving works, however, it is more based upon actions of confirmation such as clicking a button. We load data on the program start and read and write to and from the files needed." textAlignment="CENTER" wrappingWidth="429.13671875">
                <font>
-                  <Font size="15.0" />
+                  <Font size="18.0" />
                </font></Text>
-            <Text layoutX="194.0" layoutY="364.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Note: Potentially create a way to see changes made in this tab">
-               <font>
-                  <Font name="System Italic" size="12.0" />
-               </font>
-            </Text>
          </children>
       </AnchorPane>
       <AnchorPane fx:id="runTestsAnchor" layoutX="244.0" prefHeight="650.0" prefWidth="709.0" visible="false">
@@ -315,19 +300,6 @@
                </children>
             </AnchorPane>
             <Button fx:id="generalTestsButton" layoutX="24.0" layoutY="589.0" mnemonicParsing="false" onAction="#runGeneralTests" text="Run General Tests" />
-         </children>
-      </AnchorPane>
-      <AnchorPane fx:id="loadDataAnchor" layoutX="244.0" prefHeight="650.0" prefWidth="709.0" visible="false">
-         <children>
-            <HBox alignment="CENTER" layoutY="30.0" prefHeight="103.0" prefWidth="709.0" style="-fx-background-color: #cc0000;">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="LOAD DATA" textAlignment="CENTER" wrappingWidth="195.208984375">
-                     <font>
-                        <Font name="Verdana Bold" size="21.0" />
-                     </font>
-                  </Text>
-               </children>
-            </HBox>
          </children>
       </AnchorPane>
    </children>
