@@ -68,17 +68,6 @@ public class z_Teller_ManageCustomers {
     @FXML
     private Label deleteMessage;
 
-
-    /* --- Possible New DELETE ANCHOR DATA --- */
-    //@FXML
-    //private AnchorPane deleteAnchor;
-    //@FXML
-    //private Button dDeleteButton;
-    @FXML
-    private ComboBox<String> dDeleteOptions;
-    //@FXML
-    //private Label deleteMessage;
-
     /* --- MAIN ANCHOR DATA --- */
     @FXML
     private AnchorPane mainAnchor;
@@ -197,10 +186,9 @@ public class z_Teller_ManageCustomers {
         // clear box
         deleteCustomerSSN.clear();
     }
-
+/*
     //method for setting up and rolling out a deletingCustomers and their accounts
-    public void deleteingCustomerAccounts(ActionEvent event) throws IOException
-    {
+    public void deleteingCustomerAccounts(ActionEvent event) throws IOException {
         //read in customers from the DB
         ArrayList<Customer> customers = DB.readCustomersCSV();
         ArrayList<Checking> checkings = DB.readCheckingCSV();
@@ -270,7 +258,7 @@ public class z_Teller_ManageCustomers {
         // clear box
         deleteCustomerSSN.clear();
     }
-
+*/
     public void displayCreate(ActionEvent event) throws IOException {
         mainAnchor.setVisible(false);
         deleteAnchor.setVisible(false);
@@ -285,6 +273,20 @@ public class z_Teller_ManageCustomers {
     } //End of displayDelete.
 
 
+    public void deleteingCustomerAccounts(ActionEvent event) throws IOException {
+
+        //read in customers from the DB
+        ArrayList<Customer> customers = DB.readCustomersCSV();
+        ArrayList<Checking> checkings = DB.readCheckingCSV();
+        ArrayList<Savings> savings = DB.readSavingsCSV();
+        ArrayList<Loans> loans = DB.readLoansCSV();
+
+
+        DB.CustomerManagers(deleteCustomerSSN.getText(), customers, checkings, savings, loans, 6);
+        deleteMessage.setText("Deleted Checking, Savings, Loans, and Customer!");
+        deleteMessage.setTextFill(Color.GREEN);
+    }
+
 
     /* --- INITIALIZE --- */
     @FXML
@@ -296,8 +298,6 @@ public class z_Teller_ManageCustomers {
         createACustomerButton.setOnMouseExited(event -> createACustomerButton.setStyle("-fx-background-color: #d4d4d4; -fx-border-color:  #b0b0b0"));
         deleteACustomerButton.setOnMouseEntered(event -> deleteACustomerButton.setStyle("-fx-background-color: #E8ADAD; -fx-border-color: #000000"));
         deleteACustomerButton.setOnMouseExited(event -> deleteACustomerButton.setStyle("-fx-background-color: #d4d4d4; -fx-border-color:  #b0b0b0"));
-        dDeleteOptions.getItems().addAll("Delete Checking", "Delete Savings", "Delete Loans", "Delete Checking and Savings", "Delete Checking, Savings, and Loans","Delete Checking, Savings, and Customer", "Delete Checking, Savings, Loans, and Customer");
-        dDeleteOptions.setVisibleRowCount(4);
         cStateBox.getItems().addAll("AL","AK","AZ","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI",
                 "MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX",
                 "UT","VT","VA","WA","WV","WI","WY");

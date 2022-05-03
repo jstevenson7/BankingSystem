@@ -212,7 +212,7 @@
       </AnchorPane>
       <AnchorPane fx:id="deleteAnchor" layoutX="244.0" layoutY="68.0" prefHeight="581.0" prefWidth="706.0" visible="false">
          <children>
-            <TextField fx:id="deleteCustomerSSN" layoutX="295.0" layoutY="79.0" prefHeight="31.0" prefWidth="154.0" promptText="999-99-9999">
+            <TextField fx:id="deleteCustomerSSN" layoutX="295.0" layoutY="158.0" prefHeight="31.0" prefWidth="154.0" promptText="999-99-9999">
                <font>
                   <Font size="15.0" />
                </font></TextField>
@@ -224,13 +224,13 @@
                      </font></Label>
                </center>
             </BorderPane>
-            <Text layoutX="258.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SSN:">
+            <Text layoutX="258.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SSN:">
                <font>
                   <Font size="15.0" />
                </font>
             </Text>
             <Button fx:id="dDeleteButton" layoutX="295.0" layoutY="203.0" mnemonicParsing="false" onAction="#deleteingCustomerAccounts" prefHeight="31.0" prefWidth="154.0" text="Delete Customer" />
-            <ComboBox fx:id="dDeleteOptions" layoutX="297.0" layoutY="134.0" prefWidth="150.0" />
+            <Label fx:id="deleteMessage" layoutX="297.0" layoutY="130.0" prefHeight="17.0" prefWidth="154.0" text="Label" />
          </children>
       </AnchorPane>
    </children>

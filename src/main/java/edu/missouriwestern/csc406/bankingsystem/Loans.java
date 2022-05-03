@@ -72,7 +72,7 @@ public class Loans  {
         int count = (int) diffInMonth;
         System.out.println("diffinmonth = " + diffInMonth);
         totalloan = initialbalance + (initialbalance/2) * ((count/12) * interestRate);
-        paymentplan = totalloan/diffInMonth;
+        paymentplan = totalloan/diffInMonth;  // <- THIS IS WHAT HE WANTS
         paymentdue = paymentplan;
     }
 
@@ -145,6 +145,22 @@ public class Loans  {
                 ", totalloan=" + totalloan +
                 ", paymentdue=" + paymentdue +
                 '}';
+    }
+
+    public String getLoanID() {
+        return LoanID;
+    }
+
+    public void setLoanID(String loanID) {
+        LoanID = loanID;
+    }
+
+    public String getSSN() {
+        return SSN;
+    }
+
+    public void setSSN(String SSN) {
+        this.SSN = SSN;
     }
 
     public String getLoanAcctNum() {

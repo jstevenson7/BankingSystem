@@ -52,7 +52,7 @@ public class z_Teller_ManageAccounts {
     @FXML
     private TextField dSSNText;
     @FXML
-    private TextField dAccountNumText;
+    private ComboBox<String> dDeleteOptions;
     @FXML
     private Label dMessage;
 
@@ -138,6 +138,18 @@ public class z_Teller_ManageAccounts {
             cMessage.setTextFill(Color.RED);
         }
     }
+
+    public void deleteingCustomerAccounts(ActionEvent event) throws IOException {
+
+        //read in customers from the DB
+        ArrayList<Customer> customers = DB.readCustomersCSV();
+        ArrayList<Checking> checkings = DB.readCheckingCSV();
+        ArrayList<Savings> savings = DB.readSavingsCSV();
+        ArrayList<Loans> loans = DB.readLoansCSV();
+
+    }
+
+
     /* --- INITIALIZE --- */
     @FXML
     private void initialize(){
@@ -150,5 +162,7 @@ public class z_Teller_ManageAccounts {
         deleteAccountButton.setOnMouseExited(event -> deleteAccountButton.setStyle("-fx-background-color: #d4d4d4; -fx-border-color:  #b0b0b0"));
         cAccountBox.getItems().addAll("Checking - TMB", "Checking - Gold/Diamond", "Savings - Simple", "CD");
         cAccountBox.setVisibleRowCount(5);
+        dDeleteOptions.getItems().addAll("Delete Checking", "Delete Savings", "Delete Loans", "Delete Checking and Savings", "Delete Checking, Savings, and Loans","Delete Checking, Savings, and Customer", "Delete Checking, Savings, Loans, and Customer");
+        dDeleteOptions.setVisibleRowCount(4);
     }
 }
