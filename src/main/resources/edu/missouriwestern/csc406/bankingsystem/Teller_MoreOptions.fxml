@@ -35,7 +35,7 @@
                   </Text>
                </children>
             </Pane>
-            <Button fx:id="returnTellerButton" alignment="CENTER" mnemonicParsing="false" onAction="#toTeller" prefHeight="125.0" prefWidth="245.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Return to Teller" textAlignment="CENTER">
+            <Button fx:id="returnTellerButton" alignment="CENTER" mnemonicParsing="false" onAction="#toTeller" prefHeight="147.0" prefWidth="243.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Return to Teller" textAlignment="CENTER">
                <font>
                   <Font size="15.0" />
                </font>
@@ -47,7 +47,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="stopPaymentButton" alignment="CENTER" mnemonicParsing="false" onAction="#displayStopPayment" prefHeight="120.0" prefWidth="251.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text=" Manage Checks" textAlignment="CENTER">
+            <Button fx:id="stopPaymentButton" alignment="CENTER" mnemonicParsing="false" onAction="#displayStopPayment" prefHeight="177.0" prefWidth="243.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text=" Manage Checks" textAlignment="CENTER">
                <font>
                   <Font size="15.0" />
                </font>
@@ -59,19 +59,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="autoPayButton" alignment="CENTER" mnemonicParsing="false" onAction="#displayAutoPay" prefHeight="121.0" prefWidth="250.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text=" Set up Auto-Payment" textAlignment="CENTER">
-               <font>
-                  <Font size="15.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="37.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../Images/AutoPay.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button fx:id="overdraftButton" alignment="CENTER" graphicTextGap="0.0" mnemonicParsing="false" onAction="#displayOverdraft" prefHeight="141.0" prefWidth="248.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Set up Overdraft Protection" wrapText="true">
+            <Button fx:id="overdraftButton" alignment="CENTER" graphicTextGap="0.0" mnemonicParsing="false" onAction="#displayOverdraft" prefHeight="178.0" prefWidth="243.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Set up Overdraft Protection" wrapText="true">
                <font>
                   <Font size="15.0" />
                </font>
@@ -165,15 +153,6 @@
                   <Font size="15.0" />
                </font>
             </Button>
-         </children>
-      </AnchorPane>
-      <AnchorPane fx:id="autoPayAnchor" layoutX="243.0" layoutY="67.0" prefHeight="584.0" prefWidth="709.0" visible="false">
-         <children>
-            <Text layoutX="218.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Set up Auto-Payment" textAlignment="CENTER">
-               <font>
-                  <Font name="System Bold" size="17.0" />
-               </font>
-            </Text>
          </children>
       </AnchorPane>
       <AnchorPane fx:id="overdraftAnchor" layoutX="244.0" layoutY="68.0" prefHeight="584.0" prefWidth="709.0" visible="false">

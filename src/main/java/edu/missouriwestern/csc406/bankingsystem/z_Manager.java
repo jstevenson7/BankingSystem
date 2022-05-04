@@ -23,8 +23,6 @@ public class z_Manager {
     private Button manageEmployeesButton;
     @FXML
     private Button manageLoansButton;
-    @FXML
-    private Button setInterestButton;
 
 
     public void toEmployee(ActionEvent event) throws IOException {
@@ -54,16 +52,6 @@ public class z_Manager {
         stage.show();
     }
 
-    public void toSetRates(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("Manager_SetRates.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setResizable(false);
-        stage.show();
-    }
-
-
     @FXML
     private void initialize(){
         // Customer Button
@@ -76,8 +64,6 @@ public class z_Manager {
         manageLoansButton.setOnMouseEntered(event -> manageLoansButton.setStyle("-fx-background-color: #E8ADAD; -fx-border-color: #000000"));
         manageLoansButton.setOnMouseExited(event -> manageLoansButton.setStyle("-fx-background-color: #d4d4d4; -fx-border-color:  #b0b0b0"));
 
-        setInterestButton.setOnMouseEntered(event -> setInterestButton.setStyle("-fx-background-color: #E8ADAD; -fx-border-color: #000000"));
-        setInterestButton.setOnMouseExited(event -> setInterestButton.setStyle("-fx-background-color: #d4d4d4; -fx-border-color:  #b0b0b0"));
 
     }
 }

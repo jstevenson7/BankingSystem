@@ -26,10 +26,11 @@ public class CreditCards {
 
     }
 
-    public CreditCards(String creditcardnumber, double creditcardlimit,  String SSN) {
+    public CreditCards(String creditcardnumber, double creditcardlimit,  String SSN, double balance) {
         this.creditcardnumber = creditcardnumber;
         this.creditcardlimit = creditcardlimit;
         this.SSN = SSN;
+        this.balance = balance;
     }
 
     public void makepurchase (double purchaseamnt, String purchaseinformation)

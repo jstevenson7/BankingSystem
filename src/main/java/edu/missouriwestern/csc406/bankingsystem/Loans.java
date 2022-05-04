@@ -25,6 +25,8 @@ public class Loans  {
     private String endDate;
     @CsvBindByName
     private String SSN;
+    @CsvBindByName
+    private double monthlyPayment;
 
 
     private int problem;//identifies whether the account is a problem or not.  1 is problem.
@@ -44,7 +46,7 @@ public class Loans  {
 
     }
 
-    public Loans(String loanAcctNum, double balance, double interestRate, String startDate, String endDate, String SSN) throws ParseException {
+    public Loans(String loanAcctNum, double balance, double interestRate, String startDate, String endDate, double monthlyPayment, String SSN) {
         this.LoanID = loanAcctNum;
         this.balance = balance;
         this.interestRate = interestRate;
@@ -52,9 +54,8 @@ public class Loans  {
         this.endDate = endDate;
         this.initialbalance = balance;
         this.SSN = SSN;
+        this.monthlyPayment = monthlyPayment;
         problem = 0;//accounts aren't created as problem accounts, unless specified.
-        interest();
-
     }
 
 
@@ -145,6 +146,14 @@ public class Loans  {
                 ", totalloan=" + totalloan +
                 ", paymentdue=" + paymentdue +
                 '}';
+    }
+
+    public double getMonthlyPayment() {
+        return monthlyPayment;
+    }
+
+    public void setMonthlyPayment(double monthlyPayment) {
+        this.monthlyPayment = monthlyPayment;
     }
 
     public String getLoanID() {

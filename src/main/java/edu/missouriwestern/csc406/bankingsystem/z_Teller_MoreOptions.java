@@ -28,8 +28,6 @@ public class z_Teller_MoreOptions {
     @FXML
     private Button stopPaymentButton;
     @FXML
-    private Button autoPayButton;
-    @FXML
     private Button overdraftButton;
 
     /* --- MAIN ANCHOR DATA --- */
@@ -54,9 +52,6 @@ public class z_Teller_MoreOptions {
     @FXML
     private Button s_processPayment;
 
-    /* --- AUTO-PAY ANCHOR --- */
-    @FXML
-    private AnchorPane autoPayAnchor;
 
     /* --- OVERDRAFT PROTECTION ANCHOR --- */
     @FXML
@@ -85,21 +80,18 @@ public class z_Teller_MoreOptions {
     public void displayStopPayment(ActionEvent event) throws IOException {
         mainAnchor.setVisible(false);
         stopPaymentAnchor.setVisible(true);
-        autoPayAnchor.setVisible(false);
         overdraftAnchor.setVisible(false);
     } //End of displayCreate.
 
     public void displayAutoPay(ActionEvent event) throws IOException {
         mainAnchor.setVisible(false);
         stopPaymentAnchor.setVisible(false);
-        autoPayAnchor.setVisible(true);
         overdraftAnchor.setVisible(false);
     } //End of displayDelete.
 
     public void displayOverdraft(ActionEvent event) throws IOException {
         mainAnchor.setVisible(false);
         stopPaymentAnchor.setVisible(false);
-        autoPayAnchor.setVisible(false);
         overdraftAnchor.setVisible(true);
     } //End of displayDelete.
 
@@ -221,9 +213,6 @@ public class z_Teller_MoreOptions {
 
         stopPaymentButton.setOnMouseEntered(event -> stopPaymentButton.setStyle("-fx-background-color: #E8ADAD; -fx-border-color: #000000"));
         stopPaymentButton.setOnMouseExited(event -> stopPaymentButton.setStyle("-fx-background-color: #d4d4d4; -fx-border-color:  #b0b0b0"));
-
-        autoPayButton.setOnMouseEntered(event -> autoPayButton.setStyle("-fx-background-color: #E8ADAD; -fx-border-color: #000000"));
-        autoPayButton.setOnMouseExited(event -> autoPayButton.setStyle("-fx-background-color: #d4d4d4; -fx-border-color:  #b0b0b0"));
 
         overdraftButton.setOnMouseEntered(event -> overdraftButton.setStyle("-fx-background-color: #E8ADAD; -fx-border-color: #000000"));
         overdraftButton.setOnMouseExited(event -> overdraftButton.setStyle("-fx-background-color: #d4d4d4; -fx-border-color:  #b0b0b0"));

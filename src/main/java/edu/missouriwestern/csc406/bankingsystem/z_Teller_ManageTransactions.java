@@ -29,8 +29,7 @@ public class z_Teller_ManageTransactions {
     private Button withdrawButton;
     @FXML
     private Button transferButton;
-    @FXML
-    private Button processChecksButton;
+
 
     /* ------------- NAV FUNCTIONS ------------- */
     public void toTeller(ActionEvent event) throws IOException {
@@ -47,7 +46,6 @@ public class z_Teller_ManageTransactions {
         depositAnchor.setVisible(true);
         withdrawAnchor.setVisible(false);
         transferAnchor.setVisible(false);
-        payBillsAnchor.setVisible(false);
     } //End of displayCreate.
 
     public void displayChecks(ActionEvent event) throws IOException {
@@ -55,7 +53,6 @@ public class z_Teller_ManageTransactions {
         depositAnchor.setVisible(false);
         withdrawAnchor.setVisible(false);
         transferAnchor.setVisible(false);
-        payBillsAnchor.setVisible(true);
     } //End of displayCreate.
 
     public void displayWithdraw(ActionEvent event) throws IOException {
@@ -63,7 +60,6 @@ public class z_Teller_ManageTransactions {
         depositAnchor.setVisible(false);
         withdrawAnchor.setVisible(true);
         transferAnchor.setVisible(false);
-        payBillsAnchor.setVisible(false);
     } //End of displayDelete.
 
     public void displayTransfer(ActionEvent event) throws IOException {
@@ -71,7 +67,6 @@ public class z_Teller_ManageTransactions {
         depositAnchor.setVisible(false);
         withdrawAnchor.setVisible(false);
         transferAnchor.setVisible(true);
-        payBillsAnchor.setVisible(false);
     } //End of displayDelete.
 
 
@@ -163,9 +158,6 @@ public class z_Teller_ManageTransactions {
     @FXML
     private Label t_message;
 
-    /* ------------- PAY BILLS ANCHOR ------------- */
-    @FXML
-    private AnchorPane payBillsAnchor;
 
     /* ------------ Logic ------------- */
     public void deposit(ActionEvent event) throws IOException {
@@ -662,8 +654,7 @@ public class z_Teller_ManageTransactions {
         transferButton.setOnMouseEntered(event -> transferButton.setStyle("-fx-background-color: #E8ADAD; -fx-border-color: #000000"));
         transferButton.setOnMouseExited(event -> transferButton.setStyle("-fx-background-color: #d4d4d4; -fx-border-color:  #b0b0b0"));
 
-        processChecksButton.setOnMouseEntered(event -> processChecksButton.setStyle("-fx-background-color: #E8ADAD; -fx-border-color: #000000"));
-        processChecksButton.setOnMouseExited(event -> processChecksButton.setStyle("-fx-background-color: #d4d4d4; -fx-border-color:  #b0b0b0"));
+
         d_acctTypeCB.getItems().addAll("Checking - TMB", "Checking - Gold/Diamond", "Savings - Simple");
         w_acctTypeCB.getItems().addAll("Checking - TMB", "Checking - Gold/Diamond", "Savings - Simple", "CD");
         t_toAcctTypeCB.getItems().addAll("Checking - TMB", "Checking - Gold/Diamond", "Savings - Simple");

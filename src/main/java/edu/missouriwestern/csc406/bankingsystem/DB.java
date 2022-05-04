@@ -512,7 +512,7 @@ public class DB {
         // Set strategy class type
         strat.setType(Loans.class);
         // Set column names
-        strat.setColumnMapping(new String[]{"LoanID","balance", "interestRate", "startDate", "endDate", "SSN"});
+        strat.setColumnMapping(new String[]{"LoanID","balance", "interestRate", "startDate", "endDate","monthlyPayment", "SSN"});
         // Create bean of type
         CsvToBean<Loans> bean = new CsvToBeanBuilder<Loans>(reader).withMappingStrategy(strat).withSkipLines(1).build();
 
@@ -536,7 +536,7 @@ public class DB {
         // Set mapping strategy class type
         strat.setType(Loans.class);
         // Set mapping strategy column names
-        strat.setColumnMapping(new String[]{"LoanID","balance", "interestRate", "startDate", "endDate", "SSN"});
+        strat.setColumnMapping(new String[]{"LoanID","balance", "interestRate", "startDate", "endDate","monthlyPayment", "SSN"});
         // Create bean of type savings
         StatefulBeanToCsv<Loans> beanToCsv = new StatefulBeanToCsvBuilder<Loans>(writer).withApplyQuotesToAll(false).withMappingStrategy(strat).build();
         try {

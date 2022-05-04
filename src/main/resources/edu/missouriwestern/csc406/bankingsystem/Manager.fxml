@@ -22,7 +22,7 @@
             </ImageView>
          </children>
       </HBox>
-      <VBox alignment="TOP_CENTER" layoutY="74.0" prefHeight="574.0" prefWidth="238.0" style="-fx-background-color: #E0E0E0; -fx-border-color: #AEAEAE; -fx-background-insets: 0;">
+      <VBox alignment="TOP_CENTER" layoutY="73.0" prefHeight="578.0" prefWidth="238.0" style="-fx-background-color: #E0E0E0; -fx-border-color: #AEAEAE; -fx-background-insets: 0;">
          <children>
             <Pane prefHeight="90.0" prefWidth="236.0" style="-fx-border-color: #C0C0C0;">
                <children>
@@ -33,7 +33,7 @@
                   </Text>
                </children>
             </Pane>
-            <Button fx:id="returnEmployeeButton" alignment="CENTER" mnemonicParsing="false" onAction="#toEmployee" prefHeight="110.0" prefWidth="237.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Return to Login">
+            <Button fx:id="returnEmployeeButton" alignment="CENTER" mnemonicParsing="false" onAction="#toEmployee" prefHeight="150.0" prefWidth="236.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Return to Login">
                <font>
                   <Font name="Gill Sans MT" size="15.0" />
                </font>
@@ -45,7 +45,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="manageEmployeesButton" alignment="CENTER" mnemonicParsing="false" onAction="#toManageEmployees" prefHeight="134.0" prefWidth="236.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Manage Employees">
+            <Button fx:id="manageEmployeesButton" alignment="CENTER" mnemonicParsing="false" onAction="#toManageEmployees" prefHeight="164.0" prefWidth="236.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Manage Employees">
                <font>
                   <Font name="Gill Sans MT" size="15.0" />
                </font>
@@ -57,7 +57,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="manageLoansButton" alignment="CENTER" mnemonicParsing="false" onAction="#toManageLoans" prefHeight="124.0" prefWidth="236.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Manage Loans">
+            <Button fx:id="manageLoansButton" alignment="CENTER" mnemonicParsing="false" onAction="#toManageLoans" prefHeight="178.0" prefWidth="236.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Manage Loans">
                <font>
                   <Font name="Gill Sans MT" size="15.0" />
                </font>
@@ -69,50 +69,20 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="setInterestButton" alignment="CENTER" mnemonicParsing="false" onAction="#toSetRates" prefHeight="116.0" prefWidth="236.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Set Interest Rates">
-               <font>
-                  <Font name="Gill Sans MT" size="15.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="37.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../Images/setRates.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
          </children>
       </VBox>
       <AnchorPane layoutX="240.0" layoutY="75.0" prefHeight="574.0" prefWidth="710.0">
          <children>
-            <Label layoutX="141.0" layoutY="34.0" text="Hello, name. Welcome to the Manager Portal!" textAlignment="CENTER" wrapText="true">
+            <Label layoutX="116.0" layoutY="34.0" text="Hello, name. Welcome to the Manager Portal!" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font name="Calibri Bold" size="25.0" />
                </font>
             </Label>
-            <Text layoutX="109.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage Employees" wrappingWidth="203.22232055664062">
-               <font>
-                  <Font name="System Bold" size="17.0" />
-               </font>
-            </Text>
-            <Text layoutX="445.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage Loans" wrappingWidth="152.41674041748024">
-               <font>
-                  <Font name="System Bold" size="17.0" />
-               </font>
-            </Text>
-            <Text layoutX="184.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Table of Contents" textAlignment="CENTER" wrappingWidth="400.0">
+            <Text layoutX="155.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Table of Contents" textAlignment="CENTER" wrappingWidth="400.0">
                <font>
                   <Font name="Calibri" size="25.0" />
                </font>
             </Text>
-            <Text layoutX="109.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create an Employee" wrappingWidth="178.5">
-               <font>
-                  <Font size="15.0" />
-               </font></Text>
-            <Text layoutX="110.0" layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Delete an Employee" wrappingWidth="178.5">
-               <font>
-                  <Font size="15.0" />
-               </font></Text>
          </children>
       </AnchorPane>
    </children>
