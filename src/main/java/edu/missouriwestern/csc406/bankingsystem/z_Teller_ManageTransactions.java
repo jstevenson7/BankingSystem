@@ -297,7 +297,7 @@ public class z_Teller_ManageTransactions {
         ArrayList<Savings> savings = DB.readSavingsCSV();
         Savings savings1 = DB.searchSavings(w_ssnTF.getText(), savings);
         // If fields are filled
-        if (!w_ssnTF.getText().isBlank() && wfDatePicker!=null && !w_amountTF.getText().isBlank() && !w_acctNumTF.getText().isBlank()) {
+        if (!w_ssnTF.getText().isBlank() && wfDatePicker!=null && !w_amountTF.getText().isBlank() && !w_acctNumTF.getText().isBlank() && w_acctTypeCB.getValue()!=null) {
             if (DB.verifyCustomerSSN(w_ssnTF.getText(), customers)) {
                 Customer customer = DB.searchCustomer(w_ssnTF.getText(), customers);
                 // Verify account type and check against customer account type
@@ -429,7 +429,49 @@ public class z_Teller_ManageTransactions {
                         w_message.setTextFill(Color.RED);
                     }
                 } else if (w_acctTypeCB.getValue().equals("CD")) {
-
+                    ArrayList<CD> cds = DB.readCDCSV();
+                    if (DB.verifyCDSSN(w_ssnTF.getText(), cds)) {
+                        CD cd = DB.searchCD(w_ssnTF.getText(), cds);
+                        int exitCode = cd.withdrawamt(Double.valueOf(w_amountTF.getText()));
+                        if (exitCode==0) {
+                            // Transaction
+                            ArrayList<Transaction> transactions = DB.readTransactionsCSV();
+                            Transaction transaction = new Transaction(DB.generateNewTransactionNumber(), w_ssnTF.getText(),
+                                    "CD", w_acctNumTF.getText(), (0-Double.parseDouble(w_amountTF.getText())), "Withdrawal",
+                                    wfDatePicker, "0");
+                            transactions.add(transaction);
+                            DB.writeTransactionsCSV(transactions);
+                            DB.writeCDCSV(cds);
+                            w_message.setText("Success!");
+                            w_message.setTextFill(Color.GREEN);
+                            w_ssnTF.clear();
+                            w_acctNumTF.clear();
+                            w_amountTF.clear();
+                        } else if (exitCode==2) {
+                            // Transaction
+                            ArrayList<Transaction> transactions = DB.readTransactionsCSV();
+                            Transaction transaction = new Transaction(DB.generateNewTransactionNumber(), w_ssnTF.getText(),
+                                    "CD", w_acctNumTF.getText(), (0-Double.parseDouble(w_amountTF.getText())), "Withdrawal (Early)",
+                                    wfDatePicker, "0");
+                            transactions.add(transaction);
+                            DB.writeTransactionsCSV(transactions);
+                            DB.writeCDCSV(cds);
+                            w_message.setText("Success! (with early fee)");
+                            w_message.setTextFill(Color.GREEN);
+                            w_ssnTF.clear();
+                            w_acctNumTF.clear();
+                            w_amountTF.clear();
+                        } else if (exitCode==1) {
+                            w_message.setText("Insufficient Funds!");
+                            w_message.setTextFill(Color.RED);
+                        } else {
+                            w_message.setText("Error!");
+                            w_message.setTextFill(Color.RED);
+                        }
+                    } else {
+                        w_message.setText("No CD account found!");
+                        w_message.setTextFill(Color.RED);
+                    }
                 } else {
                     w_message.setText("Unknown Account Type!");
                     w_message.setTextFill(Color.RED);

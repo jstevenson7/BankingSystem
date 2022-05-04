@@ -158,7 +158,7 @@ public class z_Teller_ManageAccounts {
             else if (cAccountBox.getValue().equals("CD")) {
                 ArrayList<CD> cds = DB.readCDCSV();
                 if (!DB.verifyCDSSN(cSSNText.getText(), cds)) {
-                    CD cd = new CD(DB.generateAccountNumber(), Double.parseDouble(cAmount.getText()), .25, DB.getTodayDate(), DB.getEndDate(), cSSNText.getText());
+                    CD cd = new CD(DB.generateAccountNumber(), Double.parseDouble(cAmount.getText()), .1, DB.getTodayDate(), DB.getEndDate(), cSSNText.getText());
                     cds.add(cd);
                     DB.writeCDCSV(cds);
                     cMessage.setVisible(true);

@@ -2,6 +2,7 @@ package edu.missouriwestern.csc406.bankingsystem;
 
 import com.opencsv.bean.CsvBindByName;
 
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -32,24 +33,37 @@ public class CD {
         this.startDate = startDate;
         this.endDate = endDate;
         this.SSN = SSN;
-        //withdrawamt();
     }
 
-    public void withdrawamt (String withdrawDate)
+    public int withdrawamt (Double amount)
     {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
         LocalDate startingdate = LocalDate.parse(startDate, formatter);
         LocalDate endingdate = LocalDate.parse(endDate, formatter);
-        LocalDate withdrawingDate = LocalDate.parse(withdrawDate, formatter);
+        LocalDate withdrawingDate = LocalDate.now();
 
         if (withdrawingDate.isEqual(endingdate) || withdrawingDate.isAfter(endingdate))
         {
-            balance += balance * interestRate;
+            if (getBalance() >= amount) {
+                DecimalFormat f = new DecimalFormat("##.00");
+                setBalance(Double.parseDouble(f.format((balance -= amount))));
+                return 0;
+            } else {
+                return 1; // insufficient funds
+            }
         }
         else if (withdrawingDate.isBefore(endingdate))
         {
-            balance -= balance * interestRate;
+            DecimalFormat f = new DecimalFormat("##.00");
+            if (getBalance() >= (Double.parseDouble(f.format((amount))) + Double.parseDouble(f.format(getBalance() * getInterestRate())))) {
+                setBalance(Double.parseDouble(f.format((balance -= amount))));
+                setBalance(Double.parseDouble(f.format(balance -= balance * interestRate)));
+                return 2; // success with fee
+            } else {
+                return 1;
+            }
         }
+        return 9; // weird error
     }
 
     public String getCdAcctNum() {
