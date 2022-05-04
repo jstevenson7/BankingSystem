@@ -135,7 +135,6 @@ public class z_Teller_ReviewCustomer {
         cdInterestRate.setCellValueFactory(new PropertyValueFactory<CD, Double>("interestRate"));
         cdStartDate.setCellValueFactory(new PropertyValueFactory<CD, String>("startDate"));
         cdEndDate.setCellValueFactory(new PropertyValueFactory<CD, String>("endDate"));
-        cdWithdrawDate.setCellValueFactory(new PropertyValueFactory<CD, String>("withdrawDate"));
         cdSSN.setCellValueFactory(new PropertyValueFactory<CD, String>("SSN"));
 
         transactionNum.setCellValueFactory(new PropertyValueFactory<Transaction,String>("transactionNum"));
@@ -283,8 +282,6 @@ public class z_Teller_ReviewCustomer {
     private TableColumn<CD, String> cdStartDate;
     @FXML
     private TableColumn<CD, String> cdEndDate;
-    @FXML
-    private TableColumn<CD, String> cdWithdrawDate;
     @FXML
     private TableColumn<CD, String> cdSSN;
 

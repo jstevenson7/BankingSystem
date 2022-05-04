@@ -43,6 +43,8 @@ public class z_Teller_ManageAccounts {
     private Button cCreateButton;
     @FXML
     private Label cMessage;
+    @FXML
+    private TextField cAmount;
 
     /* --- DELETE ANCHOR DATA --- */
     @FXML
@@ -94,20 +96,40 @@ public class z_Teller_ManageAccounts {
                 if (!DB.verifyCheckingSSN(cSSNText.getText(), checkings)) {
                     // create new checking account, check type of checking to create
                     if (cAccountBox.getValue().equals("Checking - Gold/Diamond")) {
-                        Checking checking = new Checking(DB.generateAccountNumber(), 1000, 1, cSSNText.getText());
-                        // add to arraylist
-                        checkings.add(checking);
+                        if (Double.parseDouble(cAmount.getText())>=1000) {
+                            Checking checking = new Checking(DB.generateAccountNumber(), Double.parseDouble(cAmount.getText()), 1, cSSNText.getText());
+                            // add to arraylist
+                            checkings.add(checking);
+                            // write to database
+                            DB.writeCheckingCSV(checkings);
+                            cMessage.setVisible(true);
+                            cMessage.setText("Success!");
+                            cMessage.setTextFill(Color.GREEN);
+                            cSSNText.clear();
+                            cAmount.clear();
+                        } else {
+                            cMessage.setVisible(true);
+                            cMessage.setText("Must be at least $1000");
+                            cMessage.setTextFill(Color.RED);
+                        }
                     } else {
-                        Checking checking = new Checking(DB.generateAccountNumber(), 0, 0, cSSNText.getText());
-                        // add to arraylist
-                        checkings.add(checking);
+                        if (Double.parseDouble(cAmount.getText())<1000) {
+                            Checking checking = new Checking(DB.generateAccountNumber(), Double.parseDouble(cAmount.getText()), 0, cSSNText.getText());
+                            // add to arraylist
+                            checkings.add(checking);
+                            // write to database
+                            DB.writeCheckingCSV(checkings);
+                            cMessage.setVisible(true);
+                            cMessage.setText("Success!");
+                            cMessage.setTextFill(Color.GREEN);
+                            cSSNText.clear();
+                            cAmount.clear();
+                        } else {
+                            cMessage.setVisible(true);
+                            cMessage.setText("Must be less then $1000");
+                            cMessage.setTextFill(Color.RED);
+                        }
                     }
-                    // write to database
-                    DB.writeCheckingCSV(checkings);
-                    cMessage.setVisible(true);
-                    cMessage.setText("Success!");
-                    cMessage.setTextFill(Color.GREEN);
-                    cSSNText.clear();
                 } else {
                     cMessage.setVisible(true);
                     cMessage.setText("Checking already exist!");
@@ -119,19 +141,37 @@ public class z_Teller_ManageAccounts {
                 ArrayList<Savings> savings = DB.readSavingsCSV();
                 // check to see if savings already exists
                 if (!DB.verifySavingsSSN(cSSNText.getText(), savings)) {
-                    Savings savings1 = new Savings(DB.generateAccountNumber(), 0, 0, cSSNText.getText());
+                    Savings savings1 = new Savings(DB.generateAccountNumber(), Double.parseDouble(cAmount.getText()), 0, cSSNText.getText());
                     savings.add(savings1);
                     DB.writeSavingsCSV(savings);
                     cMessage.setVisible(true);
                     cMessage.setText("Success!");
                     cMessage.setTextFill(Color.GREEN);
                     cSSNText.clear();
+                    cAmount.clear();
                 } else {
                     cMessage.setVisible(true);
                     cMessage.setText("Savings already exist!");
                     cMessage.setTextFill(Color.RED);
                 }
             } // end of if Savings
+            else if (cAccountBox.getValue().equals("CD")) {
+                ArrayList<CD> cds = DB.readCDCSV();
+                if (!DB.verifyCDSSN(cSSNText.getText(), cds)) {
+                    CD cd = new CD(DB.generateAccountNumber(), Double.parseDouble(cAmount.getText()), .25, DB.getTodayDate(), DB.getEndDate(), cSSNText.getText());
+                    cds.add(cd);
+                    DB.writeCDCSV(cds);
+                    cMessage.setVisible(true);
+                    cMessage.setText("Success!");
+                    cMessage.setTextFill(Color.GREEN);
+                    cSSNText.clear();
+                    cAmount.clear();
+                } else {
+                    cMessage.setVisible(true);
+                    cMessage.setText("CD already exist!");
+                    cMessage.setTextFill(Color.RED);
+                }
+            }
         } else {
             // If SSN is not found
             cMessage.setText("SSN not found!");

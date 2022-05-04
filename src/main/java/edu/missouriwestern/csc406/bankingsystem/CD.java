@@ -18,8 +18,6 @@ public class CD {
     @CsvBindByName
     private String endDate;
     @CsvBindByName
-    private String withdrawDate;
-    @CsvBindByName
     private String SSN;
 
     public CD()
@@ -27,20 +25,19 @@ public class CD {
 
     }
 
-    public CD(String cdAcctNum, double balance, double interestRate, String startDate, String endDate, String withdrawDate, String SSN) {
+    public CD(String cdAcctNum, double balance, double interestRate, String startDate, String endDate, String SSN) {
         this.cdAcctNum = cdAcctNum;
         this.balance = balance;
         this.interestRate = interestRate;
         this.startDate = startDate;
         this.endDate = endDate;
-        this.withdrawDate = withdrawDate;
         this.SSN = SSN;
-        withdrawamt();
+        //withdrawamt();
     }
 
-    public void withdrawamt ()
+    public void withdrawamt (String withdrawDate)
     {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
         LocalDate startingdate = LocalDate.parse(startDate, formatter);
         LocalDate endingdate = LocalDate.parse(endDate, formatter);
         LocalDate withdrawingDate = LocalDate.parse(withdrawDate, formatter);
@@ -93,14 +90,6 @@ public class CD {
 
     public void setEndDate(String endDate) {
         this.endDate = endDate;
-    }
-
-    public String getWithdrawDate() {
-        return withdrawDate;
-    }
-
-    public void setWithdrawDate(String withdrawDate) {
-        this.withdrawDate = withdrawDate;
     }
 
     public String getSSN() {

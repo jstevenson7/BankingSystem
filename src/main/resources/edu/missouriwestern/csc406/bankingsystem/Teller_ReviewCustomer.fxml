@@ -193,13 +193,12 @@
             </Text>
             <TableView fx:id="cdTable" layoutX="63.0" layoutY="81.0" prefHeight="380.0" prefWidth="668.0">
                <columns>
-                  <TableColumn fx:id="cdAcctNum" prefWidth="109.0" text="Account Number" />
-                  <TableColumn fx:id="cdBalance" minWidth="0.0" prefWidth="84.0" text="Balance" />
-                  <TableColumn fx:id="cdInterestRate" prefWidth="79.0" text="Interest Rate" />
-                  <TableColumn fx:id="cdStartDate" prefWidth="99.0" text="Start Date" />
-                  <TableColumn fx:id="cdEndDate" prefWidth="90.0" text="End Date" />
-                  <TableColumn fx:id="cdWithdrawDate" prefWidth="93.0" text="Withdraw Date" />
-                  <TableColumn fx:id="cdSSN" prefWidth="112.0" text="SSN" />
+                  <TableColumn fx:id="cdAcctNum" prefWidth="126.40003967285156" text="Account Number" />
+                  <TableColumn fx:id="cdBalance" minWidth="0.0" prefWidth="103.20001220703125" text="Balance" />
+                  <TableColumn fx:id="cdInterestRate" prefWidth="92.79998779296875" text="Interest Rate" />
+                  <TableColumn fx:id="cdStartDate" prefWidth="107.20001220703125" text="Start Date" />
+                  <TableColumn fx:id="cdEndDate" prefWidth="116.00006103515625" text="End Date" />
+                  <TableColumn fx:id="cdSSN" prefWidth="120.800048828125" text="SSN" />
                </columns>
             </TableView>
             <Button fx:id="cd_LoadAcctsButton" layoutX="350.0" layoutY="491.0" mnemonicParsing="false" onAction="#readToCDTable" text="Load Accounts" />

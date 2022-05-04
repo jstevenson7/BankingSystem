@@ -9,9 +9,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Random;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 public class DB {
     public DB () {
@@ -413,7 +412,7 @@ public class DB {
         // Set strategy class type
         strat.setType(CD.class);
         // Set column names
-        strat.setColumnMapping(new String[]{"cdAcctNum","balance","interestRate","startDate","endDate","withdrawDate","SSN"});
+        strat.setColumnMapping(new String[]{"cdAcctNum","balance","interestRate","startDate","endDate","SSN"});
         // Create bean of type
         CsvToBean<CD> bean = new CsvToBeanBuilder<CD>(reader).withMappingStrategy(strat).withSkipLines(1).build();
 
@@ -436,12 +435,12 @@ public class DB {
         // Set mapping strategy class type
         strat.setType(CD.class);
         // Set mapping strategy column names
-        strat.setColumnMapping(new String[]{"cdAcctNum","balance","interestRate","startDate","endDate","withdrawDate","SSN"});
+        strat.setColumnMapping(new String[]{"cdAcctNum","balance","interestRate","startDate","endDate","SSN"});
         // Create bean of type savings
         StatefulBeanToCsv<CD> beanToCsv = new StatefulBeanToCsvBuilder<CD>(writer).withApplyQuotesToAll(false).withMappingStrategy(strat).build();
         try {
             // Write header column names
-            writer.write("cdAcctNum,balance,interestRate,startDate,endDate,withdrawDate,SSN\n");
+            writer.write("cdAcctNum,balance,interestRate,startDate,endDate,SSN\n");
             // Write contents of savings to savings.csv
             beanToCsv.write(cds);
         } catch (CsvDataTypeMismatchException e) {
@@ -662,6 +661,22 @@ public class DB {
         }
         return false;
     }
+    public static Boolean verifyCDNumber(String cdNumber, ArrayList<CD> cds) {
+        for (CD cd: cds) {
+            if (cd.getCdAcctNum().equals(cdNumber)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    public static Boolean verifyCreditCardNumber(String ccNum, ArrayList<CreditCards> creditCards) {
+        for (CreditCards c: creditCards) {
+            if (c.getCreditcardnumber().equals(ccNum)) {
+                return true;
+            }
+        }
+        return false;
+    }
     // Searches through unprocessedChecks and processedChecks arraylist and returns true if check exists
     public static Boolean verifyChecks(String checkID, String accountNumber, ArrayList<Check> unprocessedChecks, ArrayList<Check> processedChecks) {
         for (Check c: unprocessedChecks) {
@@ -736,6 +751,14 @@ public class DB {
         }
         return false;
     }
+    public static Boolean verifyCDSSN(String SSN, ArrayList<CD> cd) {
+        for (CD c: cd) {
+            if (c.getSSN().equals(SSN)) {
+                return true;
+            }
+        }
+        return false;
+    }
     public static Boolean verifyTransaction(String transactionNum, ArrayList<Transaction> transactions) {
         for (Transaction t: transactions) {
             if (t.getTransactionNum().equals(transactionNum)) {
@@ -744,11 +767,16 @@ public class DB {
         }
         return false;
     }
-    public static String verifyNewAccountNumber(ArrayList<Checking> checkings, ArrayList<Savings> savings, ArrayList<Loans> loans) {
+    public static String verifyNewAccountNumber() throws IOException {
+        ArrayList<Checking> checkings = DB.readCheckingCSV();
+        ArrayList<Savings> savings = DB.readSavingsCSV();
+        ArrayList<CD> cds = DB.readCDCSV();
+        ArrayList<CreditCards> creditCards = DB.readCreditCardCSV();
         while(true) {
             String num = generateAccountNumber();
             // WILL NEED TO ADD VERIFYACCOUNT FOR SAVINGS AND LOANS
-            if(!DB.verifyAccountNumber(num, checkings) && !DB.verifySavingsAccountNumber(num, savings)) {
+            if(!DB.verifyAccountNumber(num, checkings) && !DB.verifySavingsAccountNumber(num, savings) && !DB.verifyCDSSN(num, cds)
+            && !DB.verifyCreditCardNumber(num, creditCards)) {
                 return num;
             }
         }
@@ -796,6 +824,22 @@ public class DB {
             }
         }
         return sorted;
+    }
+    public static String getTodayDate() {
+        SimpleDateFormat dft = new SimpleDateFormat("MM/dd/YYYY");
+        Calendar cal = Calendar.getInstance();
+        Date dateobj = cal.getTime();
+        return dft.format(dateobj);
+    }
+    public static String getEndDate() {
+        SimpleDateFormat dft = new SimpleDateFormat("MM/dd/YYYY");
+        Calendar cal = Calendar.getInstance();
+        Date dateobj = cal.getTime();
+        String modDate = dft.format(dateobj);
+        int last = Integer.parseInt(modDate.substring(9,10));
+        last += 5;
+        String endDate = modDate.substring(0,9) + Integer.toString(last);
+        return endDate;
     }
 
     /**

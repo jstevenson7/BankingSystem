@@ -90,7 +90,7 @@
       </AnchorPane>
       <AnchorPane fx:id="createAnchor" layoutX="244.0" layoutY="68.0" prefHeight="584.0" prefWidth="707.0" visible="false">
          <children>
-            <TextField fx:id="cSSNText" layoutX="290.0" layoutY="108.0" prefHeight="25.0" prefWidth="128.0">
+            <TextField fx:id="cSSNText" layoutX="290.0" layoutY="108.0" prefHeight="25.0" prefWidth="128.0" promptText="000-00-0000">
                <font>
                   <Font size="15.0" />
                </font></TextField>
@@ -98,11 +98,11 @@
                <font>
                   <Font size="15.0" />
                </font></Text>
-            <Text layoutX="174.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Type:" textAlignment="RIGHT" wrappingWidth="98.0">
+            <Text layoutX="174.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Type:" textAlignment="RIGHT" wrappingWidth="98.0">
                <font>
                   <Font size="15.0" />
                </font></Text>
-            <ComboBox fx:id="cAccountBox" layoutX="290.0" layoutY="162.0" prefHeight="31.0" prefWidth="164.0" />
+            <ComboBox fx:id="cAccountBox" layoutX="290.0" layoutY="211.0" prefHeight="31.0" prefWidth="164.0" />
             <BorderPane layoutX="-2.0" layoutY="3.0" prefHeight="68.0" prefWidth="707.0">
                <center>
                   <Label prefHeight="21.0" prefWidth="397.0" text="Please enter the information need to create an account!" textAlignment="CENTER" BorderPane.alignment="CENTER">
@@ -111,8 +111,18 @@
                      </font></Label>
                </center>
             </BorderPane>
-            <Button fx:id="cCreateButton" layoutX="290.0" layoutY="211.0" mnemonicParsing="false" onAction="#createAccount" prefHeight="39.0" prefWidth="128.0" text="Create Account" wrapText="true" />
-            <Label fx:id="cMessage" layoutX="326.0" layoutY="275.0" prefHeight="17.0" prefWidth="98.0" text="Label" visible="false" />
+            <Button fx:id="cCreateButton" layoutX="290.0" layoutY="272.0" mnemonicParsing="false" onAction="#createAccount" prefHeight="39.0" prefWidth="128.0" text="Create Account" wrapText="true" />
+            <Label fx:id="cMessage" layoutX="190.0" layoutY="356.0" prefHeight="31.0" prefWidth="346.0" text="Label" visible="false" />
+            <TextField fx:id="cAmount" layoutX="290.0" layoutY="159.0" prefHeight="31.0" prefWidth="128.0" promptText="000.00">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <Text layoutX="174.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Initial Amount:" textAlignment="RIGHT" wrappingWidth="98.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
          </children>
       </AnchorPane>
       <AnchorPane fx:id="deleteAnchor" layoutX="244.0" layoutY="68.0" prefHeight="584.0" prefWidth="707.0" visible="false">
