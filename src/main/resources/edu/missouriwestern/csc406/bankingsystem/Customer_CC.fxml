@@ -9,7 +9,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="650.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.missouriwestern.csc406.bankingsystem.z_Customer_CC">
    <children>
@@ -27,7 +29,10 @@
             <Image url="@../../../../Images/useCC.png" />
          </image>
       </ImageView>
-      <Button fx:id="returnCustomerButton" layoutX="537.0" layoutY="164.0" mnemonicParsing="false" onAction="#toCustomer" prefHeight="47.0" prefWidth="321.0" style="-fx-background-color: black;" text="Return to Customer Portal" textFill="#605a5a" />
+      <Button fx:id="returnCustomerButton" layoutX="538.0" layoutY="124.0" mnemonicParsing="false" onAction="#toCustomer" prefHeight="47.0" prefWidth="321.0" style="-fx-background-color: black;" text="Return to Customer Portal" textFill="#605a5a">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
       <BorderPane layoutX="54.0" layoutY="164.0" prefHeight="103.0" prefWidth="344.0" style="-fx-background-color: #d4d4d4;">
          <center>
             <Label fx:id="machineLabel" prefHeight="77.0" prefWidth="189.0" text="Please insert card number." textAlignment="CENTER" wrapText="true" BorderPane.alignment="CENTER">
@@ -45,11 +50,14 @@
          <font>
             <Font size="16.0" />
          </font></TextField>
-      <TextField fx:id="purchaseNoteText" layoutX="603.0" layoutY="247.0" onAction="#enterNote" prefHeight="40.0" prefWidth="190.0" promptText="Purchase Location" visible="false">
+      <TextField fx:id="purchaseNoteText" layoutX="603.0" layoutY="247.0" onAction="#enterNote" prefHeight="40.0" prefWidth="190.0" promptText="Purchase Memo" visible="false">
          <font>
             <Font size="16.0" />
          </font></TextField>
-      <Button fx:id="receiptButton" layoutX="602.0" layoutY="544.0" mnemonicParsing="false" onAction="#viewReceipt" prefHeight="40.0" prefWidth="190.0" style="-fx-background-color: red;" text="View Receipt" visible="false" />
+      <Button fx:id="receiptButton" layoutX="598.0" layoutY="545.0" mnemonicParsing="false" onAction="#viewReceipt" prefHeight="40.0" prefWidth="190.0" style="-fx-background-color: red;" text="View Receipt" visible="false">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
       <TextField fx:id="purchaseAmtText" layoutX="603.0" layoutY="247.0" onAction="#validateWithdrawAmt" prefHeight="40.0" prefWidth="190.0" promptText="Purchase Amount" visible="false">
          <font>
             <Font size="16.0" />
@@ -58,6 +66,58 @@
          <font>
             <Font size="16.0" />
          </font></TextField>
-      <DatePicker fx:id="datePicker" layoutX="578.0" layoutY="97.0" onAction="#getDateText" prefHeight="27.0" prefWidth="229.0" promptText="mm/dd/yyyy" visible="false" />
+      <DatePicker fx:id="datePicker" layoutX="583.0" layoutY="196.0" onAction="#getDateText" prefHeight="27.0" prefWidth="229.0" promptText="mm/dd/yyyy" visible="false" />
+      <AnchorPane fx:id="receiptAnchor" layoutX="351.0" layoutY="143.0" prefHeight="377.0" prefWidth="267.0" style="-fx-background-color: #ebebeb;" visible="false">
+         <children>
+            <HBox alignment="CENTER" layoutY="-1.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="34.0" prefWidth="303.0" style="-fx-background-color: #b8b8b8; -fx-border-color: #949494;">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Check Successfully Inserted!" textAlignment="CENTER" wrappingWidth="266.13671875">
+                     <font>
+                        <Font name="Gill Sans MT" size="15.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <AnchorPane fx:id="receiptTP" layoutY="33.0" prefHeight="392.0" prefWidth="303.0" style="-fx-border-color: #949494;">
+               <children>
+                  <Text layoutX="68.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thank you for using Public Bank! See you next time." textAlignment="CENTER" wrappingWidth="164.0">
+                     <font>
+                        <Font name="Gill Sans MT" size="15.0" />
+                     </font>
+                  </Text>
+                  <ImageView fitHeight="237.0" fitWidth="247.0" layoutX="33.0" layoutY="72.0" opacity="0.05" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/logo.png" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="64.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account:" x="25.0" y="25.0" />
+                  <Text layoutX="91.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zip:" x="25.0" y="25.0" />
+                  <Text layoutX="14.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Purchase Amount:" x="25.0" y="25.0" />
+                  <Text layoutX="82.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date:" x="25.0" y="25.0" />
+                  <Text layoutX="74.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Memo:" x="25.0" y="25.0" />
+                  <Label fx:id="r_dateLabel" layoutX="149.0" layoutY="85.0" prefHeight="17.0" prefWidth="62.0" text="Label" />
+                  <Label fx:id="r_acctLabel" layoutX="149.0" layoutY="110.0" prefHeight="17.0" prefWidth="62.0" text="Label" />
+                  <Label fx:id="r_zipLabel" layoutX="149.0" layoutY="137.0" prefHeight="17.0" prefWidth="62.0" text="Label" />
+                  <Label fx:id="r_amtLabel" layoutX="149.0" layoutY="163.0" prefHeight="17.0" prefWidth="62.0" text="Label" />
+                  <Label fx:id="r_memoLabel" layoutX="149.0" layoutY="188.0" prefHeight="17.0" prefWidth="62.0" text="Label" />
+                  <Button fx:id="r_closeButton" layoutX="189.0" layoutY="350.0" mnemonicParsing="false" onAction="#closeReceipt" prefHeight="25.0" prefWidth="91.0" style="-fx-background-color: #f5dada; -fx-border-color: grey;" text="Okay, close." />
+                  <Label fx:id="r_newBalLabel" layoutX="151.0" layoutY="301.0" prefHeight="17.0" prefWidth="62.0" text="Label" />
+                  <Text layoutX="82.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Limit:" x="25.0" y="25.0" />
+                  <Label fx:id="r_limitLabel" layoutX="151.0" layoutY="213.0" prefHeight="17.0" prefWidth="62.0" text="Label" />
+                  <Text layoutX="11.0" layoutY="343.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Until Limit:" x="25.0" y="25.0" />
+                  <Label fx:id="r_untilLimitLabel" layoutX="102.0" layoutY="355.0" prefHeight="17.0" prefWidth="62.0" text="Label" />
+                  <Text layoutX="26.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Balance:" x="25.0" y="25.0" />
+                  <Label fx:id="r_beforeBalLabel" layoutX="149.0" layoutY="249.0" prefHeight="17.0" prefWidth="62.0" text="Label" />
+                  <Text layoutX="107.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-" x="25.0" y="25.0" />
+                  <Label fx:id="r_amt2Label" layoutX="150.0" layoutY="270.0" prefHeight="17.0" prefWidth="62.0" text="Label" />
+                  <Line endX="100.0" layoutX="144.0" layoutY="294.0" startX="-100.0" />
+                  <Text layoutX="5.0" layoutY="289.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New Balance:" x="25.0" y="25.0" />
+                  <Text layoutX="107.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-" x="25.0" y="25.0" />
+                  <Text layoutX="107.0" layoutY="289.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-" x="25.0" y="25.0" />
+                  <Text layoutX="117.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-" x="25.0" y="25.0" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

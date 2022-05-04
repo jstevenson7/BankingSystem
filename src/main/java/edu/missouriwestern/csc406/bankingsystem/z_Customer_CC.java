@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
@@ -83,17 +84,27 @@ public class z_Customer_CC {
             }
         }
     }
+        int ind;
+    ArrayList<Customer> customers;
+    //Made me add the try lol.
+    {
+        try {
+            customers = DB.readCustomersCSV();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public void validatePIN(ActionEvent event) throws IOException {
         //Retrieve input from interface.
         int zip = Integer.parseInt(zipText.getText());
         int customersZip = 0;
         //Read Customers table to validate zip.
-        ArrayList<Customer> customers = DB.readCustomersCSV();
         //Loop through the customer table and retrieve zip of customer.
         for (int i =0; i< customers.size(); i++) {
             if (matchingSSN.equals(customers.get(i).getSSN())) {
                 customersZip = customers.get(i).getZip();
+                ind = i;
             }
         }
         //If valid continue to enter zip
@@ -111,6 +122,7 @@ public class z_Customer_CC {
 
     double withdrawAmt =0;
     int cust = 0;
+    double beforeBal = 0;
 
     public void validateWithdrawAmt(ActionEvent event) throws IOException {
         //Need to validate.
@@ -127,12 +139,13 @@ public class z_Customer_CC {
         }
         //If customer is within limit.
         if (withdrawAmt+custBalance <= custLimit) {
-            machineLabel.setText("Purchase Approved. Enter note.");
+            machineLabel.setText("Purchase Approved. Enter memo and date.");
             machineLabel.setTextFill(Color.BLACK);
             purchaseAmtText.setVisible(false);
             receiptButton.setVisible(false);
             purchaseNoteText.setVisible(true);
             datePicker.setVisible(true);
+            beforeBal = ccs.get(cust).getBalance();
             ccs.get(cust).setBalance(withdrawAmt+custBalance);
             DB.writeCreditCardCSV(ccs);
         //Else they are outside the limit.
@@ -166,7 +179,8 @@ public class z_Customer_CC {
                 machineLabel.setTextFill(Color.BLACK);
                 purchaseNoteText.setVisible(false);
                 receiptButton.setVisible(true);
-                datePicker.setVisible(true);
+                datePicker.setVisible(false);
+                returnCustomerButton.setDisable(true);
                 // Read in current transactions
                 ArrayList<Transaction> transactions = DB.readTransactionsCSV();
                 // Create a new transaction
@@ -176,22 +190,57 @@ public class z_Customer_CC {
                 transactions.add(transaction);
                 // Write arraylist to csv
                 DB.writeTransactionsCSV(transactions);
+
+                //Receipt setting
+                r_dateLabel.setText(fDatePicker);
+                r_acctLabel.setText("*****"+ccs.get(cust).getCreditcardnumber().substring(ccs.get(cust).getCreditcardnumber().length()-4));
+                r_zipLabel.setText("" +customers.get(ind).getZip());
+                r_amtLabel.setText(String.format("$%.2f",withdrawAmt));
+                r_memoLabel.setText(purchaseNoteText.getText());
+                r_newBalLabel.setText(String.format("$%.2f",ccs.get(cust).getBalance()));
+                r_limitLabel.setText(String.format("$%.2f",ccs.get(cust).getCreditcardlimit()));
+                r_untilLimitLabel.setText(String.format("$%.2f",(ccs.get(cust).getCreditcardlimit())-ccs.get(cust).getBalance()));
+                r_amt2Label.setText(String.format("$%.2f",withdrawAmt));
+                r_beforeBalLabel.setText(String.format("$%.2f",beforeBal));
             }
     }
 
 
-    public void viewReceipt(ActionEvent event) throws IOException {
 
-        Alert receiptPopup = new Alert(Alert.AlertType.CONFIRMATION);
-        double withdrawAmt = 0;
-        String name = "Jimmy";
-        double newBalance = 0;
-        int acc = 123;
-        String s = String.format("See you next time %s!\nAmount spent: %f\n" +
-                "From Account: %d \nNew Balance: %f", name, withdrawAmt, acc, newBalance);
-        receiptPopup.setContentText(s);
-        receiptPopup.showAndWait();
+
+
+    public void closeReceipt(ActionEvent event) throws IOException {
         renewScene(event);
+    } //End of viewReceipt.
+
+
+    @FXML
+    private AnchorPane receiptAnchor;
+    @FXML
+    private Label r_dateLabel;
+    @FXML
+    private Label r_acctLabel;
+    @FXML
+    private Label r_zipLabel;
+    @FXML
+    private Label r_amtLabel;
+    @FXML
+    private Label r_memoLabel;
+    @FXML
+    private Label r_newBalLabel;
+    @FXML
+    private Label r_limitLabel;
+    @FXML
+    private Button r_closeButton;
+    @FXML
+    private Label r_untilLimitLabel;
+    @FXML
+    private Label r_beforeBalLabel;
+    @FXML
+    private Label r_amt2Label;
+
+    public void viewReceipt(ActionEvent event) throws IOException {
+        receiptAnchor.setVisible(true);
         receiptButton.setVisible(false);
     }
 
@@ -203,6 +252,10 @@ public class z_Customer_CC {
         zipText.setVisible(false);
         purchaseAmtText.setVisible(false);
         cardNumText.setDisable(false);
+        datePicker.setVisible(false);
+        datePicker.getEditor().clear();
+        receiptAnchor.setVisible(false);
+        returnCustomerButton.setDisable(false);
         //Set visible receipt off when I make new pop up with close button.
     }
 
@@ -212,6 +265,12 @@ public class z_Customer_CC {
 
         returnCustomerButton.setOnMouseEntered(event -> returnCustomerButton.setStyle("-fx-background-color: #ffffff"));
         returnCustomerButton.setOnMouseExited(event -> returnCustomerButton.setStyle("-fx-background-color:  #000000"));
+
+        r_closeButton.setOnMouseEntered(event -> r_closeButton.setStyle("-fx-background-color: #f7bebe; -fx-border-color: grey"));
+        r_closeButton.setOnMouseExited(event -> r_closeButton.setStyle("-fx-background-color:  #f5dada; -fx-border-color: grey"));
+
+        r_closeButton.setOnMouseEntered(event -> r_closeButton.setStyle("-fx-background-color: #f7bebe; -fx-border-color: grey"));
+        r_closeButton.setOnMouseExited(event -> r_closeButton.setStyle("-fx-background-color:  #f5dada; -fx-border-color: grey"));
 
     }
 }

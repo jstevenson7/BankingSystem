@@ -102,6 +102,7 @@ public class z_Customer_ATM {
         receiptOverdraftAnchor.setVisible(false);
         receiptAnchor.setVisible(false);
         receiptButtonPane.setVisible(false);
+        datePicker.setDisable(false);
     } //End of renewScene.
 
 
@@ -201,7 +202,7 @@ public class z_Customer_ATM {
             }
         } else {
             // invalid account Number
-            atmLabel.setText("Invalid Account Number. Please try again.");
+            atmLabel.setText("Invalid ATM Card Number. Please try again.");
             atmLabel.setTextFill(Color.RED);
             cardNumText.clear();
             pinText.clear();
@@ -270,6 +271,7 @@ public class z_Customer_ATM {
                 // write checking back to database/csv
                 DB.writeCheckingCSV(checkings);
                 withdrawAmtText.setDisable(true);
+                datePicker.setDisable(true);
                 overdraft = 0;
             }
 

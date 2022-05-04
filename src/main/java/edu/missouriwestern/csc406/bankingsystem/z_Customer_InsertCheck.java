@@ -138,6 +138,16 @@ public class z_Customer_InsertCheck {
         checkLabel.setText("Please insert the complete check.");
         insertCheckButton.setDisable(false);
         receiptButton.setDisable(true);
+        returnCustomerButton.setDisable(false);
+        datePicker.setDisable(false);
+        payToText.setDisable(false);
+        amtText.setDisable(false);
+        noteText.setDisable(false);
+        returnCustomerButton.setDisable(false);
+        routNumText.setDisable(false);
+        accNumText.setDisable(false);
+        checkNumText.setDisable(false);
+
     } //End of renewScene.
 
     public void getDateText(ActionEvent event) {
@@ -181,6 +191,14 @@ public class z_Customer_InsertCheck {
             checkLabel.setTextFill(Color.BLACK);
             checkLabel.setText("Check is valid you can now view your check submission receipt!");
             insertCheckButton.setDisable(true);
+            datePicker.setDisable(true);
+            payToText.setDisable(true);
+            amtText.setDisable(true);
+            noteText.setDisable(true);
+            returnCustomerButton.setDisable(true);
+            routNumText.setDisable(true);
+            accNumText.setDisable(true);
+            checkNumText.setDisable(true);
         }
     }
 
