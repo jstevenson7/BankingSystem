@@ -47,14 +47,14 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="stopPaymentButton" alignment="CENTER" mnemonicParsing="false" onAction="#displayStopPayment" prefHeight="120.0" prefWidth="251.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="  Stop Payment" textAlignment="CENTER">
+            <Button fx:id="stopPaymentButton" alignment="CENTER" mnemonicParsing="false" onAction="#displayStopPayment" prefHeight="120.0" prefWidth="251.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text=" Manage Checks" textAlignment="CENTER">
                <font>
                   <Font size="15.0" />
                </font>
                <graphic>
-                  <ImageView fitHeight="32.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="40.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../Images/StopPay.png" />
+                        <Image url="@../../../../Images/check_icon.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -104,7 +104,7 @@
       </AnchorPane>
       <AnchorPane fx:id="stopPaymentAnchor" layoutX="243.0" layoutY="67.0" prefHeight="584.0" prefWidth="709.0" visible="false">
          <children>
-            <Text layoutX="133.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please enter the information needed to stop a payment" textAlignment="CENTER">
+            <Text layoutX="311.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stop Payment" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
@@ -114,7 +114,7 @@
                   <Font size="15.0" />
                </font>
             </TextField>
-            <TextField fx:id="s_checkNumTF" layoutX="291.0" layoutY="155.0" prefHeight="31.0" prefWidth="156.0" promptText="000">
+            <TextField fx:id="s_checkNumTF" layoutX="289.0" layoutY="154.0" prefHeight="31.0" prefWidth="156.0" promptText="000">
                <font>
                   <Font size="15.0" />
                </font>
@@ -129,12 +129,42 @@
                   <Font size="15.0" />
                </font>
             </Text>
-            <Button fx:id="s_stopPaymentButton" layoutX="291.0" layoutY="214.0" mnemonicParsing="false" onAction="#stopPayment" prefHeight="31.0" prefWidth="156.0" text="Stop Payment">
+            <Button fx:id="s_stopPaymentButton" layoutX="289.0" layoutY="213.0" mnemonicParsing="false" onAction="#stopPayment" prefHeight="31.0" prefWidth="156.0" text="Stop Payment">
                <font>
                   <Font size="15.0" />
                </font>
             </Button>
-            <Label fx:id="s_message" alignment="CENTER" contentDisplay="CENTER" layoutX="242.0" layoutY="284.0" prefHeight="17.0" prefWidth="254.0" textAlignment="CENTER" />
+            <Label fx:id="s_message" alignment="CENTER" contentDisplay="CENTER" layoutX="240.0" layoutY="512.0" prefHeight="17.0" prefWidth="254.0" textAlignment="CENTER" />
+            <Text layoutX="299.0" layoutY="307.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Process Payment" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Text>
+            <Label layoutX="229.0" layoutY="340.0" text="SSN:">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="158.0" layoutY="383.0" text="Check Number:">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="s_processSSNTF" layoutX="289.0" layoutY="335.0" prefHeight="31.0" prefWidth="156.0" promptText="000-00-0000">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="s_processsCheckNumTF" layoutX="289.0" layoutY="378.0" prefHeight="31.0" prefWidth="156.0" promptText="000">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <Button fx:id="s_processPayment" layoutX="289.0" layoutY="431.0" mnemonicParsing="false" onAction="#processPayment" prefHeight="31.0" prefWidth="156.0" text="Process Payment">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
       <AnchorPane fx:id="autoPayAnchor" layoutX="243.0" layoutY="67.0" prefHeight="584.0" prefWidth="709.0" visible="false">

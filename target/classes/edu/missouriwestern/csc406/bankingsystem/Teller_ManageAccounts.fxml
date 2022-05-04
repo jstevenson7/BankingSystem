@@ -134,16 +134,14 @@
                   <Font size="15.0" />
                </font>
             </Text>
-            <Button fx:id="dDeleteButton" layoutX="315.0" layoutY="198.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="116.0" text="Delete Account" />
-            <TextField fx:id="dAccountNumText" layoutX="279.0" layoutY="140.0">
-               <font>
-                  <Font size="15.0" />
-               </font></TextField>
-            <Text layoutX="147.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Number:">
+            <Button fx:id="dDeleteButton" layoutX="315.0" layoutY="198.0" mnemonicParsing="false" onAction="#deleteingCustomerAccounts" prefHeight="31.0" prefWidth="116.0" text="Delete Account" />
+            <Text layoutX="177.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AccountType:">
                <font>
                   <Font size="15.0" />
                </font>
             </Text>
+            <ComboBox fx:id="dDeleteOptions" layoutX="281.0" layoutY="142.0" prefHeight="31.0" prefWidth="187.0" />
+            <Label fx:id="dMessage" layoutX="359.0" layoutY="284.0" text="Label" />
          </children>
       </AnchorPane>
    </children>

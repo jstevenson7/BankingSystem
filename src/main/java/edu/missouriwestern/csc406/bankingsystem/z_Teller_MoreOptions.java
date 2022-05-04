@@ -47,6 +47,12 @@ public class z_Teller_MoreOptions {
     private TextField s_checkNumTF;
     @FXML
     private Label s_message;
+    @FXML
+    private TextField s_processSSNTF;
+    @FXML
+    private TextField s_processsCheckNumTF;
+    @FXML
+    private Button s_processPayment;
 
     /* --- AUTO-PAY ANCHOR --- */
     @FXML
@@ -160,6 +166,43 @@ public class z_Teller_MoreOptions {
                     s_message.setText("Insufficient funds!");
                     s_message.setTextFill(Color.RED);
                 }
+            } else {
+                s_message.setText("Unknown check!");
+                s_message.setTextFill(Color.RED);
+            }
+        } else {
+            s_message.setText("Unknown account!");
+            s_message.setTextFill(Color.RED);
+        }
+    }
+    public void processPayment(ActionEvent event) throws IOException {
+        // Read in current unprocessed and processed checks
+        ArrayList<Check> unprocessedChecks = DB.readUnprocessedCheckCSV();
+        ArrayList<Check> processedChecks = DB.readProcessedCheckCSV();
+        // Read in checking accounts
+        ArrayList<Checking> checkings = DB.readCheckingCSV();
+        // Find the checking account
+        Checking checking = DB.searchChecking(s_processSSNTF.getText(), checkings);
+
+        if (checking!=null) {
+            Check check = DB.searchChecks(s_processsCheckNumTF.getText(), checking.getCheckingAcctNum(),unprocessedChecks);
+            if (check!=null) {
+                checking.withdraw(check.getAmount());
+                processedChecks.add(check);
+                unprocessedChecks.remove(check);
+                ArrayList<Transaction> transactions = DB.readTransactionsCSV();
+                Transaction transaction = new Transaction(DB.generateTransactionNumber(), checking.getSSN(),
+                        "Checking", checking.getOverdraftAccountNumber(), (0-check.getAmount()), check.getDescription(),
+                        check.getDate(), check.getCheckNum());
+                transactions.add(transaction);
+                DB.writeTransactionsCSV(transactions);
+                DB.writeUnprocessedCheckCSV(unprocessedChecks);
+                DB.writeProcessedCheckCSV(processedChecks);
+                DB.writeCheckingCSV(checkings);
+                s_message.setText("Success!");
+                s_message.setTextFill(Color.GREEN);
+                s_processSSNTF.clear();
+                s_processsCheckNumTF.clear();
             } else {
                 s_message.setText("Unknown check!");
                 s_message.setTextFill(Color.RED);
