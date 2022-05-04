@@ -642,6 +642,22 @@ public class DB {
         }
         return null;
     }
+    public static CD searchCD(String SSN, ArrayList<CD> cds) {
+        for (CD cd: cds) {
+            if (cd.getSSN().equals(SSN)) {
+                return cd;
+            }
+        }
+        return null;
+    }
+    public static CreditCards searchCreditCards(String SSN, ArrayList<CreditCards> ccs) {
+        for (CreditCards c: ccs) {
+            if (c.getSSN().equals(SSN)) {
+                return c;
+            }
+        }
+        return null;
+    }
     /**
      *  Verify Methods
      */
@@ -781,7 +797,8 @@ public class DB {
             }
         }
     }
-    public static String generateNewTransactionNumber(ArrayList<Transaction> transactions) {
+    public static String generateNewTransactionNumber() throws IOException {
+        ArrayList<Transaction> transactions = DB.readTransactionsCSV();
         while(true) {
             String num = generateTransactionNumber();
             // WILL NEED TO ADD VERIFYACCOUNT FOR SAVINGS AND LOANS
