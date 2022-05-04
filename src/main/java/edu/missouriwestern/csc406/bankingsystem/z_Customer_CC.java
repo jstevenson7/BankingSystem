@@ -130,7 +130,7 @@ public class z_Customer_CC {
             machineLabel.setText("Purchase Approved. Enter note.");
             machineLabel.setTextFill(Color.BLACK);
             purchaseAmtText.setVisible(false);
-            receiptButton.setVisible(true);
+            receiptButton.setVisible(false);
             purchaseNoteText.setVisible(true);
             datePicker.setVisible(true);
             ccs.get(cust).setBalance(withdrawAmt+custBalance);
