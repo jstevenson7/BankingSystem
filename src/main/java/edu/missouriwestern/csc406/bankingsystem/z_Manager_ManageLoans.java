@@ -7,6 +7,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -19,6 +21,31 @@ public class z_Manager_ManageLoans {
 
     @FXML
     private Button returnManagerButton;
+    @FXML
+    private Button toCCButton;
+    @FXML
+    private Button toLoansButton;
+
+
+    @FXML
+    private AnchorPane mainAnchor;
+
+    @FXML
+    private AnchorPane ccPane;
+    @FXML
+    private TextField ccSSNTF;
+    @FXML
+    private TextField ccLimitTF;
+
+
+    @FXML
+    private AnchorPane establishLoanPane;
+
+
+
+
+
+
 
     /* --- NAV FUNCTIONS --- */
     public void toManager(ActionEvent event) throws IOException {
@@ -29,6 +56,19 @@ public class z_Manager_ManageLoans {
         stage.setResizable(false);
         stage.show();
     } //End of toTeller.
+
+    public void toCC(ActionEvent event) throws IOException {
+        mainAnchor.setVisible(false);
+        ccPane.setVisible(true);
+        establishLoanPane.setVisible(false);
+    } //End of toTeller.
+
+    public void toLoan(ActionEvent event) throws IOException {
+        mainAnchor.setVisible(false);
+        ccPane.setVisible(false);
+        establishLoanPane.setVisible(true);
+    } //End of toTeller.
+
 
     @FXML
     private void initialize(){
