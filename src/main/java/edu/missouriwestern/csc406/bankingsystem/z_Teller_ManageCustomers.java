@@ -274,7 +274,6 @@ public class z_Teller_ManageCustomers {
 
 
     public void deleteingCustomerAccounts(ActionEvent event) throws IOException {
-
         //read in customers from the DB
         ArrayList<Customer> customers = DB.readCustomersCSV();
         ArrayList<Checking> checkings = DB.readCheckingCSV();
@@ -285,6 +284,7 @@ public class z_Teller_ManageCustomers {
         DB.CustomerManagers(deleteCustomerSSN.getText(), customers, checkings, savings, loans, 6);
         deleteMessage.setText("Deleted Checking, Savings, Loans, and Customer!");
         deleteMessage.setTextFill(Color.GREEN);
+        deleteCustomerSSN.clear();
     }
 
 

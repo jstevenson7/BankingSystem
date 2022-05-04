@@ -912,7 +912,7 @@ public class DB {
     {
         for(int i = 0; i < loans.size(); i++)
         {
-            if(loans.get(i).getLoanAcctNum().equals(SSN))
+            if(loans.get(i).getSSN().equals(SSN))
             {
                 loans.remove(i);
             }//end of if
