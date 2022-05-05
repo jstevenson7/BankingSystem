@@ -222,10 +222,8 @@ public class z_Customer_ATM {
         saving = DB.searchSavings(customer.getSSN(), savings);
         checkingType = checking.getAccountType();
         datePicker.setVisible(true);
-        double startSavings = saving.getBalance();
         double startChecking = checking.getBalance();
         rOV_StartBalLabel.setText(String.format("$%.2f", startChecking));
-        rOV_sStartBalLabel.setText(String.format("$%.2f",startSavings));
 
         // verify sufficient funds
         if (DB.verifyBalance(withdrawAmt, checking)) {
@@ -275,6 +273,8 @@ public class z_Customer_ATM {
             }
 
         } else if (DB.verifyOverdraft(checking)) {
+            double startSavings = saving.getBalance();
+            rOV_sStartBalLabel.setText(String.format("$%.2f",startSavings));
             int exitCode = DB.overdraft(checking, withdrawAmt);
             if (exitCode==0) {
 
