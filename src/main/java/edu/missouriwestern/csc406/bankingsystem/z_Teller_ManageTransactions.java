@@ -499,11 +499,11 @@ public class z_Teller_ManageTransactions {
                             Savings savings1 = DB.searchSavings(t_ssnTF.getText(), savings);
                             if (savings1.getSavingsAcctNum().equals(t_fromAcctNumTF.getText())) {
                                 if (DB.verifyBalance(Double.valueOf(t_amountTF.getText()), checking)) {
-                                    checking.withdraw(Double.valueOf(t_amountTF.getText()));
-                                    savings1.deposit(Double.valueOf(t_amountTF.getText()));
+                                    checking.deposit(Double.valueOf(t_amountTF.getText()));
+                                    savings1.withdraw(Double.valueOf(t_amountTF.getText()));
                                     ArrayList<Transaction> transactions = DB.readTransactionsCSV();
                                     Transaction transaction = new Transaction(DB.generateTransactionNumber(), t_ssnTF.getText(), "Checking - Gold/Diamond",
-                                            checking.getCheckingAcctNum(), (0 - Double.parseDouble(t_amountTF.getText())), "Transfer from Checking to Savings", tfDatePicker, "0");
+                                            checking.getCheckingAcctNum(), Double.parseDouble(t_amountTF.getText()), "Transfer from Checking to Savings", tfDatePicker, "0");
                                     transactions.add(transaction);
                                     DB.writeTransactionsCSV(transactions);
                                     DB.writeCheckingCSV(checkings);
@@ -529,11 +529,11 @@ public class z_Teller_ManageTransactions {
                             Savings savings1 = DB.searchSavings(t_ssnTF.getText(), savings);
                             if (savings1.getSavingsAcctNum().equals(t_fromAcctNumTF.getText())) {
                                 if (DB.verifyBalance(Double.valueOf(t_amountTF.getText()), checking)) {
-                                    checking.withdraw(Double.valueOf(t_amountTF.getText()));
-                                    savings1.deposit(Double.valueOf(t_amountTF.getText()));
+                                    checking.deposit(Double.valueOf(t_amountTF.getText()));
+                                    savings1.withdraw(Double.valueOf(t_amountTF.getText()));
                                     ArrayList<Transaction> transactions = DB.readTransactionsCSV();
                                     Transaction transaction = new Transaction(DB.generateTransactionNumber(), t_ssnTF.getText(), "Checking - TMB",
-                                            checking.getCheckingAcctNum(), (0 - Double.parseDouble(t_amountTF.getText())), "Transfer from Checking to Savings", tfDatePicker, "0");
+                                            checking.getCheckingAcctNum(), Double.parseDouble(t_amountTF.getText()), "Transfer from Checking to Savings", tfDatePicker, "0");
                                     transactions.add(transaction);
                                     DB.writeTransactionsCSV(transactions);
                                     DB.writeCheckingCSV(checkings);
@@ -558,11 +558,11 @@ public class z_Teller_ManageTransactions {
                         // verify FROM account
                         if (DB.verifyCheckingSSN(t_ssnTF.getText(), checkings) && checking.getAccountType()==1 && t_fromAcctTypeCB.getValue().equals("Checking - Gold/Diamond")) {
                             if (DB.verifyBalance(Double.valueOf(t_amountTF.getText()), savings1)) {
-                                savings1.withdraw(Double.valueOf(t_amountTF.getText()));
-                                checking.deposit(Double.valueOf(t_amountTF.getText()));
+                                savings1.deposit(Double.valueOf(t_amountTF.getText()));
+                                checking.withdraw(Double.valueOf(t_amountTF.getText()));
                                 ArrayList<Transaction> transactions = DB.readTransactionsCSV();
                                 Transaction transaction = new Transaction(DB.generateTransactionNumber(), t_ssnTF.getText(), "Savings",
-                                        savings1.getSavingsAcctNum(), (0 - Double.parseDouble(t_amountTF.getText())), "Transfer from Savings to Checking", tfDatePicker, "0");
+                                        savings1.getSavingsAcctNum(), Double.parseDouble(t_amountTF.getText()), "Transfer from Savings to Checking", tfDatePicker, "0");
                                 transactions.add(transaction);
                                 DB.writeTransactionsCSV(transactions);
                                 DB.writeCheckingCSV(checkings);
@@ -579,11 +579,11 @@ public class z_Teller_ManageTransactions {
                             }
                         } else if (DB.verifyCheckingSSN(t_ssnTF.getText(), checkings) && checking.getAccountType()==0 && t_fromAcctTypeCB.getValue().equals("Checking - TMB")) {
                             if (DB.verifyBalance(Double.valueOf(t_amountTF.getText()), savings1)) {
-                                savings1.withdraw(Double.valueOf(t_amountTF.getText()));
-                                checking.deposit(Double.valueOf(t_amountTF.getText()));
+                                savings1.deposit(Double.valueOf(t_amountTF.getText()));
+                                checking.withdraw(Double.valueOf(t_amountTF.getText()));
                                 ArrayList<Transaction> transactions = DB.readTransactionsCSV();
                                 Transaction transaction = new Transaction(DB.generateTransactionNumber(), t_ssnTF.getText(), "Savings",
-                                        savings1.getSavingsAcctNum(), (0 - Double.parseDouble(t_amountTF.getText())), "Transfer from Savings to Checking", tfDatePicker, "0");
+                                        savings1.getSavingsAcctNum(), Double.parseDouble(t_amountTF.getText()), "Transfer from Savings to Checking", tfDatePicker, "0");
                                 transactions.add(transaction);
                                 DB.writeTransactionsCSV(transactions);
                                 DB.writeCheckingCSV(checkings);
