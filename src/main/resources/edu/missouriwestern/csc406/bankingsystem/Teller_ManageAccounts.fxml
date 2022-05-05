@@ -112,7 +112,7 @@
                </center>
             </BorderPane>
             <Button fx:id="cCreateButton" layoutX="290.0" layoutY="272.0" mnemonicParsing="false" onAction="#createAccount" prefHeight="39.0" prefWidth="128.0" text="Create Account" wrapText="true" />
-            <Label fx:id="cMessage" layoutX="190.0" layoutY="356.0" prefHeight="31.0" prefWidth="346.0" text="Label" visible="false" />
+            <Label fx:id="cMessage" alignment="CENTER" contentDisplay="CENTER" layoutX="190.0" layoutY="356.0" prefHeight="31.0" prefWidth="346.0" text="Label" textAlignment="CENTER" visible="false" />
             <TextField fx:id="cAmount" layoutX="290.0" layoutY="159.0" prefHeight="31.0" prefWidth="128.0" promptText="000.00">
                <font>
                   <Font size="15.0" />
