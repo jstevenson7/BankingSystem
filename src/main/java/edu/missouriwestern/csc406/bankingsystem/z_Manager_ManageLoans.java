@@ -48,6 +48,7 @@ public class z_Manager_ManageLoans {
             if(ccSSNTF.getText().isBlank() || ccLimitTF.getText().isBlank()) {
                 ccLabel.setText("All fields are required!");
                 ccLabel.setTextFill(Color.RED);
+                ccLabel.setVisible(true);
             } else {
                 ArrayList<Customer> customers = DB.readCustomersCSV();
                 int found = 0;
@@ -57,7 +58,7 @@ public class z_Manager_ManageLoans {
                     }
                 }
                 if(found < 1) {
-                    ccLabel.setText("All fields are required!");
+                    ccLabel.setText("Customer not found!");
                     ccLabel.setTextFill(Color.RED);
                 } else {
                     ccLabel.setText("Success!");
@@ -66,6 +67,8 @@ public class z_Manager_ManageLoans {
                     CreditCards cc = new CreditCards(DB.generateAccountNumber(),Double.parseDouble(ccLimitTF.getText()),ccSSNTF.getText(),0.0);
                     ccs.add(cc);
                     DB.writeCreditCardCSV(ccs);
+                    ccSSNTF.clear();
+                    ccLimitTF.clear();
                 }
             }
         } catch (IOException e) {
@@ -133,6 +136,11 @@ public class z_Manager_ManageLoans {
                     loanLabel.setText("Success!");
                     loanLabel.setTextFill(Color.GREEN);
                     DB.writeLoansCSV(loans);
+                    datePicker.getEditor().clear();
+                    loanSSNTF.clear();
+                    loanAmtTF.clear();
+                    loaninterestTF.clear();
+                    loansCombo.setValue("");
                 }
             }
 
@@ -159,15 +167,18 @@ public class z_Manager_ManageLoans {
 
     public double calculateMonthlyPay(double loanAmt, double interest, int loanType) {
         double monthlyPayment = 0;
+        String sMP = null;
         switch (loanType) {
             case 5:
                 monthlyPayment =  (loanAmt + (loanAmt/2) * (5 * interest))/60;
+                 sMP = String.format("%.2f",monthlyPayment);
                 break;
             case 15:
                 monthlyPayment = (loanAmt + (loanAmt/2) * (15 * interest))/60;
+                sMP = String.format("%.2f",monthlyPayment);
                 break;
         }
-        return  monthlyPayment;
+        return  Double.parseDouble(sMP);
     }
 
 

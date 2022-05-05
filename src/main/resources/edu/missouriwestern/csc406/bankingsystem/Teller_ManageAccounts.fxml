@@ -88,22 +88,9 @@
             </Text>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="createAnchor" layoutX="244.0" layoutY="68.0" prefHeight="584.0" prefWidth="707.0" visible="false">
+      <AnchorPane fx:id="createAnchor" layoutX="244.0" layoutY="67.0" prefHeight="584.0" prefWidth="707.0" visible="false">
          <children>
-            <TextField fx:id="cSSNText" layoutX="290.0" layoutY="108.0" prefHeight="25.0" prefWidth="128.0" promptText="000-00-0000">
-               <font>
-                  <Font size="15.0" />
-               </font></TextField>
-            <Text layoutX="232.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SSN:" textAlignment="RIGHT" wrappingWidth="40.13671875">
-               <font>
-                  <Font size="15.0" />
-               </font></Text>
-            <Text layoutX="174.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Type:" textAlignment="RIGHT" wrappingWidth="98.0">
-               <font>
-                  <Font size="15.0" />
-               </font></Text>
-            <ComboBox fx:id="cAccountBox" layoutX="290.0" layoutY="211.0" prefHeight="31.0" prefWidth="164.0" />
-            <BorderPane layoutX="-2.0" layoutY="3.0" prefHeight="68.0" prefWidth="707.0">
+            <BorderPane layoutX="-2.0" layoutY="3.0" prefHeight="86.0" prefWidth="707.0">
                <center>
                   <Label prefHeight="21.0" prefWidth="397.0" text="Please enter the information need to create an account!" textAlignment="CENTER" BorderPane.alignment="CENTER">
                      <font>
@@ -111,27 +98,52 @@
                      </font></Label>
                </center>
             </BorderPane>
-            <Button fx:id="cCreateButton" layoutX="290.0" layoutY="272.0" mnemonicParsing="false" onAction="#createAccount" prefHeight="39.0" prefWidth="128.0" text="Create Account" wrapText="true" />
-            <Label fx:id="cMessage" layoutX="190.0" layoutY="356.0" prefHeight="31.0" prefWidth="346.0" text="Label" visible="false" />
-            <TextField fx:id="cAmount" layoutX="290.0" layoutY="159.0" prefHeight="31.0" prefWidth="128.0" promptText="000.00">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </TextField>
-            <Text layoutX="174.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Initial Amount:" textAlignment="RIGHT" wrappingWidth="98.0">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Text>
+            <AnchorPane layoutX="82.0" layoutY="113.0" prefHeight="359.0" prefWidth="543.0" style="-fx-background-color: #f7f7f7; -fx-border-color: #dedede;">
+               <children>
+                  <ImageView fitHeight="368.0" fitWidth="359.0" layoutX="90.0" layoutY="-2.0" opacity="0.05" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/logo.png" />
+                     </image>
+                  </ImageView>
+                  <TextField fx:id="cSSNText" layoutX="188.0" layoutY="64.0" prefHeight="31.0" prefWidth="164.0" promptText="000-00-0000">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </TextField>
+                  <Text layoutX="130.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SSN:" textAlignment="RIGHT" wrappingWidth="40.13671875">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="72.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Type:" textAlignment="RIGHT" wrappingWidth="98.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <ComboBox fx:id="cAccountBox" layoutX="188.0" layoutY="167.0" prefHeight="31.0" prefWidth="164.0" />
+                  <Button fx:id="cCreateButton" layoutX="188.0" layoutY="226.0" mnemonicParsing="false" onAction="#createAccount" prefHeight="31.0" prefWidth="164.0" text="Create Account" wrapText="true" />
+                  <TextField fx:id="cAmount" layoutX="188.0" layoutY="114.0" prefHeight="31.0" prefWidth="164.0" promptText="000.00">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </TextField>
+                  <Text layoutX="72.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Initial Amount:" textAlignment="RIGHT" wrappingWidth="98.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <Label fx:id="cMessage" alignment="CENTER" layoutX="-2.0" layoutY="283.0" prefHeight="31.0" prefWidth="543.0" text="Label" visible="false" />
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
       <AnchorPane fx:id="deleteAnchor" layoutX="244.0" layoutY="68.0" prefHeight="584.0" prefWidth="707.0" visible="false">
          <children>
-            <TextField fx:id="dSSNText" layoutX="279.0" layoutY="83.0">
+            <TextField fx:id="dSSNText" layoutX="258.0" layoutY="201.0" promptText="000-00-0000">
                <font>
                   <Font size="15.0" />
                </font></TextField>
-            <BorderPane layoutX="3.0" prefHeight="68.0" prefWidth="701.0">
+            <BorderPane layoutX="3.0" prefHeight="98.0" prefWidth="701.0">
                <center>
                   <Label text="Please enter the information needed to remove a Customer's account!" BorderPane.alignment="CENTER">
                      <font>
@@ -139,19 +151,19 @@
                      </font></Label>
                </center>
             </BorderPane>
-            <Text layoutX="232.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SSN:">
+            <Text layoutX="211.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SSN:">
                <font>
                   <Font size="15.0" />
                </font>
             </Text>
-            <Button fx:id="dDeleteButton" layoutX="315.0" layoutY="198.0" mnemonicParsing="false" onAction="#deleteingCustomerAccounts" prefHeight="31.0" prefWidth="116.0" text="Delete Account" />
-            <Text layoutX="177.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AccountType:">
+            <Button fx:id="dDeleteButton" layoutX="258.0" layoutY="320.0" mnemonicParsing="false" onAction="#deleteingCustomerAccounts" prefHeight="31.0" prefWidth="187.0" text="Delete Account" />
+            <Text layoutX="146.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AccountType:">
                <font>
                   <Font size="15.0" />
                </font>
             </Text>
-            <ComboBox fx:id="dDeleteOptions" layoutX="281.0" layoutY="142.0" prefHeight="31.0" prefWidth="187.0" />
-            <Label fx:id="dMessage" layoutX="359.0" layoutY="284.0" text="Label" />
+            <ComboBox fx:id="dDeleteOptions" layoutX="258.0" layoutY="262.0" prefHeight="31.0" prefWidth="187.0" />
+            <Label fx:id="dMessage" alignment="CENTER" layoutX="3.0" layoutY="383.0" prefHeight="17.0" prefWidth="701.0" />
          </children>
       </AnchorPane>
    </children>

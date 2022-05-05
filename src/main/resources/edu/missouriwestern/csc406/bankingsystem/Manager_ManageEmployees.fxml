@@ -37,7 +37,7 @@
             </Pane>
             <Button fx:id="returnManagerButton" alignment="CENTER" mnemonicParsing="false" onAction="#toManager" prefHeight="165.0" prefWidth="213.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Return to Manager" textAlignment="CENTER">
                <font>
-                  <Font name="Gill Sans MT" size="13.0" />
+                  <Font size="15.0" />
                </font>
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
@@ -49,12 +49,12 @@
             </Button>
             <Button fx:id="createEmployeeButton" alignment="CENTER" mnemonicParsing="false" onAction="#displayCreate" prefHeight="175.0" prefWidth="213.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Create an Employee" textAlignment="CENTER">
                <font>
-                  <Font name="Gill Sans MT" size="13.0" />
+                  <Font size="15.0" />
                </font>
             </Button>
             <Button fx:id="deleteEmployeeButton" alignment="CENTER" mnemonicParsing="false" onAction="#displayDelete" prefHeight="176.0" prefWidth="213.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Delete an Employee">
                <font>
-                  <Font name="Gill Sans MT" size="13.0" />
+                  <Font size="15.0" />
                </font>
             </Button>
          </children>
@@ -75,17 +75,44 @@
       </AnchorPane>
       <AnchorPane fx:id="createAnchor" layoutX="217.0" layoutY="61.0" prefHeight="590.0" prefWidth="735.0" visible="false">
          <children>
-            <TextField fx:id="idText" layoutX="222.0" layoutY="92.0" prefHeight="25.0" prefWidth="115.0" />
-            <TextField fx:id="fNameText" layoutX="234.0" layoutY="138.0" prefHeight="25.0" prefWidth="115.0" />
-            <TextField fx:id="lNameText" layoutX="419.0" layoutY="138.0" prefHeight="25.0" prefWidth="115.0" />
-            <Text layoutX="173.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID:" textAlignment="RIGHT" wrappingWidth="40.13671875" />
-            <Text layoutX="163.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name:" textAlignment="RIGHT" wrappingWidth="60.13671875" />
-            <Text layoutX="354.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name:" textAlignment="RIGHT" wrappingWidth="60.13671875" />
-            <Text layoutX="220.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee Type:" textAlignment="RIGHT" wrappingWidth="96.13671875" />
-            <ComboBox fx:id="empTypeBox" layoutX="328.0" layoutY="190.0" prefHeight="25.0" prefWidth="115.0" />
-            <TextField fx:id="passwordText" layoutX="428.0" layoutY="92.0" prefHeight="25.0" prefWidth="115.0" />
-            <Text layoutX="356.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" textAlignment="RIGHT" wrappingWidth="60.13671875" />
-            <Button fx:id="cCreateButton" layoutX="333.0" layoutY="235.0" mnemonicParsing="false" onAction="#createEmployee" text="Create Employee" />
+            <TextField fx:id="idText" layoutX="305.0" layoutY="90.0" prefHeight="25.0" prefWidth="115.0" promptText="0">
+               <font>
+                  <Font size="15.0" />
+               </font></TextField>
+            <TextField fx:id="fNameText" layoutX="305.0" layoutY="187.0" prefHeight="25.0" prefWidth="115.0" promptText="first">
+               <font>
+                  <Font size="15.0" />
+               </font></TextField>
+            <TextField fx:id="lNameText" layoutX="305.0" layoutY="240.0" prefHeight="25.0" prefWidth="115.0" promptText="last">
+               <font>
+                  <Font size="15.0" />
+               </font></TextField>
+            <Text layoutX="246.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID:" textAlignment="RIGHT" wrappingWidth="40.13671875">
+               <font>
+                  <Font size="15.0" />
+               </font></Text>
+            <Text layoutX="198.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name:" textAlignment="RIGHT" wrappingWidth="96.13671875">
+               <font>
+                  <Font size="15.0" />
+               </font></Text>
+            <Text layoutX="198.0" layoutY="261.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name:" textAlignment="RIGHT" wrappingWidth="96.13671875">
+               <font>
+                  <Font size="15.0" />
+               </font></Text>
+            <Text layoutX="188.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee Type:" textAlignment="RIGHT" wrappingWidth="106.0">
+               <font>
+                  <Font size="15.0" />
+               </font></Text>
+            <ComboBox fx:id="empTypeBox" layoutX="305.0" layoutY="291.0" prefHeight="31.0" prefWidth="115.0" />
+            <TextField fx:id="passwordText" layoutX="305.0" layoutY="134.0" prefHeight="25.0" prefWidth="115.0" promptText="00000">
+               <font>
+                  <Font size="15.0" />
+               </font></TextField>
+            <Text layoutX="219.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" textAlignment="RIGHT" wrappingWidth="75.13671875">
+               <font>
+                  <Font size="15.0" />
+               </font></Text>
+            <Button fx:id="cCreateButton" layoutX="300.0" layoutY="365.0" mnemonicParsing="false" onAction="#createEmployee" text="Create Employee" />
             <Label layoutX="114.0" layoutY="31.0" prefHeight="32.0" prefWidth="478.0" text="Please enter the information of the Employee you would like to create!" textAlignment="CENTER">
                <font>
                   <Font size="15.0" />
@@ -95,13 +122,16 @@
       </AnchorPane>
       <AnchorPane fx:id="deleteAnchor" layoutX="217.0" layoutY="62.0" prefHeight="590.0" prefWidth="735.0" visible="false">
          <children>
-            <TextField fx:id="dIDButton" layoutX="281.0" layoutY="153.0" />
-            <Text layoutX="245.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID">
+            <TextField fx:id="dIDButton" layoutX="320.0" layoutY="202.0" prefHeight="31.0" prefWidth="96.0" promptText="0">
                <font>
-                  <Font size="17.0" />
+                  <Font size="15.0" />
+               </font></TextField>
+            <Text layoutX="279.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID">
+               <font>
+                  <Font size="15.0" />
                </font>
             </Text>
-            <Button fx:id="dDeleteButton" layoutX="303.0" layoutY="210.0" mnemonicParsing="false" onAction="#deleteEmployee" text="Delete Employee" />
+            <Button fx:id="dDeleteButton" layoutX="315.0" layoutY="260.0" mnemonicParsing="false" onAction="#deleteEmployee" text="Delete Employee" />
             <Label fx:id="deleteMessage" alignment="CENTER" layoutX="164.0" layoutY="81.0" prefHeight="18.0" prefWidth="106.0" textAlignment="CENTER" />
             <Label layoutX="125.0" layoutY="42.0" text="Please enter the ID of the Employee you would like to delete!">
                <font>

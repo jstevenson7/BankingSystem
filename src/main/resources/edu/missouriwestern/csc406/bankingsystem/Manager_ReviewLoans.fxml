@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.missouriwestern.csc406.bankingsystem.z_Manager_ReviewLoans">
+   <children>
+      <HBox alignment="CENTER" prefHeight="62.0" prefWidth="950.0" style="-fx-background-color: red;">
+         <children>
+            <ImageView fitHeight="62.0" fitWidth="200.0">
+               <image>
+                  <Image url="@../../../../Images/PB_Horizontal.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <VBox alignment="TOP_CENTER" layoutY="62.0" prefHeight="589.0" prefWidth="157.0" style="-fx-background-color: #E0E0E0; -fx-border-color: #AEAEAE; -fx-background-insets: 0;">
+         <children>
+            <Pane prefHeight="84.0" prefWidth="243.0" style="-fx-border-color: #C0C0C0;">
+               <children>
+                  <Text layoutX="24.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Public Bank Review Loans" textAlignment="CENTER" wrappingWidth="108.0">
+                     <font>
+                        <Font name="Gill Sans MT Bold" size="19.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <Button fx:id="returnTellerButton" alignment="CENTER" mnemonicParsing="false" onAction="#toTeller" prefHeight="112.0" prefWidth="155.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Return to Manager" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/backArrow1.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="allCustomersButton" alignment="CENTER" mnemonicParsing="false" onAction="#toReviewAllCust" prefHeight="128.0" prefWidth="155.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Review All Customers" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="loanButton" alignment="CENTER" mnemonicParsing="false" onAction="#toLoans" prefHeight="136.0" prefWidth="155.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Review All Loans" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="ccButton" alignment="CENTER" mnemonicParsing="false" onAction="#toCC" prefHeight="128.0" prefWidth="155.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #8c8c8c; -fx-border-image-insets: 0;" text="Review All Credit Cards" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <AnchorPane fx:id="mainAnchor" layoutX="157.0" layoutY="61.0" prefHeight="589.0" prefWidth="794.0">
+         <children>
+            <Text layoutX="297.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Review" textAlignment="CENTER" wrappingWidth="200.0">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Text>
+            <Text layoutX="304.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please select what you would like to do using the left side menu." textAlignment="CENTER" wrappingWidth="186.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="reviewAllCustAnchor" layoutX="154.0" layoutY="61.0" prefHeight="589.0" prefWidth="800.0" visible="false">
+         <children>
+            <TableView fx:id="customerTable" editable="true" layoutX="37.0" layoutY="50.0" prefHeight="489.0" prefWidth="725.0">
+               <columns>
+                  <TableColumn fx:id="ssn" prefWidth="96.0" text="SSN" />
+                  <TableColumn fx:id="address" prefWidth="166.0" text="Address" />
+                  <TableColumn fx:id="city" prefWidth="124.0" text="City" />
+                  <TableColumn fx:id="state" minWidth="0.0" prefWidth="48.0" text="State" />
+                  <TableColumn fx:id="zip" minWidth="0.0" prefWidth="74.0" text="Zip" />
+                  <TableColumn fx:id="firstName" minWidth="0.0" prefWidth="113.0" text="First Name" />
+                  <TableColumn fx:id="lastName" minWidth="0.0" prefWidth="105.0" text="Last Name" />
+                  <TableColumn fx:id="atmNumber" minWidth="0.0" prefWidth="120.0" text="ATM Number" />
+                  <TableColumn fx:id="atmPin" prefWidth="60.0" text="ATM PIN" />
+                  <TableColumn fx:id="creditCardPin" minWidth="0.0" prefWidth="54.0" text="CC PIN" />
+               </columns>
+            </TableView>
+            <Button fx:id="loadCustomersButton" layoutX="349.0" layoutY="550.0" mnemonicParsing="false" onAction="#readToCustomersTable" text="Load Customers" />
+            <Text layoutX="315.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CUSTOMER DATA" textAlignment="CENTER" wrappingWidth="169.0000000000001">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="loanAnchor" layoutX="157.0" layoutY="61.0" prefHeight="589.0" prefWidth="794.0" visible="false">
+         <children>
+            <Text layoutX="343.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Review Loans" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Text>
+            <TableView fx:id="loanTable" layoutX="21.0" layoutY="67.0" prefHeight="421.0" prefWidth="752.0">
+               <columns>
+                  <TableColumn fx:id="loanID" prefWidth="119.0" text="Account Number" />
+                  <TableColumn fx:id="loanbalance" prefWidth="101.0" text="Balance" />
+                  <TableColumn fx:id="loaninterestRate" prefWidth="84.0" text="Interest Rate" />
+                  <TableColumn fx:id="loanstartDate" prefWidth="111.0" text="Start Date" />
+                  <TableColumn fx:id="loanendDate" prefWidth="102.0" text="End Date" />
+                  <TableColumn fx:id="lSSN" minWidth="0.0" prefWidth="109.0" text="SSN" />
+                  <TableColumn fx:id="lmonthlyPayment" minWidth="2.0" prefWidth="125.0" text="Monthly Payment" />
+               </columns>
+            </TableView>
+            <Button fx:id="loadLoansButton" layoutX="341.0" layoutY="516.0" mnemonicParsing="false" onAction="#readToLoanTable" text="Load Loans" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="ccAnchor" layoutX="156.0" layoutY="61.0" prefHeight="589.0" prefWidth="794.0" visible="false">
+         <children>
+            <Text layoutX="317.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Review Credit Cards" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Text>
+            <TableView fx:id="ccTable" layoutX="71.0" layoutY="81.0" prefHeight="380.0" prefWidth="638.0">
+               <columns>
+                  <TableColumn fx:id="ccNum" prefWidth="148.0" text="Card Number" />
+                  <TableColumn fx:id="ccLimit" prefWidth="154.0" text="Limit" />
+                  <TableColumn fx:id="ccSSN" prefWidth="146.0" text="SSN" />
+                  <TableColumn fx:id="ccBalance" prefWidth="187.0" text="Balance" />
+               </columns>
+            </TableView>
+            <Button fx:id="loadCCButton" layoutX="341.0" layoutY="488.0" mnemonicParsing="false" onAction="#readToCCTable" text="Load Credit Cards" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

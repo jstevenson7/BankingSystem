@@ -123,7 +123,7 @@
                   <Font size="15.0" />
                </font>
             </Text>
-            <Label fx:id="ccLabel" layoutX="-2.0" layoutY="143.0" prefHeight="17.0" prefWidth="737.0" text="Label" textAlignment="CENTER" visible="false" />
+            <Label fx:id="ccLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="-2.0" layoutY="143.0" prefHeight="17.0" prefWidth="737.0" text="Label" textAlignment="CENTER" visible="false" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="establishLoanPane" layoutX="216.0" layoutY="62.0" prefHeight="591.0" prefWidth="737.0" visible="false">
@@ -133,22 +133,22 @@
                   <Font name="System Bold" size="21.0" />
                </font>
             </Text>
-            <TextField fx:id="loanSSNTF" layoutX="274.0" layoutY="217.0">
+            <TextField fx:id="loanSSNTF" layoutX="274.0" layoutY="217.0" promptText="000-00-0000">
                <font>
                   <Font size="15.0" />
                </font>
             </TextField>
-            <TextField fx:id="loanAmtTF" layoutX="274.0" layoutY="271.0" prefHeight="31.0" prefWidth="186.0">
+            <TextField fx:id="loanAmtTF" layoutX="274.0" layoutY="271.0" prefHeight="31.0" prefWidth="186.0" promptText="000.00">
                <font>
                   <Font size="15.0" />
                </font>
             </TextField>
-            <TextField fx:id="loaninterestTF" layoutX="277.0" layoutY="322.0">
+            <TextField fx:id="loaninterestTF" layoutX="277.0" layoutY="322.0" promptText="0.00">
                <font>
                   <Font size="15.0" />
                </font>
             </TextField>
-            <DatePicker fx:id="datePicker" layoutX="274.0" layoutY="163.0" prefHeight="31.0" prefWidth="186.0" />
+            <DatePicker fx:id="datePicker" layoutX="274.0" layoutY="163.0" prefHeight="31.0" prefWidth="186.0" promptText="mm/dd/yyyy" />
             <ComboBox fx:id="loansCombo" layoutX="275.0" layoutY="377.0" prefHeight="31.0" prefWidth="188.0" />
             <Text layoutX="218.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date:">
                <font>
@@ -176,7 +176,7 @@
                </font>
             </Text>
             <Button fx:id="createLoanButton" layoutX="304.0" layoutY="445.0" mnemonicParsing="false" onAction="#createLoan" prefHeight="27.0" prefWidth="134.0" text="Establish Loan" />
-            <Label fx:id="loanLabel" layoutX="7.0" layoutY="108.0" prefHeight="17.0" prefWidth="729.0" text="Label" textAlignment="CENTER" visible="false" />
+            <Label fx:id="loanLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="7.0" layoutY="108.0" prefHeight="17.0" prefWidth="729.0" text="Label" textAlignment="CENTER" visible="false" />
          </children>
       </AnchorPane>
    </children>

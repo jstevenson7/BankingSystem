@@ -30,16 +30,16 @@ public class z_Customer {
     @FXML
     private void initialize(){
         // Return Main Button
-        returnMainButton.setOnMouseEntered(event -> returnMainButton.setStyle("-fx-background-color: #E8ADAD"));
+        returnMainButton.setOnMouseEntered(event -> returnMainButton.setStyle("-fx-background-color: #E8ADAD;-fx-border-color: black"));
         returnMainButton.setOnMouseExited(event -> returnMainButton.setStyle("-fx-background-color:  #DCDCDC; -fx-border-color:  #C0C0C0;"));
         // To Insert Check Button
-        toInsertCheckButton.setOnMouseEntered(event -> toInsertCheckButton.setStyle("-fx-background-color: #E8ADAD"));
+        toInsertCheckButton.setOnMouseEntered(event -> toInsertCheckButton.setStyle("-fx-background-color: #E8ADAD;-fx-border-color: black"));
         toInsertCheckButton.setOnMouseExited(event -> toInsertCheckButton.setStyle("-fx-background-color:  #DCDCDC; -fx-border-color:  #C0C0C0;"));
         // To Use ATM Button
-        toUseATMButton.setOnMouseEntered(event -> toUseATMButton.setStyle("-fx-background-color: #E8ADAD"));
+        toUseATMButton.setOnMouseEntered(event -> toUseATMButton.setStyle("-fx-background-color: #E8ADAD;-fx-border-color: black"));
         toUseATMButton.setOnMouseExited(event -> toUseATMButton.setStyle("-fx-background-color:  #DCDCDC; -fx-border-color:  #C0C0C0;"));
         // To Use CC Button
-        toUseCCButton.setOnMouseEntered(event -> toUseCCButton.setStyle("-fx-background-color: #E8ADAD"));
+        toUseCCButton.setOnMouseEntered(event -> toUseCCButton.setStyle("-fx-background-color: #E8ADAD;-fx-border-color: black"));
         toUseCCButton.setOnMouseExited(event -> toUseCCButton.setStyle("-fx-background-color:  #DCDCDC; -fx-border-color:  #C0C0C0;"));
     } //End of initialize.
 

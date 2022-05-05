@@ -205,18 +205,14 @@
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Label fx:id="messageLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="154.0" layoutY="439.0" prefHeight="17.0" prefWidth="243.0" textAlignment="CENTER" />
                </children>
             </AnchorPane>
+            <Label fx:id="messageLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="-1.0" layoutY="500.0" prefHeight="17.0" prefWidth="706.0" textAlignment="CENTER" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="deleteAnchor" layoutX="244.0" layoutY="68.0" prefHeight="581.0" prefWidth="706.0" visible="false">
          <children>
-            <TextField fx:id="deleteCustomerSSN" layoutX="295.0" layoutY="158.0" prefHeight="31.0" prefWidth="154.0" promptText="999-99-9999">
-               <font>
-                  <Font size="15.0" />
-               </font></TextField>
-            <BorderPane layoutX="3.0" prefHeight="68.0" prefWidth="700.0">
+            <BorderPane layoutX="3.0" prefHeight="127.0" prefWidth="700.0">
                <center>
                   <Label text="Please enter the SSN of the Customer you would like to delete!" BorderPane.alignment="CENTER">
                      <font>
@@ -224,13 +220,22 @@
                      </font></Label>
                </center>
             </BorderPane>
-            <Text layoutX="258.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SSN:">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Text>
-            <Button fx:id="dDeleteButton" layoutX="295.0" layoutY="203.0" mnemonicParsing="false" onAction="#deleteingCustomerAccounts" prefHeight="31.0" prefWidth="154.0" text="Delete Customer" />
-            <Label fx:id="deleteMessage" layoutX="297.0" layoutY="130.0" prefHeight="17.0" prefWidth="154.0" text="Label" />
+            <Label fx:id="deleteMessage" alignment="CENTER" layoutX="7.0" layoutY="145.0" prefHeight="17.0" prefWidth="694.0" />
+            <AnchorPane layoutX="155.0" layoutY="174.0" prefHeight="191.0" prefWidth="397.0" style="-fx-background-color: #ebebeb; -fx-border-color: #c7c7c7;">
+               <children>
+                  <TextField fx:id="deleteCustomerSSN" layoutX="147.0" layoutY="52.0" prefHeight="31.0" prefWidth="154.0" promptText="000-00-0000">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </TextField>
+                  <Text layoutX="96.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SSN:">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <Button fx:id="dDeleteButton" layoutX="147.0" layoutY="108.0" mnemonicParsing="false" onAction="#deleteingCustomerAccounts" prefHeight="31.0" prefWidth="154.0" text="Delete Customer" />
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
    </children>

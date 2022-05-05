@@ -87,20 +87,19 @@ public class z_Teller_ManageCustomers {
         //Load customers
         ArrayList<Customer> customers = DB.readCustomersCSV();
         // if SSN doesn't already exist
-        if (cSSNText.getText().length() < 11 || cSSNText.getText().length() > 11){
+        if (cSSNText.getText().isBlank() || cAddressText.getText().isBlank() || cCityText.getText().isBlank() ||
+                cStateBox.getValue().isBlank() || cZipText.getText().isBlank() || cFNameText.getText().isBlank() ||
+                cLNameText.getText().isBlank() || cATMPinText.getText().isBlank() ||
+                cCCPinText.getText().isBlank()) {
+            messageLabel.setText("All fields are required!");
+            messageLabel.setTextFill(Color.RED);
+        } else if (cSSNText.getText().length() < 11 || cSSNText.getText().length() > 11){
             messageLabel.setText("Invalid SSN!");
             messageLabel.setTextFill(Color.RED);
         } else if(DB.verifyCustomerSSN(cSSNText.getText(), customers)){
             messageLabel.setText("Customer already exists!");
             messageLabel.setTextFill(Color.RED);
-        }else if (cSSNText.getText().isBlank() || cAddressText.getText().isBlank() || cCityText.getText().isBlank() ||
-        cStateBox.getValue().isBlank() || cZipText.getText().isBlank() || cFNameText.getText().isBlank() ||
-        cLNameText.getText().isBlank() || cATMPinText.getText().isBlank() ||
-        cCCPinText.getText().isBlank()) {
-            // If fields are not all filled
-            messageLabel.setText("All fields are required!");
-            messageLabel.setTextFill(Color.RED);
-        } else if (!DB.verifyCustomer(cSSNText.getText(), customers)) {
+        }else if (!DB.verifyCustomer(cSSNText.getText(), customers)) {
             // Create customer
             try {
                 Customer newCust = new Customer(cSSNText.getText(), cAddressText.getText(), cCityText.getText(),
@@ -151,6 +150,8 @@ public class z_Teller_ManageCustomers {
                 cLNameText.clear();
                 cATMPinText.clear();
                 cCCPinText.clear();
+                cAccountBox.setValue("");
+                cStateBox.setValue("");
             } catch (NumberFormatException e) {
                 messageLabel.setText("Error: Verify correct values are entered.");
                 messageLabel.setTextFill(Color.RED);
@@ -280,11 +281,21 @@ public class z_Teller_ManageCustomers {
         ArrayList<Savings> savings = DB.readSavingsCSV();
         ArrayList<Loans> loans = DB.readLoansCSV();
 
+        if(deleteCustomerSSN.getText().isBlank()) {
+            deleteMessage.setText("All fields required!");
+            deleteMessage.setTextFill(Color.RED);
+        } else {
+             if(DB.verifyCustomer(deleteCustomerSSN.getText(), customers)) {
 
-        DB.CustomerManagers(deleteCustomerSSN.getText(), customers, checkings, savings, loans, 6);
-        deleteMessage.setText("Deleted Checking, Savings, Loans, and Customer!");
-        deleteMessage.setTextFill(Color.GREEN);
-        deleteCustomerSSN.clear();
+                DB.CustomerManagers(deleteCustomerSSN.getText(), customers, checkings, savings, loans, 6);
+                deleteMessage.setText("Success! Customer and all linked accounts deleted!");
+                deleteMessage.setTextFill(Color.GREEN);
+                deleteCustomerSSN.clear();
+            } else {
+                 deleteMessage.setText("Customer not found!");
+                 deleteMessage.setTextFill(Color.RED);
+            }
+        }
     }
 
 
@@ -304,5 +315,21 @@ public class z_Teller_ManageCustomers {
         cStateBox.setVisibleRowCount(9);
         cAccountBox.getItems().addAll("Checking - TMB", "Checking - Gold/Diamond", "Savings - Simple", "CD");
         cAccountBox.setVisibleRowCount(5);
+
+        cSSNText.setStyle(" -fx-focus-color: #ffc7c7; -fx-faint-focus-color: #ffc7c7");
+        cFNameText.setStyle(" -fx-focus-color: #ffc7c7; -fx-faint-focus-color: #ffc7c7");
+        cLNameText.setStyle(" -fx-focus-color: #ffc7c7; -fx-faint-focus-color: #ffc7c7");
+        cAddressText.setStyle(" -fx-focus-color: #ffc7c7; -fx-faint-focus-color: #ffc7c7");
+        cCityText.setStyle(" -fx-focus-color: #ffc7c7; -fx-faint-focus-color: #ffc7c7");
+        cStateBox.setStyle(" -fx-focus-color: #ffc7c7; -fx-faint-focus-color: #ffc7c7");
+        cZipText.setStyle(" -fx-focus-color: #ffc7c7; -fx-faint-focus-color: #ffc7c7");
+        cAccountBox.setStyle(" -fx-focus-color: #ffc7c7; -fx-faint-focus-color: #ffc7c7");
+        cATMPinText.setStyle(" -fx-focus-color: #ffc7c7; -fx-faint-focus-color: #ffc7c7");
+        cCCPinText.setStyle(" -fx-focus-color: #ffc7c7; -fx-faint-focus-color: #ffc7c7");
+
+        dDeleteButton.setOnMouseEntered(event -> dDeleteButton.setStyle("-fx-background-color: #E8ADAD; -fx-border-color:#000000;"));
+        dDeleteButton.setOnMouseExited(event -> dDeleteButton.setStyle("-fx-background-color: #d4d4d4; -fx-border-color:  #b0b0b0;"));
+        cCreateButton.setOnMouseEntered(event -> cCreateButton.setStyle("-fx-background-color: #E8ADAD; -fx-border-color:#000000;"));
+        cCreateButton.setOnMouseExited(event -> cCreateButton.setStyle("-fx-background-color: #d4d4d4; -fx-border-color:  #b0b0b0;"));
     }
 }

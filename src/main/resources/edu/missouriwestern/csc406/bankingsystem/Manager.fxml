@@ -33,9 +33,9 @@
                   </Text>
                </children>
             </Pane>
-            <Button fx:id="returnEmployeeButton" alignment="CENTER" mnemonicParsing="false" onAction="#toEmployee" prefHeight="150.0" prefWidth="236.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Return to Login">
+            <Button fx:id="returnEmployeeButton" alignment="CENTER" mnemonicParsing="false" onAction="#toEmployee" prefHeight="115.0" prefWidth="236.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Return to Login">
                <font>
-                  <Font name="Gill Sans MT" size="15.0" />
+                  <Font size="15.0" />
                </font>
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
@@ -45,9 +45,9 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="manageEmployeesButton" alignment="CENTER" mnemonicParsing="false" onAction="#toManageEmployees" prefHeight="164.0" prefWidth="236.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Manage Employees">
+            <Button fx:id="manageEmployeesButton" alignment="CENTER" mnemonicParsing="false" onAction="#toManageEmployees" prefHeight="119.0" prefWidth="236.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Manage Employees">
                <font>
-                  <Font name="Gill Sans MT" size="15.0" />
+                  <Font size="15.0" />
                </font>
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
@@ -57,9 +57,9 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="manageLoansButton" alignment="CENTER" mnemonicParsing="false" onAction="#toManageLoans" prefHeight="178.0" prefWidth="236.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Manage Loans">
+            <Button fx:id="manageLoansButton" alignment="CENTER" mnemonicParsing="false" onAction="#toManageLoans" prefHeight="122.0" prefWidth="236.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Manage Loans">
                <font>
-                  <Font name="Gill Sans MT" size="15.0" />
+                  <Font size="15.0" />
                </font>
                <graphic>
                   <ImageView fitHeight="48.0" fitWidth="159.0" pickOnBounds="true" preserveRatio="true">
@@ -69,20 +69,54 @@
                   </ImageView>
                </graphic>
             </Button>
+            <Button fx:id="reviewLoans" alignment="CENTER" mnemonicParsing="false" onAction="#toReviewLoans" prefHeight="142.0" prefWidth="236.0" style="-fx-background-color: #DCDCDC; -fx-border-color: #C0C0C0; -fx-border-image-insets: 0;" text="Review Loans">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="33.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Images/Review.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children>
       </VBox>
       <AnchorPane layoutX="240.0" layoutY="75.0" prefHeight="574.0" prefWidth="710.0">
          <children>
-            <Text layoutX="155.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Table of Contents" textAlignment="CENTER" wrappingWidth="400.0">
+            <Text layoutX="156.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Table of Contents" textAlignment="CENTER" wrappingWidth="400.0">
                <font>
-                  <Font name="Calibri" size="25.0" />
+                  <Font name="Calibri" size="22.0" />
                </font>
             </Text>
-            <Label fx:id="welcomeLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="3.0" layoutY="30.0" prefHeight="17.0" prefWidth="705.0" text="Hello, name. Welcome to the Teller Portal!">
+            <Label fx:id="welcomeLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="3.0" layoutY="30.0" prefHeight="17.0" prefWidth="705.0" text="Hello, welcome to the Manager Portal!">
                <font>
                   <Font name="System Bold" size="19.0" />
                </font>
             </Label>
+            <AnchorPane layoutX="127.0" layoutY="145.0" prefHeight="362.0" prefWidth="436.0" style="-fx-border-color: red; -fx-border-width: 3;">
+               <children>
+                  <Text layoutX="3.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage Employees" textAlignment="CENTER" wrappingWidth="436.0">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="3.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create an Employee, Delete an Employee" textAlignment="CENTER" wrappingWidth="436.0" />
+                  <Text layoutX="3.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage Loans" textAlignment="CENTER" wrappingWidth="436.0">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="3.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Establish a Loan, Establish a Credit Card" textAlignment="CENTER" wrappingWidth="436.0" />
+                  <Text layoutX="6.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Review" textAlignment="CENTER" wrappingWidth="443.0">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="11.0" layoutY="294.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Review Customers, Review Loans, Review Credit Cards" textAlignment="CENTER" wrappingWidth="436.0" />
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
    </children>
