@@ -272,5 +272,16 @@ public class z_Customer_CC {
         r_closeButton.setOnMouseEntered(event -> r_closeButton.setStyle("-fx-background-color: #f7bebe; -fx-border-color: grey"));
         r_closeButton.setOnMouseExited(event -> r_closeButton.setStyle("-fx-background-color:  #f5dada; -fx-border-color: grey"));
 
+        receiptButton.setOnMouseEntered(event -> receiptButton.setStyle("-fx-background-color: #f7bebe;"));
+        receiptButton.setOnMouseExited(event -> receiptButton.setStyle("-fx-background-color:  red;"));
+
+        cardNumText.setStyle(" -fx-focus-color: #ffc7c7; -fx-faint-focus-color: #ffc7c7");
+        zipText.setStyle(" -fx-focus-color: #ffc7c7; -fx-faint-focus-color: #ffc7c7");
+        purchaseAmtText.setStyle(" -fx-focus-color: #ffc7c7; -fx-faint-focus-color: #ffc7c7");
+        purchaseNoteText.setStyle(" -fx-focus-color: #ffc7c7; -fx-faint-focus-color: #ffc7c7");
+        datePicker.setStyle(" -fx-focus-color: #ffc7c7; -fx-faint-focus-color: #ffc7c7");
+
     }
+
+
 }

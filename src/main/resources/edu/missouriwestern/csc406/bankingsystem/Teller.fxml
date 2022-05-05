@@ -11,7 +11,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-<?import javafx.scene.text.TextFlow?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.missouriwestern.csc406.bankingsystem.z_Teller">
    <children>
@@ -114,15 +113,6 @@
             <Font name="Calibri" size="23.0" />
          </font>
       </Text>
-      <TextFlow layoutX="227.0" layoutY="102.0" prefHeight="52.0" prefWidth="724.0" textAlignment="CENTER">
-         <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="47.0" prefWidth="432.0" text="Hello, name. Welcome to the Teller Portal!" textAlignment="CENTER" wrapText="true">
-               <font>
-                  <Font name="Century Gothic Bold" size="21.0" />
-               </font>
-            </Label>
-         </children>
-      </TextFlow>
       <ImageView fitHeight="389.0" fitWidth="448.0" layoutX="373.0" layoutY="207.0" preserveRatio="true">
          <image>
             <Image url="@../../../../Images/TellerContents.png" />
@@ -131,5 +121,10 @@
             <Blend mode="DARKEN" />
          </effect>
       </ImageView>
+      <Label fx:id="welcomeLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="245.0" layoutY="99.0" prefHeight="17.0" prefWidth="705.0" text="Hello, name. Welcome to the Teller Portal!">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

@@ -109,7 +109,7 @@
          <font>
             <Font size="15.0" />
          </font></TextField>
-      <DatePicker fx:id="datePicker" layoutX="638.0" layoutY="105.0" onAction="#getDateText" prefHeight="27.0" prefWidth="229.0" promptText="mm/dd/yyyy" />
+      <DatePicker fx:id="datePicker" layoutX="638.0" layoutY="105.0" onAction="#getDateText" prefHeight="27.0" prefWidth="229.0" promptText="mm/dd/yyyy" visible="false" />
       <AnchorPane fx:id="receiptButtonPane" layoutX="652.0" layoutY="543.0" prefHeight="87.0" prefWidth="208.0" visible="false">
          <children>
             <ImageView fitHeight="96.0" fitWidth="208.0" layoutY="-6.0">

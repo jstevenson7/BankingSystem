@@ -73,6 +73,7 @@ public class z_Customer_ATM {
         pinText.setStyle(" -fx-focus-color: #ffc7c7; -fx-faint-focus-color: #ffc7c7");
         withdrawAmtText.setStyle(" -fx-focus-color: #ffc7c7; -fx-faint-focus-color: #ffc7c7");
         datePicker.setStyle(" -fx-focus-color: #ffc7c7; -fx-faint-focus-color: #ffc7c7");
+
     } //End of initialize.
 
     public void viewReceipt(ActionEvent event) throws IOException {
@@ -103,6 +104,7 @@ public class z_Customer_ATM {
         receiptAnchor.setVisible(false);
         receiptButtonPane.setVisible(false);
         datePicker.setDisable(false);
+        datePicker.setVisible(false);
     } //End of renewScene.
 
 
@@ -198,14 +200,11 @@ public class z_Customer_ATM {
                 // invalid pin
                 atmLabel.setText("Invalid PIN. Please try again.");
                 atmLabel.setTextFill(Color.RED);
-                pinText.clear();
             }
         } else {
             // invalid account Number
             atmLabel.setText("Invalid ATM Card Number. Please try again.");
             atmLabel.setTextFill(Color.RED);
-            cardNumText.clear();
-            pinText.clear();
         }
     }
 
@@ -222,7 +221,7 @@ public class z_Customer_ATM {
         //Finding the customer with the entered SSN.
         saving = DB.searchSavings(customer.getSSN(), savings);
         checkingType = checking.getAccountType();
-
+        datePicker.setVisible(true);
         double startSavings = saving.getBalance();
         double startChecking = checking.getBalance();
         rOV_StartBalLabel.setText(String.format("$%.2f", startChecking));

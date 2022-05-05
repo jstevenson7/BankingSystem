@@ -10,9 +10,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-
 import java.io.IOException;
-import java.text.ParseException;
 import java.util.ArrayList;
 
 public class z_Manager_ManageLoans {
@@ -163,10 +161,10 @@ public class z_Manager_ManageLoans {
         double monthlyPayment = 0;
         switch (loanType) {
             case 5:
-                monthlyPayment = ((loanAmt*interest)+loanAmt)/(5*12);
+                monthlyPayment =  (loanAmt + (loanAmt/2) * (5 * interest))/60;
                 break;
             case 15:
-                monthlyPayment = ((loanAmt*interest)+loanAmt)/(15*12);
+                monthlyPayment = (loanAmt + (loanAmt/2) * (15 * interest))/60;
                 break;
         }
         return  monthlyPayment;

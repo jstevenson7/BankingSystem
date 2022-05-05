@@ -112,8 +112,8 @@ public class z_Customer_InsertCheck {
         receiptDateLabel.setText(fdatePicker);
         receiptCheckNumLabel.setText(checkNumText.getText());
         receiptPayToLabel.setText(payToText.getText());
-        receiptAmtLabel.setText("$" + amtText.getText());
-        receiptAcctLabel.setText(accNumText.getText());
+        receiptAmtLabel.setText("$" + String.format("%.2f",Double.parseDouble(amtText.getText())));
+        receiptAcctLabel.setText("*****"+accNumText.getText().substring(accNumText.getText().length()-4));
         receiptRoutLabel.setText(routNumText.getText());
         receiptForLabel.setText(noteText.getText());
     }

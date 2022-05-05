@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -23,6 +24,8 @@ public class z_Manager {
     private Button manageEmployeesButton;
     @FXML
     private Button manageLoansButton;
+    @FXML
+    public static Label welcomeLabel;
 
 
     public void toEmployee(ActionEvent event) throws IOException {

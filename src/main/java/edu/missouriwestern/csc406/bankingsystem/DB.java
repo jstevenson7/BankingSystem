@@ -541,7 +541,7 @@ public class DB {
         StatefulBeanToCsv<Loans> beanToCsv = new StatefulBeanToCsvBuilder<Loans>(writer).withApplyQuotesToAll(false).withMappingStrategy(strat).build();
         try {
             // Write header column names
-            writer.write("cdAcctNum,balance,interestRate,startDate,endDate,withdrawDate,SSN\n");
+            writer.write("cdAcctNum,balance,interestRate,startDate,endDate,monthlyPayment,SSN\n");
             // Write contents of savings to savings.csv
             beanToCsv.write(cds);
         } catch (CsvDataTypeMismatchException e) {

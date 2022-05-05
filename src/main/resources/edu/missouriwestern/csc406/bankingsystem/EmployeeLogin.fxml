@@ -14,7 +14,7 @@
 
 <AnchorPane prefHeight="650.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.missouriwestern.csc406.bankingsystem.z_EmployeeLogin">
    <children>
-      <VBox alignment="CENTER" prefHeight="650.0" prefWidth="441.0" style="-fx-background-color: #cc0000;">
+      <VBox alignment="CENTER" prefHeight="650.0" prefWidth="451.0" style="-fx-background-color: #cc0000;">
          <children>
             <ImageView fitHeight="200.0" fitWidth="200.0">
                <image>
@@ -23,35 +23,9 @@
             </ImageView>
          </children>
       </VBox>
-      <AnchorPane layoutX="441.0" prefHeight="650.0" prefWidth="509.0">
+      <AnchorPane layoutX="449.0" prefHeight="650.0" prefWidth="531.0">
          <children>
-            <Button fx:id="returnActorButton" layoutX="99.0" layoutY="397.0" mnemonicParsing="false" onAction="#toActor" prefHeight="33.0" prefWidth="174.0" text="Return to System Main">
-               <font>
-                  <Font size="13.0" />
-               </font></Button>
-            <Button fx:id="loginButton" layoutX="296.0" layoutY="397.0" mnemonicParsing="false" onAction="#login" prefHeight="33.0" prefWidth="122.0" text="Login ">
-               <font>
-                  <Font size="13.0" />
-               </font></Button>
-            <Label fx:id="loginLabel" layoutX="165.0" layoutY="234.0" prefHeight="27.0" prefWidth="217.0" textAlignment="CENTER" textFill="RED">
-               <font>
-                  <Font size="18.0" />
-               </font></Label>
-            <Text layoutX="89.0" layoutY="354.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" textAlignment="RIGHT" wrappingWidth="85.47009325027466">
-               <font>
-                  <Font size="19.0" />
-               </font>
-            </Text>
-            <PasswordField fx:id="password" layoutX="186.0" layoutY="331.0" onAction="#login" prefHeight="33.0" prefWidth="193.0" promptText="Employee Password">
-               <font>
-                  <Font size="15.0" />
-               </font></PasswordField>
-            <Text layoutX="60.0" layoutY="298.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee ID:" textAlignment="RIGHT" wrappingWidth="113.47009325027466">
-               <font>
-                  <Font size="19.0" />
-               </font>
-            </Text>
-            <TextField fx:id="employeeID" layoutX="186.0" layoutY="275.0" onAction="#login" prefHeight="33.0" prefWidth="193.0" promptText="Employee ID">
+            <TextField fx:id="employeeID" layoutX="192.0" layoutY="275.0" onAction="#login" prefHeight="33.0" prefWidth="193.0" promptText="Employee ID">
                <opaqueInsets>
                   <Insets bottom="20.0" />
                </opaqueInsets>
@@ -59,6 +33,33 @@
                   <Font size="15.0" />
                </font>
             </TextField>
+            <PasswordField fx:id="password" layoutX="192.0" layoutY="331.0" onAction="#login" prefHeight="33.0" prefWidth="193.0" promptText="Employee Password">
+               <font>
+                  <Font size="15.0" />
+               </font></PasswordField>
+            <Button fx:id="returnActorButton" layoutX="89.0" layoutY="397.0" mnemonicParsing="false" onAction="#toActor" prefHeight="33.0" prefWidth="174.0" text="Return to System Main">
+               <font>
+                  <Font size="13.0" />
+               </font></Button>
+            <Button fx:id="loginButton" layoutX="288.0" layoutY="397.0" mnemonicParsing="false" onAction="#login" prefHeight="33.0" prefWidth="122.0" text="Login ">
+               <font>
+                  <Font size="13.0" />
+               </font></Button>
+            <Text layoutX="79.0" layoutY="355.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" textAlignment="RIGHT" wrappingWidth="85.47009325027466">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Text>
+            <Text layoutX="50.0" layoutY="299.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee ID:" textAlignment="RIGHT" wrappingWidth="113.47009325027466">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Text>
+            <Label fx:id="loginLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="148.0" layoutY="229.0" prefHeight="27.0" prefWidth="281.0" textAlignment="CENTER" textFill="RED">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>
