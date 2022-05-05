@@ -1,6 +1,2 @@
 transactionNum,SSN,accountType,accountNum,amount,memo,date,checkNum
 514398729777,042-34-5324,Checking - Gold/Diamond,204211113,-600.0,Withdrawal,05/02/2022,0
-176512384463,042-34-5324,Checking - Gold/Diamond,204211113,-100.0,Withdrawal,05/05/2022,0
-453618952226,042-34-5324,Checking - Gold/Diamond,204211113,-800.0,Withdrawal,05/05/2022,0
-498924343428,042-34-5324,Checking - Gold/Diamond,204211113,1000.0,Deposit,05/05/2022,0
-662971252402,042-34-5324,Savings,453245114,1000.0,Transfer from Savings to Checking,05/05/2022,0

@@ -498,7 +498,7 @@ public class z_Teller_ManageTransactions {
                         if (DB.verifySavingsSSN(t_ssnTF.getText(), savings) && t_fromAcctTypeCB.getValue().equals("Savings - Simple")) {
                             Savings savings1 = DB.searchSavings(t_ssnTF.getText(), savings);
                             if (savings1.getSavingsAcctNum().equals(t_fromAcctNumTF.getText())) {
-                                if (DB.verifyBalance(Double.valueOf(t_amountTF.getText()), checking)) {
+                                if (DB.verifyBalance(Double.valueOf(t_amountTF.getText()), savings1)) {
                                     checking.deposit(Double.valueOf(t_amountTF.getText()));
                                     savings1.withdraw(Double.valueOf(t_amountTF.getText()));
                                     ArrayList<Transaction> transactions = DB.readTransactionsCSV();
@@ -528,7 +528,7 @@ public class z_Teller_ManageTransactions {
                         if (DB.verifySavingsSSN(t_ssnTF.getText(), savings) && t_fromAcctTypeCB.getValue().equals("Savings - Simple")) {
                             Savings savings1 = DB.searchSavings(t_ssnTF.getText(), savings);
                             if (savings1.getSavingsAcctNum().equals(t_fromAcctNumTF.getText())) {
-                                if (DB.verifyBalance(Double.valueOf(t_amountTF.getText()), checking)) {
+                                if (DB.verifyBalance(Double.valueOf(t_amountTF.getText()), savings1)) {
                                     checking.deposit(Double.valueOf(t_amountTF.getText()));
                                     savings1.withdraw(Double.valueOf(t_amountTF.getText()));
                                     ArrayList<Transaction> transactions = DB.readTransactionsCSV();
@@ -557,7 +557,7 @@ public class z_Teller_ManageTransactions {
                         Savings savings1 = DB.searchSavings(t_ssnTF.getText(), savings);
                         // verify FROM account
                         if (DB.verifyCheckingSSN(t_ssnTF.getText(), checkings) && checking.getAccountType()==1 && t_fromAcctTypeCB.getValue().equals("Checking - Gold/Diamond")) {
-                            if (DB.verifyBalance(Double.valueOf(t_amountTF.getText()), savings1)) {
+                            if (DB.verifyBalance(Double.valueOf(t_amountTF.getText()), checking)) {
                                 savings1.deposit(Double.valueOf(t_amountTF.getText()));
                                 checking.withdraw(Double.valueOf(t_amountTF.getText()));
                                 ArrayList<Transaction> transactions = DB.readTransactionsCSV();
@@ -578,7 +578,7 @@ public class z_Teller_ManageTransactions {
                                 t_message.setTextFill(Color.RED);
                             }
                         } else if (DB.verifyCheckingSSN(t_ssnTF.getText(), checkings) && checking.getAccountType()==0 && t_fromAcctTypeCB.getValue().equals("Checking - TMB")) {
-                            if (DB.verifyBalance(Double.valueOf(t_amountTF.getText()), savings1)) {
+                            if (DB.verifyBalance(Double.valueOf(t_amountTF.getText()), checking)) {
                                 savings1.deposit(Double.valueOf(t_amountTF.getText()));
                                 checking.withdraw(Double.valueOf(t_amountTF.getText()));
                                 ArrayList<Transaction> transactions = DB.readTransactionsCSV();
