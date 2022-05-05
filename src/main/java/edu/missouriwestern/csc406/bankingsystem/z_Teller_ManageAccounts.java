@@ -87,95 +87,104 @@ public class z_Teller_ManageAccounts {
     /* --- Logic Functions --- */
     public void createAccount(ActionEvent event) throws IOException, ParseException {
         // verify SSN exists in customers
-        if (DB.verifyCustomerSSN(cSSNText.getText(), DB.readCustomersCSV())) {
-            if (cAccountBox.getValue().equals("Checking - TMB") || cAccountBox.getValue().equals("Checking - Gold/Diamond")) {
-                // if checking is selected
-                // read in current checking accounts
-                ArrayList<Checking> checkings = DB.readCheckingCSV();
-                // if customer already has checking
-                if (!DB.verifyCheckingSSN(cSSNText.getText(), checkings)) {
-                    // create new checking account, check type of checking to create
-                    if (cAccountBox.getValue().equals("Checking - Gold/Diamond")) {
-                        if (Double.parseDouble(cAmount.getText())>=1000) {
-                            Checking checking = new Checking(DB.generateAccountNumber(), Double.parseDouble(cAmount.getText()), 1, cSSNText.getText());
-                            // add to arraylist
-                            checkings.add(checking);
-                            // write to database
-                            DB.writeCheckingCSV(checkings);
-                            cMessage.setVisible(true);
-                            cMessage.setText("Success!");
-                            cMessage.setTextFill(Color.GREEN);
-                            cSSNText.clear();
-                            cAmount.clear();
+
+        if (cSSNText.getText().isBlank() || cAccountBox.getValue().isBlank() ||
+                cAmount.getText().isBlank()) {
+            cMessage.setText("All fields required!");
+            cMessage.setTextFill(Color.RED);
+            cMessage.setVisible(true);
+        } else {
+
+            if (DB.verifyCustomerSSN(cSSNText.getText(), DB.readCustomersCSV())) {
+                if (cAccountBox.getValue().equals("Checking - TMB") || cAccountBox.getValue().equals("Checking - Gold/Diamond")) {
+                    // if checking is selected
+                    // read in current checking accounts
+                    ArrayList<Checking> checkings = DB.readCheckingCSV();
+                    // if customer already has checking
+                    if (!DB.verifyCheckingSSN(cSSNText.getText(), checkings)) {
+                        // create new checking account, check type of checking to create
+                        if (cAccountBox.getValue().equals("Checking - Gold/Diamond")) {
+                            if (Double.parseDouble(cAmount.getText()) >= 1000) {
+                                Checking checking = new Checking(DB.generateAccountNumber(), Double.parseDouble(cAmount.getText()), 1, cSSNText.getText());
+                                // add to arraylist
+                                checkings.add(checking);
+                                // write to database
+                                DB.writeCheckingCSV(checkings);
+                                cMessage.setVisible(true);
+                                cMessage.setText("Success!");
+                                cMessage.setTextFill(Color.GREEN);
+                                cSSNText.clear();
+                                cAmount.clear();
+                            } else {
+                                cMessage.setVisible(true);
+                                cMessage.setText("Must be at least $1000");
+                                cMessage.setTextFill(Color.RED);
+                            }
                         } else {
-                            cMessage.setVisible(true);
-                            cMessage.setText("Must be at least $1000");
-                            cMessage.setTextFill(Color.RED);
+                            if (Double.parseDouble(cAmount.getText()) < 1000) {
+                                Checking checking = new Checking(DB.generateAccountNumber(), Double.parseDouble(cAmount.getText()), 0, cSSNText.getText());
+                                // add to arraylist
+                                checkings.add(checking);
+                                // write to database
+                                DB.writeCheckingCSV(checkings);
+                                cMessage.setVisible(true);
+                                cMessage.setText("Success!");
+                                cMessage.setTextFill(Color.GREEN);
+                                cSSNText.clear();
+                                cAmount.clear();
+                            } else {
+                                cMessage.setVisible(true);
+                                cMessage.setText("Must be less then $1000");
+                                cMessage.setTextFill(Color.RED);
+                            }
                         }
                     } else {
-                        if (Double.parseDouble(cAmount.getText())<1000) {
-                            Checking checking = new Checking(DB.generateAccountNumber(), Double.parseDouble(cAmount.getText()), 0, cSSNText.getText());
-                            // add to arraylist
-                            checkings.add(checking);
-                            // write to database
-                            DB.writeCheckingCSV(checkings);
-                            cMessage.setVisible(true);
-                            cMessage.setText("Success!");
-                            cMessage.setTextFill(Color.GREEN);
-                            cSSNText.clear();
-                            cAmount.clear();
-                        } else {
-                            cMessage.setVisible(true);
-                            cMessage.setText("Must be less then $1000");
-                            cMessage.setTextFill(Color.RED);
-                        }
+                        cMessage.setVisible(true);
+                        cMessage.setText("Checking already exist!");
+                        cMessage.setTextFill(Color.RED);
                     }
-                } else {
-                    cMessage.setVisible(true);
-                    cMessage.setText("Checking already exist!");
-                    cMessage.setTextFill(Color.RED);
+                } // end of if Checking
+                else if (cAccountBox.getValue().equals("Savings - Simple")) {
+                    // read in current savings accounts
+                    ArrayList<Savings> savings = DB.readSavingsCSV();
+                    // check to see if savings already exists
+                    if (!DB.verifySavingsSSN(cSSNText.getText(), savings)) {
+                        Savings savings1 = new Savings(DB.generateAccountNumber(), Double.parseDouble(cAmount.getText()), 0, cSSNText.getText());
+                        savings.add(savings1);
+                        DB.writeSavingsCSV(savings);
+                        cMessage.setVisible(true);
+                        cMessage.setText("Success!");
+                        cMessage.setTextFill(Color.GREEN);
+                        cSSNText.clear();
+                        cAmount.clear();
+                    } else {
+                        cMessage.setVisible(true);
+                        cMessage.setText("Savings already exist!");
+                        cMessage.setTextFill(Color.RED);
+                    }
+                } // end of if Savings
+                else if (cAccountBox.getValue().equals("CD")) {
+                    ArrayList<CD> cds = DB.readCDCSV();
+                    if (!DB.verifyCDSSN(cSSNText.getText(), cds)) {
+                        CD cd = new CD(DB.generateAccountNumber(), Double.parseDouble(cAmount.getText()), .1, DB.getTodayDate(), DB.getEndDate(), cSSNText.getText());
+                        cds.add(cd);
+                        DB.writeCDCSV(cds);
+                        cMessage.setVisible(true);
+                        cMessage.setText("Success!");
+                        cMessage.setTextFill(Color.GREEN);
+                        cSSNText.clear();
+                        cAmount.clear();
+                    } else {
+                        cMessage.setVisible(true);
+                        cMessage.setText("CD already exist!");
+                        cMessage.setTextFill(Color.RED);
+                    }
                 }
-            } // end of if Checking
-            else if (cAccountBox.getValue().equals("Savings - Simple")) {
-                // read in current savings accounts
-                ArrayList<Savings> savings = DB.readSavingsCSV();
-                // check to see if savings already exists
-                if (!DB.verifySavingsSSN(cSSNText.getText(), savings)) {
-                    Savings savings1 = new Savings(DB.generateAccountNumber(), Double.parseDouble(cAmount.getText()), 0, cSSNText.getText());
-                    savings.add(savings1);
-                    DB.writeSavingsCSV(savings);
-                    cMessage.setVisible(true);
-                    cMessage.setText("Success!");
-                    cMessage.setTextFill(Color.GREEN);
-                    cSSNText.clear();
-                    cAmount.clear();
-                } else {
-                    cMessage.setVisible(true);
-                    cMessage.setText("Savings already exist!");
-                    cMessage.setTextFill(Color.RED);
-                }
-            } // end of if Savings
-            else if (cAccountBox.getValue().equals("CD")) {
-                ArrayList<CD> cds = DB.readCDCSV();
-                if (!DB.verifyCDSSN(cSSNText.getText(), cds)) {
-                    CD cd = new CD(DB.generateAccountNumber(), Double.parseDouble(cAmount.getText()), .1, DB.getTodayDate(), DB.getEndDate(), cSSNText.getText());
-                    cds.add(cd);
-                    DB.writeCDCSV(cds);
-                    cMessage.setVisible(true);
-                    cMessage.setText("Success!");
-                    cMessage.setTextFill(Color.GREEN);
-                    cSSNText.clear();
-                    cAmount.clear();
-                } else {
-                    cMessage.setVisible(true);
-                    cMessage.setText("CD already exist!");
-                    cMessage.setTextFill(Color.RED);
-                }
+            } else {
+                // If SSN is not found
+                cMessage.setText("SSN not found!");
+                cMessage.setTextFill(Color.RED);
             }
-        } else {
-            // If SSN is not found
-            cMessage.setText("SSN not found!");
-            cMessage.setTextFill(Color.RED);
         }
     }
 
